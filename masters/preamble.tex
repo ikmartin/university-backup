@@ -1,0 +1,19 @@
+\documentclass[11pt]{article}
+\usepackage[tmargin=1in, bmargin=1in, lmargin=0.8in, rmargin=1in]{geometry}
+
+\usepackage{float,macrosabound,homework,theorem-env}
+\usepackage{microtype}
+\linespread{1.1}
+
+% colored text
+\newcommand{\blue}[1]{\textcolor{MidnightBlue}{#1}}
+
+% use mathptmx pkg while using default mathcal font
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+
+% fixes the positioning of subscripts in $$ $$
+\renewcommand{\det}{\operatorname{det}}
+
+\usetikzlibrary{positioning, arrows.meta}
+\newcommand{\here}[2]{\tikz[remember picture]{\node[inner sep=0](#2){#1}}}
+

@@ -1,0 +1,221 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Review Problems for Algebraic Geometry\\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\tchap{Example Sheet 1}
+\begin{homework}[e]
+	\prob Describe the topological spaces $\Spec \bR[x]$, $\Spec \bC[x,y], \Spec\bZ[x]$ and $\Spec \bC\llbracket x\rrbracket$. In each case, describe the subset of maximal ideals.
+	\prob Given an example of a homomorphism of rings $\varphi: A\to B$ such that the preimage of a maximal ideal is not maximal, prove that if $\varphi$ is surjective then the preimage of a maximal ideal is maximal.
+	\prob Let $X_1$ and $X_2$ be the Zariski spectra of rings $A_1$ and $A_2$. Describe a natural ring whose Zariski spectrum is homeomorphic to $X_1 \sqcup X_2$. Notice in particular how this is not $X_1\times X_2$.
+	\prob Find a ring $A$ whose Zariski spectrum is the \textit{connected doubleton}, i.e. the topological space consisting of two points $\{p_1,p_2\}$ such that $\{p_1\}$ is dense and $\{p_2\}$ is closed. ($\star$) Find a ring $A$ whose Zariski spectrum consists of three points $\{q_1,q_2,q_3\}$ such that $\{q_1\}$ is dense, the set $\{q_2\}$ contains $\{q_3\}$ in its closure, and $\{q_3\}$ is closed.
+	\prob Let $A$ be the quotient of a polynomial ring in finitely many variable by a prime ideal. Let $\MaxSpec(A)$ be the set of maximal ideal of $A$ equipped with the Zariski topology. Describe a procedure that reconstructs the full Zariski spectrum $\Spec(A)$ and its topology in terms of the irreducible closed subsets of $\MaxSpec(A)$. Apply this procedure to $A = \bC\llbracket x \rrbracket$ to conclude that some rings ``do not have enough maximal ideals''.
+	\prob (Sheafification is functorial) Prove that if $f:\cF \to \cG$ is a morphism of presheaves, there is an induced morphism $f^{sh}:\cF^{sh}\to \cG^{sh}$ with $(f^{sh})_p = f_p$.
+	\prob Describe a non-zero presheaf of abelian groups all of whose stalks are 0. Conclude that that sheafification is the constant sheaf 0.
+	\prob (Exactness is stalk local) Show that a sequence $\dots \to \cF_{i-1} \to \cF_{i} \to \cF_{i+1} \to \dots$ is exact if and only if for every $p \in X$, the corresponding sequence of maps of abelian groups is exact.
+	\prob Show that if $f:\cF\to \cG$ is a morphism between sheaves, then the sheaf image $\im f$ can be naturally identified with a subsheaf of $\cG$.
+	\prob Show a morphism of sheaves is an isomorphism is and only if it is injective and surjective.
+	\prob ($f^{-1}$ and $f_*$ are adjoint functors.) Given a continuous map $f:X\to Y$, sheaves $\cF$ on $X$ and $\cG$ on $Y$, construct natural maps $f^{-1}f_*\cF\to \cF$ and $\cG \to f_8f^{-1}\cG$. Use this to construct a bijection
+	\[
+	\Hom_X(f^{-1}\cG, \cF) \to \Hom_Y(\cG, f_*\cF),
+	\]
+	i.e. $f^{-1}$ is left adjoint to $f_ *$ and $f_*$ is right adjoint to $f^{-1}$.
+
+	\prob Observe that there is a unique morphism from $\bZ$ to any commutative ring with identity, i.e. $\bZ$ is an initial object in this category. Show that $\Spec \bZ$ is a final object in the category of schemes, i.e. every scheme has a unique morphism to $\Spec \bZ$.
+	\prob (Gluing) Let $\{X\}_{i\in I}$ be a family of schemes (possibly infinite) and suppose for each $i,j \in I$ we are given an open subscheme $U_{ij} \subseteq X_i$ (with $U_{ii} = X$). Suppose we are also given for each pair $i,j \in I$ an isomorphism of schemes $\varphi_{ij}:U_{ij}\to U_{ji}$, such that 
+\begin{enumerate}[(1)]
+    \item $\varphi_{ii}:U_{ii}\to U_{ii}$ is the identity on $X_i$
+    \item for each $i,j \in I$, $\varphi_{ji} = \varphi_{ij}^{-1}$ 
+    \item for each $i,j,k \in I$, $\varphi_{ij}(U_{ij} \cap U_{ik}) = U_{ji}\cap U_{jk}$ and $\varphi_{ik} = \varphi_{jk}\circ \varphi_{ij}$ on $U_{ij}\cap U_{ik}$.
+\end{enumerate}
+Show there is a scheme $X$ together with morphisms $\psi: X_i \to X$ for each $i$ such that
+\begin{enumerate}[(i)]
+    \item $\psi_i$ is an isomorphism of $X_i$ with an open subscheme of $X$,
+    \item the $\psi_i(X_i)$ cover $X$,
+    \item $\psi_i(U_{ij}) = \psi_i(X_i) \cap \psi_j(X_j)$, and
+    \item $\psi_i = \psi_j \circ \varphi_{ij}$ on $U_{ij} \subseteq X_i$ (this is the \textbf{cocycle condition}).
+\end{enumerate}
+\end{homework}
+\newpage
+
+\tchap{Example Sheet 2}
+\begin{homework}[e]
+	\prob Let $A$ be a $\bZ_{\geq 0}$-graded ring; the degree 0 part will be denoted $(A)_0$. Let $f$ be a positive degree homogeneous element. Show that the localization of $A$ at $f$ is naturally $\bZ$-graded. Construct a bijection between homogeneous primes in $A$ not containing $f$ with primes in the degree $0$ part of $A_f$.
+
+	\prob Let $A$ be as above and $T \subseteq A$ be a subset consisting of homogeneous element of positive degree. Recall that we defined $\bV(T)$ as the subset of $\Proj(A)$ consisting of homogeneous primes containing $T$. Verify that these are the closed sets of a topology on $\Proj(A)$. Given an element $f$ in $A$, prove that the complement of $\bV(f)$ is naturally homeomorphic with the Zariski spectrum of the degree $0$ part of $A_f$.
+
+	\prob Let $A$ continue to be a graded ring. The homeomorphism
+	\[
+	\bV(f)^c \to \Spec((A_f)_0)
+	\] 
+	you have constructed in the previous problem endows the open sets $\bV(f)^c$ with a sheaf of functions, namely the pullback of the structure sheaf. Let $f$ and $g$ be homogeneous positive degree elements. Describe an isomorphism between the spectrum of $(A_{fg})_0$ and a distinguished open subset in the spectrum of $(A_f)_0$, compatible with structure sheaves. These determine structure sheaves on open sets that cover $\Proj(A)$ and on their double overlaps. Check the cocycle condition on triple overlaps to construct $\Proj(A)$ as a scheme.
+
+	\prob[\textsc{Exercise 7.}] We say a scheme $X$ is \emph{irreducible} if it is irreducible as a topological space, i.e., whenever $X = X_1 \cup X_2$ with $X_1, X_2$ closed subsets, then either $X_1 = X$ or $X_2 = X$.
+
+	\noindent We say a scheme $X$ is \textit{reduced} if for every $U\subseteq X$ open, $\cO_X(U)$ has no nilpotents.
+
+	\noindent We say a scheme $X$ is \textit{integral} if for every $U\subseteq X$ open, $\cO_X(U)$ is an integral domain.
+
+	\noindent Show that a scheme is integral if and only if it is reduced and irreducible.
+	
+	\prob[\textsc{Exercise 8.}] We say a scheme is \textit{locally Noetherian} if it can be covered by affine open subsets $\Spec A_i$ with $A_i$ a Noetherian ring. We say a scheme is \textit{Noetherian} if it can be covered by a \textit{finite} number of open affine subsets $\Spec A_i$ with $A_i$ Noetherian.
+
+	Show that a scheme $X$ is locally Noetherian if and only if for every open affine subset $U = \Spec A$, $A$ is a Noetherian ring.  [Hint: This is II Prop 3.2 in Hartshorne. Do have a go at this before you look at his proof. At least try to reduce to the following statement before you peek: given a ring $A$ and a finite collection of elements $f_i \in A$ which generate the unit ideal, suppose $A_{f_i}$ is Noetherian for each $i$. Then $A$ is Noetherian.]
+	\prob[\textsc{Exercise 9.}] A morphism $f:X\to Y$ is \textit{locally of finite type} if there exists a covering $Y$ by open affine subsets $V_i = \Spec B_i,$ such that for each $i$, $f^{-1}(V_i)$ can be covered by open affine subsets $U_{ij} = \Spec A_{ij}$, where each $A_{ij}$ is a finitely generated $B_i$-algebra.
+
+	\noindent The morphism is \textit{of finite type} if the cover of $f^{-1}(V_i)$ above can be taken to be finite.
+
+	\noindent Show that a morphism $f:X\to Y$ is locally of finite type if and only if for every open affine subset $V = \Spec B$ of $Y$, $f^{-1}(V)$ can be covered by open affine subsets $U_j = \Spec A_j$, where each $A_j$ is a finitely generated $B$-algebra. 
+
+	\noindent (Finite type is a very reasonable hypothesis to have on in practice, though objects that are only locally of finite type do )occur in nature. Morphisms that are not even locally of finite type are typically pathological.)
+
+	\prob[\textsc{Exercise 10.}] \textit(Examples.) A disconnected scheme is not irreducible. Find an example of a connected but reducible scheme. Give an example of a non-Noetherian ring whose spectrum is a Noetherian topological space. Give an example of a locally finite type morphism that is not of finite type. 
+	\prob[\textsc{Exercise 11.}] A scheme is \textit{normal} if all its local rings are integrally closed domains. Give 3 examples of non-normal schemes. 
+	
+	\bigskip
+
+	\noindent Let $X$ be an integral scheme. For each open affine subset $U = \Spec A$ of $X$, let $\ol{A}$ be the integral closure of $A$ in its quotient field, and let $\ol{U} = \Spec \ol{A}$. Show that one can glue the schemes $\ol{U}$ to obtain a normal integral scheme $\ol{X}$, called the \textit{normalization} or $X$. Show that there is a morphism $\ol{X} \to X$ having the following universal property: for every normal integral scheme $Z$, and for every dominant morphism $f:Z\to X$, $f$ factors uniquely through $\ol{X}$. [A morphism $f:Z \to X$ is \textit{dominant} if $f(Z)$ is a dense subset of $X$.]
+\end{homework}
+\newpage
+
+\tchap{Example Sheet 3}
+\begin{homework}[e]
+	\prob Let $Z$ be a closed subscheme of $\bP^2_{\bC\llbracket t\rrbracket}$ given by the vanishing locus of the homogeneous ideal $(XY - tZ^2)$, where $X, Y, Z$ are the homogeneous coordinate functions on $\bP^2_{\bC\llbracket t \rrbracket}$.
+	\begin{enumerate}[(i)]
+		\item Calculate the scheme theoretic fibers of $Z$ over each of the two points of $\Spec \bC\llbracket t\rrbracket$.
+
+		\item For each integer $n \geq 1$, inductively define $Z^n$ to be the fiber product of $Z$ with $Z^{n-1}$ over $\Spec \bC\llbracket t \rrbracket$. Calculate the fiber of $Z^n$ over the closed point of $\Spec \bC\llbracket t\rrbracket$. Calculate the number of irreducible components of this closed fiber as a function of $n$. 
+	\end{enumerate}
+
+	\prob By using the evaluative valuative of properness, verify the following statements about morphisms between Noetherian schemes.
+	\begin{enumerate}[(i)]
+		\item A closed immersion is proper.
+		\item A composition of proper morphisms is proper. 
+		\item Properness is stable under base change.
+	\end{enumerate}
+
+	\prob In lecture, we have claimed that given a module $M$ over a ring $A$, there is an associated sheaf $M^{sh}$ on $\Spec (A)$ whose value over a distinguished open $U_f$ is identified with the localization of $M$ at $f$. We have also claimed that if $A_\bullet$ is an $\bN$-graded ring and $M_\bullet$ is a graded $A_\bullet$-module, there is an analogous sheaf on $\Proj(A_\bullet)$ whose sections, over a distinguished open associated to a positive degree element, are the degree 0 elements in the localization of $M_\bullet$ at $f$. Give precise definitions of these sheaves and verify that they do indeed form sheaves of modules over the structure sheaf.
+
+	\medskip
+
+	\noindent Given a graded ring $A_\bullet$ and a graded module $M_\bullet$, define the sheaf $M_\bullet(1)$ to be the graded module whose weight $n$ piece is the weight $n+1$ piece of $M_\bullet$. Let $X$ be $\Proj(A_\bullet)$. The sheaf associated to $A_\bullet(1)$ is denoted $\cO_X(1)$. Take $A_\bullet$ to be $\bC[x,y,z]$ with the standard grading. Calculate the sections of this sheaf over the standard distinguished open sets in $\bP^2_{\bC}$. Repeat the exercise for the sheaves $\cO_X(d)$ for all integers $d$. For which $d$ does $\cO_{\bP^2}(d)$ have non-zero global sections?
+
+	\prob[\textsc{Exercise 6.}] Let $X$ be a scheme and $f:\cF\to \cG$ be a morphism of quasi-coherent sheaves of $\cO_X$-modules. Show that $\ker f$, $\coker f$ and $\im f$ are quasi-coherent. Further, if $X$ is Noetherian and $\cF$ and $\cG$ are coherent, show $\ker f$, $\coker f$ and $\im f$ are coherent.
+
+	\medskip
+
+	\noindent Let $f:X\to Y$ be a morphism of schemes and $\cF$ be a quasi-coherent (resp. coherent ) sheave of $\cO_Y$-modules. Show that $f^*\cF$ is a quasi-coherent (resp. coherent) sheaf of $\cO_X$-modules.
+
+	\medskip
+
+	\noindent Show by example that if $\cG$ is a coherent sheaf on $X$, then $f_*\cG$ need not be a coherent sheaf on  $Y$. [Note: $f_*\cG$ is always quasi-coherent, but this is harder to prove.]
+
+	\prob[\textsc{Exercise 7.}] Let $i:Z\to X$ be a closed immersion of schemes. Recall this means $i$ is a homeomorphism of $Z$ onto a closed subset of $X$ and the map $i^\sharp:\cO_X\to i_*\cO_Z$ is surjective. We write $\cI_{Z/X} = \ker i^\sharp$.
+	\begin{enumerate}[(a)]
+		\item Show that $\cI_{Z/X}$ is a \textit{sheaf of ideals} of $\cO_X$, i.e. $\cI_{Z/X}(U)$ is an ideal in $\cO(U)$ for each $U\subseteq X$ open.
+		\item Show that $\cI_{Z/X}$ is a quasi-coherent sheaf of $\cO_X$-modules, and is coherent if $X$ is Noetherian.
+		\item Show that there is a one-to-one correspondence between quasi-coherent sheaves of ideals of $X$ and closed subschemes of $X$. 
+	\end{enumerate}
+\end{homework}
+\newpage
+
+\tchap{Example Sheet 4}
+\begin{homework}[e]
+    \prob Let $D$ be a degree $0$ Weil divisor on $\bP^{1}_k$. Construct a rational function $f$, i.e. a section of the structure sheaf over the generic point, such that the divisor associated to $f$ is $D$. Deduce that every degree $0$ divisor on $\bP^{1}_k$ is principal.
+
+	\begin{prf}
+		Let $D = D_1 - D_2$, where $D_1$ and $D_2$ are two effective Weil divisors.
+
+		Recall first that any codimension one subvariety $Y = V(\fraka) = \subset \bP^{1}_k$ is determined by a single homogeneous equation. To see this, suppose $f \in \fraka$ is some nonzero homogeneous equation. Then $V(\fraka) \subseteq V(f) \subsetneq \bP^{1}_k$, hence $Y = V(\fraka) = V(f)$.
+
+		We now suppose that $D$ is a Weil divisor on $\bP^{1}_k$ as in the question. Write $D = D_1 - D_2$ for some effective divisors $D_1$ and $D_2$, where
+		\[
+		D_1 = \sum n_i B_i \textbuff{1em}{and} D_2 = \sum m_j C_j
+		\]
+		for prime divisors $B_i$ and $C_j$. For each $i$, $B_i = V(f_i)$ for some homogeneous irreducible polynomial by our earlier comment, and likewise $C_j = V(g_j)$ with $g_j$ an irreducible homogeneous polynomial for each $j$. Define $f = \prod_i f_i^{n_i}$ and $g = \prod_j g_j^{m_j}$ and let $h= \frac{f}{g}$. Because $\deg(D) = 0$ we have by design that $\deg(f) = \deg(D_1) = \deg(D_2) = \deg(g)$, and hence $h \in K^*$ as it is a quotient of two homogeneous function of equal degree. We have that
+		\[
+			(h) = (f) - (g) = \sum_i n_i B_i ~-~ \sum_j m_j C_j = D_1 - D_2 = D,
+		\]
+		and therefore $D$ is principal.
+
+		By starting with a rational function $\frac{f}{g}$ in $K^*$ and factoring both the numerator and denominator into irreducible components, we similarly see that $(f) = 0$ and can then conclude that a Weil divisor $D$ has degree 0 if and only if it is principal.
+	\end{prf}
+
+	\prob A fact from the theory of varieties is that if $E$ is a smooth projective curve of genus 1, then $E$ is not isomorphic to $\bP^{1}$. Let $p$ and $q$ be distinct points on $E$. By using this fact, show that the divisor $p-q$ is a non-principal degree 0 divisor on $E$.
+
+	\prob In lectures, we sketched the construction of a line bundle associated to a Cartier divisor. You may review this construction by examining the two definitions before Propositions 6.11 and 6.13 in Chapter II of Hartshorne. Let $H$ be any hyperplane in $\bP^{n}_k$. Prove that the sheaf associated to the Cartier divisor $[H]$ is isomorphic to $\cO_{\bP^n}(1)$, defined earlier via the $\Proj$ construction for a graded module.
+
+	\prob[\textsc{Exercise 8.}] Let $X = \Spec A$ be affine, and let
+	\[
+	0 \to \cF' \to \cF \to \cF'' \to 0
+	\]
+	be an exact sequence of quasi-coherent sheaves of $\cO_X$-modules. Show that
+	\[
+	0 \to \Gamma(X,\cF') \to \Gamma(X,\cF) \to \Gamma(X,\cF'') \to 0
+	\] 
+	is exact. [You may freely use the following fact about quasi-coherent sheaves: if $\cF$ is a quasi-coherent sheaf on a scheme $X$, and $U \subseteq X$ is open affine, then $\cF_U$ can be written as a cokernel of a morphism between free sheaves on $U$. This is an analogue of the type of result concerning locally Noetherian schemes and locally finite type morphisms. These definitions state the existence of an affine open cover with certain properties and then one shows that the required properties hold for any affine open. You may find a proof of this fact in Hartshorne II, \S 5.]
+
+	\prob Let $X$ be the closed subscheme of $\bP^2_k$ defined by the scheme theoretic vanishing locus of a homogeneous polynomial of degree $d$. Assume that $(1.0.0) \not\in X$. Then show $X$ can be covered by the two affine open subsets $U = X \cap D_+(x_1)$ and $V = X\cap D_+(x_2)$. Now compute the \v{C}ech complex explicitly and show that
+	\[
+	\dim H^{0}(X,\cO_X) = 1
+	\] 
+	and
+	\[
+	\dim H^{1}(X,\cO_X) = \frac{(d - 1)(d - 2)}{2}
+	\]
+	where $d$ is the degree of $f$. Compare with the degree-genus formula for a plane curve.
+
+	\prob Let $X = \bA^{2}_k = \Spec k[x,y]$, $U = X \setminus {(x,y)}$ (removing the maximal ideal corresponding to the origin). By choosing a suitable affine cover of $U$, show that $H^{1}(U,\cO_U)$ is naturally isomorphic to the infinite dimensional $k$-vector space with basis ${x^iy^j ~ \mid~ i, j < 0}$. Thus in particular $U$ is not affine.
+\end{homework}
+\newpage
+
+\tchap{Problems from Hartshorne}
+
+\begin{homework}[e]
+	\prob[\textsc{Exercise 1.3}]$ $
+	\begin{enumerate}[(a)]
+
+		\item Let $\varphi:\cF\to \cG$ be a morphism of presheaves such that $\varphi(U):\cF(U)\to \cG(U)$ is injective for each $U$. Show that the induced map $\varphi^*:\cF^+\to \cG^+$ of associated sheaves is injective.
+
+		\item Give an example of a surjective morphism of sheaves $\varphi:\cF\to \cG$, and an open set $U$ such that $\varphi(U):\cF(U)\to \cG(U)$ is not surjective. 
+	\end{enumerate}
+
+	\prob[\textsc{Exercise 1.14}] \textit{Support.} Let $\cF$ be a sheaf on $X$, and let $s \in \cF(U)$ be a section over an open set $U$. The \textit{support} of $s$, denoted $\Supp s$, is defined to be $\{P\in U ~ \mid~ s_P \neq 0\}$, where $s_P$ denotes the germ of $s$ in the stalk $\cF_P$. Show that $\Supp s$ is a closed subset of $U$. We define the \textit{support} of $\cF$, $\Supp \cF$, to be $\{P\in X~\mid~ \cF_P \neq 0\}$. It need not be a closed subset.
+
+	\prob \textit{Sheaf Hom.} Let $\cF$, $\cG$ be sheaves of abelian groups on $X$. For any open set $U \subseteq X$, show that the set $\Hom(\cF|_U, \cG|_U)$ of morphisms of the restricted sheaves has the natural structure of an abelian group. Show that the presheaf $U \mapsto \Hom(\cF|_U, \cG|_U)$ is a sheaf. It is called the \textit{sheaf of local morphisms} of $\cF$ into $\cG$, ``sheaf hom'' for short, and is denoted $\Hom(\cF, \cG)$.
+
+	\prob[\textsc{Exercise 1.15}] \textit{Extending a Sheaf by Zero.} Let $X$ be a topological space, let $Z$ be a closed subset, let $i:Z\to X$ be the inclusion, let $U = X \setminus Z$ be the complementary open subset and let $j:U\to X$ be its inclusion.
+	\begin{enumerate}[(a)]
+		\item Let $\cF$ be a sheaf on $Z$. Show that the stalk $(i_*\cF)_P$ of the direct image sheaf on  $X$ is $\cF_P$ if $P \in Z$, $0$ if $P \not\in Z$. Hence we call $i_* \cF$ the sheaf obtained by extending $\cF$ by zero outside $Z$. By abuse of notation we will sometimes write $\cF$ instead of $i_*\cF$, and say ``consider $\cF$ as a sheaf on $X$,'' when we mean ``consider $i_*\cF$.''
+		\item Now let $\cF$ be a sheaf on $U$. Let $j_!(\cF)$ be the sheaf on $X$ associated to the presheaf $V\mapsto \cF(V)$ if $V \subseteq U$, $V \mapsto 0$ otherwise. Show that the stalk $(j_!(\cF))_P$ is equal to $\cF_P$ if $P \in U$, 0 if $P \not\in U$, and show that $j_!\cF$ is the only sheaf on $X$ which has this property, and whose restriction to $U$ is $\cF$. We call $j_!\cF$ the sheaf obtained by \textit{extending $\cF$ by zero} outside $U$. 
+		\item Now let  $\cF$ be a sheaf on $X$. Show that there is an exact sequence of sheaves on $X$,
+			\[
+			0 \to j_!(\cF|_U) \to \cF \to i_*(\cF|_Z) \to 0.
+			\]
+	\end{enumerate}
+
+	\prob[\textsc{Exercise 1.21}] \textit{Some Examples of Sheaves on Varieties.} Let $X$ be a variety over an algebraically closed field $k$, as in Chapter I. Let $\cO_X$ be the sheaf of regular functions on $X$ (1.0.1).
+	\begin{enumerate}[(a)]
+		\item Let $Y$ be a closed subset of $X$. For each open set $U \subseteq X$, let $\cI_Y(U)$ be the ideal in the ring $\cO_X(U)$ consisting of those regular functions which vanish at all points of $Y \cap U$. Show that the presheaf $U \mapsto \cI_Y(U)$ is a sheaf. It is called the \textit{sheaf of ideals} $\cI_Y$ of $Y$, and it is a subsheaf of the sheaf of rings $\cO_X$.
+		\item If $Y$ is a subvariety, then the quotient sheaf $\cO_X/\cI_Y$ is isomorphic to $i_*(\cO_Y)$, where $i:Y\to X$ is the inclusion, and $\cO_Y$ is the sheaf of regular functions on $Y$.
+		\item Now let $X = \bP^1$, and let $Y$ be the union of two distinct points $P, Q \in X$. Then there is an exact sequence of sheaves on $X$, where $\cF = i_*\cO_P \oplus i_*\cO_Q$, \[
+		0\to \cI_Y \to \cO_X \to \cF \to 0.
+		\] Show however that the induced map on global sections $\Gamma(X, \cO_X) \to \Gamma(X, \cF)$ is not surjective. This shows that the global section functor $\Gamma(X, -)$ is not exact(cf (Exercise 1.8) in Hartshorne Chapter II which shows that it is left exact). 
+	\item Again let $X = \bP^1$ and let $\cO$ be the sheaf of regular functions. Let $\cK$ be the constant sheaf on $X$ associated to the function field $K$ of $X$. Show that there is a natural injection $\cO\to \cK$. Show that the quotient sheaf $\cK/\cO$ is isomorphic to the direct sum of sheaves $\sum_{P\in X}i_P(I_P)$, where $I_P$ is the group $K/\cO_P$, and $i_P(I_P)$ denotes the skyscraper sheaf (Exercise 1.17) given by $I_P$ at the point $P$.
+	\item Finally, show that in the case of (d) the sequence
+		\[
+		0\to \Gamma(X,\cO) \to \Gamma(X, \cK) \to \Gamma(X, \cK/\cO) \to 0
+		\]
+		is exact. (This is an analogue of what is called the ``first Cousin problem'' in several complex variables. See Gunning and Rossi [1, p. 248].)
+	\end{enumerate}
+\end{homework}
+\end{document}

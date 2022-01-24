@@ -1,0 +1,37 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Example Sheet 4\\
+	\Large
+	Isaac Martin \\
+    % October 28, 2021
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+
+\begin{homework}[e]
+    \prob Let $D$ be a degree $0$ Weil divisor on $\bP^{1}_k$. Construct a rational function $f$, i.e. a section of the structure sheaf over the generic point, such that the divisor associated to $f$ is $D$. Deduce that every degree $0$ divisor on $\bP^{1}_k$ is principal.
+
+	\begin{prf}
+		Let $D = D_1 - D_2$, where $D_1$ and $D_2$ are two effective Weil divisors.
+
+		Recall first that any codimension one subvariety $Y = V(\fraka) = \subset \bP^{1}_k$ is determined by a single homogeneous equation. To see this, suppose $f \in \fraka$ is some nonzero homogeneous equation. Then $V(\fraka) \subseteq V(f) \subsetneq \bP^{1}_k$, hence $Y = V(\fraka) = V(f)$.
+
+		We now suppose that $D$ is a Weil divisor on $\bP^{1}_k$ as in the question. Write $D = D_1 - D_2$ for some effective divisors $D_1$ and $D_2$, where
+		\[
+		D_1 = \sum n_i B_i \textbuff{1em}{and} D_2 = \sum m_j C_j
+		\]
+		for prime divisors $B_i$ and $C_j$. For each $i$, $B_i = V(f_i)$ for some homogeneous irreducible polynomial by our earlier comment, and likewise $C_j = V(g_j)$ with $g_j$ an irreducible homogeneous polynomial for each $j$. Define $f = \prod_i f_i^{n_i}$ and $g = \prod_j g_j^{m_j}$ and let $h= \frac{f}{g}$. Because $\deg(D) = 0$ we have by design that $\deg(f) = \deg(D_1) = \deg(D_2) = \deg(g)$, and hence $h \in K^*$ as it is a quotient of two homogeneous function of equal degree. We have that
+		\[
+			(h) = (f) - (g) = \sum_i n_i B_i ~-~ \sum_j m_j C_j = D_1 - D_2 = D,
+		\]
+		and therefore $D$ is principal.
+
+		By starting with a rational function $\frac{f}{g}$ in $K^*$ and factoring both the numerator and denominator into irreducible components, we similarly see that $(f) = 0$ and can then conclude that a Weil divisor $D$ has degree 0 if and only if it is principal.
+	\end{prf}
+\end{homework}
+\end{document}

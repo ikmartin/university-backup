@@ -1,0 +1,43 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Example Sheet 4\\
+	\Large
+	Isaac Martin \\
+    % October 28, 2021
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+
+\begin{homework}[e]
+    \prob[\textsc{\large Exercise 3.}] Let $A\subseteq B$ be a subring of $B$ with the property that $B \setminus A$ is a multiplicatively closed set. Show that $A$ is integrally closed in $B$.
+
+	\begin{prf}
+		Let $S = B \setminus A$ and suppose we have some element $x \in B$ integral over $A$, i.e. such that $x^{n} + a_{n-1}x^{n-1} + ... + a_0 = 0$ for some elements $a_0, ..., a_{n-1} \in A$. Choose $n$ to be as small as possible. This equation implies
+		\[
+		b\left(b^{n-1}+a_{n-1}b^{n-2}+...+a_1\right) = -a_0 \in A.
+		\]
+		The elements $b$ and $b^{n-1} + a_{n-1}b^{n-2}+...+a_1$ cannot both avoid $A$, otherwise their product would also avoid $A$. If $b \in A$ then we are done, so suppose $b^{n-1} + a_{n-1}b^{n-2}+...+a_1 \in A$. In particular, by subtracting $a_1$, we see that $b^{n-1} + a_{n-1}b^{n-2}+...+a_2b \in A$. Setting $-a_1' = b^{n-1} + a_{n-1}b^{n-2}+...+a_2b$, we see that
+		\[
+		b^{n-1} + a_{n-1}b^{n-2} +...+a_2b^1 + a_1' = 0,
+		\]
+		hence $b$ is the root of a monic polynomial of degree strictly smaller than $n$. Hence this polynomial is trivial and $n=1$, implying that $b \in A$. We conclude that $A$ is integrally closed in $B$.
+	\end{prf}
+
+	\prob[\textsc{\large Exercise 8.}] Let $k$ be a field, and $\Gamma$ any totally ordered abelian group. Let $A := k[\Gamma]$ denote the group ring of $\Gamma$, i.e. $k[\Gamma]$ is the $k$-vector space with basis ${z^\gamma ~|~ \gamma \in \Gamma}$ and multiplication determined by
+	\[
+	z^{\gamma}\cdot z^{\gamma'} = z^{\gamma + \gamma'}.
+	\]
+	Show that $A$ is an integral domain.
+
+	Define $v_0:A\setminus {0}\to \Gamma$ by 
+	\[
+	v_0\left(\sum_{i\in I} \alpha_iz^{\gamma_i}\right) = \min \{\gamma_i ~|~ i\in I\}
+	\]
+	where $I$ is a finite index set and $\alpha_i \in k\setminus \{0\}$ for each $i$. Show $v_0$ satisfies conditions (a) and (b) of Questions 7. Now let $K$ be the field of fractions of $A$. Show that $v_0$ can be extended to $v:K^*\to \Gamma$ so that $v$ is a valuation with value group $\Gamma$.
+\end{homework}
+\end{document}
