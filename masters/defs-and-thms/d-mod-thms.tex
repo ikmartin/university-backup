@@ -1,0 +1,108 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+	\Large
+	\begin{LARGE}
+		D-Modules, Unit \textit{F}-Crystals, and Hodge Theory \\
+	\end{LARGE}
+	Definitions, Theorems, Remarks, and Notable Examples \\
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+
+\tableofcontents
+\newpage
+\section{Some Non-Commutative Algebra}
+$\cD$-modules requires non-commutative algebra. Necessary facts are found here.
+\subsection{Filtered rings and modules}
+This subsection follows Ginzburg's notes quite closely, see [BIBTEX SETUP, GINZBURG D-MODULES Page 3]. 
+
+\begin{defn}[\emph{Filtered Ring}]\label{defn:filtered-ring}
+	Let $A$ be an associative ring with unit. We call $A$ a \emph{filtered ring} if an increasing filtration $... \subset A_i \subset A_{i+1} \subset ...$ by additive subgroups is given such that
+	\begin{enumerate}[(i)]
+		\item $A_iA_j \subset A_{ij}$
+		\item $1 \in A_{0},$
+		\item $\bigcup A_i = A$, i.e. the filtration is \emph{exhausting}.
+	\end{enumerate}
+	Typically, either (a) $~\bN$ or (b) $~\bZ$ is chosen for the index set. In the former case $A$ is said to be \emph{positively filtered}. Note that (a) can be viewed as a special case of (b) by setting $A_{-1} = 0$. In the latter case we will consider the topology induced by the filtration by taking $\left\{A_i\right\}_{i\in \bZ}$ to be the base of open sets, and we then impose two additional conditions:
+	\begin{enumerate}
+		\item[(iv)] $\bigcap A_i = \{0\}$, i.e. the topology defined by $\{A_i\}$ is \emph{separating}
+		\item $A$ is complete with respect to this topology.
+	\end{enumerate}
+
+	\noindent Finally, we denote by $\gr A$ the associated graded ring $\bigoplus A_i / A_{i-1}$. 
+\end{defn}
+
+\newpage
+\section{Differential Operators and D-Modules}
+\begin{defn}[Quasi-coherent \#1]\label{defn:quasi-coh-Bernstein}
+	Fix $X$ a scheme over $k$, $\cO_X$ the structure sheaf, $\cF$ a sheaf of $\cO_X$-modules. We call $\cF$ a \textit{quasi-coherent} sheaf of $\cO_X$-modules (or simply an $\cO_X$-modules) if it satisfies the condition
+	\begin{center}
+		If $U\subseteq X$ an open affine, $f \in \cO_X(U),$ and $U_f = \left\{u \in U \midd f(u) \neq 0\right\}$,
+	\end{center}
+	then $\cF(U_f) = \cF(U)_f = \cO_X(U_f)\otimes_{\cO_X(U)} \cF$.
+\end{defn}
+
+\begin{defn}[Quasi-coherent \#2]\label{defn:quasi-coh-Hart}
+	Let $(X,\cO_X)$ be a scheme. A sheaf of $\cO_X$-modules $\cF$ is quasi-coherent if $X$ can be covered by affine opens $U_i = \Spec A_i$ such that for each $i$ there exists an $A_i$ module $M_i$ with $\cF|_{U_i} \cong \tilde{M_i}$. We say $\cF_i$ is coherent if each $M_i$ can be taken to be finitely generated.
+\end{defn}
+\begin{rmk}\label{rmk:sheaf-ass-to-M}
+	If $A$ is a ring and $M$ an $A$-module, the sheaf associated to $M$ is denoted by $\tilde{M}$ and is formed as follows. For each $\frakp \in \Spec A$, $M_\frakp = A_{\frakp} \otimes_A M$ is the localization with respect to $\frakp$. Given an open set $U \subseteq \Spec A$, define
+	\begin{align*}
+        \tilde{M}(U) = \left\{s:U\to \bigsqcup_{\frakp \in U} M_\frakp \midd s(\frakp) \in M_\frakp, \text{ and locally } s = \frac{m}{f}, m \in M, f \in A\right\}.
+	\end{align*}
+	More verbosely, this last condition means that for each $\frakp \in U$ there is a neighborhood $V \subseteq U$ of $\frakp$ such that for each $\frakq \in V,$ $f\not\in \frakq$ and $s(\frakq) = \frac{m}{f} \in M_\frakq$.
+
+	Alternatively, one may define
+	\begin{align*}
+	    \tilde{M}(U_f) = M_f,
+	\end{align*}
+	and then
+	\begin{align*}
+	    \tilde{M}(U) = \varinjlim_{U_f \subseteq U} \tilde{M}(U_f).
+	\end{align*}
+	Note that $U_f$ is implied to be a distinguished open in one of the $U_i$, so really we need to take the limit above over all $U_f$ in all $U_i$ which intersect $U$ nontrivially. This is a non-issue if $U$ is affine.
+\end{rmk}
+\begin{lem}\label{lem:ginzburg-characterization-of-quasi-coh}
+	The following are equivalent conditions for $\cF$ a sheaf of $\cO_X$ modules:
+	\begin{enumerate}[(a)]
+		\item $\cF$ is the direct limit of its coherent subschemes
+		\item For any Zariski open affine subset $U\subseteq X$ and any $f \in \cO(U)$ one has $\Gamma(U_f, \cF) = \Gamma(U,\cF)_f$.
+	\end{enumerate}
+	A \textit{quasi-coherent} sheaf is then one which satisfies these conditions. 
+\end{lem}
+\begin{lem}[Noether Normalization Lemma]\label{lem:Noeth-Normal}
+	Let $k$ be a field, $A$ a finitely generated $k$-algebra. Then there exists algebraically independent elements $y_1, ..., y_d$ in $A$ for some positive $d$ such that $A$ is finitely generated as a module over $k[y_1,...,y_n]$.
+\end{lem}
+
+\begin{rmk}\label{rmk:Noeth-Norm-gives-coord-def-of-diff-op}
+	The Noether normalization lemma provides a way to define differential operators using a manifold-esque coordinate approach. I prefer the following coordinate-free approach provided by Gr\"othendieck, however.
+\end{rmk}
+\begin{defn}[Differential Operators]\label{defn:diff-ops}
+	Let $A$ be a commutative ring. For any pair of $A$-modules $M$, $N$ we define the module $\Diff_A^{k}(M,N)$ inductively as follows:
+	\begin{enumerate}[(i)]
+		\item $\Diff_A^{0}(M,N) = \Hom_A(M,N)$
+		\item $\Diff_A^{k+1}(M,N) = \left\{\text{ additive maps } u:M\to N \midd \forall a \in A, (a u - u a) \in \Diff^{k}_A(M,N)\right\}$
+	\end{enumerate}
+	It follows from the definition that $\Diff_{A}^{k}(M,N) \subset \Diff_A^{k+1}(M,N)$. We define
+	\begin{align*}
+		\Diff_A(M,N) := \bigcup_{k} \Diff_A^k(M,N),
+	\end{align*}
+	and it turns out that it is a filtered almost commutative ring.
+\end{defn}
+
+
+
+
+
+
+
+
+
+
+\end{document}

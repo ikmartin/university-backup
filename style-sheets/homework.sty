@@ -116,8 +116,8 @@
 	pad after break=2pt
 	}
 
-\declaretheorem[numbered=no,style=prf,qed=\qedsymbol,name=Example:]{example}
-\tcolorboxenvironment{example}{
+\declaretheorem[numbered=no,style=prf,qed=\qedsymbol,name=Example:]{example-alt}
+\tcolorboxenvironment{example-alt}{
 	blanker,
 	parbox=false,
 	borderline west={1pt}{8pt}{Black},
@@ -180,7 +180,7 @@
 %Theorems for Homework
 \newcounter{hwthms}
 
-\NewDocumentCommand{\lem}{o g}
+\NewDocumentCommand{\hlem}{o g}
 	{\IfNoValueTF{#1}
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Lemma \textosf{\arabic{hwthms}.}}]}
@@ -188,7 +188,7 @@
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Lemma \textosf{\arabic{hwthms}} (#1).}]}
 			{\item[\textbf{Lemma \textosf{#2} (#1).}]}}}
-\NewDocumentCommand{\prop}{o g}
+\NewDocumentCommand{\hprop}{o g}
 	{\IfNoValueTF{#1}
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Proposition \textosf{\arabic{hwthms}.}}]}
@@ -196,7 +196,7 @@
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Proposition \textosf{\arabic{hwthms}} (#1).}]}
 			{\item[\textbf{Proposition \textosf{#2} (#1).}]}}}
-\NewDocumentCommand{\cor}{o g}
+\NewDocumentCommand{\hcor}{o g}
 	{\IfNoValueTF{#1}
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Corollary \textosf{\arabic{hwthms}.}}]}
@@ -204,7 +204,7 @@
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Corollary \textosf{\arabic{hwthms}} (#1).}]}
 			{\item[\textbf{Corollary \textosf{#2} (#1).}]}}}
-\NewDocumentCommand{\exam}{o g}
+\NewDocumentCommand{\hexam}{o g}
 	{\IfNoValueTF{#1}
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Example \textosf{\arabic{hwthms}.}}]}
@@ -212,7 +212,7 @@
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Example \textosf{\arabic{hwthms}} (#1).}]}
 			{\item[\textbf{Example \textosf{#2} (#1).}]}}}
-\NewDocumentCommand{\rmk}{o g}
+\NewDocumentCommand{\hrmk}{o g}
 	{\IfNoValueTF{#1}
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Remark \textosf{\arabic{hwthms}.}}]}
@@ -220,7 +220,7 @@
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Remark \textosf{\arabic{hwthms}} (#1).}]}
 			{\item[\textbf{Remark \textosf{#2} (#1).}]}}}
-\NewDocumentCommand{\thm}{o g}
+\NewDocumentCommand{\hthm}{o g}
 	{\IfNoValueTF{#1}
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Theorem \textosf{\arabic{hwthms}.}}]}
@@ -228,7 +228,7 @@
 		{\IfNoValueTF{#2}
 			{\refstepcounter{hwthms}\item[\textbf{Theorem \textosf{\arabic{hwthms}} (#1).}]}
 			{\item[\textbf{Theorem \textosf{#2} (#1).}]}}}
-\NewDocumentCommand{\defn}{o g}
+\NewDocumentCommand{\hdefn}{o g}
 	{\IfNoValueTF{#1}
 		{\IfNoValueTF{#2}
 		    {\refstepcounter{hwthms}\item[\textbf{Definition \textosf{\arabic{hwthms}.}}]}
