@@ -1,0 +1,77 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Infinite Groups Example Sheet 1 \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\tchap{Chapter 1}
+\begin{homework}[e]
+	\prob Show directly that every finite group is directly finite (without using the fact that sofic groups are directly finite)
+	\begin{prf}
+		Note first that $G$ is a basis for $K[G]$ and therefore $K[G]$ has finite dimension exactly when $G$ is a finite group.
+
+		Given an element $r \in K[G]$, define the map $\alpha_r:K[G]\to K[G]$ to be left multiplication by $r$, i.e. $\alpha_r(s) = r\cdot s$. This map is $K$-linear due to the distributive and associative properties on $K[G]$. 
+
+		Suppose we have  $r,s\in K[G]$ such that $r\cdot s = 1$. Given any $x \in K[G]$ we have that $\alpha_r(\alpha_s(x)) = r(sx) = (rs)x = x$, hence the composition $\alpha_r\circ \alpha_s$ is the identity on $K[G]$, and is in particular both injective and surjective. Recall the following two general facts regarding compositions of functions:
+		\begin{itemize}
+			\item if $f\circ g$ is injective then $g$ is injective
+			\item if $f\circ g$ is surjective then $f$ is surjective
+		\end{itemize}
+		Hence, $\alpha_r$ is surjective and $\alpha_s$ is injective. The rank-nullity theorem tells us that an endomorphism on a finite dimensional vector space is injective if and only if it is surjective, so both $\alpha_r$ and $\alpha_s$ are automorphisms of  $K[G]$. Since inverses are unique and $\alpha_r \circ \alpha_s = \id_{K[G]}$, we conclude that $\alpha_r$ and $\alpha_s$ are inverses. Applying these maps to the identity yields that
+		\begin{align*}
+			rs = \alpha_r\circ\alpha_s(1) = 1 = \alpha_s\circ\alpha_r(1) = sr,
+		\end{align*}
+		so we are done.
+	\end{prf}
+
+	\prob Let $X_1$ and $X_2$ be finite sets. Show that there is an injective homomorphism $\Phi:\Sym(X_1)\times \Sym(X_2)\to \Sym(X_1\times X_2)$, given by:
+	\begin{align*}
+		\Phi(\sigma_1, \sigma_2)(x_1,x_2) = \big(\sigma_1(x_1), \sigma_2(x_2)\big).
+	\end{align*}
+	Deduce that the direct product of two sofic groups is sofic.
+	
+	\prob Let $X$ and $Y$ be finite sets. Prove that $F(X) \cong F(Y)$ if and only if $|X|=|Y|$.
+	\begin{prf}
+		Suppose first that $|X| = |Y|$, which by definition means there is some bijection $f:X\to Y$. Let $\iota:X\to F(Y)$ be the function obtained by composing $f$ with the inclusion $Y \hookrightarrow F(Y)$. We show that the pair $(\iota, F(Y))$ satisfy the universal property of a free group over $X$, and therefore $F(Y) \cong F(X)$. 
+
+		Let $G$ be an arbitrary group and fix a function $\phi:X\to G$. Define the map $\Phi:F(X)\to G$ by $y_1^{\epsilon_1}y_2^{\epsilon_2}...y_n^{\epsilon_2}\mapsto \phi(x_1)^{\epsilon_1}\phi(x_2)^{\epsilon_2}...\phi(x_n)^{\epsilon_n}$, where $x_i = f^{-1}(y_i)$ and $\epsilon_i \in \{\pm 1\}$. Note that for each $y \in Y$ there is a unique $x \in X$ such that $x = f^{-1}(y)$ since $f$ is bijective. 
+
+		The map $\Phi$ is a group morphism:
+		\begin{itemize}
+			\item $\Phi(1) = \Phi(yy^{-1}) = \phi(f^{-1}(y))\cdot \phi(f^{-1}(y))^{-1} = 1_G$,
+			\item $\Phi\left(y_1^{\epsilon_1}...y_m^{\epsilon_m}z_1^{\delta_1}...z_n^{\delta_n}\right) = \phi\left(f^{-1}(y_1)\right)^{\epsilon_1}...\phi\left(f^{-1}(y_m)\right)^{\epsilon_m}\phi\left(f^{-1}(z_1)\right)^{\delta_1}...\phi\left(f^{-1}(z_n)\right)^{\delta_n}$
+
+				$\phantom{\Phi\left(y_1^{\epsilon_1}...y_m^{\epsilon_m}z_1^{\delta_1}...z_n^{\delta_n}\right)} = \Phi(y_1^{\epsilon_1}...y_m^{\epsilon_m}z_1^{\delta_1}...z_n^{\delta_n})$.	
+		\end{itemize}
+
+		Suppose we had another group homomorphism $\Psi:F(Y)\to G$ extending $\phi$. We then would have
+		\begin{align*}
+			\Psi(y^{-1}) = \Psi(y)^{-1} = \phi\left(f^{-1}(y)\right) = \Phi(y)^{-1} = \Phi(y^{-1})
+		\end{align*}
+		for each $y \in Y$, and since
+		\begin{align*}
+			\Psi\left(y_1^{\epsilon_1}...y_n^{\epsilon_n}\right) &= \Psi(y_1)^{\epsilon_1}\cdot ...\cdot \Psi(y_n)^{\epsilon_n} = \phi\left(f^{-1}(y_1)\right)^{\epsilon_1}...\phi\left(f^{-1}(y_n)\right)^{\epsilon_n} = \Phi\left(y_1^{\epsilon_1}...y_n^{\epsilon_n}\right),
+		\end{align*}
+		we get that $\Psi = \Phi$. Thus, $\Phi$ uniquely extends $\phi$ and therefore $F(Y)$ satisfies the universal property of a free group over $X$. This implies that $F(X) \cong F(Y)$. 
+
+		Let us now consider the forward implication. One consequence of the universal property of free groups is that, for any group $G$, we have a one-to-one correspondence of functions $f:X\to G$ and group homomorphisms $\Phi:F(X)\to G$. Consider the case that $G \cong \bZ/2\bZ$. The map sending a function $f:X\to G$ to $f^{-1}(0)$ yields a bijection between the possible functons $X \to G$ and the subsets of $X$, so $\left|2^{|X|}\right| = \left|\Hom_{\Set}(X,\bZ/2\bZ)\right|$. These facts together with the assumption that $F(X) \cong F(Y)$ give us
+		\begin{align*}
+			\left|2^{|X|}\right| &= \left|\Hom_{\Set}(X,\bZ/2\bZ)\right| = \left|\Hom_{\Grp}(F(X),\bZ/2\bZ)\right| \\
+								 &= \left|\Hom_{\Grp}(Y,\bZ/2\bZ)\right| = \left|\Hom_{\Set}(Y,\bZ/2\bZ)\right| = \left|2^{|Y|}\right|.
+		\end{align*}
+		Up until now, we have not needed the finiteness of $|X|$ and $|Y|$. However, the statement "$\left|2^{|X|}\right| = \left|2^{|Y|}\right| \implies |X| = |Y|$" is true only when $|X| = |Y|$ (in fact, I think this statement is independent of ZFC when $X$ and $Y$ are infinite). In any case, by invoking the finiteness of $X$ and $Y$, we are done.
+	\end{prf}
+
+	\prob[\textsc{Exercise 10}] Another problem
+
+
+\end{homework}
+\end{document}

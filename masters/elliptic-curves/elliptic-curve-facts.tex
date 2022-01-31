@@ -14,44 +14,60 @@
 \hru
 
 \tchap{21 - Jan - 2022}
-\begin{homework}[e]	
-	\begin{defn}[Rational Triangle]\label{defn:triangle-definitions}
-		Let $a,b,c$ be the side lengths of a right triangle $\Delta$.
-		\begin{enumerate}
-			\item $\Delta$ is \emph{rational} if $a,b,c \in \bQ$.
-			\item $\Delta$ is \emph{primitive} if $a,b,c \in \bZ$ and are pairwise coprime.
-		\end{enumerate}
-	\end{defn}
+\begin{defn}[Rational Triangle]\label{defn:triangle-definitions}
+Let $a,b,c$ be the side lengths of a right triangle $\Delta$.
+	\begin{enumerate}
+		\item $\Delta$ is \emph{rational} if $a,b,c \in \bQ$.
+		\item $\Delta$ is \emph{primitive} if $a,b,c \in \bZ$ and are pairwise coprime.
+	\end{enumerate}
+\end{defn}
 
-	\begin{lem}[Lemma 1.1]\label{lem:form-for-prim-triangles}
-		Every primitive triangle has side lengths of the form $u^2+v^2$, $2uv,$ and $u^2 - v^2$ for some integers $u > v > 0$.
-	\end{lem}
-	\begin{defn}\label{defn:congruent-number}
-		$D\in \bQ_{>0}$ is a \emph{congruent number} if there exists a rational triangle $\Delta$ with $\area(\Delta) = 0$. 
-	\end{defn}
-\end{homework}
+\begin{lem}[Lemma 1.1]\label{lem:form-for-prim-triangles}
+	Every primitive triangle has side lengths of the form $u^2+v^2$, $2uv,$ and $u^2 - v^2$ for some integers $u > v > 0$.
+\end{lem}
+\begin{defn}\label{defn:congruent-number}
+	$D\in \bQ_{>0}$ is a \emph{congruent number} if there exists a rational triangle $\Delta$ with $\area(\Delta) = 0$. 
+\end{defn}
+N.B. it suffices to to consider $D$ a positive integer which is squarefree, e.g. $D = 5, 6$ are congruent.
+
+\begin{lem}[Lemma 1.2]\label{lem:congruent-number-condition}
+	$D \in \bQ_{>0}$ is congruent if and only if $Dy^{2}=x^3 - x$ for some $x,y \in \bQ$ with $y \neq 0$.
+\end{lem}
+
+\begin{thm}
+	There is no solution to 
+	\begin{align*}
+		w^2 = uv(u+v)(u-v)
+	\end{align*}
+	for $u,v,w \in \bZ$ and $w \neq 0$.
+\end{thm}
+
+\begin{lem}\label{lem:fermat-uni-descent-polynomials}
+	Let $u, v \in K[t]$ be coprime polynomials. If $\alpha u + \beta v$ is a square for four distinct choices of $(\alpha:\beta) \in \bP^1_K$ then $u,v \in K$. 
+\end{lem}
+
+\bigskip
+
 \tchap{24 - Jan - 2022}
-\begin{homework}[e]
-	\begin{cor}[1.6 in Lecture]\label{cor:points-on-E-same-for-K-and-functions-on-K}
-		Let $E/K$ be an elliptic curve. Then $E(K(t)) = E(K)$.
-	\end{cor}
-	\begin{proof}
-		Without loss of generality may assume $K = \ol{K}$. By a change of coordinates we may assume $E: ~ y^{2}=x(x-1)(x-\lambda)$ for some $\lambda \in K\setminus \left\{0,1\}\right.$ Suppose $(x,y) \in E(K(t))$. Write $x = \frac{u}{v}$ for coprime polynomials $u,v \in K[t]$. Then
-		 \begin{align*}
-			w^{2} = uv(u - v)(u - \lambda v)
-		\end{align*}
-		for some $w \in K[t]$. Because $K[t]$ is a UFD, we get that $u,v,u-v,$ and $u - \lambda v$ are all squares in $K[t]$ and then Lemma
-	\end{proof}
-\end{homework}
+\begin{cor}[1.6 in Lecture]\label{cor:points-on-E-same-for-K-and-functions-on-K}
+	Let $E/K$ be an elliptic curve. Then $E(K(t)) = E(K)$.
+\end{cor}
+\begin{proof}
+	Without loss of generality may assume $K = \ol{K}$. By a change of coordinates we may assume $E: ~ y^{2}=x(x-1)(x-\lambda)$ for some $\lambda \in K\setminus \left\{0,1\}\right.$ Suppose $(x,y) \in E(K(t))$. Write $x = \frac{u}{v}$ for coprime polynomials $u,v \in K[t]$. Then
+	 \begin{align*}
+		w^{2} = uv(u - v)(u - \lambda v)
+	\end{align*}
+	for some $w \in K[t]$. Because $K[t]$ is a UFD, we get that $u,v,u-v,$ and $u - \lambda v$ are all squares in $K[t]$ and then Lemma
+\end{proof}
+
+\bigskip
 
 \tchap{26 -- Jan -- 2022}
-\begin{homework}[e]
-	\begin{defn}[Riemann-Roch Space]\label{defn:reim-roch-space}
-		Let $C$ be a smooth projective curve. The Riemann-Roch space of a $D \in \Div(C)$ is
-		\begin{align*}
-			\cL(D) = \left\{f \in K(C)^* \midd \div(f) + D \geq 0\}\right \cup \left\{0\}\right
-		\end{align*}
-		i.e. the $K$-vector space of rational functions on $C$ with "poles no worse than specified by $D$."
-	\end{defn}
-\end{homework}
+\begin{defn}[Riemann-Roch Space]\label{defn:reim-roch-space}
+	Let $C$ be a smooth projective curve. The Riemann-Roch space of a $D \in \Div(C)$ is
+	\begin{align*}
+		\cL(D) = \left\{f \in K(C)^* \midd \div(f) + D \geq 0\}\right \cup \left\{0\}\right
+	\end{align*}
+	i.e. the $K$-vector space of rational functions on $C$ with "poles no worse than specified by $D$."
+\end{defn}
 \end{document}

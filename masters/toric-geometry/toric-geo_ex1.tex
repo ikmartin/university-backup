@@ -1,0 +1,80 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Toric Geometry: Example Sheet 1 \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\tchap{Theory Problems}
+\begin{homework}[e]
+	\prob Given a cone $\sigma \subseteq N_\bR$ prove that the double dual recovers the original cone:
+	\begin{align*}
+		(\sigma^{\vee})^{\vee} = \sigma.
+	\end{align*}
+	\emph{This justifies the use of the word "dual"}.
+	\begin{prf}
+		We provide two solutions to this problem.
+
+		\textbf{(1)} This is a rather inelegant solution which makes use of the identifications $V\cong V^\vee \cong (V^{\vee})^{\vee}$ in the case that $V$ is a finite dimensional vector space. It nonetheless reflects how one typically thinks of the dual cone $\sigma^{\vee}$ geometrically.
+
+		Recall that for any field $K$ and any $K$-vector space $V$ of dimension $n < \infty$, we can find a non-canonical isomorphism  $V \cong V^\vee$. One typically constructs such an isomorphism as follows.
+
+		First, fix a basis $\{e_1, ...,e_n\}$ for $V$ and define $e^{\vee}_i$ to be the $K$-linear functional $e^{\vee}_i\left(\sum_{i=1}^n a_i e_i\right) = a_i$. It is straightforward to check that $\{e^{\vee}_1,...,e_n^{\vee}\}$ forms a basis for the dual space $V^{\vee}.$ We may similarly define the basis $\{e_1^{\vee \vee},...,e_n^{\vee \vee}\}$ of the double dual $V^{\vee\vee}$.
+
+		The pairing $\langle -,-\rangle:V^{\vee}\times V\to K$ appearing in the definition of $\sigma^{\vee}$ is the bilinear map defined $\langle \lambda,v\rangle = \lambda(v)$. Adopting the above notation in the case that $V = N_\bR$, we see that this pairing is simply the standard Euclidean inner product. Indeed, letting $\{e_i\}$ denote the standard basis on $\bR^n \cong N_\bR$, given any $v \in N_\bR$ and $m \in M_\bR$ and choosing $a_i \in \bR$ and $b_i \in \bR$ such that $v = \sum a_i e_i$ and $m = \sum b_i e^{\vee}_i$, we see that
+		\begin{align*}
+			\langle m,v\rangle &= m(v) \\
+							   &= (b_1e^{\vee}_1 + ... + b_ne^{\vee}_n)(v) \\
+							   &= b_1e^{\vee}_1(v) + ... + b_ne^{\vee}_n(v) \\
+							   &= b_1 \cdot a_1 + ... + b_1 \cdot a_1.
+		\end{align*}
+		By identifying $N_\bR$ and $M_\bR$ via $e_i \leftrightarrow e_i^{\vee}$, we may in fact \emph{define} $\langle m,v\rangle$ to be the Euclidean inner product. This is useful because the Euclidean inner product is symmetric, i.e. $\langle m,v\rangle = \langle v,m\rangle$. By further identifying $\Hom_\bR\left(M_\bR,\bR\right) = M_\bR^{\vee}$ with $N_\bR$ and $M_\bR$ by $e_i \leftrightarrow e_i^{\vee} \leftrightarrow e_i^{\vee\vee}$, we see that for $v \in M_\bR^{\vee}$ and $m \in M_\bR$,
+		\begin{align*}
+			\langle v,m\rangle \geq 0 &\iff \langle m,v\rangle \geq \iff \langle m,v'\rangle \geq 0
+		\end{align*}
+		where $v'$ is the unique element in $N_\bR$ corresponding to $v \in M_\bR^{\vee}$. Thus, under these identifications, we quite literally have that $\left(\sigma^{\vee}\right)^{\vee} = \sigma$.
+
+		\bigskip
+		
+		\textbf{(2)} After reading Fulton more closely, I realized that it is perhaps more natural to define $\left(\sigma^{\vee}\right)^{\vee}$ to be a subset of $\sigma$ rather than a subset of $\Hom_\bR(M_\bR,\bR)$. Given a subset $A \subseteq M_\bR$, we first define the \emph{predual} cone $A^{\vee} \subseteq N_\bR$ of $A$ to be
+		\begin{align*}
+			A^{\vee} = \left\{v \in N_\bR \midd \lambda(v) \geq 0, \text{ for all } \lambda \in A\right\},
+		\end{align*}
+		and then define the double dual $\left(\sigma^{\vee}\right)^{\vee}$ to be the predual cone of $\sigma^{\vee}$. Showing that $\left(\sigma^{\vee}\right)^{\vee} = \sigma$ is therefore equivalent to showing that for any $v_0 \in N_\bR \setminus\sigma$, there is some $\lambda \in \sigma^{\vee}$ such that $\lambda(v_0) < 0$.
+
+		To do this, we use a version of the Hahn-Banach theorem I came across on Wikipedia. I'm not entirely sure this works, as I'm taking for granted that $N_\bR \cong \bR^n$ as a \emph{topological} vector space. Here is the theorem:
+		\begin{thm}\label{thm:Hahn-Banach}
+			Let $A$ and $B$ be non-empty convex subsets of a real locally convex topological vector space $X$. If $\Int(A) \neq \emptyset$ and $B \cap \Int(A) = \emptyset$, then there exists a continuous linear functional $f:X\to \bR$ such that $\sup f(A) \leq \inf f(B)$ and $|f(a)| < \inf f(B)$ for all $a \in \Int(A)$. 
+		\end{thm}
+		
+		Let $v_0$ be any element of $N_\bR$ not in $\sigma$. Let $A$ be an open ball centered at $v_0$ such that $A \cap \sigma = \emptyset$. This exists because $\sigma$ is a closed subset of $N_\bR$ which does not contain $v_0$, meaning the distance from $v_0$ to $\sigma$ is positive. By Hahn-Banach, there exists a linear functional $\lambda \in M_\bR$ such that $\lambda(v_0) < M = \inf \lambda(B)$. We show that $M = v_0$, hence $\lambda \in \sigma^{\vee}$.
+
+		We must have that $M \leq 0$ since $\lambda(0) = 0$ and $0 \in \sigma$. If $M < 0$, then there would necessarily be some $x \in \sigma$ such that $\lambda(x) < 0$. Assuming this to be the case, set $a = \frac{2\lambda(v_0)}{\lambda(x)}$, noting that $a > 0$ since $\lambda(x), \lambda(v_0) < 0$. This means that $a x \in \sigma$. However, recalling that $\lambda(v_0) < 0$, we have that
+		\begin{align*}
+			\lambda(ax) = a\lambda(x) = 2\lambda(v_0) < \lambda(v_0),
+		\end{align*}
+		which is impossible since $\lambda(v_0) < \lambda(u)$ for all $u \in \sigma$. Hence, by contradiction, $M = 0$ and $\lambda$ is nonnegative on all of $\sigma$. This means $\lambda \in \sigma^{\vee}$, so we are done.
+
+		\bigskip
+
+		I sincerely hope there is another proof besides the two provided here. The first feels highly unnatural and the second seems non-trivial. Given that both Cox-Little-Schneck and Fulton omit a proof of this fact in their book and that neither includes this problem as an exercise, I expect there exists a more natural, obvious proof of this fact that I am missing.
+	\end{prf}
+
+
+	\prob[\textsc{Exercise 10}] Another problem
+\end{homework}
+
+\tchap{Practice Problems}
+\begin{homework}[e]
+	\prob First problem
+	\prob[\textsc{Exercise 10}] Another problem
+\end{homework}
+
+\end{document}

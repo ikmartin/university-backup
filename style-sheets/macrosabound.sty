@@ -15,8 +15,15 @@
 \usepackage{letltxmacro}
 \usepackage{manfnt}
 \usepackage{lipsum}
+% Any of the following provide uppercase and lowercase fonts, and probably many more
+%\setmathfont{TeX Gyre Pagella Math}
+%\setmathfont{TeX Gyre Termes Math}
+%\setmathfont{STIX}
+%\setmathfont{Asana Math}
 
 \AtBeginDocument{\ifdef{\textosf}{}{\newcommand{\textosf}{\textup}}}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
 
 %Text-in-math Shortcuts%
 \DeclareMathOperator{\res}{res}
@@ -28,6 +35,7 @@
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Inn}{Inn}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Grp}{Grp}
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
 \DeclareMathOperator{\SO}{SO}
@@ -39,11 +47,12 @@
 \DeclareMathOperator{\frakgl}{\mathfrak{g}\mathfrak{l}}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\orb}{orb}
+\DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Stab}{Stab}
 \DeclareMathOperator{\Proj}{Proj}
 \DeclareMathOperator{\Conj}{Conj}
 \DeclareMathOperator{\Ann}{Ann}
-\DeclareMathOperator{\Int}{int}
+\DeclareMathOperator{\Int}{Int}
 \DeclareMathOperator{\Ind}{Ind}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\cl}{cl}
@@ -64,7 +73,7 @@
 \DeclareMathOperator{\Gr}{Gr}
 \DeclareMathOperator{\Spec}{Spec}
 \DeclareMathOperator{\MaxSpec}{MaxSpec}
-\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Diff}{\mathpzc{Diff}}
 \DeclareMathOperator{\nil}{nil}
 \DeclareMathOperator{\Frac}{Frac}
 \DeclareMathOperator{\Homeo}{Homeo}
