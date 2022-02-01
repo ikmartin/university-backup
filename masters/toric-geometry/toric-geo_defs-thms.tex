@@ -1,0 +1,88 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Toric Geometry: \\
+	Theorems and Definitions \\
+	
+	\bigskip
+	\Large
+	Isaac Martin \\
+	Lent 2022 \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+
+\tableofcontents
+\newpage
+
+\setcounter{section}{0}
+
+\section{Dictionary}
+Toric geometry is concerned with the construction of varieties and schemes given by specifying semigroups and fans and other combinatorial objects. It is therefore useful to fix certain symbols.
+\begin{itemize}
+	\item $N$: We define $N = \Hom_{\Grp}(\bC^*, (\bC^*)^n)$ and note that $N \cong \bZ^{n}$. 
+	\item $M$ : We define $M$ to be the dual lattice of $N$, $M = \Hom_\bZ(N,\bZ) \cong \bZ^n$.
+	\item $N_\bR$ and  $M_\bR$ : We define $N_\bR = N \otimes_\bZ \bR \cong \bR^n$ and $M_\bR = M \otimes_\bR \bR \cong \bR^n$.
+\end{itemize}
+
+\newpage
+\section{What makes a toric variety?}
+
+\subsection{Tori}
+\subsection{Toric Varieties}
+\subsection{Cones and Fans}
+Throughout this section, let $T \cong \left(\bC^*\right)^n$ and $N = \Hom_{\Grp}(\bC^*, T) \cong \bZ^n$. Note that $N$ is the collection of 1-parameter subgroups of $T$, or the set of cocharacters if you prefer that terminology. In addition, every variety is an integral separated scheme of finite type over $\Spec \bC$ unless otherwise specified.
+
+\begin{defn}\label{defn:rational-poly-cone}
+	A \emph{rational polyhedral cone} $\sigma$ in $N$ is a set $\sigma \subseteq N_\bR = N \otimes_\bZ\bR \cong \bR^n$ given by the positive span of some finite subset of $N_\bR$, i.e. a set
+	\begin{align*}
+		\sigma = \cone(v_1,...,v_k) = \left\{\sum_{i=1}^{k}c_iv_i \midd c_i \in \bR_{\geq 0}\right\}.
+	\end{align*}
+\end{defn}
+\begin{defn}\label{defn:span-dim-of-cone}
+	Let $\sigma = \cone\{v_1, ...,v_k\}$ be a rational polyhedral cone. The \emph{span} of $\sigma$ is the smallest vector subspace $V$ containing $\sigma$. We have that
+	\begin{align*}
+		V = \sigma + (-\sigma) = \span\{v_1,...,v_k\} = \span\{\sigma\}.
+	\end{align*}
+	The \emph{dimension} of $\sigma$ is the dimension of the span of $\sigma$. We say that $\sigma$ is \emph{full-dimensional} if $\dim \sigma = \dim N_\bR = n$. 
+\end{defn}
+\begin{defn}\label{defn:strictly-convex}
+	A rational polyhedral cone is said to be \emph{strictly convex} if it doesn't contain a line, i.e. if it doesn't contain a one dimensional affine subspace of $N_\bR$.
+
+	Unless otherwise specified, by ``cone'' we mean ``strictly convex rational polyhedral cone''.
+\end{defn}
+
+\begin{defn}\label{defn:fan}
+	A \emph{fan} $\Sigma$ in $N$ is a collection of cones in $N$ such that
+	\begin{enumerate}[(i)]
+		\item if $\sigma \in \Sigma$ then every face of $\sigma$ belongs to $\Sigma$ 
+		\item if $\sigma_1,\sigma_2\in \Sigma$ then $\sigma_1\cap \sigma_2$ is a face of both $\sigma_1$ and $\sigma_2$.
+	\end{enumerate}
+\end{defn}
+\begin{defn}\label{defn:dual-cone}
+	Given a cone $\sigma \subseteq N_\bR$, the \emph{dual cone} $\sigma\vee \subseteq M_\bR$ is defined
+	\begin{align*}
+		\sigma^{\vee} = \left\{m \in M_\bR \midd \langle m,v\rangle \geq 0, ~\forall v \in \sigma\right\}.
+	\end{align*}
+	The pairing $\langle -,-\rangle: M_\bR \times N_\bR \to \bR$ is simply the evaluation map $\langle m,u\rangle = m(u)$.
+
+	We further define the double dual $(\sigma^{\vee})^{\vee}$ by
+	\begin{align*}
+		(\sigma^{\vee})^{\vee} = \left\{v \in N_\bR \midd \langle m,v\rangle \geq 0, ~ \forall m \in \sigma^{\vee}\right\} 
+	\end{align*}
+\end{defn}
+The following are fundamental facts regarding $\sigma$ and $\sigma^{\vee}$.
+\begin{prop}\label{prop:facts-about-cones-and-duals}
+	Let $\sigma$ be a cone in $N$ and $\sigma^{\vee}$ be its dual.
+	\begin{enumerate}[(a)]
+		\item $\sigma^{\vee}$ is a rational polyhedral cone in $M$ (not necessarily strictly convex)
+		\item $(\sigma^{\vee})^{\vee} = \sigma$
+		\item $\sigma$ is full-dimensional if and only if $\sigma^{\vee}$ is strictly convex
+	\end{enumerate}
+\end{prop}
+\end{document}
