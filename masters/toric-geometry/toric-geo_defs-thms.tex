@@ -43,6 +43,7 @@ Throughout this section, let $T \cong \left(\bC^*\right)^n$ and $N = \Hom_{\Grp}
 	\begin{align*}
 		\sigma = \cone(v_1,...,v_k) = \left\{\sum_{i=1}^{k}c_iv_i \midd c_i \in \bR_{\geq 0}\right\}.
 	\end{align*}
+	By rescaling the cone basis set, we may assume $v_i \in N$ for each $1\leq i\leq k$, and from now on will do so.
 \end{defn}
 \begin{defn}\label{defn:span-dim-of-cone}
 	Let $\sigma = \cone\{v_1, ...,v_k\}$ be a rational polyhedral cone. The \emph{span} of $\sigma$ is the smallest vector subspace $V$ containing $\sigma$. We have that
@@ -55,14 +56,6 @@ Throughout this section, let $T \cong \left(\bC^*\right)^n$ and $N = \Hom_{\Grp}
 	A rational polyhedral cone is said to be \emph{strictly convex} if it doesn't contain a line, i.e. if it doesn't contain a one dimensional affine subspace of $N_\bR$.
 
 	Unless otherwise specified, by ``cone'' we mean ``strictly convex rational polyhedral cone''.
-\end{defn}
-
-\begin{defn}\label{defn:fan}
-	A \emph{fan} $\Sigma$ in $N$ is a collection of cones in $N$ such that
-	\begin{enumerate}[(i)]
-		\item if $\sigma \in \Sigma$ then every face of $\sigma$ belongs to $\Sigma$ 
-		\item if $\sigma_1,\sigma_2\in \Sigma$ then $\sigma_1\cap \sigma_2$ is a face of both $\sigma_1$ and $\sigma_2$.
-	\end{enumerate}
 \end{defn}
 \begin{defn}\label{defn:dual-cone}
 	Given a cone $\sigma \subseteq N_\bR$, the \emph{dual cone} $\sigma\vee \subseteq M_\bR$ is defined
@@ -85,4 +78,17 @@ The following are fundamental facts regarding $\sigma$ and $\sigma^{\vee}$.
 		\item $\sigma$ is full-dimensional if and only if $\sigma^{\vee}$ is strictly convex
 	\end{enumerate}
 \end{prop}
+\begin{defn}\label{defn:fan}
+	A \emph{fan} $\Sigma$ in $N$ is a collection of cones in $N$ such that
+	\begin{enumerate}[(i)]
+		\item if $\sigma \in \Sigma$ then every face of $\sigma$ belongs to $\Sigma$ 
+		\item if $\sigma_1,\sigma_2\in \Sigma$ then $\sigma_1\cap \sigma_2$ is a face of both $\sigma_1$ and $\sigma_2$.
+	\end{enumerate}
+\end{defn}
+We wish to construct varieties from cones and fans. Starting with a cone $\sigma$ in $N$, we will associate to it an affine variety $X_\sigma = \Spec R_\sigma$. Given a fan $\Sigma$, we will construct a variety $X_\Sigma$ by gluing together $X_{\sigma_1}$ and $X_{\sigma_2}$ along $X_{\sigma_1 \cap \sigma_2}$.
+
+We focus first on building a variety $X_\sigma$ from a cone $\sigma$ in $N$. 
+\begin{itemize}
+	\item Start with a 
+\end{itemize}
 \end{document}
