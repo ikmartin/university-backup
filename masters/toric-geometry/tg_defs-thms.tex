@@ -1,0 +1,201 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Toric Geometry: \\
+	Theorems and Definitions \\
+	
+	\bigskip
+	\Large
+	Isaac Martin \\
+	Lent 2022 \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+
+\tableofcontents
+\newpage
+
+\setcounter{section}{0}
+
+\section{Dictionary}
+Toric geometry is concerned with the construction of varieties and schemes given by specifying semigroups and fans and other combinatorial objects. It is therefore useful to fix certain symbols.
+\begin{itemize}
+	\item $N$: We define $N = \Hom_{\Grp}(\bC^*, (\bC^*)^n)$ and note that $N \cong \bZ^{n}$. 
+	\item $M$ : We define $M$ to be the dual lattice of $N$, $M = \Hom_\bZ(N,\bZ) \cong \bZ^n$.
+	\item $N_\bR$ and  $M_\bR$ : We define $N_\bR = N \otimes_\bZ \bR \cong \bR^n$ and $M_\bR = M \otimes_\bR \bR \cong \bR^n$.
+\end{itemize}
+
+\newpage
+\section{What makes a toric variety?}
+
+\subsection{Tori}
+\subsection{Toric Varieties}
+\subsection{Cones and Fans}
+Throughout this section, let $T \cong \left(\bC^*\right)^n$ and $N = \Hom_{\Grp}(\bC^*, T) \cong \bZ^n$. Note that $N$ is the collection of 1-parameter subgroups of $T$, or the set of cocharacters if you prefer that terminology. In addition, every variety is an integral separated scheme of finite type over $\Spec \bC$ unless otherwise specified.
+
+\begin{defn}\label{defn:rational-poly-cone}
+	A \emph{rational polyhedral cone} $\sigma$ in $N$ is a set $\sigma \subseteq N_\bR = N \otimes_\bZ\bR \cong \bR^n$ given by the positive span of some finite subset of $N_\bR$, i.e. a set
+	\begin{align*}
+		\sigma = \cone(v_1,...,v_k) = \left\{\sum_{i=1}^{k}c_iv_i \midd c_i \in \bR_{\geq 0}\right\}.
+	\end{align*}
+	By rescaling the cone basis set, we may assume $v_i \in N$ for each $1\leq i\leq k$, and from now on will do so.
+\end{defn}
+\begin{defn}\label{defn:span-dim-of-cone}
+	Let $\sigma = \cone\{v_1, ...,v_k\}$ be a rational polyhedral cone. The \emph{span} of $\sigma$ is the smallest vector subspace $V$ containing $\sigma$. We have that
+	\begin{align*}
+		V = \sigma + (-\sigma) = \span\{v_1,...,v_k\} = \span\{\sigma\}.
+	\end{align*}
+	The \emph{dimension} of $\sigma$ is the dimension of the span of $\sigma$. We say that $\sigma$ is \emph{full-dimensional} if $\dim \sigma = \dim N_\bR = n$. 
+\end{defn}
+\begin{defn}\label{defn:strictly-convex}
+	A rational polyhedral cone is said to be \emph{strictly convex} if it doesn't contain a line, i.e. if it doesn't contain a one dimensional affine subspace of $N_\bR$.
+
+	Unless otherwise specified, by ``cone'' we mean ``strictly convex rational polyhedral cone''.
+\end{defn}
+\begin{defn}\label{defn:dual-cone}
+	Given a cone $\sigma \subseteq N_\bR$, the \emph{dual cone} $\sigma\vee \subseteq M_\bR$ is defined
+	\begin{align*}
+		\sigma^{\vee} = \left\{m \in M_\bR \midd \langle m,v\rangle \geq 0, ~\forall v \in \sigma\right\}.
+	\end{align*}
+	The pairing $\langle -,-\rangle: M_\bR \times N_\bR \to \bR$ is simply the evaluation map $\langle m,u\rangle = m(u)$.
+
+	We further define the double dual $(\sigma^{\vee})^{\vee}$ by
+	\begin{align*}
+		(\sigma^{\vee})^{\vee} = \left\{v \in N_\bR \midd \langle m,v\rangle \geq 0, ~ \forall m \in \sigma^{\vee}\right\} 
+	\end{align*}
+\end{defn}
+The following are fundamental facts regarding $\sigma$ and $\sigma^{\vee}$.
+\begin{prop}\label{prop:facts-about-cones-and-duals}
+	Let $\sigma$ be a cone in $N$ and $\sigma^{\vee}$ be its dual.
+	\begin{enumerate}[(a)]
+		\item $\sigma^{\vee}$ is a rational polyhedral cone in $M$ (not necessarily strictly convex)
+		\item $(\sigma^{\vee})^{\vee} = \sigma$
+		\item $\sigma$ is full-dimensional if and only if $\sigma^{\vee}$ is strictly convex
+	\end{enumerate}
+\end{prop}
+\begin{defn}\label{defn:fan}
+	A \emph{fan} $\Sigma$ in $N$ is a collection of cones in $N$ such that
+	\begin{enumerate}[(i)]
+		\item if $\sigma \in \Sigma$ then every face of $\sigma$ belongs to $\Sigma$ 
+		\item if $\sigma_1,\sigma_2\in \Sigma$ then $\sigma_1\cap \sigma_2$ is a face of both $\sigma_1$ and $\sigma_2$.
+	\end{enumerate}
+\end{defn}
+We wish to construct varieties from cones and fans. Starting with a cone $\sigma$ in $N$, we will associate to it an affine variety $X_\sigma = \Spec R_\sigma$. Given a fan $\Sigma$, we will construct a variety $X_\Sigma$ by gluing together $X_{\sigma_1}$ and $X_{\sigma_2}$ along $X_{\sigma_1 \cap \sigma_2}$.
+
+We focus first on building a variety $X_\sigma$ from a cone $\sigma$ in $N$. Here is our construction/definition.
+\begin{construct}\label{construct:affine-toric-variety-from-monoid}
+	Given a cone $\sigma \subseteq N_\bR$ and its dual cone $\sigma^{\vee} \subseteq M_\bR$, we define
+	\begin{equation}\label{eqn:semigroup-assoc-to-cone}
+		S_\sigma := \sigma \cap M
+	\end{equation}
+	to be the semigroup associated to $\sigma$. Note that some authors call this a monoid (we have inverses) and we think of it as an abelian group without inverses. We then consider the group algebra over $\bC$ with basis $S_\sigma$:
+	\begin{equation}\label{eqn:ring-assoc-to-cone}
+		\bC[S_\sigma] = \left\{\sum_{i=1}^{r} c_i \cdot z^{m_i} \midd c_i \in \bC, ~m_i \in S_\sigma \subseteq M\right\}.
+	\end{equation}
+	The addition on $\bC[S_\sigma]$ is formal. The multiplication is defined $z^{m_i}\cdot z^{m_j} = z^{m_i + m_j}$ and is extended by distribution. E.g. we have that $\bC[\bN^n] = \bC[t_1,...,t_n]$ and $\bC[\bZ^n] = \bC[t_1^{\pm},...,t_n^{\pm}]$.
+
+	Finally, we define
+	\begin{equation}\label{eqn:affine-toric-variety}
+	    X_\sigma = \Spec \bC[S_\sigma]
+	\end{equation}
+	to be the affine toric variety associated to $\sigma$. Note that because we will eventually build toric varieties from fans whose affine pieces are given by pieces of the above form, we sometimes denote $X_\sigma$ by $U_\sigma$ instead.
+\end{construct}
+It is still left to show that $X_\sigma$ constructed in this way is in fact a toric variety.
+
+\begin{prop}(Cox-Little-Scheck)\label{prop:variety-assoc-to-cone-is-toric}
+	If $\sigma$, $S_\sigma$, and $X_\sigma$ are as in Construction (\ref{construct:affine-toric-variety-from-monoid}) then $X_\sigma$ is an affine toric variety.
+\end{prop}
+\begin{proof}
+	See page 31 of Cox-Little Scheck. Fill it in later.
+\end{proof}
+One might ask, ``Why do we define $S_\sigma$ as a subset of the dual lattice $M$ rather than the lattice $N$? Surely we could take $S_\sigma = \sigma \cap N$ and get an equally reasonable result.''
+
+\begin{center}
+	\textbf{COME BACK TO THE ABOVE QUESTION. CONSIDER REVERSE CONSTRUCTION -- GIVEN AFFINE TORIC VARIETY $T \subseteq X$ CONSTRUCT A SEMIGROUP (HOWEVER ONE DOESN'T ALWAYS GET A CONE)}
+\end{center}
+
+\newpage
+
+\section{Smoothness of Affine Toric Varieties}
+
+The main goal of this section is a classification of smooth affine toric varieties associated to cones $\sigma$. This is Theorem (\ref{thm:smooth-characterization}). Before we proceed, however, we prove several useful lemmas. Throughout this section $X_\sigma$ is an affine toric variety associated to a cone $\sigma \subseteq M_\bR$.
+\begin{lem}\label{lem:Z-basis-smooth-lemma}
+	Let $\sigma = \cone(v_1,...,v_k)\subseteq N_\bR$ be a cone. Suppose $\{v_1,...,v_k\}$ forms some part of a $\bZ$-basis for $N$. Then $X_\sigma \cong \bC^k\times (\bC^*)^{n-k}$ where $k = \dim \sigma \leq n$.
+\end{lem}
+\begin{proof}
+	Choose a basis $e_1,...,e_n$ for $N$ such that $v_i = e_i$ for $1 \leq i\leq k$ (that $\{v_1,...,v_k\}$ is a $\bZ$-basis for $N$ exactly makes this possible). This implies that $S_\sigma = \sigma^{\vee}\cap M$ is generated by 
+	\begin{align*}
+		e_1^*,...,e_k^*, \pm e_{k+1}^*,...,\pm e_n^* \in M.
+	\end{align*}
+	To see this, it helps to note the $e_{i}^*$ for $k+1 \leq i\leq n$ are exactly the basis vectors of $M$ which are zero on $\sigma$. This means
+	\begin{align*}
+		\bC[S_\sigma] = \bC[t_1,...,t_k,t_{k+1}^{\pm}, ..., t_n^{*}] = \bC[t_1,...,t_n] \otimes_\bC \bC[t_{k+1}^\pm, ...,t_n^\pm]. 
+	\end{align*}
+\end{proof}
+
+\begin{lem}\label{lem:closed-points-and-semigroup-hom}
+	There exists a bijection correspondence
+	\begin{align*}
+		\left(\begin{array}{c}
+			\text{closed points} \\
+			\text{of } X_\sigma
+		\end{array}\right) \leftrightarrow
+		\left(\begin{array}{c}
+			\text{semigroup} \\
+			\text{homomorphisms} \\
+			S_\sigma \to \bC
+		\end{array}\right).
+	\end{align*}
+\end{lem}
+
+\begin{proof}
+	We have the following one-to-one correspondences:
+	\begin{align*}
+		\left\{\begin{array}{c}
+			\text{closed points} \\
+			\text{in X}
+		\end{array}\right\} \leftrightarrow 
+		\left\{\begin{array}{c}
+			\text{scheme maps} \\
+			\Spec \bC \to \Spec \bC[S_\sigma]
+		\end{array}\right\} \leftrightarrow^{(*)} 
+		\left\{\begin{array}{c}
+			\text{semigroup morphisms} \\
+			S_\sigma \to \bC
+		\end{array}\right\}.
+	\end{align*}
+	Only ($\ast$) is new. 
+\end{proof}
+
+\begin{defn}\label{defn:perp-cone-distinguished-semigroup-hom}
+	Define $x_\sigma \in X_\sigma$ to be the point corresponding to the semigroup map
+	\begin{align*}
+		S_\sigma \xrightarrow{x_\sigma} \bC, ~ m \mapsto 
+		\begin{cases}
+			1 & \text{if } m \in \sigma^\perp \\
+			0 & \text{otherwise} 
+		\end{cases},
+	\end{align*}
+	where
+	\begin{align*}
+		\sigma^\perp = \left\{m\in M_\bR \midd \langle u,m\rangle = 0, ~\forall u \in \sigma\right\} .
+	\end{align*}
+\end{defn}
+We now proceed to Theorem (\ref{thm:smooth-characterization}).
+\begin{thm}\label{thm:smooth-characterization}
+	Let  $\sigma \subseteq N_\bR$ be a cone and $X_\sigma$ be the associated affine toric variety. The following are equivalent:
+	\begin{enumerate}[(i)]
+		\item $X_\sigma$ is smooth
+		\item $\sigma$ is generated by a subset of a $\bZ$-basis for $N$ 
+		\item $X_\sigma \cong \bC^k \times (\bC^*)^{n-k}$ where $k = \dim \sigma$.
+	\end{enumerate}
+\end{thm}
+\begin{proof}[\ref{thm:smooth-characterization}]
+	Lemma (\ref{lem:Z-basis-smooth-lemma}) gives us $(ii)\implies (iii)$. The fibre product of smooth schemes with smooth structure maps is again smooth, so $(iii)\implies (i)$ is clear. It is only left to prove $(i) \implies (ii)$. 
+\end{proof}
+\end{document}

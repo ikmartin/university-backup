@@ -1,0 +1,67 @@
+\input{preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Notes from the VaNTAGe Seminar \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+
+\tableofcontents
+\newpage
+
+\section{2022-02-01: Computing isomorphism classes of abelian varieties over finite fields}
+
+We have a nice classification of abelian varieties $A/\bC$ of dimension $g$. For such a variety, $A(\bC)$ is a torus: $T:= \bC^g/\Lambda$ where $\Lambda \simeq_\bZ \bZ^{2g}$. In addition, $T$ admits a non-degenerate \emph{Riemann form} which in turn yields a polarization. The functor $A \mapsto A(\bC)$ therefore yields an equivalence of categories:
+\begin{align*}
+	\left\{\text{abelian varieties}/\bC\right\} \leftrightarrow
+	\begin{array}{c}
+		\bC^g/\lambda \text{ with } \Lambda \simeq \bZ^{2g} admitting \\
+		a Riemann form
+	\end{array}.
+\end{align*}
+In characteristic $p >0$, such an equivalence \emph{cannot} exit. There are supersingular elliptic curves with quaternionic endomorphism algebras. Nevertheless, over finite fields, we can obtain analogous results if we restrict ourselves to certain subcategories of abelian varieties.
+
+Recall that an abelian variety $A/\bF_q$, with $q$ a power of a prime, comes equipped with a Frobenius endomorphism that induces an action
+\begin{align*}
+	\Frob_A:T_\ell A\to T_\ell A
+\end{align*}
+for any $\ell \neq p$ where $T_\ell(A) = \injlim A[\ell^n] \simeq \bZ^{2g}_\ell$. This is a $\bF_q$-linear map of vector spaces. The characteristic polynomial of this operator is denoted $h_A(x):= \fchar(\Frob_A)$, and it is a $q$-Weil polynomial and is isogeny invariant.
+
+By Honda-Tate theory (that thing from the end of local fields) the association
+\begin{center}
+	isogeny class of $A ~ \leftrightarrow ~$ $h_A(x)$
+\end{center}
+is injective and allows us to enumerate all abelian varieties over $\bF_q$ up to isogeny. We also have that $h_A(x)$ is squarefree if and only if $\End(A)$ is commutative. 
+
+Deligne came up with an equivalence of categories for \emph{ordinary} abelian varieties over $\bF_q$ analogous to that seen in abelian categories over $\bC$.
+
+We say that $A/\bF_q$ is \emph{ordinary} if half of the $p$-adic roots of $h_A$ are units. 
+\begin{thm}[Deligne '69']\label{thm:deligne-equivalence-abelian-char-p-varieties}
+	Let $q = p^r$ with $p$ prime. There is an equivalence of categories between the category of ordinary abelian varieties over $\bF_q$ and the category of pairs $(T,F)$ with $T \simeq_\bZ \bZ^{2g}$ and $T \xrightarrow{F}T$ which satisfy the following:
+	\begin{itemize}
+		\item $F\otimes \bQ$ is semisimple
+		\item the roots of $\fchar_{F\otimes \bQ}(x)$ have absolute value $\sqrt{q}$ and half of them are $p$-adic units
+		\item There exists $V:T\to V$ such that $FV = VF = q$.
+	\end{itemize}
+	This is equivalence is given by the functor $A\mapsto (T(A),F(A))$.
+\end{thm}
+
+Let's consider the case that $h_A$ is square free.
+\begin{itemize}
+	\item Fix an \emph{ordinary squarefree} $q$-Weil polynomial $h:$ 
+	\item Put $K := \bQ[x]/(h) = \bQ[F]$, an \'etale algebra = product of number fields.
+	\item Put $V = q/F$. Deligne's equivalence induces:
+	\begin{thm}\label{}
+		$ \{\text{abelian varieties over $bF_q$ in $\cC_h$}\}/\sim$ ...
+	\end{thm}
+\end{itemize}
+
+Didn't get anything else :/
+\end{document}

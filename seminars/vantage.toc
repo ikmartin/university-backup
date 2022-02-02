@@ -1,0 +1,1 @@
+\contentsline {section}{\numberline {1}2022-02-01: Computing isomorphism classes of abelian varieties over finite fields}{2}{section.1}%
