@@ -3,4 +3,5 @@
 \contentsline {subsection}{\numberline {2.1}Tori}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Toric Varieties}{3}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Cones and Fans}{3}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Smoothness of Affine Toric Varieties}{5}{section.3}%
+\contentsline {section}{\numberline {3}Properties of Affine Toric Varieties}{5}{section.3}%
+\contentsline {section}{\numberline {4}Smoothness of Affine Toric Varieties}{6}{section.4}%

@@ -85,7 +85,19 @@ The following are fundamental facts regarding $\sigma$ and $\sigma^{\vee}$.
 		\item if $\sigma_1,\sigma_2\in \Sigma$ then $\sigma_1\cap \sigma_2$ is a face of both $\sigma_1$ and $\sigma_2$.
 	\end{enumerate}
 \end{defn}
-We wish to construct varieties from cones and fans. Starting with a cone $\sigma$ in $N$, we will associate to it an affine variety $X_\sigma = \Spec R_\sigma$. Given a fan $\Sigma$, we will construct a variety $X_\Sigma$ by gluing together $X_{\sigma_1}$ and $X_{\sigma_2}$ along $X_{\sigma_1 \cap \sigma_2}$.
+We wish to construct varieties from cones and fans. Starting with a cone $\sigma$ in $N$, we will associate to it an affine variety $X_\sigma = \Spec R_\sigma$. Given a fan $\Sigma$, we will construct a variety $X_\Sigma$ by gluing together $X_{\sigma_1}$ and $X_{\sigma_2}$ along $X_{\sigma_1 \cap \sigma_2}$. We will first build affine toric varieties, and for that, we'll need affine semigroups.
+
+\begin{defn}\label{defn:affine-semigroup}
+	A \emph{semigroup} is a set $S$ together with an associative binary operation and an identity element. This is what some (most) people seem to call a monoid -- it's a category with a single point. To be an \emph{affine semigroup}, $S$ must additionally satisfy:
+	\begin{itemize}
+		\item $S$ is commutative. We will write the binary operation as $+$ and the identity element as  $0$ to reflect this. Note that this means a finite set $A \subseteq S$ therefore generates
+			\begin{align*}
+				\bN A = \left\{\sum_{m\in A} a_m m \midd a_m \in \bN\right\}.
+			\end{align*}
+		\item  $S$ is finitely generated, i.e. there is a finite set $A \subseteq S$ such that $\bN A = S$. 
+		\item The semigroup can be embedded in a lattice $M$.
+	\end{itemize}
+\end{defn}
 
 We focus first on building a variety $X_\sigma$ from a cone $\sigma$ in $N$. Here is our construction/definition.
 \begin{construct}\label{construct:affine-toric-variety-from-monoid}
@@ -93,7 +105,7 @@ We focus first on building a variety $X_\sigma$ from a cone $\sigma$ in $N$. Her
 	\begin{equation}\label{eqn:semigroup-assoc-to-cone}
 		S_\sigma := \sigma \cap M
 	\end{equation}
-	to be the semigroup associated to $\sigma$. Note that some authors call this a monoid (we have inverses) and we think of it as an abelian group without inverses. We then consider the group algebra over $\bC$ with basis $S_\sigma$:
+	to be the semigroup associated to $\sigma$. We then consider the group algebra over $\bC$ with basis $S_\sigma$:
 	\begin{equation}\label{eqn:ring-assoc-to-cone}
 		\bC[S_\sigma] = \left\{\sum_{i=1}^{r} c_i \cdot z^{m_i} \midd c_i \in \bC, ~m_i \in S_\sigma \subseteq M\right\}.
 	\end{equation}
@@ -118,6 +130,27 @@ One might ask, ``Why do we define $S_\sigma$ as a subset of the dual lattice $M$
 \begin{center}
 	\textbf{COME BACK TO THE ABOVE QUESTION. CONSIDER REVERSE CONSTRUCTION -- GIVEN AFFINE TORIC VARIETY $T \subseteq X$ CONSTRUCT A SEMIGROUP (HOWEVER ONE DOESN'T ALWAYS GET A CONE)}
 \end{center}
+
+\newpage
+
+\section{Properties of Affine Toric Varieties}
+
+\begin{defn}\label{defn:saturated-semigroup}
+	An affine semigroup $S \subseteq M$ is said to be  \emph{saturated} if for all $k \in \bN \setminus \{0\}$ and $m \in M$, $km \in S$ implies $m \in S$.
+\end{defn}
+An affine semigroup $S$ is saturated if and only if $S = S_\sigma = \sigma^{\vee} \cap M$ for some strongly convex rational polyhedral cone $\sigma \subseteq N$. In terms of toric varieties, this means the following:
+\begin{prop}\label{thm:saturated-semigroup-and-cone}
+	Let $V$ be an affine toric variety with torus $T_N$. Then the following are equivalent:
+	\begin{enumerate}[(i)]
+	    \item $V$ is normal (for us this means $V \cong \Spec R$ for some integrally closed domain $R$.)
+		\item $V \cong \Spec(\bC[S])$, where $S \subseteq M$ is some saturated affine semigroup
+		\item $V \cong \Spec \bC[S_\sigma] = X_\sigma$, where $S_\sigma = \sigma^{\vee} \cap M$ and $\sigma \subseteq N_\bR$ is a strongly convex rational polyhedral cone.
+	\end{enumerate}
+\end{prop}
+\begin{prf}
+	
+\end{prf}
+Notice that embedded in the equivalence $(b) \iff (c)$ from Theorem (\ref{thm:saturated-semigroup-and-cone}) is the fact that a semigroup is affine if and only if it is isomorphic to $S_\sigma$ for some strongly convex rational polyhedral cone $\sigma$. 
 
 \newpage
 
@@ -161,7 +194,8 @@ The main goal of this section is a classification of smooth affine toric varieti
 			\text{in X}
 		\end{array}\right\} \leftrightarrow 
 		\left\{\begin{array}{c}
-			\text{scheme maps} \\
+			\text{maps of schemes} \\
+			\text{over $\bC$} \\
 			\Spec \bC \to \Spec \bC[S_\sigma]
 		\end{array}\right\} \leftrightarrow^{(*)} 
 		\left\{\begin{array}{c}
@@ -169,7 +203,7 @@ The main goal of this section is a classification of smooth affine toric varieti
 			S_\sigma \to \bC
 		\end{array}\right\}.
 	\end{align*}
-	Only ($\ast$) is new. 
+	Only ($\ast$) is new. A morphism of schemes $\Spec \bC \to \Spec \bC[S_\sigma]$ over $\bC$ yields a morphism of $\bC$-algebras $\varphi:\Spec \bC[S_\sigma] \to \Spec \bC$, which in turn determines an affine semigroup homomorphism $S_\sigma \to \bC$ (with $\bC$ considered to be an affine semigroup under multiplication) since $\varphi(z^{t+s}) = \varphi(z^t)\varphi(z^s)$. Likewise, any homomorphism of affine semigroups $\psi:S_\sigma \to \bC$ can be extended to an algebra homomorphism $\varphi:\bC[S_\sigma]\to \bC$ by making a choice for the field automorphism $\varphi|_\bC$. Normally, we would have two choices for $\varphi|_\bC$, but in order for this to be compatible with the structure maps on $\Spec \bC$ and $\Spec \bC[S_\sigma]$, we have only \emph{one} choice. Therefore $\varphi$ is uniquely determined by the image of $S_\sigma$ in $\bC$, and since it is a $\bC$-algebra homomorphism it corresponds to a unique map of schemes over  $\bC$. 
 \end{proof}
 
 \begin{defn}\label{defn:perp-cone-distinguished-semigroup-hom}

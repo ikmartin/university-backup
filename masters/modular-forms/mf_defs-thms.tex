@@ -1,0 +1,68 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Toric Geometry: \\
+	Theorems and Definitions \\
+	
+	\bigskip
+	\Large
+	Isaac Martin \\
+	Lent 2022 \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+
+\tableofcontents
+\newpage
+
+\setcounter{section}{0}
+
+\section{Notation and Preliminaries}
+\begin{defn}\label{defn:basic-notation}$ $
+	\begin{itemize}
+		\item $\frakh = \left\{\tau \in \bC \midd \Im(\tau) > 0\right\} $ is the upper half plane in $\bC$ 
+		\item $\GL_2(\bR)^+ = \left\{g \in \GL_2(\bR) \midd \det(g) > 0\right\} $ is the set of all automorphisms of $\bR^2$ with positive determinant
+		\item $\SL_2(\bR) = \left\{g \in \GL_2(\bR) \midd \det (g) = 1\right\} $ is the standard special linear subgroup of $\GL_2(\bR)$
+		\item $\SL_2(\bZ) = \left\{\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \SL_2(\bR) \midd a,b,c,d \in \bZ\right\} $ is the special linear subgroup of $\GL_2(\bZ)$.
+	\end{itemize}
+\end{defn}
+
+\begin{lem}\label{lem:transitive-GL2-action-on-H}
+	The group  $GL_2(\bR)^+$ acts transitively on $\frakh$ by M\"obius transformations (fractional linear transformations). That is, for any $g = \begin{pmatrix}a & b \\ c & d\end{pmatrix} \in \GL_2(\bR)$ and any $\tau = x + iy \in \frakh$,
+	 \begin{align*}
+		\begin{pmatrix}
+			a & b \\
+			c & d
+		\end{pmatrix} \tau = \frac{a\tau + b}{c\tau + d} \in \frakh
+	\end{align*}
+	and 
+	\begin{align*}
+		\tau = x + iy = 
+        \begin{pmatrix}
+		    y & x \\
+		    0 & 1
+    	\end{pmatrix}i.
+	\end{align*}
+\end{lem}
+
+\begin{lem}\label{lem:weight-k-action-on-mero-func}
+	Suppose $k \in \bZ$, $f:\frakh \to \bC$ is a meromorphic function, and $g \in \GL_2(\bR)^+$. We define the \textbf{weight k action of $g$} on $f$ to be the right action $\left(f \mapsto f|_k[g]\right)$ where $f|_k[g]:\frakh \to \bC$ is a meromorphic function defined
+	\begin{align*}
+		f |_k[g](\tau) = \det(g) f(g\tau)j(g,\tau)^k,
+	\end{align*}
+	where if $g = \begin{pmatrix}a & b \\ c & d\end{pmatrix}$ then $j(g,\tau) = (c\tau + d)$.
+\end{lem}
+
+\begin{defn}\label{defn:weakly-mod-func-to-mod-forms}
+	Let $k \in \bZ$ and let $\Gamma \leq SL_2(\bZ)$ be a subgroup of finite index. A \textbf{weakly modular function} of weight $k$ and level $\Gamma$ is a meromorphic function $f$ on $\frakh$ such that for all  $\gamma \in \Gamma$, $f|_k[\gamma] = f$. A \textbf{modular function} (of weight $k$ and level $\Gamma$) is a weakly modular function which is meromorphic at $\infty$. A \textbf{modular form} is a weakly modular function which is holomorphic in $\frakh$ and at $\infty$. A \textbf{cuspoidal modular form} is a modular form which vanishes at $\infty$. 
+\end{defn}
+
+\section{Modular Forms on \texorpdfstring{$SL_2(\bZ)$}{the Special Linear Group}}
+
+
+\end{document}
