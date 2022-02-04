@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.22)  4 FEB 2022 14:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.22)  3 FEB 2022 16:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**tg_ex1.tex
-(./tg_ex1.tex
+**mf_ex1.tex
+(./mf_ex1.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (../preamble.tex (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -819,8 +819,8 @@ File: tikzlibrarypositioning.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 3.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-) (./tg_ex1.aux)
-\openout1 = `tg_ex1.aux'.
+) (./mf_ex1.aux)
+\openout1 = `mf_ex1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
 LaTeX Font Info:    ... okay on input line 3.
@@ -907,9 +907,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
 LaTeX Info: Redefining \nameref on input line 3.
- (./tg_ex1.out) (./tg_ex1.out)
+ (./mf_ex1.out) (./mf_ex1.out)
 \@outlinefile=\write6
-\openout6 = `tg_ex1.out'.
+\openout6 = `mf_ex1.out'.
 
 LaTeX Info: Redefining \microtypecontext on input line 3.
 Package microtype Info: Generating PDF output.
@@ -963,30 +963,30 @@ File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 17.
-Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 23.
-Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 53.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 19.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
+File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
+)
+Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 34.
  [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 72.
- [2] [3] [4] (./tg_ex1.aux)
-Package rerunfilecheck Info: File `tg_ex1.out' has not changed.
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./mf_ex1.aux)
+Package rerunfilecheck Info: File `mf_ex1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 30888 strings out of 478994
- 593210 string characters out of 5858183
- 1045590 words of memory out of 5000000
- 47516 multiletter control sequences out of 15000+600000
- 477523 words of font info for 239 fonts, out of 8000000 for 9000
+ 30731 strings out of 478994
+ 591736 string characters out of 5858183
+ 1031544 words of memory out of 5000000
+ 47503 multiletter control sequences out of 15000+600000
+ 452735 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 106i,16n,105p,3068b,1360s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on tg_ex1.pdf (4 pages, 114227 bytes).
+ 106i,14n,105p,3068b,1238s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on mf_ex1.pdf (1 page, 65212 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
- 67597 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 66 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
+ 49165 words of extra memory for PDF output out of 51595 (max. 10000000)
 
