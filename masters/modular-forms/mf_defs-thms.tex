@@ -64,5 +64,30 @@
 
 \section{Modular Forms on \texorpdfstring{$SL_2(\bZ)$}{the Special Linear Group}}
 
+\begin{thm}\label{thm:fund-domain-SL2}
+	We let $\rho = e^{i\frac{2pi}{3}}$ and define
+	\begin{align*}
+		\cF &= \left\{\tau \in \frakh \midd \Re(\tau) \leq \frac{1}{2}, |\tau| \geq 1\right\}.
+	\end{align*}
+	Then
+	\begin{enumerate}[(a)]
+		\item Every $\tau \in \frakh$ is in the $\ol{\Gamma(1)}$ orbit of an element of $\cF$
+		\item If $\tau \in \frakh$, then $\Stab_{\ol{\Gamma(1)}}(\tau) = \{1\}$, except
+			\begin{align*}
+				\Stab_{\ol{\Gamma(1)}}(i) = \{1, S\}, \buffword{1em}{and} \Stab_{\ol{\Gamma(1)}}(\rho) = \{1, S, ST, (ST)^2\}.
+			\end{align*}
+		\item $S$, $T$ generate $\ol{\Gamma(1)}$.
+	\end{enumerate}
+\end{thm}
+\begin{prf}$ $
+	\begin{enumerate}[(a)]
+		\item Suppose $\tau \in \frakh$. If $\gamma \in \ol{\Gamma(1)}$ with $\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ then
+			\begin{align*}
+				\Im(\gamma \tau) = \frac{\Im(\tau)}{|c\tau + d|^2}.
+			\end{align*}
+			 The set of numbers $c\tau + d$ form a subset of the lattice $\bZ \tau \oplus \bZ$ in $\bC$, and therefore 
+	\end{enumerate}
+\end{prf}
+
 
 \end{document}
