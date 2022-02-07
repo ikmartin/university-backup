@@ -1,0 +1,2 @@
+\contentsline {section}{\numberline {1}Fermat's Method of Infinite Descent}{2}{section.1}%
+\contentsline {section}{\numberline {2}Remarks on Algebraic Curves}{2}{section.2}%

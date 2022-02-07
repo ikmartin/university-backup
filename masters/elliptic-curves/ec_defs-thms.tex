@@ -1,9 +1,8 @@
 \input{../preamble.tex}
 
 \begin{document}
-\pagestyle{empty}
-	\LARGE
 \begin{center}
+	\LARGE
 	Definitions and Theorems from Elliptic Curves\\
 	\Large
 	Isaac Martin \\
@@ -13,7 +12,10 @@
 \vspace{-2mm}
 \hru
 
-\tchap{21 - Jan - 2022}
+\tableofcontents
+\newpage
+
+\section{Fermat's Method of Infinite Descent}
 \begin{defn}[Rational Triangle]\label{defn:triangle-definitions}
 Let $a,b,c$ be the side lengths of a right triangle $\Delta$.
 	\begin{enumerate}
@@ -48,7 +50,6 @@ N.B. it suffices to to consider $D$ a positive integer which is squarefree, e.g.
 
 \bigskip
 
-\tchap{24 - Jan - 2022}
 \begin{cor}[1.6 in Lecture]\label{cor:points-on-E-same-for-K-and-functions-on-K}
 	Let $E/K$ be an elliptic curve. Then $E(K(t)) = E(K)$.
 \end{cor}
@@ -61,13 +62,21 @@ N.B. it suffices to to consider $D$ a positive integer which is squarefree, e.g.
 \end{proof}
 
 \bigskip
+\section{Remarks on Algebraic Curves}
+\begin{defn}\label{defn:plane-curve-rational}
+	A plane curve $\{f(x,y) = 0 ~\mid~ (x,y) \in K = \ol{K}\} \subseteq \bA^2$ (with $f$ irreducible over $\ol{K}$) is said to be \textbf{rational} if it has a rational parameterization, i.e. $\exists \phi, \psi \in K(t)$ such that
 
-\tchap{26 -- Jan -- 2022}
+	\begin{enumerate}[(i)]
+		\item $\bA^1\to \bA^2$ defined $t \mapsto (\phi(t), \psi(t))$ is an injection on $\bA^1\setminus \{\text{finite set}\}$
+		\item $f(\phi(t),\psi(t)) = 0$
+	\end{enumerate}
+\end{defn}
 \begin{defn}[Riemann-Roch Space]\label{defn:reim-roch-space}
 	Let $C$ be a smooth projective curve. The Riemann-Roch space of a $D \in \Div(C)$ is
 	\begin{align*}
-		\cL(D) = \left\{f \in K(C)^* \midd \div(f) + D \geq 0\}\right \cup \left\{0\}\right
+		\cL(D) = \left\{f \in K(C)^* \midd \div(f) + D \geq 0\right\} \cup \left\{0\right\}
 	\end{align*}
 	i.e. the $K$-vector space of rational functions on $C$ with "poles no worse than specified by $D$."
 \end{defn}
+Here, the space $K(C)$ is $\Frac\left(K[x_1,...,x_n]/(F)\right)$
 \end{document}
