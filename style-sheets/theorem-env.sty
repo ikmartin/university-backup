@@ -43,18 +43,18 @@
 %
 \newtheoremstyle{remark}
   {9pt}{9pt}{}{}{\bfseries}{.}{0.5em}{}
- 
- 
-\theoremstyle{plain}
-\newtheorem{thm}{Theorem}[section] % reset theorem numbering for each chapter
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % theorem environments to follow theorem numbering
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section] % reset theorem numbering for each chapter
 \theoremstyle{definition}
 \newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theorem numbers
-\theoremstyle{definition}\newtheorem{exmp}[thm]{Example} % same for example numbers
+\theoremstyle{definition}
+\newtheorem{exmp}[thm]{Example} % same for example numbers
 \newtheorem{example}[thm]{Example}
 \newtheorem{exercise}[thm]{Exercise}
 \newtheorem{lem}[thm]{Lemma}
@@ -65,6 +65,8 @@
 \theoremstyle{remark}\newtheorem{rmk}[thm]{Remark}
 \newtheorem{task}{Task}
 \newtheorem*{thm*}{Theorem}
+
+\newtheorem{question}{Question}[section] % use separate counter for questions
 
 \numberwithin{thm}{section}
 
