@@ -104,6 +104,15 @@ This subsection follows Ginzburg's notes quite closely, see [BIBTEX SETUP, GINZB
 \begin{defn}\label{def:D-modules}
 	A $\cD$-module is a sheaf over the sheaf $\cD_X$ of regular differential operators over a variety (scheme, manifold, analytic complex manifold) which is quasi-coherent as an $\cO_X$-module.
 \end{defn}
-When we define a
+
+
+\section{Berstein-Sato Polynomial}
+\begin{thm}[Bj\"ork, Kashiwara]\label{thm:b-function-theorem}
+	Let $X$ be a smooth variety over the complex numbers and let $f$ be a non-invertible regular function on $X$ (i.e. a locally rational function whose numerator is non-invertible). There exists a polynomial $b(s) \in \bC[s]$ and a polynomial $P(s) \in \cD_X[s]$ whose coefficients are differential operators on $X$, such that the relation
+	\begin{align*}
+		P(s)f^{s+1} = b(s)\cdot f^s
+	\end{align*}
+	holds formally in the $\cD_X$-module $\cO_X[\frac{1}{f},s] \cdot f^s$. Here, $f^{s+1}$ stands for $f\cdot f^s$.
+\end{thm}
 
 \end{document}
