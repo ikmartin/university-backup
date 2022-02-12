@@ -1,6 +1,0 @@
-\contentsline {section}{\numberline {1}Questions}{2}{section.1}%
-\contentsline {section}{\numberline {2}Some Non-Commutative Algebra}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Filtered rings and modules}{2}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Differential Operators and D-Modules}{3}{section.3}%
-\contentsline {section}{\numberline {4}D-Modules}{4}{section.4}%
-\contentsline {section}{\numberline {5}Berstein-Sato Polynomial}{4}{section.5}%
