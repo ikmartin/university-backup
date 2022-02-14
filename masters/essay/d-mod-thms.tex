@@ -102,6 +102,40 @@ This subsection follows Ginzburg's notes quite closely, see [BIBTEX SETUP, GINZB
 	\end{align*}
 	In the case that $M + N$, we write $\Diff_A(M)$ and note that it is a filtered almost commutative ring.
 \end{defn}
+The case in which we will be most interested is when $M = N = A$, i.e. when we consider $A$ to be a ring over itself. Let's repeat the above construction for this case.
+
+\begin{defn}\label{def:order-of-operator}
+	Let $A$ be a commutative $K$-algebra for $K$ a characteristic 0 field. Let $D \in \End(R)$. We define the \textbf{order} of $D$ inductively.
+	\begin{itemize}
+		\item $\ord(D) = 0$ if $[a,D] = -[D,a] = 0$ for all $a \in A$.
+		\item $\ord(D) = n \in \bZ_{\geq 0}$ if $\ord(D) \neq k$ for all $k < n$ and if $\ord([a,D]) = k_a$ for some $k_a < n$ for each $a \in A$. 
+	\end{itemize}
+	The set $D^n(R)$ is defined to be the  $K$-vector space of of all operators of order $ \leq n$. 
+\end{defn}
+\begin{defn}\label{def:derivation}
+	A \textbf{derivation} $D \in \End(R)$ is an operator which satisfies the Leibniz rule
+	\begin{align*}
+		D(ab) = aD(b) + D(a)b
+	\end{align*}
+	for every $a,b \in A$. The set of all derivations $\Der_K(A) \subseteq \End_K(A)$ is a $K$-vector space and a left $A$-module under the action $(a\cdot D)(b) = a(D(B))$.
+\end{defn}
+All derivations are order 1 operators. As one might hope, they're actually \emph{all} order 1 operators.
+\begin{lem}\label{lem:derivations-are-order-one}
+	$D^1(A) = \Der_K(R) + R$. (See proof in \emph{A Primer on $D$-modules} page 21.)
+\end{lem}
+We can now define the ring of differential operators on $A$.
+\begin{defn}\label{defn:ring-of-diff-ops}
+	Let $A$ be a $K$-algebra with $K$ a characteristic zero field. The set of all finite order operators on $A$ forms a noncommutative ring with pointwise addition and composition as multiplication. We denote this ring by $D(A)$ and we call it the \textbf{ring of differential operators:}
+	\begin{align*}
+		D(A) = \bigcup_{n \in \bZ_{\geq 0}} D^n(A) \subseteq \End_K(A).
+	\end{align*}
+\end{defn}
+It's obvious that the addition of two finite order operators yields a differential operator with order equal to the maximum order of the two summands, it's \emph{not} obvious that the composition of two finite order operators yields a finite order operator. We therefore require the following proposition for this definition to work:
+\begin{prop}\label{prop:composition-of-operators}
+	If $D \in D^n(A)$ and $D' \in D^m(A)$ then $D\circ D', D' \circ D \in D^{n+m}(A)$.
+\end{prop}
+
+
 
 \subsection{First examples of Differential Operators}
 \begin{example}\label{exp:Weyl-algebra}
