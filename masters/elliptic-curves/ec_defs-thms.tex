@@ -43,7 +43,6 @@ N.B. it suffices to to consider $D$ a positive integer which is squarefree, e.g.
 	\end{align*}
 	for $u,v,w \in \bZ$ and $w \neq 0$.
 \end{thm}
-
 \begin{lem}\label{lem:fermat-uni-descent-polynomials}
 	Let $u, v \in K[t]$ be coprime polynomials. If $\alpha u + \beta v$ is a square for four distinct choices of $(\alpha:\beta) \in \bP^1_K$ then $u,v \in K$. 
 \end{lem}
@@ -62,7 +61,75 @@ N.B. it suffices to to consider $D$ a positive integer which is squarefree, e.g.
 \end{proof}
 
 \bigskip
+
 \section{Remarks on Algebraic Curves}
+An algebraic curve is a projective variety of dimension 1. All affine curves are algebraic curves, simply take the equation cutting the variety out, homogenize it with a variable $Z$, and you've got a projective curve. The subset of the curve on which $Z = 1$ recovers the original affine curve.
+
+Throughout these notes, $K$ is a field, $\ol{K}$ is a fixed algebraic closure of $K$, and $G_{\ol{K}/K}$ is the Galois group $\Gal(\ol{K}/K)$.
+
+\subsection{Preliminaries}
+When we say \emph{curve} in these notes, we always mean a projective variety of dimension one, and almost always we deal with curves that are smooth.
+
+\begin{prop}\label{prop:local-ring-of-curve-is-dvr}
+	Let $C$ be a curve and $P \in C$ be a smooth point. Then $\cO_{C,P} = \olK[C]_P$ is a DVR.
+\end{prop}
+
+\begin{defn}\label{defn:normalized-valuation}
+	Let $C$ be a curve and $P \in C$ be a smooth point. Then the \emph{normalized valuation on} $\olK[C]_P$ is given by
+	\begin{align*}
+		\ord_P:\olK[C]_P\to \{0,1,2,3,...\} \cup \{\infty\}, \\
+		\ord_P(f) = \sup\{d \in \bZ ~ \mid ~ f\in \frak^d_P\}.
+	\end{align*}
+	Here, $\frakm_P$ is the unique maximal ideal of $\olK[C]_P$. We extend this function to $\olK(C)\to \bZ\cup\{\infty\}$ by declaring $\ord_P(f/g) = \ord_P(f) - \ord_P(g)$.
+\end{defn}
+An alternative definition, or at least a slightly more explicit version of the same definition, involves fixing a uniformizer $\pi_P$ of $\olK[C]_P$ (note that the any element $f \in K[C]_P$ for which $\ord_P(f) = 1$ is a valid uniformizer) and declaring $\ord_P(f) = d$ where $d$ is the unique integer such that $f = u\cdot \pi^d$ for some unit $u \in \olK[C]_P^\times$. This is necessarily a nonnegative integer when $f \in K[C]_P$. 
+
+There are two things to note about this definition. First, though $\olK(C) = \Frac(\olK[C]_P) = \Frac(\olK[C])$ regardless of which $P \in C$ we choose, $\ord_P$ does depend on the choice of $P$, quite clearly. Second, when we extend $\ord_P$ to $K(C)$, it is not necessary to additionally add the point $-\infty$ to the codomain. The only point in $K[C]_P$ which evaluates to $\infty$ under $\ord_P$ is $0$, which has no inverse in $K(C)$.
+
+\begin{defn}\label{defn:order-zero-pole-regular}
+	Let $C$ be a curve and $P$ a smooth point. The \emph{order of $f$ at $P$} is $\ord_P(f)$.
+	\begin{itemize}
+		\item If $\ord_P(f) > 0$ then $f$ has a \emph{zero} at $P$.
+		\item If $\ord_P(f) < 0$ then $f$ has a \emph{pole} at $P$.
+		\item If $\ord(f) \geq 0$ then $f$ is \emph{regular} at $P$ or alternatively is \emph{defined} at $P$. We can evaluate $f(P)$ in this case.
+		\item If $\ord_P(f) < 0$, i.e. if $f$ has a pole at $P$, then we write $f(P) = \infty$.
+	\end{itemize}
+\end{defn}
+All of this should be reminiscent of complex analysis, and indeed, all this is identical to that terminology in the case that $K = \bC$.
+
+\begin{prop}\label{prop:finitely-many-points-where-f-has-zero-or-pole}
+	Let $C$ be a smooth curve and $f \in \olK(C)$ with $f \neq 0$. Then there are only finitely many points $P \in C$ at which $f$ has a zero or pole. Furthermore, $f$ has no poles if and only if $f \in \olK$.
+\end{prop}
+
+The author of these notes is stupid and incessantly ignorant about matters regarding Galois, so we say a few things more about the Galois action. The Galois group  $G_{\olK/K}$ acts on $\bA^n_{\olK}$ by
+\begin{align*}
+	P^\sigma = (x_1^\sigma,...,x_n^\sigma),
+\end{align*}
+meaning that $\bA^n_K$ can be characterized by
+\begin{align*}
+	\bA^n_K = \bA^n(K) = \{P \in \bA^n_{\olK} ~\mid~ P^\sigma = P \text{ for all } \sigma \in G_{\olK/K}\}.
+\end{align*}
+When we write  $\bA^n$ without specifying the base field, it is implied that we mean $\bA^n_{\olK}$. Similarly, when we write $\bP^n$ we mean  $\left(\bA^{n+1}_{\olK}\setminus\{0\}\right)/\olK^*$, and we define the \emph{set of K-rational points in } $\bP^n$ to be 
+\begin{equation}\label{eqn:K-rational-P-points}
+	\bP^n(K) = \left\{[x_0,...,x_n] \in \bP^n ~\midd~ x_i \in K ~\text{ for all } ~0\leq i\leq n\right\}.
+\end{equation}
+\begin{defn}\label{defn:minimal-field-of-definition-for-P}
+	Let $P = [x_0,...,x_n]\in \bP^n(\olK)$. The \textbf{minimal field of definition for $P$} is the field
+	\begin{align*}
+		K(P) = K(x_0/x_i,...,x_n/x_i)
+	\end{align*}
+	where $x_i$ is (one of) the nonzero coordinate(s) of $P$. Note that different valid choices of $x_i$ yield isomorphic fields when we adjoin elements.
+\end{defn}
+The Galois group acts on $\bP^n$ in the way one would hope. Given $\sigma \in G_{\olK/K}$,
+\begin{align*}
+	[x_0,...,x_n]^{\sigma} = [x_0^\sigma,...,x_n^\sigma].
+\end{align*}
+This action is well defined since
+\begin{align*}
+	[\lambda x_0, ...,\lambda x_n]^\sigma = \lambda^\sigma[x_0^\sigma,...,x_n^\sigma] = [x_0,...,x_n]^\sigma.
+\end{align*}
+
+We have a notion of the rationalization of a curve and a rational curve.
 \begin{defn}\label{defn:plane-curve-rational}
 	A plane curve $\{f(x,y) = 0 ~\mid~ (x,y) \in K = \ol{K}\} \subseteq \bA^2$ (with $f$ irreducible over $\ol{K}$) is said to be \textbf{rational} if it has a rational parameterization, i.e. $\exists \phi, \psi \in K(t)$ such that
 
@@ -71,6 +138,26 @@ N.B. it suffices to to consider $D$ a positive integer which is squarefree, e.g.
 		\item $f(\phi(t),\psi(t)) = 0$
 	\end{enumerate}
 \end{defn}
+
+\subsection{Divisors}
+The only codimension subschemes of a curve are the points on the curve. This makes the divisor class group of an algebraic curve $C$ particularly nice.
+\begin{defn}\label{defn:divisor-group-of-curve}
+	The \textbf{divisor class group} of a curve $C$ is the free abelian group generated by the points of $C$. More explicitly, a divisor $D \in \Div(C)$ is a formal sum
+	\begin{align*}
+		D = \sum_{P \in C} n_P(P)
+	\end{align*}
+	where only finitely many of the $n_P$ are nonzero. The \textbf{degree} of a divisor is defined by
+	\begin{align*}
+		\deg(D) = \sum_{P\in C} n_P.
+	\end{align*}
+	The \textbf{divisors of degree 0} form a subgroup of $\Div(C)$ which we denote by $\Div^0(C)$.
+\end{defn}
+The Galois action on divisors is exactly what you'd expect: given $\sigma \in G_{\olK/K}$ we define
+\begin{align*}
+	D^\sigma = \sum_{ P\in C } n_P(P^\sigma).
+\end{align*}
+We say that $D$ is \emph{defined over} $K$ if $D^\sigma = D$ for each $\sigma \in G_{\olK/K}$. This does \emph{not} mean that $D$ is defined over $K$ if and only if $P \in K$ for each $n_P \neq 0$ is the formal sum defining $D$, instead, the Galois action could simply permute the nonzero  $P$'s in some way.
+
 \begin{defn}[Riemann-Roch Space]\label{defn:reim-roch-space}
 	Let $C$ be a smooth projective curve. The Riemann-Roch space of a $D \in \Div(C)$ is
 	\begin{align*}
@@ -78,5 +165,60 @@ N.B. it suffices to to consider $D$ a positive integer which is squarefree, e.g.
 	\end{align*}
 	i.e. the $K$-vector space of rational functions on $C$ with "poles no worse than specified by $D$."
 \end{defn}
-Here, the space $K(C)$ is $\Frac\left(K[x_1,...,x_n]/(F)\right)$
+Here, the space $K(C)$ is $\Frac\left(K[x_1,...,x_n]/(F)\right)$.
+
+\section{Geometry of Elliptic Curves}
+
+\subsection{Weierstrass Equations}
+
+An elliptic curve is a genus one curve in $\bP^2$ with a single specified base point on the line at infinity (remember that the line at infinity in $\bP^2$ is the set of points $[X:Y:0]$). After scaling $X$ and $Y$ appropriately an elliptic curve has an equation of the form
+\begin{equation}\label{eqn:Weierstrass-form-hom}
+	Y^2Z + a_1XYZ + a_3YZ^2 = X^3 + a_2X^2Z + a_4XZ^2+a_6Z^3.
+\end{equation}
+Here, $O = [0:1:0]$ is the base point and $a_1,...,a_6\in \ol{K}$, and equation (\ref{eqn:Weierstrass-form-hom}). We generally write an elliptic curve in non-homogeneous coordinates $x = X/Z$ and $y = Y/Z$:
+\begin{equation}\label{eqn:Weierstrass-form}
+	E:~ y^2 + a_1xy+a_3y = x^3 + a_2x^2 + a_4x + a_6,
+\end{equation}
+and remember that we always have a single extra point at infinity given by $O = [0:1:0]$. If $ a_1,...,a_6 \in K$ then we say that $E$ is \textbf{defined over $K$}.
+
+We can make some simplifications in the cases that $\fchar(\ol{K}) \neq 2,3$. If $\fchar(\ol{K}) \neq 2$ then we can complete the square:
+\begin{align*}
+	y \mapsto \frac{1}{2}(y - a_1x - a_3)
+\end{align*}
+to get an equation
+\begin{align*}
+	y^2 = 4x^3 + b_2x^2 + 2b_4x + b_6,
+\end{align*}
+where
+\begin{align*}
+	b_2 = a_1^2 + 4a_4,\hspace{1.5em} b^4 = 2a_4+a_1a_3,\hspace{1.5em} b_6 = a_3^2+4a_6.
+\end{align*}
+The following are useful quantities:
+\begin{align*}
+	b_8 &= a_1^2a_6+4a_2a_6-a_1a_3a_4+a_2a_3^2-a_4^2, & \\
+	c_4 &= b_2^2 - 24b_4, & \\
+	c_6 &= -b_2^3+36b_2b_4 - 216b_6, & \\
+	\Delta &= -b_2^2b_8-8b_4^3-27b_6^2+9b_2b_4b_6, & \text{the \textbf{discriminant} of $E$} \\
+	j &= c_4^3/\Delta, &\text{the \textbf{j-invariant} of $E$} \\
+	\omega &= \frac{dx}{2y+a_1x+a_3} = \frac{dy}{3x^2+2a_2x+a_4-a_1y} &\text{the \textbf{invariant differential}}.
+\end{align*}
+In the case that $\fchar{\ol{K}} \neq 2,3$ we can make an additional substitution
+\begin{align*}
+	(x,y) \mapsto \left(\frac{x - 3b_2}{36}, \frac{y}{108}\right)
+\end{align*}
+to eliminate the $x^2$ term and obtain the simpler equation
+\begin{align*}
+	E:~y^2 = x^3 - 27c_4x-54c_6
+\end{align*}
+for the elliptic curve.
+
+The last three terms in the above table of quantities are of particular interest in classifying elliptic curves up to isomorphism.
+
+
+
+
+
+
+
+
 \end{document}
