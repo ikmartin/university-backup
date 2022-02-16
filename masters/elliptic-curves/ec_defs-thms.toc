@@ -1,6 +1,13 @@
 \contentsline {section}{\numberline {1}Fermat's Method of Infinite Descent}{2}{section.1}%
 \contentsline {section}{\numberline {2}Remarks on Algebraic Curves}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Preliminaries}{3}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Divisors}{4}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Geometry of Elliptic Curves}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Weierstrass Equations}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {2.2}Divisors}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Differentials}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Review of Morphisms}{8}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Morphisms of Varieties}{9}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Morphisms of curves}{9}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Induced map on function fields}{10}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Induced map on divisors}{10}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Induced map on differential forms}{11}{subsubsection.2.4.5}%
+\contentsline {section}{\numberline {3}Geometry of Elliptic Curves}{11}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Weierstrass Equations}{11}{subsection.3.1}%
