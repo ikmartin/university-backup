@@ -1,0 +1,40 @@
+\input{../preamble.tex}
+
+\begin{document}
+\begin{center}
+	\Large
+	\begin{LARGE}
+		D-Modules, Unit \textit{F}-Crystals, and Hodge Theory \\
+	\end{LARGE}
+	Definitions, Theorems, Remarks, and Notable Examples \\
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+
+\tableofcontents
+\newpage
+\section{Basics}
+Here we cover basic definitions and theorems in the theory of $D$-modules with a heavy emphasis on examples.
+
+\subsection{Weyl Algebra}
+Let $K$ be a field of characteristic $0$. We construct the Weyl algebra in two ways and prove that these constructions produce isomorphic rings.
+
+\begin{defn}\label{defn:Weyl-algebra-construction-1}
+	Let $K$ be a field of characteristic $0$ and let $K[X] = K[x_1,...,x_n] = \Gamma(X,\cO_X)$ be the polynomial ring over $K$ in $n$ variables, and let $X = \bA^n_K = \bA^n$. Consider the algebra of $K$-linear operators $\End_K(K[X])$ and more specifically the operators $\hat{x_i}, \partial_j \in \End_K(K[X])$ for $1\leq, i,j \leq n$. These are defined
+	\begin{align*}
+		\hat{x_i}: K[X]\to K[X], ~ f \mapsto x_i \cdot f
+	\end{align*}
+	and 
+	\begin{align*}
+		\partial_j:K[X]\to K[X], ~ f\mapsto \frac{\partial f}{\partial x_j}.
+	\end{align*}
+	These are both linear operators, and they satisfy the relation
+	\begin{align*}
+		[\partial_j, \hat{x_i}] = \partial_j \hat{x_i} - \hat{x_i}\partial_j = \delta_{ij}.
+	\end{align*}
+\end{defn}
+
+\end{document}
