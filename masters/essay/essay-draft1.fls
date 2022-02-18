@@ -1461,6 +1461,12 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb8t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri8t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr8c.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/zptmcm7m.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/psyro.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
@@ -1479,6 +1485,8 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/zptmcm7y.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmri8t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf
 INPUT essay-draft1.aux
 INPUT ./essay-draft1.out
 INPUT ./essay-draft1.out

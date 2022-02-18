@@ -466,6 +466,20 @@ for the elliptic curve.
 
 The last three terms in the above table of quantities are of particular interest in classifying elliptic curves up to isomorphism. We also note that the "invariant differential" will turn out to be an invariant differential of the formal group law on an elliptic curve.
 
+\subsection{Isogenies}
+
+\begin{defn}\label{defn:quadratic-form}
+	Let $A$ be an abelian group. A function $q:A\to \bZ$ (or sometimes $q:A\to \bR$) is a \emph{quadratic form} if
+    \begin{enumerate}[(i)]
+		\item For all $n \in \bZ$ we have $q(nx) = n^2q(x)$
+		\item The pairing $\langle x,y\rangle \mapsto q(x+y)-q(x)-q(y)$ is $\bZ$-bilinear for any $x,y \in A$.
+    \end{enumerate}
+	If we instead take  $q:A\to \bR$, then a quadratic form instead must satisfy
+	\begin{enumerate}[(i)]
+		\item For all $x \in A$, $q(x) = q(-x)$ 
+		\item The pairing $\langle x,y\rangle \mapsto q(x+y)-q(x)-q(y)$ is $\bR$-bilinear for any $x,y \in A$.
+	\end{enumerate}
+\end{defn}
 
 
 
