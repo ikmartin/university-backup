@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1645112389 "ec_ex2.tex" "ec_ex2.pdf" "ec_ex2" 1645112390
+["pdflatex"] 1645584667 "ec_ex2.tex" "ec_ex2.pdf" "ec_ex2" 1645584668
   "../preamble.tex" 1643734649 644 c8a56a8f002495f1b04655c786deb74a ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty" 1643734649 10445 7768324c892bc58ae460f8125d39ba60 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1645041573 30936 fb119827ffcb4a6603108c976925ce50 ""
@@ -9,6 +9,8 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/psyro.tfm" 1136768653 1544 23a042a74981a3e4b6ce2e350e390409 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm" 1136768653 4524 6bce29db5bc272ba5f332261583fee9c ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb8t.tfm" 1136768653 6880 f19b8995b61c334d78fc734065f6b4d4 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm" 1136768653 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr8t.tfm" 1136768653 6672 e3ab9e37e925f3045c9005e6d1473d56 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmrc8t.tfm" 1136768653 16648 7e91c60ebf91b9c60e16ef52b3070f9c ""
@@ -39,8 +41,10 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb" 1302307949 27430 0e29b053ae98d5f87d872ee72a12d5f5 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb" 1136849748 33709 b09d2e140b7e807d3a97058263ab6693 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb" 1136849748 44729 811d6c62865936705a31c797a1d5dada ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb" 1136849748 46026 6dab18b61c907687b520c72847215a68 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb" 1136849748 45458 a3faba884469519614ca56ba5f6b1de1 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmb8t.vf" 1136768653 2340 df9c920cc5688ebbf16a93f45ce7bdd3 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmr8t.vf" 1136768653 2348 91706c542228501c410c266421fbe30c ""
   "/usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmrc8t.vf" 1136768653 3608 78e4c999d9e69f03f448158d01821741 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmri8t.vf" 1136768653 2328 6cd7df782b09b29cfc4d93e55b6b9a59 ""
@@ -240,9 +244,9 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643846389 4379201 718a59215bccc89d4f89ee72c554b0e8 ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643846402 2796796 2c18e0876449a496ae83bd1419ea9c78 ""
   "/usr/local/texlive/2021/texmf.cnf" 1643846386 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "ec_ex2.aux" 1645112390 1168 06b3eaff38271fb189527914fa8f9e5d "pdflatex"
-  "ec_ex2.out" 1645112389 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "ec_ex2.tex" 1645112387 5892 2696325071400084774115e530907634 ""
+  "ec_ex2.aux" 1645584668 1619 5912a397630d18ce81e1a994039e74ce "pdflatex"
+  "ec_ex2.out" 1645584668 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "ec_ex2.tex" 1645584666 12790 325cbd6e2e6bce69b585d7727ef30665 ""
   (generated)
   "ec_ex2.aux"
   "ec_ex2.log"

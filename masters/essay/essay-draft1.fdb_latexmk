@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1645217495 "essay-draft1.tex" "essay-draft1.pdf" "essay-draft1" 1645217495
+["pdflatex"] 1645221644 "essay-draft1.tex" "essay-draft1.pdf" "essay-draft1" 1645221645
   "../preamble.tex" 1643734649 644 c8a56a8f002495f1b04655c786deb74a ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty" 1643734649 10445 7768324c892bc58ae460f8125d39ba60 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1645041573 30936 fb119827ffcb4a6603108c976925ce50 ""
@@ -242,10 +242,10 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643846389 4379201 718a59215bccc89d4f89ee72c554b0e8 ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643846402 2796796 2c18e0876449a496ae83bd1419ea9c78 ""
   "/usr/local/texlive/2021/texmf.cnf" 1643846386 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "essay-draft1.aux" 1645217495 1932 e8863d565a349dccd8bd01064fcc46dd "pdflatex"
-  "essay-draft1.out" 1645217495 193 766ac6b1ebbe15aa42129941d26f72fc "pdflatex"
-  "essay-draft1.tex" 1645217493 3282 3c2a9e643c6b3685a46ef3df93861401 ""
-  "essay-draft1.toc" 1645217495 140 d23ac77e47371371eece3be8b1669694 "pdflatex"
+  "essay-draft1.aux" 1645221645 1932 e8863d565a349dccd8bd01064fcc46dd "pdflatex"
+  "essay-draft1.out" 1645221645 193 766ac6b1ebbe15aa42129941d26f72fc "pdflatex"
+  "essay-draft1.tex" 1645221644 3506 b210952b8218b2769c8e6481bf76be7c ""
+  "essay-draft1.toc" 1645221645 140 d23ac77e47371371eece3be8b1669694 "pdflatex"
   (generated)
   "essay-draft1.aux"
   "essay-draft1.log"

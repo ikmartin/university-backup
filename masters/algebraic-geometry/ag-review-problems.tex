@@ -146,7 +146,7 @@ Show there is a scheme $X$ together with morphisms $\psi: X_i \to X$ for each $i
 
 		We now suppose that $D$ is a Weil divisor on $\bP^{1}_k$ as in the question. Write $D = D_1 - D_2$ for some effective divisors $D_1$ and $D_2$, where
 		\[
-		D_1 = \sum n_i B_i \textbuff{1em}{and} D_2 = \sum m_j C_j
+		D_1 = \sum n_i B_i \buffword{1em}{and} D_2 = \sum m_j C_j
 		\]
 		for prime divisors $B_i$ and $C_j$. For each $i$, $B_i = V(f_i)$ for some homogeneous irreducible polynomial by our earlier comment, and likewise $C_j = V(g_j)$ with $g_j$ an irreducible homogeneous polynomial for each $j$. Define $f = \prod_i f_i^{n_i}$ and $g = \prod_j g_j^{m_j}$ and let $h= \frac{f}{g}$. Because $\deg(D) = 0$ we have by design that $\deg(f) = \deg(D_1) = \deg(D_2) = \deg(g)$, and hence $h \in K^*$ as it is a quotient of two homogeneous function of equal degree. We have that
 		\[
@@ -185,7 +185,7 @@ Show there is a scheme $X$ together with morphisms $\psi: X_i \to X$ for each $i
 \end{homework}
 \newpage
 
-\tchap{Problems from Hartshorne}
+\tchap{Problems from Hartshorne II.1}
 
 \begin{homework}[e]
 	\prob[\textsc{Exercise 1.3}]$ $
@@ -198,9 +198,9 @@ Show there is a scheme $X$ together with morphisms $\psi: X_i \to X$ for each $i
 
 	\prob[\textsc{Exercise 1.14}] \textit{Support.} Let $\cF$ be a sheaf on $X$, and let $s \in \cF(U)$ be a section over an open set $U$. The \textit{support} of $s$, denoted $\Supp s$, is defined to be $\{P\in U ~ \mid~ s_P \neq 0\}$, where $s_P$ denotes the germ of $s$ in the stalk $\cF_P$. Show that $\Supp s$ is a closed subset of $U$. We define the \textit{support} of $\cF$, $\Supp \cF$, to be $\{P\in X~\mid~ \cF_P \neq 0\}$. It need not be a closed subset.
 
-	\prob \textit{Sheaf Hom.} Let $\cF$, $\cG$ be sheaves of abelian groups on $X$. For any open set $U \subseteq X$, show that the set $\Hom(\cF|_U, \cG|_U)$ of morphisms of the restricted sheaves has the natural structure of an abelian group. Show that the presheaf $U \mapsto \Hom(\cF|_U, \cG|_U)$ is a sheaf. It is called the \textit{sheaf of local morphisms} of $\cF$ into $\cG$, ``sheaf hom'' for short, and is denoted $\Hom(\cF, \cG)$.
+	\prob[\textsc{Exercise 1.15}] \textit{Sheaf Hom.} Let $\cF$, $\cG$ be sheaves of abelian groups on $X$. For any open set $U \subseteq X$, show that the set $\Hom(\cF|_U, \cG|_U)$ of morphisms of the restricted sheaves has the natural structure of an abelian group. Show that the presheaf $U \mapsto \Hom(\cF|_U, \cG|_U)$ is a sheaf. It is called the \textit{sheaf of local morphisms} of $\cF$ into $\cG$, ``sheaf hom'' for short, and is denoted $\Hom(\cF, \cG)$.
 
-	\prob[\textsc{Exercise 1.15}] \textit{Extending a Sheaf by Zero.} Let $X$ be a topological space, let $Z$ be a closed subset, let $i:Z\to X$ be the inclusion, let $U = X \setminus Z$ be the complementary open subset and let $j:U\to X$ be its inclusion.
+	\prob[\textsc{Exercise 1.19}] \textit{Extending a Sheaf by Zero.} Let $X$ be a topological space, let $Z$ be a closed subset, let $i:Z\to X$ be the inclusion, let $U = X \setminus Z$ be the complementary open subset and let $j:U\to X$ be its inclusion.
 	\begin{enumerate}[(a)]
 		\item Let $\cF$ be a sheaf on $Z$. Show that the stalk $(i_*\cF)_P$ of the direct image sheaf on  $X$ is $\cF_P$ if $P \in Z$, $0$ if $P \not\in Z$. Hence we call $i_* \cF$ the sheaf obtained by extending $\cF$ by zero outside $Z$. By abuse of notation we will sometimes write $\cF$ instead of $i_*\cF$, and say ``consider $\cF$ as a sheaf on $X$,'' when we mean ``consider $i_*\cF$.''
 		\item Now let $\cF$ be a sheaf on $U$. Let $j_!(\cF)$ be the sheaf on $X$ associated to the presheaf $V\mapsto \cF(V)$ if $V \subseteq U$, $V \mapsto 0$ otherwise. Show that the stalk $(j_!(\cF))_P$ is equal to $\cF_P$ if $P \in U$, 0 if $P \not\in U$, and show that $j_!\cF$ is the only sheaf on $X$ which has this property, and whose restriction to $U$ is $\cF$. We call $j_!\cF$ the sheaf obtained by \textit{extending $\cF$ by zero} outside $U$. 
@@ -225,4 +225,22 @@ Show there is a scheme $X$ together with morphisms $\psi: X_i \to X$ for each $i
 		is exact. (This is an analogue of what is called the ``first Cousin problem'' in several complex variables. See Gunning and Rossi [1, p. 248].)
 	\end{enumerate}
 \end{homework}
+
+\tchap{Problems from Hartshorne II.2}
+\tchap{Problems from Hartshorne II.3}
+\tchap{Problems from Hartshorne II.4}
+\newpage
+\tchap{Problems from Hartshorne II.5}
+\begin{homework}[e]
+	\prob[\textsc{Exercise 5.6}] \emph{Support.}~ Recall the notions of support of a section of a sheaf, support of a sheaf, and subsheaf with supports from (Ex 1.14) and (Ex 1.20).
+	\begin{enumerate}[(a)]
+		\item Let $A$ be a ring, let $M$ be an $A$-module, let $X = \Spec A$, and let $\cF = \tilde{M}$. For any $m \in M = \Gamma(X,\cF)$, show that $\Supp m = V(\Ann m)$, where $\Ann m$ is the annihilator of $m = \{ a \in A ~\mid~ am = 0\}$.
+		\item Now suppose that $A$ is Noetherian, and $M$ finitely generated. Show that $\Supp \cF = V(\Ann M)$.
+		\item The support of a coherent sheaf on a Noetherian scheme is closed.
+		\item For any ideal $\fraka \subseteq A$, we define a submodule $\Gamma_\fraka(M)$ of $M$ by $\Gamma_\fraka(M) = \{m \in M~\mid~\fraka^nm = 0 \text{ for some } n >0\}$. Assume that $A$ is Noetherian, and $M$ any $A$-module. Show that $\Gamma_\fraka(\tilde{M}) \cong \scrH^0_Z(\cF)$, where $Z = V(\fraka)$ and $\cF = \tilde{M}$. [Hint: Use (Ex 1.20) and (5.8) to show a priori that $\scrH^0_Z(\cF)$ is quasi-coherent. Then show that $\Gamma_\fraka(M) \cong \Gamma_Z(\cF)$.]
+		\item Let $X$ be a Noetherian scheme, and let $Z$ be a closed subset. If $\cF$ is a quadi-coherent (respectively, coherent) $\cO_X$=module, then $\scrH^0_Z(\cF)$ is also quasi-coherent (respectively, coherent).
+	\end{enumerate}
+\end{homework}
+\newpage
+\tchap{Problems from Hartshorne II.6}
 \end{document}

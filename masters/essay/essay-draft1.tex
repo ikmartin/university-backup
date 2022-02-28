@@ -60,8 +60,6 @@ To summarize, in $A_n$,
 	\item $[\partial_i,x_j] = \delta_{ij}$, that is, $\partial_i$ and $x_j$ commute unless $i = j$.
 \end{itemize}
 \begin{example}\label{example:commutator-as-derivative-one-dim}
-    Given a polynomial $f \in K[x]$, we can think of $f$ as an operator in $\End_K(K[x])$ by the map $x \mapsto \hat{x}$, and the operator $f$ is simply given by multiplication by $f$.
+    Given a polynomial $f \in K[x]$, we can think of $f$ as an operator in $\End_K(K[x])$ by the map $x \mapsto \hat{x}$, and the operator $f$ is simply given by multiplication by $f$. I claim that the commutator of $f$ with $\partial$ satisfies the following relation: $[\partial, f] = f'$ where $f'$ is the derivative of $f$. To see this, it suffices to show that $[\partial, x^n] = nx^{n-1}$ for $n \in \bZ_{\geq 0}$, since $[-,-]$ is $K$-bilinear.
 \end{example}
-
-$ \bA, \bB, \bC, \bD, \bR, \bZ, \bC, \bN$
 \end{document}

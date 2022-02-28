@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  18 FEB 2022 20:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  18 FEB 2022 22:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -989,15 +989,15 @@ Package rerunfilecheck Info: File `essay-draft1.out' has not changed.
 (rerunfilecheck)             Checksum: 766AC6B1EBBE15AA42129941D26F72FC;193.
  ) 
 Here is how much of TeX's memory you used:
- 32362 strings out of 478287
- 641923 string characters out of 5846765
+ 32370 strings out of 478287
+ 641986 string characters out of 5846765
  1061549 words of memory out of 5000000
  49823 multiletter control sequences out of 15000+600000
- 514421 words of font info for 146 fonts, out of 8000000 for 9000
+ 515103 words of font info for 152 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,20n,102p,3063b,338s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on essay-draft1.pdf (2 pages, 84244 bytes).
+Output written on essay-draft1.pdf (2 pages, 83152 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  67 compressed objects within 1 object stream

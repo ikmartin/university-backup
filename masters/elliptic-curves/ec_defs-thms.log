@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  15 FEB 2022 22:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  22 FEB 2022 14:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -994,21 +994,21 @@ Package hyperref Info: bookmark level for unknown example defaults to 0 on input
 Package hyperref Info: bookmark level for unknown rmk defaults to 0 on input line 247.
  [7] [8] [9] [10] [11] [12] (./ec_defs-thms.aux)
 Package rerunfilecheck Info: File `ec_defs-thms.out' has not changed.
-(rerunfilecheck)             Checksum: 38586C5B76B7D8A97137634A273918B6;2287.
+(rerunfilecheck)             Checksum: D9F761A89EFC708FBE8F2EA29EFA26D5;2390.
  ) 
 Here is how much of TeX's memory you used:
- 32699 strings out of 478287
- 646396 string characters out of 5846765
- 1067297 words of memory out of 5000000
- 49913 multiletter control sequences out of 15000+600000
+ 32710 strings out of 478287
+ 646512 string characters out of 5846765
+ 1067336 words of memory out of 5000000
+ 49917 multiletter control sequences out of 15000+600000
  535300 words of font info for 263 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,24n,102p,3063b,627s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on ec_defs-thms.pdf (12 pages, 155730 bytes).
+Output written on ec_defs-thms.pdf (12 pages, 157440 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
- 101 named destinations out of 1000 (max. 500000)
- 65653 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 304 PDF objects out of 1000 (max. 8388607)
+ 263 compressed objects within 3 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 65661 words of extra memory for PDF output out of 74296 (max. 10000000)
 

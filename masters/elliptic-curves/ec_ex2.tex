@@ -14,10 +14,23 @@
 \hru
 
 \begin{homework}[e]
-	\prob
+	\prob Find all points defined over the field $\bF_{13}$ of 13 elements on the elliptic curve
+	\begin{align*}
+		y^2 = x^3 + x + 5
+	\end{align*}
+	and show that they form a cyclic group. Find an example of an elliptic curve over $\bF_{13}$ for which this group is not cyclic. Are there any examples where the group requires more than two generators?
+	\begin{prf}
+		By brute force (i.e. a Python script) one can check that
+		\begin{align*}
+			E(\bF_{13}) = \{O_E, (1, 10), (2, 7), (3, 3), (4, 12), (9, 12), (10, 3), (11, 7), (12, 10)\}.
+		\end{align*}
+		Counting, this means that $\#E(\bF_{13}) = 9$. There are two groups of order 9, $\bZ/9\bZ$ and $\bZ/3\bZ \times \bZ/3\bZ$. One can choose any non-identity point in $E(\bF_{13})$ and add it to itself three times to verify that it is not order 3, and must therefore be order 9. Hence this is cyclic.
+
+		I didn't finish this question.
+	\end{prf}
 	\prob Let $A$ be an abelian group and let $q:A\to \bZ$ be a map satisfying
 	\begin{align*}
-		q(x+y)-q(x-y) = 2q(x)+2q(y).
+		q(x+y)+q(x-y) = 2q(x)+2q(y).
 	\end{align*}
 	Prove that $A$ is a quadratic form.
 	\begin{prf}
@@ -30,7 +43,7 @@
 		
 		\bigskip
 
-        \noindent \emph{(i)}~ Notice that $q(1\cdot x) = 1^2q(x)$ trivially, $q(0+0) + q(0-0) = 2q(0)+2q(0)$ so $q(0) = 0$, and $q(2x) = 2q(x) + 2q(x) - q(x - x) = 4q(x)$ for all $x\in A$; hence, (i) holds for $n = 0,1$ and $2$. Now suppose that (i) holds for all positive values $k$ with $n > k > 2$. By induction,
+        \noindent \textbf{(i)}~ Notice that $q(1\cdot x) = 1^2q(x)$ trivially, $q(0+0) + q(0-0) = 2q(0)+2q(0)$ so $q(0) = 0$, and $q(2x) = 2q(x) + 2q(x) - q(x - x) = 4q(x)$ for all $x\in A$; hence, (i) holds for $n = 0,1$ and $2$. Now suppose that (i) holds for all positive values $k$ with $n > k > 2$. By induction,
 		\begin{align*}
 			q(nx) &= 2q((n-1)x) + 2q(x) - q((n-2)x) \\
 				  &= 2(n-1)^2q(x) + 2q(x) - (n-2)^2q(x) \\
@@ -48,7 +61,15 @@
 		
 		\bigskip
 
-		\noindent \emph{(ii)}~ Since the pairing $\langle x,y\rangle$ is invariant under the permutation $x \mapsto y$ and $y \mapsto x$, it suffices to prove that $\langle -,-\rangle$ is $\bZ$ linear in the first coordinate, i.e. that $\langle nx,y\rangle n\langle x,y\rangle$ for all $n \in \bZ$ and $x,y \in A$. We first treat the case that $n \geq 0$. This induction argument requires that the statement hold true for $n-1,n-2$ and $n - 3$, so we need the cases that $n = 0, 1$ and $2$ before proceeding to the induction step.
+		\noindent \textbf{(ii)}~ Since the pairing $\langle x,y\rangle$ is invariant under the permutation $x \mapsto y$ and $y \mapsto x$, it suffices to prove that $\langle -,-\rangle$ is $\bZ$-linear in the first coordinate, i.e. that 
+		\begin{enumerate}[(a)]
+			\item $\langle nx,y\rangle = n\langle x,y\rangle$ for all $n \in \bZ$ and $x,y \in A$
+			\item $\langle x+y,z\rangle = \langle x,y\rangle + \langle y,z\rangle$ for all $x,y,z \in A$.
+		\end{enumerate}
+		
+		\bigskip
+
+		\noindent\textbf{(a)}~ We first treat the case that $n \geq 0$. This induction argument requires that the statement hold true for $n-1,n-2$ and $n - 3$, so we need the cases that $n = 0, 1$ and $2$ before proceeding to the induction step.
 
 		\noindent \hspace{1em}\underline{$n = 0$}:~ $\langle 0 \cdot x,y\rangle = q(0\cdot x + y) - q(0\cdot x) - q(y) = q(y) - q(y) = 0 = 0\cdot \langle x,y\rangle$.
 
@@ -93,7 +114,42 @@
 		 \begin{align*}
 			\langle -nx,y\rangle = - \langle nx,y\rangle
 		\end{align*}
-	    for $n \geq 0$, so we conclude that $\langle nx,y\rangle = n\langle x,y\rangle$ for all $n \in \bZ$ and are done.
+	    for $n \geq 0$, so we conclude that $\langle nx,y\rangle = n\langle x,y\rangle$ for all $n \in \bZ$.
+
+		\bigskip
+
+		\noindent \textbf{(b)}~ Let $x,y,z \in A$ be arbitrary elements. By expanding $\langle -,- \rangle$ it can be seen that
+		\begin{align*}
+			\langle x+y,z\rangle - \langle x,z \rangle - \langle y,z \rangle = 0
+		\end{align*}
+		if and only if
+		\begin{align*}
+			q(x+y+z) = q(x+y) + q(x+z) + q(y+z) - q(x) - q(y) - q(z).
+		\end{align*}
+		We prove this later equality. We first examine what we obtain by considering $q(x+y+z)$ and swapping each "$+$" one at a time. By assumption, we have that
+		\begin{equation}\label{eqn:prob2-1}
+			q(x+y+z) + q(x+y-z) = 2q(x+y) + 2q(z),
+		\end{equation}
+		\begin{equation}\label{eqn:prob2-2}
+			q(x+y-z)+q(x-y-z)) = 2q(x - z) + 2q(y)
+		\end{equation}
+		and
+		\begin{equation}\label{eqn:prob2-3}
+			q(x - y - z) + q(- x - y - z) = 2q(-y-z)+2q(x).
+		\end{equation}
+		Adding equations (\ref{eqn:prob2-1}) and (\ref{eqn:prob2-3}) together and subtracting equation (\ref{eqn:prob2-2}) gives us
+		\begin{align*}
+			q(x+y+z) + q(-x-y-z) = 2q(x+y) + 2q(z) - 2q(x-z) - 2q(y) + 2q(y+z) + 2q(x),
+		\end{align*}
+		while recalling that $q(-x) = q(x)$, dividing both sides by $2$ and performing some convenient rearranging gives us
+		\begin{align*}
+			q(x+y+z) = \big[q(x+y) q(y+z) - q(y)\big] + \big[q(x - z) + q(z) + q(x)\big].
+		\end{align*}
+		Finally, we have that $q(x - z) = 2q(x) + 2q(z) - q(x + z)$. Substituting this in for $q(x-z)$, combining like terms, and rearranging a final time yields
+		\begin{align*}
+			q(x+y+z) = q(x+y) + q(x+z) + q(y+z) - q(x) - q(y) - q(z)
+		\end{align*}
+		as desired.
 	\end{prf}
 	\prob Find a translation-invariant differential $\omega$ on the multiplicative group $\bG_m$. Show that if $[n]:\bG_m \to \bG_m$ is the endomorphism $x \mapsto x^n$ then $[n]^*\omega = n\omega$.
 	\begin{prf}
@@ -116,6 +172,63 @@
 			P((1+T)(1+S)-1)\cdot (1 + S) = \frac{1}{(1+T)(1+S) - 1 + 1}\cdot (1 + S) = \frac{1}{1 + T} = P(T).
 		\end{align*}
 		Hence the differential form $\omega = \frac{1}{1 + T}$ is an invariant differential of the multiplicative formal group law.
+	\end{prf}
+
+	\prob[\textsc{Exercise 6.}] Show that if $\phi\in \End(E)$ then there exists $\tr(\phi) \in \bZ$ such that 
+	\begin{align*}
+		\deg([n] + \phi) = n^2 + n\tr(\phi) + \deg(\phi)
+	\end{align*}
+	for all $n\in \bZ$. Establish the following properties:
+	\begin{enumerate}[(i)]
+		\item $\tr(\phi+\psi)$ = $\tr(\phi) + \tr(\psi)$,
+		\item $\tr(\phi^2) = \tr(\phi)^2 - 2\deg(\phi)$,
+        \item $\phi^2 - [\tr(\phi)]\phi + [\deg(\phi)] = 0$
+	\end{enumerate}
+
+	\prob[\textsc{Exercise 9.}] Let $E/\bF_q$ be an elliptic curve with $p$ an odd prime. Show that there exists an elliptic curve $E'/\bF_p$ with
+	\begin{align*}
+		\# E(\bF_p) + \#E'(\bF_p) = 2(p+1).
+	\end{align*}
+	Show further that the groups $E(\bF_p) \times E'(\bF_p)$ and $E(\bF_{p^2})$ have the same order, but need not be isomorphic.
+
+	\prob[\textsc{Exercise 10.}] Let $E$ be an elliptic curve over $\bF_p$ with $p$ a prime and $\#E(\bF_p) = p + 1 - a$, and let $\phi:E\to E$ be the $p$-power Frobenius, i.e. $\phi:(x,y)\mapsto (x^p,y^p)$. Let $\psi = [a] - \phi$.
+	\begin{enumerate}[(i)]
+		\item Show that $\phi\circ \psi = \psi\circ \phi = [p]$.
+		\item Show that if $\psi$ is separable then $E[p^r] \cong \bZ/p^r\bZ$ for all $r \geq 1$.
+		\item Show that if $p \geq 5$ and $E[p] = 0$ then $\#E(\bF_p) = p + 1$.
+	\end{enumerate}
+	\begin{prf}$ $
+		\begin{enumerate}[(i)]
+			\item The map $\psi$ is the difference of isogenies and is therefore itself an isogeny. In particular, this means that $\psi$ is a rational map. Since the Frobenius endomorphism $F:x\mapsto x^p$ on $\ol{\bF_p} \to \ol{\bF_p}$ is a field homomorphism, it commutes with addition and multiplication on the level of field elements, and therefore it commutes with rational functions $g \in \ol{\bF_p}(E)$. This in turn implies that $\phi \circ \psi = \psi \circ \phi,$ since the Frobenius endomophism commutes with the rational functions that locally present $\psi$.
+
+			Applying problem 6 part (iii) and recalling that $a = \tr(\phi)$, we have
+			\begin{align*}
+				[\tr(\phi)]\phi - \phi^2 - [\deg(\phi)] = ([a] - \phi)\circ\phi - [\deg(\phi)] = 0.
+			\end{align*}
+			In class, we used the fact that $\deg(\phi) = p$, so the above equation reduces to $\psi\circ \phi = [p]$.
+
+
+			\item We have the following string of equalities:
+				\begin{align*}
+					\#E[p^r] &= \#\ker([p^r]) \\
+							 &= \#\ker(\phi^r\circ\psi^r) \\
+							 &= \#\ker(\psi^r) \\
+							 &= \deg(\psi^r) = p^r.
+				\end{align*}
+				That $\#\ker(\phi^r\circ \psi^r) = \#\ker(\psi^r)$ follows from the fact that $\phi$ is injective. To see this, recall that the Frobenius map $x\mapsto x^p$ is injective as a map $\ol{\bF_p} \to \ol{\bF_p}$ because \emph{every} field homomorphism is injective. The map $(x,y) \mapsto (x^p,y^p)$ is therefore also injective.
+
+				Now that we know the cardinality of $E[p^r]$, we know that $E[p] \cong \bZ/p\bZ$ since this is the only group of order $p$ up to isomorphism. Inducting on $r$, we have that $E[p^r] \cong \bZ/p^r\bZ$ or $E[p^r] \cong \bZ/p^{r-1}\bZ \times \bZ/p\bZ$ since $E[p^r]$ must both contain $E[p^{r-1}] \cong \bZ/p^{r-1}\bZ$ as a subgroup and have cardinality $p^r$. The latter option is impossible since all of its elements have order at most $p - 1$ and $E[p^{r-1}] \cong \bZ/p^{r-1}\bZ$ by the inductive hypothesis. It must then be the case that $E[p^r] \cong \bZ/p^r\bZ$ for all $r \geq 1$.
+
+			\item Let $\omega = \frac{dx}{y}$,and note that it an invariant differential of $E$. We have that
+				\begin{align*}
+					\phi^*(\omega) = \frac{d(x^p)}{y^p} = \frac{px^{p-1}dx}{y^p} = 0,
+				\end{align*}
+				and by Lemma 6.3 from lecture,
+				\begin{align*}
+					\psi^*\omega = ([a] - \phi)^* \omega &= [a]^*\omega - \phi^*\omega = [a]^*\omega = a\cdot \omega
+				\end{align*}
+				where the final equality follows from problem 3. We know that $\psi$ is inseparable by part (ii) since $E[p] = 0$, hence the induced map $\psi^*:\Omega_E\to \Omega_E$ is zero by Lemma 6.4 from lecture. In particular, this means that $a\cdot \omega = 0$, and because $\omega \neq 0$ and $\Omega_E$ forms a $\bF_p$-vector space, $a = 0$ in $\bF_p$. Hasse's bound tells us that $a \leq 2\sqrt{p}$, so $a < p$ when $p \geq 5$ and therefore $a = 0$ in $\bZ$. Since $\#E(\bF_p) = p + 1 - a$, we conclude that $\#E(\bF_p) = p + 1$.
+		\end{enumerate}
 	\end{prf}
 \end{homework}
 

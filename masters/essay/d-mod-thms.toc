@@ -1,7 +1,15 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1}Questions}{2}{section.1}%
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2}Some Non-Commutative Algebra}{2}{section.2}%
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1}Filtered rings and modules}{2}{subsection.2.1}%
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3}Differential Operators and D-Modules}{3}{section.3}%
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.1}First examples of Differential Operators}{5}{subsection.3.1}%
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2}D-Modules}{5}{subsection.3.2}%
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Berstein-Sato Polynomial}{5}{section.4}%

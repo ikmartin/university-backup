@@ -20,6 +20,9 @@
 \begin{question}\label{q:D-mod-why-care}
 	What is the point of D-modules? Why do people care about them? What sort of questions do they answer? What insights do they provide?
 \end{question}
+\begin{question}\label{q:sheaf-of-k-linear-endo}
+	Given a scheme $X$ over a field $k$, we define the sheaf $\sEnd_k(\cO_X) = \sHom_k(\cO_X,\cO_X)$ to be the sheaf of $k$-linear endomorphisms on $\cO_X$ as in \cite[Definition 0.3]{Gieseker75}. What I think this means is this: we have a structure morphism $X \to \Spec k$ and we can therefore think of $\cO_X$ as a $\cO_{\Spec k}$-module via the map $f^\sharp:\cO_{\Spec k}\to f_*\cO_X$. However, this is rather stupid, since this means $\End_k(\cO_X)$ is a $\cO_{\Spec k}$-module, which should mean it takes open sets from $\Spec k$. In the book \cite[Example A.4.2.]{D-mod_PS_RT} however, this sheaf takes open sets from $X$. What's going on here?
+\end{question}
 
 \begin{question}\label{q:why-Weyl-subalgebra-natural}
 	How can one "naturally" make $A_m$ a subalgebra of $A_n$ when $m \leq n$? It seems like there are $n$ many subalgebras of $A_n$ isomorphic to $A_{n-1}$, for example.
@@ -174,5 +177,9 @@ It's obvious that the addition of two finite order operators yields a differenti
 	\end{align*}
 	holds formally in the $\cD_X$-module $\cO_X[\frac{1}{f},s] \cdot f^s$. Here, $f^{s+1}$ stands for $f\cdot f^s$.
 \end{thm}
+
+
+\newpage
+\printbibliography
 
 \end{document}
