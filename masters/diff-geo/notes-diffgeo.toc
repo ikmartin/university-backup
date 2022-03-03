@@ -1,0 +1,13 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {0}What is differential geometry?}{2}{section.0}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {0.1}Important Constructions}{3}{subsection.0.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {0.2}An abstract example of differentiating something nonobvious}{4}{subsection.0.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {0.3}Course Outline and Beyond}{4}{subsection.0.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}Manifolds and Smooth Maps}{5}{section.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.1}Manifolds}{5}{subsection.1.1}%

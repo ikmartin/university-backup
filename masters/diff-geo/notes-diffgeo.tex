@@ -1,0 +1,249 @@
+\input{../preamble.tex}
+
+% lecture commands
+\newcounter{lecture-counter}
+\newcommand{\lecture}[2]
+{
+	\newpage
+	\addtocounter{lecture-counter}{1}
+    \tchap{Lecture \arabic{lecture-counter}}
+	\vspace{-1.5em}
+    \begin{center}
+	    \small \emph{Recorded: #1 \hspace{1.5em} Notes: #2}
+    \end{center}
+}
+
+% start document
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Lecture Notes from Differential Geometry (Michaelmas 2021) \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\tableofcontents
+
+\lecture{2021-10-07}{2022-03-01}
+Main Books:
+\begin{itemize}
+	\item Nicolaescu: \emph{Lectures on the Geometry of Manifolds}
+	\item Lee: Introduction to smooth manifolds
+\end{itemize}
+\noindent For principal bundles:
+\begin{itemize}
+	\item Sontz: \emph{Principal Bundles, The Classical Case}
+	\item Sontz: \emph{Principal Bundles, The Quantum Case}
+\end{itemize}
+\noindent For physicists:
+\begin{itemize}
+	\item Nakahara: \emph{Geometry, Topology, and Physics.}
+\end{itemize}
+
+There will be times in the course where we refer to these books (almost exclusively Lee and Nicolaescu) for proofs which we take as black boxes -- analysis-flavored things with which we do not wish to get sidetracked. These are not things that differential geometers don't typically think about. These proofs are non-examinable.
+
+\bigskip
+
+\setcounter{section}{-1}
+\section{What is differential geometry?}
+Differential geometry is the study of smooth manifolds: spaces that locally look like $\bR^n$ in a smooth way.
+
+\noindent There are two primary ways to think about manifolds.
+\begin{itemize}
+	\item \textbf{Embedded Manifolds} (Extrinsic Geometry): These are embedded manifolds viewed as subspaces in $\bR^n$ for some sufficiently large $n$. e.g. spheres, tori, genus 2 spaces are smooth subsets of $\bR^3$. Could also take $\{x^2 = y^2 + 1\} \subset \bR^2$, which is a hyperbola. There is some subtlety about which equations we can take; for instance, $x^2 = y^2$ is \emph{not} smooth. Could also take $\SO(n) \subseteq \bR^{n^2}$, this is the set of $n \times n$ matrices so that $A^TA = 1$ and $\det(A) = 1$.
+
+	\item \textbf{Abstract Manifolds} (Intrinsic Geometry): Reasonable topological spaces such that about each point $p$ there are local coordinates such that coordinate transformations are smooth (i.e. $C^\infty$).
+\end{itemize}
+One might worry that the embedding chosen in the first of the above cases affects the structure of the space. Working in the latter framework avoids this issue, since we don't care about the ambient space. Luckily, thanks to results such as the Whitney embedding theorem, we know that these two definitions are equivalent. We can always embed an abstract manifold in some high dimensional Euclidean space and can write down an embedded manifold as a smooth manifold.
+
+\bigskip
+
+\subsection{Important Constructions}
+Once you have a manifold, there are some basic constructions you care about.
+
+The \textbf{tangent space} at a point of a manifold is some linear approximation of the manifold at a point. It is clear how to define this for an embedded manifold -- we can write down explicit equations describing a hypersurface tangent to the manifold at a point -- but is less clear in the abstract case.
+
+\textbf{Smooth maps} between manifolds and their derivatives are another object one might care about. The derivative of a smooth map ought to be some linear approximation of the map, and will therefore involve the tangent space.
+
+\textbf{Vector fields} on the surface of a manifold objects which assign a vector to each point of a manifold. Closely related to this is the concept of a \textbf{flow}, which captures the idea of moving through the vector field in some way.
+
+\textbf{Submanifolds} ought to make sense in some way. Embedded manifolds are submanifolds of $\bR^n$, for instance.
+
+We can even give our manifolds more structure, for instance, we can think of a group structure that is compatible with the smooth structure of the manifold. These are called \textbf{Lie groups}. There are surprising things that come out of doing things like this, for example, the tangent space at the identity of a Lie group becomes a \textbf{Lie algebra}. There is then a map from a Lie algebra to its associated Lie group called the exponential map:
+\begin{equation}
+	\exp: \frakg \to \frakG.
+\end{equation}
+For $\GL_n(\bR)$, the tangent space at the identity is $\Mat_{n\times n}(\bR)$. It's Lie algebra structure is given by the commutator $[A,B] = AB - BA$, and the exponential map is
+\begin{align*}
+	A \mapsto I + A + \frac{A^2}{2!} + ...
+\end{align*}
+
+\bigskip
+
+Some questions are more subtle, however. One such question is this: "How does one differentiate a vector field?" One might go away and invent the rest of this course solely by trying to answer this question. For a vector field on $\bR^n$, this is easy. What about a vector field on an embedded manifold $M \subseteq \bR^3$? 
+
+One problem you immediately run into is that there is no way to differentiate in directions out of the surface, it's simply not defined. Even if we restrict to differentiating in directions pointing along the surface, the answer might yield a vector pointing out of the surface, so this is still a problem. For simple example of this, see minute 27:05 in the recording.
+
+The obvious fix might be that you take the derivative of a vector field and then orthogonally project back onto the manifold, but then the choice of embedding matters quite a lot. To summarize,
+\begin{enumerate}[(i)]
+	\item Can't differentiate vector field in directions out of $M$
+	\item If you differentiate along directions in the surface, you might end up with a vector pointing out of $M$
+	\item If you orthogonally project the answer in (ii) back onto $M$, the choice of embedding will affect the answer.
+\end{enumerate}
+In order to differentiate a vector field, we'll need to introduce the following machinery:
+\begin{itemize}
+	\item Tensor and differential forms
+	\item Connections
+	\item Parallel transport -- moving a vector along a path through a vector field such that its derivative along the path is zero.
+	\item Curvature. This captures the path dependence of parallel transport. If a move a vector to a point $p \in M$ along two different paths, I will typically end up with different answers. Curvature captures this difference.
+\end{itemize}
+
+\subsection{An abstract example of differentiating something nonobvious}
+In physics, there is spacetime which is some manifold $X$. A quantum particle moving along this manifold is described by a wavefunction $\psi \approx X \to \bC$, but it isn't \emph{quite} a function $X\to \bC$. What matters is that you can measure the absolute value $|\psi|$ and the relative phases of two wavefunctions $\psi_1$ and $\psi_2$.
+
+So what exactly \emph{is} $\psi$? The differential geometry answer is that it's a section of a complex line bundle. These means we have a copy of $\bC$ at every point and we can rotate them relative to each other in order to obtain $\psi$. To write down the equations of motion for $\psi$ we need to differentiate it, but now our fancy words have led us to completely lose grip on what $\psi$ actually is. So how do we differentiate $\psi$? This is rather nonobvious, for example, I might insist the derivative of $\psi$ is zero at a point, whereas you might multiply $\psi$ by some crazy function that rotates its phase in some fancy way and thereby insist its derivative is very much nonzero. To keep track of what the derivative in some sensible way, we introduce these things called \textbf{connections.} Connections are what allow us to differentiate vector bundles.
+
+It turns out that the connection is actually the electromagnetic potential, so it has some nice physical meaning. One might call this a $U(1)$ connection, which means it's a $U(1)$ gouge theory. It's curvature is some field strength.
+
+The moral here is that we started with some sensible physics, did some weird maths, and again ended up with some sensible physics stuff.
+
+\subsection{Course Outline and Beyond}
+\noindent Course Plan:
+\begin{itemize}
+	\item Manifolds and smooth maps
+	\item (Co)Tangent bundles + tensors
+	\item Differential forms and de Rham Cohomology
+	\item Submanifolds and foliations
+	\item Flows and Lie derivatives
+	\item Lie groups and Lie algebras
+	\item Principal bundles, connections, and curvature.
+\end{itemize}
+Where can one go after this course? Within the world of pure maths, can study \textbf{geometric topology}. This includes low-dimensional topology (dimensions 3 and 4) and knot theory. These are both bare manifolds with no additional structure, so it makes sense that one can also study \textbf{geometric manifolds with extra structure}. This includes (pseudo)Riemannian geometry, symplectic geometry and topology, and complex manifolds and K\"ahler geometry. This even has applications to \textbf{complex dynamical systems} and \textbf{statistics}.
+
+\lecture{09-10-2021}{2022-03-01}
+
+\section{Manifolds and Smooth Maps}
+
+\subsection{Manifolds}
+We add smoothness later, the first definitions are purely topological.
+\begin{defn}\label{defn:top-manifold}
+	A \emph{topogical manifold} is a topological space $X$ such that for all $p\in X$ there exists an open neighborhood $U$ of $p \in X$, an open set $V \subseteq \bR^n$, and a homeomorphism $\varphi:U\to{\sim}V$. We also require that $X$ is Hausdorff (i.e. distinct points can always be separated via disjoint open neighborhoods) and second-countable (i.e. has a countable basis). 
+\end{defn}
+\begin{example}
+	$\bR^n$ is a topological $n$-manifold.
+	\begin{itemize}
+		\item For any $p \in \bR^n$ we can take $U = \bR^n$ and then $\varphi$ to be the identity map on $\bR^n$.
+		\item $\bR^n$ is Hausdorff
+		\item It is second-countable because of some nonsense about the rationals, i.e. the set of balls with rational radius centered at points of $\bQ^n \subseteq \bR^n$ forms a countable basis for the topology on $\bR^n$.
+	\end{itemize}
+\end{example}
+Why impose the second-countable and Hausdorff conditions? One answer is that any reasonable space ought to satisfy these, so why \emph{not} include them? Another is that they play a role in the proofs of several technical results later on (c.f. Sard's theorem). The best reason is perhaps that you need Hausdorff and second-countable if you want abstract manifolds and embedded manifolds to be equivalent categories; every embedded manifold will inherit second-countability and Hausdorffness from $\bR^n$, so we need these conditions in order for abstract manifolds to be embeddable in $\bR^n$.
+
+\begin{rmk}\label{rmk:Hausdorff-second-countable-comment}
+	$ $
+	\begin{enumerate}[(i)]
+		\item The requirements ``Hausdorff'' and ``second-countable'' are important and not restrictive in practice. For a space locally homeomorphic to $\bR^n$ it's equivalent to require that ``$X$ is metrizable and has countably many connected components''.
+		\item ``Hausdorff'' and ``second-countable'' are inherited by topological subspaces.
+	\end{enumerate}
+\end{rmk}
+\begin{example}\label{expl:subspace-is-sub-manifold}
+	If $X$ is a topological $n$-manifold then so is any open set $W \subseteq X$. To see this, given $p \in W$ pick
+	\begin{align*}
+		\varphi:U\to{\sim}V
+	\end{align*}
+	with $U \subseteq X$ and $V \subseteq \bR^n$, and then take
+	\begin{align*}
+		\varphi|_{U\cap W}:U\cap W \to{\sim} \varphi(U\cap W)
+	\end{align*}
+	as the coordinate map on $W$.
+\end{example}
+
+\bigskip
+
+We now include a terminology dump.
+
+\bigskip
+
+\noindent \textbf{Terminology}
+\begin{enumerate}[(i)]
+	\item $\varphi$ is a \emph{chart} about $p$
+	\item $U$ is a \emph{coordinate patch}
+	\item If $x_1,...,x_n$ are the standard coordinates on $\bR^n$, i.e. $x_i(a_1,...,a_n) = a_i$,then $x_1\circ \varphi,...,x_n\circ \varphi$ are the local coordinates on $U$. We typically suppress $\varphi$ in the notation and simply refer to $x_1,...,x_n$ as the local coordinates on $U$.
+	\item The inverse of a chart is a \emph{parameterization}. It's easy to remember which way a parameterization goes, it parameterizes your manifolds with real numbers so it's a map $V \to X$ where $V \subseteq \bR^n$. If you can't remember which way a chart goes, remember which way a parameterization goes.
+	\item If $\varphi_1:U_1\to{\sim}V_1$ and $\varphi_2:U_2\to{\sim}V_2$ are two charts, the corresponding local coordinates $x_1,...,x_n$ and $y_1,...,y_n$ are related by the transition function $\varphi_2\circ \varphi_1^{-1}:V_1\cap \varphi_2(U_1)\to{\sim}V_2\cap\varphi_1(U_2)$.
+\end{enumerate}
+
+\begin{defn}\label{defn:smooth-map-R^n}
+	A map from an open subset of $\bR^a$ to $\bR^b$ is \emph{smooth} if it has all partial derivatives of all orders.
+\end{defn}
+
+This is a notion of smoothness on $\bR^n$, but we want a notion of smoothness for maps between manifolds. Here's a half definition:
+\begin{predefn}
+	Given a manifold $X$, a map $f:X\to \bR$ is smooth if $f\circ \varphi^{-1}$ is smooth for all charts $\varphi$, i.e. $f(x_1,...,x_n)$ is smooth as a function of local coordinates.
+\end{predefn}
+Notice that this depends on the local coordinates, which might relate to each other in weird ways and cause problems in the future.
+\begin{defn}\label{defn:atlas}
+	Let $X$ be a topological $n$-manifold.
+    \begin{itemize}
+		\item An \emph{atlas} for $X$ is a collection
+	    \begin{align*}
+		    \{\varphi_\alpha:U_\alpha\to V_\alpha\}_{\alpha\in \cA}
+	    \end{align*}
+	    of charts that cover $X$ (i.e. $\bigcup_{\alpha \in \cA} U_\alpha = X$).\
+        \item An atlas is \emph{smooth} if all transition functions $\varphi_\beta\circ\varphi^{-1}_\alpha$ are smooth (as in Definition (\ref{defn:smooth-map-R^n}))
+		\item Given a smooth atlas $\bA$, a function $f:X\to \bR$ is \emph{smooth with respect to $\bA$} if $f \circ \varphi^{-1}_\alpha$ is smooth for all $\varphi_\alpha$ in $\bA$.
+    \end{itemize}
+\end{defn}
+\begin{lem}\label{lem:basic-smooth-chart-lemma}
+	A function $f:X\to \bR$ is smooth if and only if $\forall p\in X$, $\exists$ a chart $\varphi_\alpha$ about $p$ such that $f \circ \varphi_\alpha^{-1}$ is smooth.
+\end{lem}
+\begin{prf}
+	The forward direction follows straight from the definition of smoothness above. For the converse, take a chart $\varphi_\beta:U_\beta\to V_\beta$. We want that $f\circ \varphi_\beta^{-1}$ is smooth. We know that for all $p \in U_\beta$, there is some $\varphi_\alpha$ such that $f\circ \varphi_\alpha^{-1}$ is smooth. But then near $\varphi_\beta(p)$ we have that
+	\begin{align*}
+		f\circ \varphi_\beta^{-1} = (f\circ \varphi_\alpha^{-1})\circ (\varphi_\alpha\circ\varphi_\beta^{-1}).
+	\end{align*}
+	Both of the things on the right are smooth, hence the left hand side is smooth as well.
+\end{prf}
+This definition works, but it again depends on a choice, this time on a choice of atlas. The atlas isn't particularly something we want to carry around all the time.
+
+\begin{defn}\label{defn:smoothly-equiv-altas}
+	Let $X$ again be a topological $n$-manifold.
+	\begin{itemize}
+		\item Two smooth atlases $\bA$ and $\bB$ are said to be \emph{smoothly equivalent} if $\bA\cup \bB$ is smooth. Smooth equivalence is an equivalence relation.
+		\item A \emph{smooth structure on $X$} is an equivalence class of smooth atlases.
+	\end{itemize}
+\end{defn}
+This definition is what will allow us to forget about the atlas and instead consider smooth structures, and the following lemma tells us how:
+\begin{lem}\label{lem:}
+	If $\bA$ and $\bB$ are smoothly equivalent atlases for a topological manifold $X$, then $f:X\to \bR$ is smooth with respect to $\bA$ if and only if it is smooth with respect to $\bB$.
+\end{lem}
+We're finally ready to define a smooth $n$-manifold.
+\begin{defn}[Smooth Manifold]\label{defn:}
+	A \emph{smooth $n$-manifold} is a topological $n$-manifold equipped with a smooth structure. We abbreviate this to ``$n$-manifold'' or ``manifold''.
+\end{defn}
+\begin{example}$ $
+	\begin{itemize}
+		\item $\bR^n$ is a smooth $n$-manifold, with smooth structure defined by the atlas $\{\id:\bR^n\to\bR^n\}$.
+		\item Open subsets of $\bR^n$ are smooth $n$-manifolds, as before
+		\item If $X$ and $Y$ are smooth $m$-manifolds and $n$-manifolds respectively, then $X\times Y$ is a smooth $(m+n)$-manifold defined by product charts.
+	\end{itemize}
+\end{example}
+\begin{rmk}\label{rmk:top-vs-smooth-manifold}$ $
+	\begin{itemize}
+		\item Being a topological $n$-manifold is a \emph{property of a space}, a topological space is either homeomorphic to a subset of $\bR^n$ or not.
+		\item Being a smooth manifold is a property of a topological space \textbf{in addition to} a choice, namely a smooth structure.
+	\end{itemize}
+	Thus, the question ``is $X$ a topological manifold'' makes sense, whereas ``is $X$ a smooth manifold'' does not. However,
+	\begin{enumerate}[(i)]
+		\item For $n \leq 3$, every topological $n$-manifold admits a unique smooth structure (up to diffeomorphism).
+		\item For $n \geq 4$, a topological $n$-manifold may admit no smooth structure (e.g. the $E_8$ 4-manifold) or it may admit multiple (infinitely many, even) smooth structures (e.g. the exotic $S^7$ sphere, homeomorphic but not diffeomorphic to $S^7$). These results are quite hard.
+	\end{enumerate}
+\end{rmk}
+
+\lecture{2021-10-12}{2022-03-01}
+
+\end{document}
