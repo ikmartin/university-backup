@@ -1,0 +1,74 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{Cox-Little-Schenck}{book}{}
+      \name{author}{3}{}{%
+        {{hash=f491ad1431e56daa11842f8c7ad8aa73}{%
+           family={Cox},
+           familyi={C\bibinitperiod},
+           given={David\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=90d202ee474e4f8980fc2df6c7f982f0}{%
+           family={Little},
+           familyi={L\bibinitperiod},
+           given={John\bibnamedelima B.},
+           giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=a5a551298e00f0bdd8d280bd0552a030}{%
+           family={Schenck},
+           familyi={S\bibinitperiod},
+           given={Henry\bibnamedelima K.},
+           giveni={H\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Mathematical Society, Providence, RI}%
+      }
+      \strng{namehash}{8f3b390e2816aa658ee917221ed1c140}
+      \strng{fullhash}{8f3b390e2816aa658ee917221ed1c140}
+      \strng{bibnamehash}{8f3b390e2816aa658ee917221ed1c140}
+      \strng{authorbibnamehash}{8f3b390e2816aa658ee917221ed1c140}
+      \strng{authornamehash}{8f3b390e2816aa658ee917221ed1c140}
+      \strng{authorfullhash}{8f3b390e2816aa658ee917221ed1c140}
+      \field{labelalpha}{CLS11}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-8218-4819-7}
+      \field{series}{Graduate Studies in Mathematics}
+      \field{title}{Toric varieties}
+      \field{volume}{124}
+      \field{year}{2011}
+      \field{pages}{xxiv+841}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1090/gsm/124
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1090/gsm/124
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1090/gsm/124
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

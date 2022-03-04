@@ -1,0 +1,15 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'tg_ex3.blg'
+[46] biber:340> INFO - === Fri Mar  4, 2022, 04:19:54
+[54] Biber.pm:415> INFO - Reading 'tg_ex3.bcf'
+[98] Biber.pm:952> INFO - Found 1 citekeys in bib section 0
+[106] Biber.pm:4340> INFO - Processing section 0
+[113] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
+[193] bibtex.pm:1689> INFO - LaTeX decoding ...
+[198] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
+[234] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[234] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[234] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[234] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[237] bbl.pm:654> INFO - Writing 'tg_ex3.bbl' with encoding 'UTF-8'
+[238] bbl.pm:757> INFO - Output to tg_ex3.bbl

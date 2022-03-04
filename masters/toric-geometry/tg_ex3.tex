@@ -1,0 +1,151 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Toric Geometry: Example Sheet 3 \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\begin{homework}[e]
+	\prob The Picard group of a toric variety is always a finitely generated abelian group, and the Picard rank of a toric variety $X$ is the rank of $\Pic X$. Give examples to show that the Picard rank of smooth toric surfaces is unbounded, i.e. for any integer $N$ there is a smooth toric surface with Picard rank larger that $N$.
+	\begin{prf}
+		This is likely \emph{not} how one is supposed to solve this problem, but here it goes. From the get go, we invoke \cite[Proposition 4.2.6.]{Cox-Little-Schenck} to note that, in the case that $X_\Sigma$ is smooth, every Weil divisor is Cartier. Since $Pic(X_\Sigma) \hookrightarrow \Cl(X_\Sigma)$, this tells us that $\Pic(X_\Sigma) \cong \Cl(X_\Sigma)$ if and only if $X_\Sigma$ is smooth. Our goal, then, is to construct a fan $\Sigma$ such that $\Cl(X_\Sigma)$ has rank equal to an arbitrary integer and $X_\Sigma$ is smooth, in which case we immediately have that the Picard rank of $X_\Sigma$ is $N$ by \cite[Proposition 4.2.6.]{Cox-Little-Schenck}. For $N = \bZ^n$, we aim to construct a toric variety $X_\Sigma$ with Picard rank $n$, as this suffices to solve the problem.
+
+        Let $\Sigma$ be a fan in $N \cong \bZ^n$ such that $\Sigma(1) = \{\tau_{1},...,\tau_{2n}\}$ where
+		\begin{align*}
+			\tau_i = 
+			\begin{cases}
+				e_i & ~\text{ if } ~ 1\leq i\leq n \\
+				-e_{i - n} &~\text{ if }~ n < i \leq 2n
+			\end{cases}.
+		\end{align*}
+		It is actually enough to let $\Sigma$ be the collection consisting of the origin in $N$ and these rays. The primitive generators of these rays (which we use interchangeably with the rays themselves when there is no confusion) all individually form a subset of a $\bZ$-basis for $N$ and hence their corresponding cones are smooth, and we require only the rays for the subsequent calculation. By \cite[Theorem 4.1.3.]{Cox-Little-Schenck}, we have an exact sequence
+		\begin{align*}
+			0 \to M \to{\varphi} \bigoplus_{i = 1}^{2n} \bZ\cdot D_{\tau_i} \to \Cl(X_\Sigma) \to 0,
+		\end{align*}
+		and it is short exact since the $\bR$-span of $\Sigma(1)$ is all of $N_\bR$. To understand the map $\varphi$ it suffices to understand its action on the standard basis of $M$, $m_j \in M$ where $m_j(e_k) = \delta_{jk}$ for $1\leq j,k \leq n$. We have that
+		\begin{align*}
+			\varphi(m_j) = \sum_{i=1}^{2n}m_j(\tau_i)D_{\tau_i} = D_{\tau_j} - D_{\tau_{j + n}}.
+		\end{align*}
+		As it is a map of Abelian groups, we understand $\varphi$ to be given by a $2n \times n$ matrix, and when $n = 3$ it is
+		\begin{align*}
+			A = \begin{pmatrix}	
+				1 & 0 & 0 \\
+				0 & 1 & 0 \\
+				0 & 0 & 1 \\
+				-1 & 0 & 0 \\
+				0 & -1 & 0 \\
+				0 & 0 & -1
+			\end{pmatrix}.
+		\end{align*}
+		Up to automorphism of $\bigoplus_{i = 1}^{2n} \bZ\cdot D_{\tau_i} \cong \bZ^{2n}$, $\varphi(M) \cong \bZ^n$ (see this from the Smith normal form of $A$). We then have that
+		\begin{align*}
+			\Cl(X_\Sigma) \cong \coker \varphi \cong \bZ^{2n}/\bZ^n \cong \bZ^n.
+		\end{align*}
+		Since $\Sigma$ is a smooth fan, $X_\Sigma$ is a smooth scheme and $\Pic(X_\Sigma) \cong \Cl(X_\Sigma) \cong \bZ^n$. We can therefore obtain a toric variety of Picard rank $n$ for any positive integer $n$.
+		
+		\red{It might be the case that ``$\Cl(X_\Sigma)$ is torsion free'' implies ``$X_\Sigma$ is smooth'', in which case it is redundant to discuss the smoothness of the fan, but I'm not sure that this is true for non-affine schemes.}
+
+		\hfill $\square$
+
+		\bigskip
+        
+		
+		\noindent\textbf{\emph{(Alternate solution, included primarily for author's benefit. Feel free to ignore.)}} ~ We may be able to do better than this in the following sense: for fixed $n \in \bN$ and arbitrary $a \in \bN$, does there exists a fan $\Sigma$ in $N$ such that $\rank \Pic(X_\sigma) \geq a$?
+
+		It is sufficient to construct $\Sigma$ such that $\Pic(X_\Sigma)$ has rank $a$. To do this, as before, we attempt to pick rays $\tau_1,...,\tau_{a+n}$ such that the corresponding fan $\Sigma$ is smooth. We then get for free that $\Pic(X_\Sigma) \cong \Cl(X_\Sigma)$ is torsion free, and hence
+		\begin{align*}
+			\rank \Pic(X_\Sigma) = \rank \oplus_{\tau \in \Sigma(1)} \bZ\cdot D_\tau ~ - ~ \rank \varphi(M) = a.
+		\end{align*}
+		In the case that $n = 2$, let $\tau_1 = (1,0), \tau_2 = (0,1)$, and $\tau_i = (-q_{i-2},p_{i-2})$ for $3 \leq i \leq a + 2$. Here, $p_j$ is the $j^{th}$ prime number ordered by magnitude for $1\leq j \leq a$. We choose $q_1 = 1$ and $q_j$ to be the minimal prime number such that $q_j \neq p_j$ and
+		\begin{align*}
+			\frac{p_{j}}{q_{j}} < \frac{p_{j-1}}{q_{j-1}}
+		\end{align*}
+		for $2 \leq j \leq a$. This condition on $q_j$ is chosen purely for aesthetic purposes so that $\tau_i$ is the $i^{th}$ ray moving counterclockwise from $\tau_1$.
+
+		E.g. $\tau_3 = (-1,2), \tau_3 = (-2, 3), \tau_4 = (-3,5), \tau_5 = (-11,7)$ etc.
+
+		We choose the $\tau_i$ in this way so that they may completed to a $\bZ$-basis for $N \cong \bZ^2$. Indeed, $\tau_1$ and $\tau_2$ clearly make up part of a $\bZ^2$-basis, and I claim this is true for $\tau_i$ when $3 \leq i\leq a+2$ as well. It suffices to show that there exists another $(x,y) \in \bZ^2$ such that
+		\begin{align*}
+			\det
+			\begin{pmatrix}	
+				p_{i-2} & q_{i-2} \\
+				x & y
+			\end{pmatrix} = p_{i-2}y - q_{i-2}x = 1.
+		\end{align*}
+		This is true by the Fundamental theorem of arithmetic since $p_{i-2}$ and $q_{i-2}$ are relatively prime by construction. Hence the fan $\Sigma$ consisting solely of these rays and the origin is a smooth fan.
+
+		Using the same notation as in the above solution, the map $\varphi$ is then given by the $((2+a) \times 2)$-matrix
+		\begin{align*}
+			A =
+			\begin{pmatrix}	
+                1 & 0 \\
+				0 & 1 \\
+				-1 & 2 \\
+				-2 & 3 \\
+				-3 & 5 \\
+				\vdots & \vdots
+			\end{pmatrix}
+		\end{align*}
+		which has Smith normal form
+		\begin{align*}
+			\begin{pmatrix}	
+                1 & 0 \\
+				0 & 1 \\
+				0 & 0 \\
+				0 & 0 \\
+				\vdots & \vdots
+			\end{pmatrix}
+		\end{align*}
+		Which has image isomorphic to $\bZ^2$. This means that $\Pic(X_\Sigma) = \Cl(X_\Sigma) = \bZ^{a+2}/\varphi(M) = \bZ^a$ as desired.
+	\end{prf}
+
+	\bigskip
+
+	\prob[\textsc{Problem 4}] Find a toric variety whose class group contains both torsion and non-torsion elements.
+	\begin{prf}
+		The process of calculating $X_\Sigma$ is really quite straightforward, but we outline the steps in greater detail than perhaps necessary for the benefit of the author when exam season begins.
+
+		Let $n = 3$ and let $\Sigma$ be a fan whose rays $\Sigma(1) = \{\tau_1, \tau_2, \tau_3\}$ are $\tau_1 = (d,1,0)$, $\tau_2 = (0,-1,0)$ and $\tau_3 = (0,1,0)$. Denote by $D_i$ the toric divisor $D_{\tau_i}$ for $i = 1,2,3$. As discussed in class and in \cite[Theorem 4.1.3.]{Cox-Little-Schenck}, we have an exact sequence
+		\begin{align*}
+			M \to{\varphi} \bigoplus_{i=1}^3 \bZ\cdot D_i \to \Cl(X_\Sigma) \to 0,
+		\end{align*}
+		and we note that this sequence is not short exact since $|\Sigma|$ is contained in the hyperplane generated by $(1,0,0)$ and $(0,1,0)$ in $N_\bR$. The map $M \to \bigoplus_{i=1}^3 \bZ\cdot D_i$ is quite explicit; we simply send $m \in M$ to $\sum_{i=1}^3m(\nu_i)D_i$ where $\nu_i$ denote the $i$th primitive lattice generator of the sublattice in $N$ spanned by $\Sigma(1)$. It suffices to understand the map on the canonical basis of $M$, the elements $m_1 = (1,0,0)$, $m_2 = (0,1,0)$ and $m_3 = (0,0,1)$. The images of these elements is given below:
+		\begin{align*}
+			m_1 &\mapsto \langle m_1, (d,1,0) \rangle \cdot D_1 + \langle m_1,(0,-1,0) \rangle \cdot D_2 + \langle m_1,(0,1,0) \rangle\cdot D_3 = d\cdot D_1 \\
+			m_2 &\mapsto \langle m_2, (d,1,0) \rangle \cdot D_1 + \langle m_2,(0,-1,0) \rangle \cdot D_2 + \langle m_2,(0,1,0) \rangle\cdot D_3 = -D_1 + D_2 \\
+			m_3 &\mapsto \langle m_3, (d,1,0) \rangle \cdot D_1 + \langle m_3,(0,-1,0) \rangle \cdot D_2 + \langle m_3,(0,1,0) \rangle\cdot D_3 = 0 \\
+		\end{align*}
+		As $M \cong \bZ^3$ and $\bigoplus_{i=1}^3 \bZ\cdot D_i \cong \bZ^3$, the above maps make it clear that $\varphi$ is multiplication by the matrix
+		\begin{align*}
+			A = \begin{pmatrix}	
+				d & -1 & 0 \\
+				0 & 1 & 0 \\
+				0 & 0 & 0
+			\end{pmatrix} \sim 
+			\begin{pmatrix}	
+				d & 0 & 0 \\
+				0 & 1 & 0 \\
+				0 & 0 & 0
+			\end{pmatrix},
+		\end{align*}
+		where the latter matrix is simply $A$ in Smith normal form. Exactness of the above sequence means that $\Cl(X_\Sigma) \cong \coker \varphi = \bZ^3/\im(A)$, and the Smith normal form of $A$ makes it clear that
+		\begin{align*}
+			\Cl(X_\Sigma) = \bZ \oplus \bZ/d\bZ.
+		\end{align*}
+		Notice that $\varphi$'s failure to be injective was crucial here. If it were injective, then the image of each $m_i$ would have given a copy of $d_i\bZ$ for some nonzero $d_i \in \bZ$, giving us only torsion. It therefore made sense to look for rays contained in a hyperplane of $N_\bR$.
+
+		Alternatively, we could have chosen a fan with more rays than the rank of $M$, e.g. for $M \cong \bZ^2$ a fan $\Sigma$ such that $\Sigma(1) = \{(-4,1),(0,1),(2,-1)\}$. In this case we have injectivity of $\varphi$, but because $\rank M < \rank \bigoplus \bZ\cdot D_{\tau_i}$, $\coker \varphi$ must contain a torsion-free submodule by default. It is up to us, therefore, to choose rays which produce torsion in $\Cl(X_\Sigma)$. Our above choices do the trick; one can check that $\varphi(M) \cong \bZ \oplus 2\bZ \subseteq \bZ^3$ so we end up with $\Cl(X_\Sigma) \cong \bZ \oplus \bZ/2\bZ$.A
+
+		\bigskip
+
+		Final note: I find this process rather miraculous. A while back, I proved a (very) small result the involving torsion divisors of certain affine varieties in prime characteristic, a project which, if nothing else, taught me how intractable $\Cl(X)$ is for even rather simplistic schemes. I would've had a much easier time generating examples had I known a bit of toric geometry back then.
+	\end{prf}
+\end{homework}
+\end{document}

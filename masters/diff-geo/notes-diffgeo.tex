@@ -244,6 +244,122 @@ We're finally ready to define a smooth $n$-manifold.
 	\end{enumerate}
 \end{rmk}
 
-\lecture{2021-10-12}{2022-03-01}
+\lecture{2021-10-12}{2022-03-03}
+
+\begin{defn}\label{defn:dimension-of-manifold}
+	For a smooth $n$-manifold $X$, the integer $n$ is called the \emph{dimension} of $X$ (unsurprisingly). We write $\dim X$ for this.
+\end{defn}
+
+We'll prove that dimension is invariant under diffeomorphism. You might think that you don't need smooth structure to prove invariance of dimension, and this is true -- but proving that dimension is invariant under homeomorphism is substantially harder and falls in the domain of algebraic topology.
+
+You're free to add charts (or equivalently local coordinates) to your atlas as long as they preserve the smoothness of the manifold. Here is an example to give an idea of what we mean.
+
+\begin{example}\label{expl:add-charts-to-atlas}
+	$ $
+	\begin{enumerate}[(i)]
+		\item Given a point $p \in X$ and an open neighborhood $W$ of $p$, we can always take/add a chart about $p$ contained in $W$
+		\item Can choose/add local coordinates about $p$ such that $p$ corresponds to the origin in these coordinates: take any chart $\varphi$ about $p$ and consider $\varphi - \varphi(p)$ to be the new local coordinates. That is, for $p \in U \subseteq X$ and $V \subseteq \bR^n$,
+			\begin{align*}
+				\varphi:U \to{\sim} V, ~ \varphi - \varphi(p) ~\text{ means do the subtraction in  } \bR^n
+			\end{align*}
+	\end{enumerate}
+\end{example}
+
+\begin{example}\label{expl:n-sphere}
+	The \emph{n-sphere}, $S^n$, is the $n$-manifold whose underlying topological space is
+	\begin{align*}
+		\left\{y \in \bR^{n+1} \midd \|y\|^2 = 1 \subseteq \bR^{n+1}\right\}
+	\end{align*}
+	with the subspace topology. Smooth structure is defined by the following atlas. There are two charts 
+	\begin{align*}
+		\varphi_{\pm}:U_{\pm} \to{\sim} \bR^n,
+	\end{align*}
+	where $U_{\pm} = S^n \setminus \{(0,...,0,\pm 1)\}$ and $\varphi_{\pm}$ is stereographic projection. That is, $U_+$ is the sphere with the north pole removed and $U_-$ is the sphere with the south pole removed.
+
+    As a reminder, stereographic projection involves taking the unique hyperplane through the origin of $\bR^{n+1}$ which is normal to $(0,...,0,\pm 1)$. This is a copy of $\bR^n$. For a point $p \in U_+$, the stereographic projection $\varphi_+(p)$ of $p$ is the unique point on this hyperplane which intersects the line through $N = (0,...,0,1)$ and $p$. Likewise, for $p \in U_-$, $\varph_-(p)$ is the unique point on the relevant hyperplane which lies on the line between $S = (0,...,0,-1)$ and $p$. The symmetry of the sphere means that for $p \in U_+ \cap U_- = S^n \setminus \{N,S\}$, $\varphi_+(p) = \varphi_-(p)$. Explicitly,
+    \begin{align*}
+    	\varphi_\pm(y_1,...,y_{n+1}) = \frac{(y_1,...,y_{n+1})}{1 \mp y_{n+1}}.
+    \end{align*}
+    Local coordinates $x^\pm$ satisfy
+    \begin{align*}
+	    x_i^\pm = \frac{y_i}{1 \mp y_{n+1}}.
+    \end{align*}
+    The \emph{height function} $y_{n+1}$ (which is just the projection of a point $p \in S^{n}$ to its $(n+1)$th coordinate, i.e. the height of $p$ above or below the plane through the equator) is smooth since it's given by
+	\begin{align*}
+		y_{n+1} = \pm \frac{\|x^\pm\|^2 - 1}{\|x^\pm\|^2 + 1} ~ \text{ on } U_\pm.
+	\end{align*}
+\end{example}
+
+\subsection{Manifolds from Sets}
+\textbf{Observation:} If $X$ is a manifold, the charts ``know the topology'' -- a set $W \subseteq X$ is open if and only if $\varphi_\alpha(W)$ is open in $\bR^n$ for all charts $\varphi_\alpha$. This is useful in practice, since it means we can simply take a set with an obvious set of charts to $\bR^n$ and then define the topology on our set by taking the inverse images of opens in $\bR^n$ under our chosen atlas.
+
+More concretely, suppose we're given
+\begin{itemize}
+	\item a set $X$
+	\item a collection $\{U_\alpha\}_{\alpha \in \cA}$ of sets covering $X$
+	\item for each $\alpha$, an open set $V_\alpha \subseteq \bR^n$ and a bijection $\varphi_\alpha:U_\alpha \to V_\alpha$.
+\end{itemize}
+Suppose that for all $\alpha,\beta \in \cA$ the set $\varphi_\alpha(U_\alpha\cap U_\beta)$ is an open in $V_\alpha$ (or equivalently in $\bR^n$) and the map
+\begin{align*}
+	\varphi_\beta\circ \varphi_\alpha^{-1}: \varphi_\alpha(U_\alpha \cap U_\beta) \to \varphi_\beta(U_\alpha \cap U_\beta)
+\end{align*}
+is smooth.
+
+\begin{defn}[Non-standard]\label{defn:smooth-pseudo-atlas}
+	Call such data a \emph{smooth pseudo-atlas} on $X$, and call the $\varphi_\alpha$ \emph{pseudo-charts}.
+\end{defn}
+
+\begin{lem}\label{lem:pseudo-atlas-yields-topology}    
+    Declare a set $W \subseteq X$ to be open if and only if for all $\alpha$ the set $\varphi_\alpha(W \cap U_\alpha)$ is open in $\bR^n$. This defines a topology on $X$.
+\end{lem}
+
+\begin{prop}\label{prop:pseudo-atlas-gives-atlas}
+	As long as $X$ is second-countable and Hausdorff under the topology given by the pseudo atlas, the space resulting from a pseudo atlas is a topological $n$-manifold and the pseudo atlas is a smooth atlas (hence it defines a smooth structure).
+\end{prop}
+\begin{prf}
+	We need to check that the $\varphi_\alpha$ are homeomorphisms and that the $U_\alpha$ are open, but we already have that the transition functions $\varphi_\beta\circ \varphi_\alpha^{-1}$ are smooth by virtue of the pseudo atlas definition. To check that $\varphi_\alpha$ is a homeomorphism, need to check that for all $W \subseteq X$,
+	\begin{align*}
+		W \text{ open in } X \iff \varphi_\alpha(W) \text{ open in } V_\alpha.
+	\end{align*}
+	The forward implication is obvious from the definition of a open in $X$, they're defined in terms of their images under $\varphi_\alpha$ for arbitrary $\alpha$. For the reverse implication, suppose that $\varphi_\alpha(W)$ is open. We want to show that, for any other $\beta$, the set $\varphi_\beta(W \cap U_\beta)$ is open. We have
+	\begin{align*}
+		\varphi_\beta(W \cap U_\beta) 
+		&= (\varphi_\beta \circ \varphi_\alpha^{-1})\circ \varphi_\alpha(W \cap U_\beta) \\
+		&= (\varphi_\alpha \circ \varphi_\beta^{-1})\left(\varphi_\alpha(W) \cap \varphi_\alpha(U_\alpha\cap U_\beta)\right).
+	\end{align*}
+    Since $\varphi_\alpha\circ \varphi_\beta^{-1}$ is continuous, $\varphi_\alpha(W)$ is open, and $\varphi_\alpha(U_\alpha \cap U_\beta)$ is open, we are done.
+\end{prf}
+
+We say that \emph{two smooth pseudo atlases are equivalent if their union is a smooth pseudo atlas.}
+\begin{lem}\label{lem:equiv-pseudo-atlases}
+	Equivalent smooth pseudo atlases define the same manifold structure. \hfill $\square$
+\end{lem}
+This discussion allows us to give a construction of our first interesting example of a manifold.
+\begin{example}\label{expl:proj-space}
+	The $n$-dimensional \emph{real projective space} $\bRP^n$ is the space of lines (1-dimensional linear subspaces) in $\bR^{n+1}$.
+	\begin{itemize}
+		\item Any non-zero $x \in \bR^{n+1}$ defines a point $\langle x \rangle \in \bRP^n$
+		\item All lines arise in this way.
+		\item Two points define the same line if and only if they differ by rescaling
+	\end{itemize}
+	We therefore label points of $\bRP^n$ by the ratios $[x_0:...:x_n]$ which we call \emph{homogeneous coordinates}. Explicitly, $x = [x_0:...:x_n] = [y_0:...:y_n] = y$ if there is some $\lambda \in \bR$ such that $y = \lambda x$.
+\end{example}
+Define the following pseudo-charts for $i = 0,...,n$. Let $U_i = \{[x_0:...:x_n] ~\mid~ x_i \neq 0\}$ and define a bijection
+\begin{align*}
+	\varphi_i:U_i \to \bR^n \buffword{1.5em}{by} [x_0:...:x_n] = \frac{(x_0,...,\hat{x_i},...,x_n)}{x_i}.
+\end{align*}
+This is a smooth pseudo-atlas and makes $\bRP^n$ into a smooth $n$-manifold.
+
+\begin{example}\label{expl:pseudo-atlas-not-second-countable}
+	Take $X = \bR \times \{1,2\} / ~$ where $(x,1) \sim (x,2)$ if $x < 0$, i.e. we take $X$ to be two copies of the real line glued together at the negative points. We have a pseudo atlas given by
+	\begin{align*}
+		\bR\times \{i\} \to{\sim} \bR,
+	\end{align*}
+	and while $X$ \emph{is} second-countable, $X$ is not Hausdorff. We have two copies of the origin, but we cannot separate them with open sets. Therefore $X$ is a set with a pseudo-atlas which fails to be a topological $n$-manifold.
+\end{example}
+
+\begin{rmk}\label{rmk:pseudo-atlas-constructions-alt-approach}
+	We need not always start with a collection $\{V_\alpha\}$ of opens in $\bR^n$ and then specify a way to glue them together.
+\end{rmk}
 
 \end{document}

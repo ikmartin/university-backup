@@ -11,3 +11,5 @@
 \contentsline {section}{\numberline {1}Manifolds and Smooth Maps}{5}{section.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1}Manifolds}{5}{subsection.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}Manifolds from Sets}{9}{subsection.1.2}%
