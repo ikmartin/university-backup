@@ -4,7 +4,7 @@
 \begin{center}
 	\Large
 	\begin{LARGE}
-		D-Modules, Unit \textit{F}-Crystals, and Hodge Theory \\
+		D-Modules Draft 1 \\
 	\end{LARGE}
 	Definitions, Theorems, Remarks, and Notable Examples \\
 	Isaac Martin \\
@@ -16,8 +16,8 @@
 
 \tableofcontents
 \newpage
-\section{D-module}
-Here we cover basic definitions and theorems in the theory of $D$-modules with a heavy emphasis on examples.
+\section{D-modules over Affine n-space}
+Here we cover the basic theory of modules over the Weyl algebra, or in other words, the theory of $D$-modules in the case where $X = \bA^n_K$.
 
 \subsection{Weyl Algebra}
 Let $K$ be a field of characteristic $0$. We construct the Weyl algebra in two ways and prove that these constructions produce isomorphic rings.
@@ -39,7 +39,7 @@ Let $K$ be a field of characteristic $0$. We construct the Weyl algebra in two w
 \end{defn}
 Since $K[\hat{x}] \cong K[x]$ as rings, we typically drop the hat notation and simply write $x_i$ for $\hat{x_i}$. For any two operators $A,B \in \End(R)$ we write  $[A,B] = AB - BA$. The commutator is a $K$-bilinear map on $\End(R)$.
 
-We can also write the Weyl algebra down as a quotient of a free algebra in $2n$ generators over $K$. 
+We can also write the Weyl algebra down as a quotient of a free algebra in $2n$ generators over $K$.
 
 \begin{defn}\label{defn:Weyl-algebra-construction-2}
 	The free algebra $K\{x_1,...,x_{2n}\}$ in $2n$ generators is the set of $K$-linear combinations of words in $x_1,...,x_{2n}$. Multiplication is given by concatenation on monomials and then extended to arbitrary elements by the distributive property. We have a homomorphism
@@ -53,7 +53,7 @@ We can also write the Weyl algebra down as a quotient of a free algebra in $2n$ 
 	The map $\hat{\phi}$ is an isormophism.
 \end{thm}
 
-To summarize, in $A_n$,
+\noindent To summarize, in $A_n$,
 \begin{itemize}
 	\item $x_i$ and $x_j$ commute
 	\item $\partial_i$ and $\partial_j$ commute
@@ -61,5 +61,74 @@ To summarize, in $A_n$,
 \end{itemize}
 \begin{example}\label{example:commutator-as-derivative-one-dim}
     Given a polynomial $f \in K[x]$, we can think of $f$ as an operator in $\End_K(K[x])$ by the map $x \mapsto \hat{x}$, and the operator $f$ is simply given by multiplication by $f$. I claim that the commutator of $f$ with $\partial$ satisfies the following relation: $[\partial, f] = f'$ where $f'$ is the derivative of $f$. To see this, it suffices to show that $[\partial, x^n] = nx^{n-1}$ for $n \in \bZ_{\geq 0}$, since $[-,-]$ is $K$-bilinear.
+
+	We show this by induction. The commutator relation $[\partial,x] = 1$ serves as the base case, so suppose $[\partial, x^k] = kx^{k-1}$ for $1\leq k < n$. Then
+	\begin{align*}
+		\partial x^n
+		&= (\partial x)x^{n-1} \\
+		&= (1 - x\partial)x^{n-1} \\
+		&= x^{n-1} - x\partial x^{n-1} \\
+		&= x^{n-1} - x\cdot (n-1) x^{n-2} = n\cdot x^{n-1},
+	\end{align*}
+	giving us the result.
 \end{example}
+It is useful to fix a basis for the Weyl algebra, but for arbitrary $n$, the notation becomes cumbersome. To remedy this, we use multi-indices. For $\alpha = (\alpha_1,...,\alpha_n), \beta = (\beta_1,...,\beta_n)\in \bN^n$, we denote by $x^\alpha\partial^\beta$ the element $x_1^{\alpha_1}...x_n^{\alpha_n}\partial_1^{\beta_1}...\partial_n^{\beta_n} \in A_n$. As it turns out, the set of all elements of this form is a $K$-basis for $A_n$
+\begin{prop}\label{prop:canonical-basis}
+	The set $\bfB = \{x^\alpha\partial^\beta ~ \mid ~ \alpha,\beta\in \bN^n\}$ is a basis of $A_n$ as a vector space over $K$. This is called the \emph{canonical basis} of $A_n$ and an operator $D \in A_n$ written as a linear combination of elements in $\bfB$ is said to be in \emph{canonical form}.
+\end{prop}
+
+\subsection{Basic Properties of the Weyl Algebra}
+Despite the noncommutative of $A_n$, one might be tempted to draw comparisons between the Weyl algebra and a ring of polynomials, especially given that $A_n$ admits such a nice basis. In particular, one might wonder if $A_n$ admits any meaningful graded structure. The answer turns out to be ``sort of''. The goal of this section is primarily to define and examine this approximation of a graded structure. To do this, we first define the \emph{degree} of an element in $A_n$. We then notice that this fails to define a $K[X]$-grading for $A_n$ and provide a workaround.
+
+We also say some words about the ideal structure of $A_n$ and the case in which $\fchar K = p > 0$.
+
+\begin{defn}\label{defn:degree-of-Weyl-operator}
+	The \emph{length} of a multindex $\alpha \in \bN^n$ is denoted $|\alpha|$ and is defined
+	\begin{align*}
+		|\alpha| = |\alpha_1| + ... + |\alpha_n|.
+	\end{align*}
+	Let $D$ be an operator $A_n$. The \emph{degree} of $D$, $\deg(D)$, is the largest length of the multi-indices $(\alpha, \beta) \in \bN^n \times \bN^n$ for which $x^\alpha\partial^\beta$ appears with non-zero coefficient in the canonical form of $D$. We define $\deg(0) = -\infty$.
+\end{defn}
+It is important to remember that the definition of degree depends on the canonical basis for $A_n$. The degree of $x\partial$ can simply be read off as 2, but $\partial x$ must first be written $x\partial + 1$ in order to see that $\deg(\partial x) = 2$.
+
+The function $\deg: A_n\to \bN$ reproduces the multiplicative and additive structure of $\deg:K[X]\to \bN$:
+\begin{thm}\label{thm:degree-properties}
+    Let $D,D' \in A_n$.
+	\begin{enumerate}[(1)]
+		\item $\deg(DD') = \deg(D) + \deg(D')$
+		\item $\deg(D+D') \leq \max\{\deg(D), \deg(D')\}$
+		\item $\deg[D,D']\leq \deg(D) + \deg(D') - 2$.
+	\end{enumerate}
+\end{thm}
+Note that equality holds in (2) when $\deg(D) \neq \deg(D')$ but that there is risk of cancellation otherwise, as is the case with rings of polynomials.
+\begin{prf}
+	We refer to \cite{Gieseker75} for the proof of (1) and (3) \red{COMPLETE PROOF OF (3) MANUALLY}.
+\end{prf}
+
+One might expect a graded structure to naturally fall from this definition of degree. The issue, as always, is one of noncommutativity. The element $x_1\partial_1$ ought to homogeneous, but it is the difference $\partial x - 1$ of two elements with non-equal degree. There is no way to define a collection of pairwise disjoint $K[X]$-submodules of $A_n$ whose direct sum recovers $A_n$. Nonetheless, we can still find a collection of $A_n$ submodules which resemble a grading on $A_n$. We will call this a \emph{filtration} of $A_n$, and it turns out that this filtration will come with a natural associated graded $K[X]$-module whose properties will yield new information about $A_n$.
+
+We first define arbitrary filtered rings and modules.
+
+\begin{defn}\label{defn:filtered-ring}
+	Let $R$ be a $K$-algebra and $M$ an $R$-module. A collection $\cF = \{F_i\}_{i \geq 0}$ of $K$-vector spaces is said to be a \emph{filtration} of $R$ if
+	\begin{enumerate}[(i)]
+		\item $F_0\subset F_1 \subset F_2 \subset ... \subset R$
+		\item $R = \bigcup_{i\geq 0} F_i$
+		\item $F_i\cdot F_j \subseteq F_{i+j}$.
+	\end{enumerate}
+	If $R$ has a filtration it is called a \emph{filtered algebra}. Similarly, if $R$ is a filtered algebra, then a \emph{filtration of $M$} is a family $\Gamma = \{\Gamma_0\}_{i\geq 0}$ of $K$-vector spaces satisfying
+	\begin{enumerate}[(i)]
+		\item $\Gamma_0 \subseteq \Gamma_1 \subseteq \Gamma_2 \subseteq ... \subseteq M$,
+		\item $M = \bigcup_{i\geq 0} \Gamma_i$
+		\item $B_i\Gamma_j \subseteq \Gamma_{i+j}$.
+	\end{enumerate}
+\end{defn}
+	Such a module is said to be \emph{filtered}. In this section, we additionally adopt the convention that
+	\begin{enumerate}
+		\item[(4)] $\Gamma_i$ is a finite-dimensional $K$-algebra for each $i \geq 0$,
+	\end{enumerate}
+	which will become important in our discussion of dimension.
+
+\newpage
+\printbibliography
 \end{document}
