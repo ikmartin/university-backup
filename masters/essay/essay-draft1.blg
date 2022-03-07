@@ -1,9 +1,17 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'essay-draft1.blg'
-[131] biber-darwin:340> INFO - === Fri Mar  4, 2022, 22:53:53
-[157] Biber.pm:415> INFO - Reading 'essay-draft1.bcf'
-[335] Biber.pm:952> INFO - Found 1 citekeys in bib section 0
-[366] Biber.pm:4340> INFO - Processing section 0
-[385] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
-[576] Utils.pm:411> ERROR - Cannot find 'main.bib'!
-[576] Biber.pm:132> INFO - ERRORS: 1
+[39] biber:340> INFO - === Sun Mar  6, 2022, 13:36:06
+[47] Biber.pm:415> INFO - Reading 'essay-draft1.bcf'
+[90] Biber.pm:952> INFO - Found 1 citekeys in bib section 0
+[98] Biber.pm:4340> INFO - Processing section 0
+[104] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
+[178] bibtex.pm:1689> INFO - LaTeX decoding ...
+[184] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
+[212] Utils.pm:395> WARN - ISBN '0-521-55119-6; 0-521-55908-1' in entry 'd-mod-primer' is invalid - run biber with '--validate_datamodel' for details.
+[217] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[217] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[217] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[217] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[220] bbl.pm:654> INFO - Writing 'essay-draft1.bbl' with encoding 'UTF-8'
+[221] bbl.pm:757> INFO - Output to essay-draft1.bbl
+[221] Biber.pm:128> INFO - WARNINGS: 1

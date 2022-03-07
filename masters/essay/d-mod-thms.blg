@@ -1,15 +1,15 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'd-mod-thms.blg'
-[45] biber:340> INFO - === Thu Feb 24, 2022, 17:48:35
-[54] Biber.pm:415> INFO - Reading 'd-mod-thms.bcf'
-[99] Biber.pm:952> INFO - Found 2 citekeys in bib section 0
-[107] Biber.pm:4340> INFO - Processing section 0
-[113] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
-[192] bibtex.pm:1689> INFO - LaTeX decoding ...
-[196] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
-[238] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[238] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[238] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[238] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[242] bbl.pm:654> INFO - Writing 'd-mod-thms.bbl' with encoding 'UTF-8'
-[243] bbl.pm:757> INFO - Output to d-mod-thms.bbl
+[47] biber:340> INFO - === Sat Mar  5, 2022, 23:22:36
+[56] Biber.pm:415> INFO - Reading 'd-mod-thms.bcf'
+[101] Biber.pm:952> INFO - Found 2 citekeys in bib section 0
+[110] Biber.pm:4340> INFO - Processing section 0
+[116] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
+[201] bibtex.pm:1689> INFO - LaTeX decoding ...
+[208] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
+[248] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[249] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[249] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[249] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[253] bbl.pm:654> INFO - Writing 'd-mod-thms.bbl' with encoding 'UTF-8'
+[253] bbl.pm:757> INFO - Output to d-mod-thms.bbl

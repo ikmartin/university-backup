@@ -16,7 +16,14 @@
 
 \tableofcontents
 \newpage
-\section{D-modules over Affine n-space}
+\noindent \textbf{Notes/Thoughts}
+\begin{enumerate}
+	\item Lots of numbered definitions, all of which are standard in the literature. Would it be a better stylistic choice to simply integrate these into the text and drop the numbering?
+	\item Current algorithm for deciding whether a piece of mathematics is included in this document is "is Isaac comfortable with this content? If yes, don't include it. If no, include it." This is good for a document intended only for the author, but is bad for consistency and a standardized assumed background. Why should a discussion of Noetherian rings and modules be omitted but basic filtration definitions be given an entire subsection? For the second full draft, consider scrapping the more elementary pieces of the theory.
+	\item At the time of this writing, induced filtrations only appear in the proof of Theorem (\ref{thm:noeth-assoc-graded-module})
+\end{enumerate}
+\newpage
+\section{D-modules over Affine Space}
 Here we cover the basic theory of modules over the Weyl algebra, or in other words, the theory of $D$-modules in the case where $X = \bA^n_K$.
 
 \subsection{Weyl Algebra}
@@ -78,9 +85,10 @@ It is useful to fix a basis for the Weyl algebra, but for arbitrary $n$, the not
 \end{prop}
 
 \subsection{Basic Properties of the Weyl Algebra}
+
 Despite the noncommutative of $A_n$, one might be tempted to draw comparisons between the Weyl algebra and a ring of polynomials, especially given that $A_n$ admits such a nice basis. In particular, one might wonder if $A_n$ admits any meaningful graded structure. The answer turns out to be ``sort of''. The goal of this section is primarily to define and examine this approximation of a graded structure. To do this, we first define the \emph{degree} of an element in $A_n$. We then notice that this fails to define a $K[X]$-grading for $A_n$ and provide a workaround.
 
-We also say some words about the ideal structure of $A_n$ and the case in which $\fchar K = p > 0$.
+We also say some words about the ideal structure of $A_n$ and holonomic modules.
 
 \begin{defn}\label{defn:degree-of-Weyl-operator}
 	The \emph{length} of a multindex $\alpha \in \bN^n$ is denoted $|\alpha|$ and is defined
@@ -92,7 +100,7 @@ We also say some words about the ideal structure of $A_n$ and the case in which 
 It is important to remember that the definition of degree depends on the canonical basis for $A_n$. The degree of $x\partial$ can simply be read off as 2, but $\partial x$ must first be written $x\partial + 1$ in order to see that $\deg(\partial x) = 2$.
 
 The function $\deg: A_n\to \bN$ reproduces the multiplicative and additive structure of $\deg:K[X]\to \bN$:
-\begin{thm}\label{thm:degree-properties}
+\begin{thm}[{\cite[Theorem 2.1.1.]{d-mod-primer}}]\label{thm:degree-properties}
     Let $D,D' \in A_n$.
 	\begin{enumerate}[(1)]
 		\item $\deg(DD') = \deg(D) + \deg(D')$
@@ -102,7 +110,7 @@ The function $\deg: A_n\to \bN$ reproduces the multiplicative and additive struc
 \end{thm}
 Note that equality holds in (2) when $\deg(D) \neq \deg(D')$ but that there is risk of cancellation otherwise, as is the case with rings of polynomials.
 \begin{prf}
-	We refer to \cite{Gieseker75} for the proof of (1) and (3) \red{COMPLETE PROOF OF (3) MANUALLY}.
+	We refer to \cite{d-mod-primer} for the proof of (1) and (3) \red{COMPLETE PROOF OF (2) MANUALLY}.
 \end{prf}
 
 One might expect a graded structure to naturally fall from this definition of degree. The issue, as always, is one of noncommutativity. The element $x_1\partial_1$ ought to homogeneous, but it is the difference $\partial x - 1$ of two elements with non-equal degree. There is no way to define a collection of pairwise disjoint $K[X]$-submodules of $A_n$ whose direct sum recovers $A_n$. Nonetheless, we can still find a collection of $A_n$ submodules which resemble a grading on $A_n$. We will call this a \emph{filtration} of $A_n$, and it turns out that this filtration will come with a natural associated graded $K[X]$-module whose properties will yield new information about $A_n$.
@@ -111,24 +119,124 @@ We first define arbitrary filtered rings and modules.
 
 \begin{defn}\label{defn:filtered-ring}
 	Let $R$ be a $K$-algebra and $M$ an $R$-module. A collection $\cF = \{F_i\}_{i \geq 0}$ of $K$-vector spaces is said to be a \emph{filtration} of $R$ if
-	\begin{enumerate}[(i)]
+	\begin{enumerate}[(1)]
 		\item $F_0\subset F_1 \subset F_2 \subset ... \subset R$
 		\item $R = \bigcup_{i\geq 0} F_i$
 		\item $F_i\cdot F_j \subseteq F_{i+j}$.
 	\end{enumerate}
 	If $R$ has a filtration it is called a \emph{filtered algebra}. Similarly, if $R$ is a filtered algebra, then a \emph{filtration of $M$} is a family $\Gamma = \{\Gamma_0\}_{i\geq 0}$ of $K$-vector spaces satisfying
-	\begin{enumerate}[(i)]
+	\begin{enumerate}[(1)]
 		\item $\Gamma_0 \subseteq \Gamma_1 \subseteq \Gamma_2 \subseteq ... \subseteq M$,
 		\item $M = \bigcup_{i\geq 0} \Gamma_i$
 		\item $B_i\Gamma_j \subseteq \Gamma_{i+j}$.
 	\end{enumerate}
+	It is useful to set $F_i = \Gamma_i = 0$ for $i < 0$.
 \end{defn}
-	Such a module is said to be \emph{filtered}. In this section, we additionally adopt the convention that
-	\begin{enumerate}
-		\item[(4)] $\Gamma_i$ is a finite-dimensional $K$-algebra for each $i \geq 0$,
-	\end{enumerate}
-	which will become important in our discussion of dimension.
+Such a module is said to be \emph{filtered}. In this section, we additionally adopt the convention that
+\begin{enumerate}
+	\item[(4)] $\Gamma_i$ is a finite-dimensional $K$-algebra for each $i \geq 0$,
+\end{enumerate}
+which will become important in our discussion of dimension.
 
+As promised, filtered rings and modules come with an associated graded structure. Let's first examine this for rings.
+
+\begin{defn}\label{defn:associated-grading-rng}
+	Let $R$ be a $K$-algebra and $\cF = \{F_i\}$ a filtration of $R$. The \emph{graded algebra of $R$ associated to $\cF$} is the $K$-vector space
+	\begin{align*}
+		\gr^\cF R = \bigoplus_{i\geq 0}(F_i/F_{i-1}).
+	\end{align*}
+	For each $k \geq 0$, the \emph{symbol map of order $k$} is the canonical vector space projection
+	\begin{align*}
+		\sigma_k:F_k\to F_k/F_{k-1}.
+	\end{align*}
+	We use these maps to define an algebra structure on $\gr^\cF R$. A \emph{homogeneous element} of $\gr^\cF R$ is any operator $d \in \gr^\cF R$ such that $d = \sigma_k(a)$ for some $a \in F_k$. Given two homogenous elements $\sigma_i(a)$ and $\sigma_j(b)$, we define their product by
+	\begin{align*}
+		\sigma_i(a)\cdot \sigma_j(b) = \sigma_{i+j}(a\cdot b).
+	\end{align*}
+	Extending this multiplication to all of $\gr^\cF R$ by distributivity makes $\gr^\cF R$ into a graded $K$-algebra whose homogeneous components are the individual summands $F_k/F_{k-1}$.
+\end{defn}
+This definition takes as input a filtration of a ring, and in particular we shouldn't expect two different filtrations on $R$ to produce isomorphic associated graded algebras.
+
+We now return our attention to the Weyl algebra. The first and most important filtration of $A_n$ we consider is also the most obvious: we filter using degree. This is called the Bernstein filtration.
+\begin{defn}\label{defn:bernstein-filtration}
+	Let $B_k$ denote the $K$-subspace of $A_n$ consisting of all operators with degree less than $k$:
+	\begin{align*}
+		B_k = \left\{D \in A_n \midd \deg(D) \leq k\right\}.
+	\end{align*}
+	The \emph{Bernstein filtration} is $\cB = \{B_k\}_{k\geq 0}$.
+\end{defn}
+\begin{prop}\label{prop:bernstein-filtration}
+	The Bernstein filtration is indeed a filtration of $A_n$ as a $K$-algebra.
+\end{prop}
+\begin{prf}
+	\red{This promptly follows from Theorem (\ref{thm:degree-properties}), consider omitting.} That $B_k \subseteq B_{k+1}$ and $B_k$ is a $K$-vector subspace of $A_n$ are clear by the definition of $B_k$ and Theorem (\ref{thm:degree-properties}). Theorem (\ref{thm:degree-properties}) part (1) futher tells us that $B_k \cdot B_m \subseteq B_{k\dot m}$. Finally, since every operator $D \in A_n$ can be written in canonical form, $\deg(D) < \infty$ and $D \in B_k$ for some $K$, hence $A_n = \cup_{i\geq 0} B_k$.
+\end{prf}
+We now compute the graded algebra of $A_n$ associated to the Bernstein filtration.
+\begin{thm}\label{thm:graded-algebra-of-Weyl-algebra}
+	Let $S_n = \gr^\cB A_n$. The graded algebra $S_n$ is isomorphic to $K[y_1,...,y_{2n}]$.
+\end{thm}
+\begin{prf}
+	See \cite[pg. 58]{d-mod-primer}.
+\end{prf}
+Although we only refer to the proof of this statement, it is nonetheless worth thinking about why this ought to be true. Since we have surjective maps $\pi_k:A_n\to B_k \to{\sigma_k} B_k/B_{k-1}$, $S_n$ is generated as an algebra by the images of elements $x_1,...,x_n,\partial_1,...,\partial_n \in A_n$. The only thing preventing us from defining a isomorphism $K[y_1,...,y_{2n}]\to S_n$ sending $y_i\mapsto x_i$ and $y_{i+n}\mapsto \partial_{i}$ for $1\leq i\leq n$ is commutativity, however, we see that
+\begin{align*}
+	\pi_1(\partial_i x_i) = \pi_1(x_i\partial_i + 1) = \pi_1(x_i\partial_i) + \pi_1(1) = \pi_1(x_i\partial_i),
+\end{align*}
+so $[\partial_i,x_i] = 0$ in $B_1/B_0$. This gives us commutativity in $S_n$ and allows us to define a surjective homomorphism $K[y_1,...,y_{2n}] \to S_n$. Since there are no additional relations between the generators $x_1,...,x_n,\partial_1,...,\partial_n$, this is an isomorphism. Coutinho's proof simply fills in the details of this sketch.
+
+\bigskip
+
+It also makes sense to associate a graded module to a filtered module. We do that now.
+\begin{defn}\label{defn:associated-graded-module}
+	Let $R$ be a filtered $K$-algebra with filtration $\cF = \{F_i\}$ and $M$ be a left $R$-module with filtration $\Gamma = \{\Gamma_i\}$. The \emph{symbol map of order $k$} of the filtration $\Gamma$ is the projection
+	\begin{align*}
+		\mu_k:\Gamma_k \to \Gamma_k/\Gamma_{k-1}.
+	\end{align*}
+	We set
+	\begin{align*}
+		\gr^\Gamma M = \bigoplus_{i\geq 0} \Gamma_i/\Gamma_{i-1},
+	\end{align*}
+	and define the $\gr^\cF R$ action on $\gr^\Gamma M$ by
+	\begin{align*}
+		\sigma_i(a)\cdot \mu_j(m) = \mu_{i+j}(a m)
+	\end{align*}
+	for $a \in F_i$ and $m \in \Gamma_j$ where $\sigma_i$ is the symbol map of order $i$ of $\cF$.
+\end{defn}
+The associated grading can tell us something about its filtered module.
+\begin{thm}\label{thm:noeth-assoc-graded-module}
+	Suppose that $R$ is a Noetherian $K$-algebra with filtration $\cF$ and $M$ is a left $R$-module with filtration $\Gamma = \{\Gamma_i\}_{i\geq 0}$. If $\gr^\Gamma M$ is a Noetherian then so is $M$.
+\end{thm}
+\begin{prf}
+	Set $S = \gr^\cF R$ and let $N \subseteq M$ be a $R$-submodule of $M$. We prove that it is finitely generated. Define $\Gamma'_i = N \cap \Gamma_i$ for $i \geq 0$. The collection $\Gamma' = \{\Gamma'_i\}$ is then a filtration of $N$, which we call the \emph{induced filtration of $N$ by $\Gamma$}. The inclusions $\Gamma_i' \subseteq \Gamma_i$ give us an inclusion $\gr^{\Gamma'} N \subseteq \gr^\Gamma M$, and since $\gr^\Gamma M$ is Noetherian, $\gr^{\Gamma'}N$ must be a finitely generated as an $S$-module.
+
+	Let $\{c_1,...,c_r\}$ be a generating set for $\gr^{\Gamma'}M$. We assume that each $c_i$ is homogeneous without loss of generality; each $c_i$ is a linear sum of finitely many homogeneous elements and we can therefore replace each $c_i$ by its homogeneous components without compromising the finiteness of our generating set. For each $c_i$ we can therefore find some integer $k_i$ and some $u_i \in \Gamma'_{k_i}$ such that $\mu_{k_i}(u_i) = c_i$. Let $m = \max\{k_1,...,k_r\}$, and note that $u_i \in \Gamma'_m$ for each $1\leq i\leq r$. We show that $\Gamma'_m$ generates $N$.
+
+    Suppose $v \in \Gamma_\ell$. If $\ell \leq m$ then $v \in \Gamma'_\ell \subseteq \Gamma'_m$, and hence $v$ is in the $R$-submodule of $M$ generated by $\Gamma'_m$. Suppose now that $\ell > m$ and $\Gamma_{\ell - 1}$ is contained in the $R$-linear span of $\Gamma'_m$. Because $\{\mu_{k_1}(u_1),...,\mu_{k_r}(u_r)\}$ generates $\gr^{\Gamma'}N$ as an $S$-module, there exist $a_1,...,a_r$ such that
+	\begin{align*}
+		\mu_\ell(v) = \sum_{i=1}^r \sigma_{\ell-k_i}(a_i)\mu_{k_i}(u_i).
+	\end{align*}
+	Hence
+	\begin{align*}
+		\mu_\ell \left(v - \sum_{i=1}^r a_i u_i\right) = 0
+	\end{align*}
+	\begin{align*}
+		v' = v - \sum_{i=1}^r a_i u_i \in \Gamma'_{\ell - 1}.
+	\end{align*}
+	The element $v$ is a linear sum of elements in $\Gamma'_m$ if and only if $v'$ is too. However, $v' \in \Gamma'_{\ell - 1}$ and is therefore in the $R$-linear span of $\Gamma'_{m}$ by the inductive hypothesis. Hence $v \in R\cdot \Gamma'_m$, and since every element of $N$ is contained in $\Gamma'_\ell$, $\Gamma'_m$ generates $N$.
+
+	It is left to show that there is a finite subset of $\Gamma'_m$ which generates $N$. However, $\Gamma'_m$ is a finite dimensional $K$-vector space. Any $K$-basis for $\Gamma'_m$ will generate all of $\Gamma'_m$ and will therefore serve as a set of generators for $N$.
+\end{prf}
+Note that the set $\{u_1,...,u_r\}$ in the above proof is not necessarily a generating set for $N$. The induction step gives us an algorithm for writing any $v \in \Gamma'_\ell$ in terms of the $u_i$ only in the case that $\ell > \max\{\deg(u_1),...,\deg(u_r)\}$.
+
+The converse of this theorem need not always hold, that is, if $R$ is Noetherian and $M$ is finitely generated, it need not be the case that $\gr^{\Gamma}M$ is finitely generated. We therefore give filtrations which produce finitely generated associated graded modules a special name: we call $\Gamma$ a \emph{good filtration} of $M$ if $\gr^\Gamma M$ is finitely generated. Good filtrations provide a framework to discuss the dimension of modules over the Weyl algebra.
+
+\subsection{Dimension of Modules over the Weyl Algebra and Holonomic Modules}
+
+\begin{defn}\label{defn:holonomic}
+	A finitely generated $A_n$ module $M$ is said to be \emph{holonomic} if $M = 0$ or if $d(M)$ is minimal, i.e. $d(M) = n$ by Bernstein's lemma.
+\end{defn}
+
+\subsection{Barriers to the Positive Characteristic Case}
 \newpage
 \printbibliography
 \end{document}
