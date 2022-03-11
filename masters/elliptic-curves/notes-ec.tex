@@ -1,0 +1,158 @@
+\input{../preamble.tex}
+
+% lecture commands
+\newcounter{lecture-counter}
+\newcommand{\lecture}[2]
+{
+	\newpage
+	\addtocounter{lecture-counter}{1}
+    \tchap{Lecture \arabic{lecture-counter}}
+	\vspace{-1.5em}
+    \begin{center}
+	    \small \emph{Recorded: #1 \hspace{1.5em} Notes: #2}
+    \end{center}
+}
+
+% start document
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Lecture Notes from Differential Geometry (Michaelmas 2021) \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\tableofcontents
+
+\lecture{2022-03-09}{2022-03-09}
+
+\begin{cor}\label{cor:roots-of-unity-and-n-torsion}
+	If $E[n] \subseteq K(K)$ then $\mu_n \subseteq K$, where $\mu_n$ is the set of $n$th roots of unity in $\ol{K}$.
+\end{cor}
+\begin{prf}
+	If $e_n$ is nondegenerate then there exist $S,T \in E[n]$ such that $e_n(S,T)$ is a primitive $n^{th}$ root of unit, say $\zeta_n$. Then $\sigma(\zeta_n) = e_n(\sigma S,\sigma T) = e_n(S,T) = \zeta_n$ for all $\sigma \in \Gal(\olK/K)$. The first equality follows from Galois equivalence and the second since $S,T \in E(K)$. Therefore $\zeta_n \in K$.
+\end{prf}
+\begin{example}
+	There exists no $E/\bQ$ such that $E(\bQ)_{tors} \cong (\bZ/3\bZ)^2$.
+\end{example}
+\begin{rmk}
+	In fact, the Weil pairing is alternating, i.e. $e_n(T, T) = 1$ for all $T \in E[n]$. In particular, expanding $e_n(S+T,S+T)$ show $e_n(S,T) = e_n(T,S)^{-1}$.
+\end{rmk}
+\section{Galois Cohomology}
+Throughout this section, $G$ is a group and $A$ is a $G$-module, i.e. and abelian group with an action of $G$ via group homomorphisms. That is, we have a map $G \to \Aut(A)$ where $\Aut(A)$ is the group of abelian group homomorphisms of $A$, and $g\cdot a = g(a)$. To say that $A$ is a $G$=module is equivalent to saying that $A$ is a $\bZ[G]$-module.
+
+\begin{defn}\label{defn:basic-homology-defs}
+	We set
+	\begin{align*}
+		H^0(G,A) = A^G = \{a \in A ~\mid~ \sigma(a) = a, ~ \forall \sigma \in G\}.
+	\end{align*}
+	We further set
+	\begin{align*}
+		C^1(G,A) &= \{\text{maps } G\to A\} & \text{``cochains''} \\
+		Z^1(G,A) &= \{(a_\sigma)_{\sigma \in G} ~ \mid ~ a_{\sigma \tau} = \sigma(a_\tau) + a_\sigma\} & ``cocycles'' \\
+		B^1(G,A) &= \{(\sigma b - b)_{\sigma \in G} ~ \mid ~ b \in A\} & \text{``coboundariers''}
+	\end{align*}
+	and we have inclusions $B^1(G,A) \subseteq Z^1(G,A) \subseteq C^1(G,A)$. We define $H^1(G,A) = Z^1(G,A)/B^1(G,A)$.
+\end{defn}
+\begin{rmk}
+	If $G$ acts trivially on $A$, then $H^1(G,A) = \Hom(G,A)$.
+\end{rmk}
+\begin{thm}\label{thm:ses-induces-les-on-cohomology}
+	A short exact sequence of $G$-modules
+	\begin{align*}
+		0 \to A \to{\phi} B \to{\psi} C \to 0
+	\end{align*}
+	gives rise to a long exact sequence of abelian groups
+	\begin{align*}
+		0 \to A^G \to[\phi] B^G \to[\psi] C^G \to[\delta] H^1(G,A) \to[\phi_*] H^1(G,B) \to[\psi_*] H^1(G,C) \to ...
+	\end{align*}
+	where we stop before $H^2(G,A)$ because we have yet to define it. The map $\delta$ arises from the snake lemma.
+\end{thm}
+\begin{defn}\label{defn:delta-in-les-cohomology}
+	Let $c \in C^G$. Then there exists a $b \in B$ such that $\psi(b) = c$. Then
+	\begin{align*}
+		\psi(\sigma b - b) = \sigma(c) - c= 0
+	\end{align*}
+	for all $\sigma \in G$. This means $\sigma b - b = \phi(a_\sigma)$ for some $a_\sigma \in A$. One checks that $(a_\sigma)_{\sigma \in G} \in Z^1(G,A)$. We define $\delta(c) = \text{ chars of } (a_\sigma)_{\sigma \in G}$ in $H^1(G,A)$.
+\end{defn}
+\begin{thm}\label{thm:normal-subgroup-exact-sequence}
+	Let $A$ be a $G$-module $H \subseteq G$ a normal subgroup. Then there is an inflation-restriction exact sequence
+	\begin{align*}
+		0 \to H^1(G/H,A^H) \to{\inf} H^1(G,A) \to{\res} H^1(H,A)
+	\end{align*}
+\end{thm}
+\begin{prf}
+	Omitted.
+\end{prf}
+Let $K$ be a perfect field. $\Gal(\olK/K)$ is then a topological group with basis of open subgroups. The sets $\Gal(\olK/L)$ for $[L:K] < \infty$.
+
+If $G = \Gal(\olK/K)$ then we modify the definition of $H^1(G,A)$ by insisting
+\begin{enumerate}
+	\item The stabilizer of each $a \in A$ is an open subgroup of $G$.
+	\item All cochains $G \to A$ are continuous where $A$ is given by the discrete topology.
+\end{enumerate}
+Then
+\begin{align*}
+	H^1(\Gal(\olK/K),A) = \varinjlim_{L, ~L/K \text{finite Galois}} H^1(\Gal(L/K), A^{\Gal(\olK/L)}).
+\end{align*}
+The direct limit is with respect to inflation maps (what are inflation maps?).
+
+\begin{thm}[Hilbert's Theorem 90]\label{thm:Hilbert90}
+	Let $L/K$ be a finite Galois extension. Then $H^1(\Gal(L/K),L^*) = 0$.
+\end{thm}
+\begin{prf}
+	Let $G = \Gal(L/K)$. Let $(a_\sigma)_{\sigma \in G} \in Z^1(G,L^*)$. Distinct automorphisms are linearly independent, hence there exists some $y \in L$ such that
+	\begin{align*}
+		\underbrace{\sum_{\tau \in G} a_\tau^{-1} \tau(y)}_x \neq 0.
+	\end{align*}
+	For $\sigma \in G,$
+	\begin{align*}
+		\sigma(x) = \sum_{\tau \in G} \sigma(a_\tau)^{-1} \sigma \tau(y) = a_\sigma \sum_{\tau \in G} a_\sigma^{-1} \sigma \tau (y) = a_\sigma \cdot x.
+	\end{align*}
+	Therefore $a_\sigma = \sigma(x)/x \implies (a_\sigma)_{\sigma \in G} \in B^1(G,L^*)$. Hence $H^1(G,L^*)$.
+\end{prf}
+
+\begin{cor}\label{cor:vanishing-first-cohomology}
+	$H^1(\Gal(\olK/K),\olK^*) = 0$.
+\end{cor}
+Application: Assume $\fchar K \not | n$. There is an exact sequence of $\Gal(\olK/K)$-modules
+\begin{align*}
+	0 \to \mu_n \to \olK^* \to[x\mapsto x^n] \olK^* \to 0.
+\end{align*}
+Have a long exact sequence
+\begin{align*}
+	K^* \to[x \mapsto x^n] K^* \to H^1(\Gal(\olK/K),\mu_n) \to H^1(\Gal(\olK/K),\olK^*),
+\end{align*}
+but $H^1(\Gal(\olK/K),\olK^*) = 0$ by Theorem (\ref{thm:Hilbert90}). Therefore $H^1(\Gal(\olK/K),\mu_n) \cong K^*/(K^*)^n$. 
+
+If $\mu_n \subseteq K$ then $\Hom_{cts}(\Gal(\olK/K),\mu_n)\cong K^*/(K^*)^n$.
+
+If $L/K$ is a finite Galois extension then $\Gal(\olK/K) \to{\pi} \Gal(L/K)$ and hence
+\begin{align*}
+	\Hom(\Gal(L,K),\mu_n) \hookrightarrow \Hom_{cts}(\Gal(\olK/K),\mu_n) \cong  K^*/(K^*)^n,
+\end{align*}
+where the above map is given by $\chi \mapsto \chi \circ \pi$. The image is a finite subgroup $\Delta \subseteq K^*/(K^*)^n$. 
+
+If $\Gal(L/K)$ is abelian of exponent dividing $n$ then
+\begin{align*}
+	[L:K] = |\Gal(L/K)| = |\Hom(\Gal(L/K),\mu_n)| = |\Delta|.
+\end{align*}
+Compare to Theorem 11.2 from lectures \red{Fix numbering}.
+
+\textbf{Notation:} We'll write $H^1(K,-) = H^1(\Gal(\olK/K),-)$ to avoid writing $\Gal$ and $\olK$ every time.
+
+\begin{lem}\label{lem:finite-padic-ext}
+	Let $[K:\bQ_p] < \infty$. Then
+	\begin{align*}
+		\ker(H^1(K,\mu_n) \to H^1(K^{nr},\mu_n)) \subseteq \{x \in K^*/(K^*) ~ \mid~ v(x) \equiv 0 ~ (\mod n)\}.
+	\end{align*}
+	remember that $K^{nr}$ is the maximal unramified extension of $K$.
+\end{lem}
+\begin{prf}
+	By Theorem (\ref{thm:Hilbert90}), identify $H^1$
+\end{prf}
+\end{document}

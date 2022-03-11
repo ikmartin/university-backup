@@ -276,7 +276,7 @@ You're free to add charts (or equivalently local coordinates) to your atlas as l
 	\end{align*}
 	where $U_{\pm} = S^n \setminus \{(0,...,0,\pm 1)\}$ and $\varphi_{\pm}$ is stereographic projection. That is, $U_+$ is the sphere with the north pole removed and $U_-$ is the sphere with the south pole removed.
 
-    As a reminder, stereographic projection involves taking the unique hyperplane through the origin of $\bR^{n+1}$ which is normal to $(0,...,0,\pm 1)$. This is a copy of $\bR^n$. For a point $p \in U_+$, the stereographic projection $\varphi_+(p)$ of $p$ is the unique point on this hyperplane which intersects the line through $N = (0,...,0,1)$ and $p$. Likewise, for $p \in U_-$, $\varph_-(p)$ is the unique point on the relevant hyperplane which lies on the line between $S = (0,...,0,-1)$ and $p$. The symmetry of the sphere means that for $p \in U_+ \cap U_- = S^n \setminus \{N,S\}$, $\varphi_+(p) = \varphi_-(p)$. Explicitly,
+    As a reminder, stereographic projection involves taking the unique hyperplane through the origin of $\bR^{n+1}$ which is normal to $(0,...,0,\pm 1)$. This is a copy of $\bR^n$. For a point $p \in U_+$, the stereographic projection $\varphi_+(p)$ of $p$ is the unique point on this hyperplane which intersects the line through $N = (0,...,0,1)$ and $p$. Likewise, for $p \in U_-$, $\varphi_-(p)$ is the unique point on the relevant hyperplane which lies on the line between $S = (0,...,0,-1)$ and $p$. The symmetry of the sphere means that for $p \in U_+ \cap U_- = S^n \setminus \{N,S\}$, $\varphi_+(p) = \varphi_-(p)$. Explicitly,
     \begin{align*}
     	\varphi_\pm(y_1,...,y_{n+1}) = \frac{(y_1,...,y_{n+1})}{1 \mp y_{n+1}}.
     \end{align*}
@@ -362,4 +362,133 @@ This is a smooth pseudo-atlas and makes $\bRP^n$ into a smooth $n$-manifold.
 	We need not always start with a collection $\{V_\alpha\}$ of opens in $\bR^n$ and then specify a way to glue them together.
 \end{rmk}
 
+\lecture{2021-10-14}{2022-03-08}
+
+\subsection{Smooth Maps}
+Fix two manifolds $X$ and $Y$ with atlases $\{\varphi_\alpha:U_\alpha\to V_\alpha\}_{\alpha \in \cA}$ and $\{\psi_\beta:S_\beta\to T_\beta\}_{\beta\in \cB}$
+
+\begin{defn}\label{defn:smooth-map}
+	A map $F:X\to Y$ is \emph{smooth} if it's continuous and if for all $x,\alpha,\beta$ the map 
+	\begin{align*}
+		\psi_\beta\circ F\circ \varphi^{-1}: \varphi_\alpha \left(F^{-1}(S_\beta) \cap U_\alpha\right) \to T_\beta
+	\end{align*}
+	is smooth as a map between open subset of $\bR^{\dim X}$ and $\bR^{\dim Y}$.
+\end{defn}
+\begin{rmk}\label{rmk:why-cts-needed}
+	We ask $F$ to be continuous in the above definition so that $\varphi_\alpha \left(F^{-1}(S_\beta)\right)$ is open, which is needed for smoothness to make sense.
+\end{rmk}
+
+\begin{example}$ $
+	\begin{enumerate}[(i)]
+		\item $\id_X$ is smooth
+		\item Any constant map is smooth
+		\item The projections $\pr_1X\times Y \to X$ and $\pr_2X\times Y \to Y$ are smooth
+		\item The inclusion $S^n \hookrightarrow \bR^{n+1}$ is smooth
+	\end{enumerate}
+\end{example}
+
+\begin{lem}\label{lem:basic-smoothness-properties}
+	We have the following basic properties.
+	\begin{enumerate}[(i)]
+		\item A map $f:X\to \bR$ is smooth if and only if it is smooth in the sense of section 1.1, i.e. as a map of coordinates.
+		\item A map between open sets of $\bR^m$ and $\bR^n$ is smooth if and only if it is smooth in the multivariable calculus sense.
+		\item Smoothness is local in the source: it's enough to check it locally near each $p \in X$.
+		\item The composition of smooth maps is smooth
+	\end{enumerate}
+\end{lem}
+Items (i) and (ii) above just say that smoothness in the manifold sense matches your notion of smoothness in every situation for which you'd want it to.
+
+\begin{example}
+	Viewing $\bC^{n+1}$ as $\bR^{2(n+1)}$, we can think of $S^{2n+1}$ as the unit sphere in $\bC^{n+1}$. Any point $x \in S^{2n+1}$ then defines a point $\bC\cdot x \in \bCP^n$. This gives a map
+	\begin{align*}
+		H:S^{2n+1} \to \bCP^n
+	\end{align*}
+	called the \emph{Hopf} map. This is smooth (Example Sheet 1).
+\end{example}
+\begin{defn}\label{defn:diffeomorphism}
+	A \emph{diffeomorphism} $X \to Y$ is a smooth map with a smooth two-sided inverse.
+\end{defn}
+\begin{example}
+	$\bCP^1$ is diffeomorphic to $S^2$, so it makes sense to think of $\bCP^1$ as a sphere. We call it the \emph{Riemann sphere.}
+\end{example}
+\begin{lem}\label{lem:dimension-and-diffeo}
+	It $X$ and $Y$ are diffeomorphic non-empty manifolds, then $\dim X = \dim Y$.
+\end{lem}
+\begin{prf}
+	Pick a point $p \in X$ and a diffeomorphism $F:X\to Y$. Pick charts $\varphi:U\to V$ about $p$ and $\psi:S\to T$ about $F(p)$. By shrinking charts, without loss of generality we can assume $F(U) = S$ for convenience.
+	\begin{center}
+		\begin{tikzcd}
+			U \arrow[r,"F"] \arrow[d,"\psi"] & S \arrow[d]\\
+			V \arrow[r, "G"]& T
+		\end{tikzcd}
+	\end{center}
+	Let $G = \psi\circ F \circ \varphi^{-1}$, $H = \varphi\circ F^{-1}\circ \psi^{-1}$. Then $D_{\varphi_{(p)}}G$ and $D_{\psi(F(p))}H$ are mutually inverse linear maps $\bR^{\dim X}\to \bR^{\dim Y}$ and $\bR^{\dim Y}\to \bR^{\dim X}$. So $\dim X = \dim Y$.
+\end{prf}
+
+\subsection{Tangent Spaces}
+\red{Worth including a picture here}
+Given a manifold $X$ and a point $p \in X$, we'd like a nice intrinsic way to define the tangent space, i.e. a way to get our hands on the tangent space at $p$ without embedding $X$ into $\bR^d$. We don't have a nice way to get vectors that lie on the surface of our manifold at $p$, but we can consider curves $\gamma:[-1,1]\to X$, $\gamma(0) = p$ which pass through $p$. To recover vectors from this, our idea is to identify curves which have the same ``direction'' at $p$ and then consider the vector space of these equivalence relations.
+
+Fix an $n-manifold$ $X$, $p \in X$.
+\begin{defn}\label{defn:curve-based-at-p}
+	A \emph{curve based at $p$} is a smooth map $\gamma:I \to X$, where $I$ is an open neighborhood of $0$ in $\bR$ such that $\gamma(0) = p$. We say two curves $\gamma_1$ and $\gamma_2$ \emph{agree to first order} at $p$ if there exists a chart $\varphi:U \to V$ about $p$ such that
+	\begin{equation}\label{eq:curves-agree-to-first-order}
+		\left(\varphi \circ \gamma_1\right)^\bullet(0) = \left(\varphi\circ \gamma_2\right)^\bullet(0)
+	\end{equation}
+	as vectors in $\bR^n$.
+\end{defn}
+One might be worried that two curves agreeing to first order at $p$ is dependent on the choice of atlas -- this is perhaps unsurprisingly not the case.
+\begin{lem}\label{lem:first-order-agreement-independent-of-chart}
+	If equation (\ref{eq:curves-agree-to-first-order}) for some chart $\varphi$ about $p$ then it holds for all such charts.
+\end{lem}
+\begin{prf}
+	Given a chart $\varphi$ about $p$, write $\pi_p^\varphi$ for the map
+	\begin{align*}
+		\{\text{curves based at $p$}\} &\to \bR^n \\
+		\varphi &\mapsto (\varphi\circ \gamma)^\bullet(0).
+	\end{align*}
+	Now suppose $\varphi_1$ and $\varphi_2$ are two different charts about $p$. By the chain rule we have 
+	\begin{align*}	
+	    \pi_p^{\varphi_2} = A \circ \pi_p^{\varphi_1}
+	\end{align*}
+	where $A$ is the derivative of $\varphi_2\circ \varphi_1^{-1}$ at $\varphi_1(p)$. Note $A$ is invertible. So for curves $\gamma_1, \gamma_2$, we have
+	\begin{align*}
+		\pi_p^{\varphi_2}(\gamma_1) = \pi_p^{\varphi_2}(\gamma_2) \iff \pi_p^{\varphi_1}(\gamma_1) = \pi_p^{\varphi_1}(\gamma_2).
+	\end{align*}
+\end{prf}
+
+\begin{cor}
+	Agreement to first order is an equivalence relation on curves based at $p$.
+\end{cor}
+\begin{defn}\label{defn:tangent-space}
+	The \emph{tangent space} to $X$ at $p$, denoted $T_pX$, is
+	\begin{align*}
+		\{\text{curves based at p}\}/\text{agreement to first order}.
+	\end{align*}
+	We'll write $[\gamma]$ for the tangent vector represented by $\gamma$.
+\end{defn}
+\begin{prop}\label{prop:tangent-space-is-vspace}
+	The tangent space $T_pX$ at a point $p \in X$ naturally carries the structure of an $n$-dimensional vector space.
+\end{prop}
+\begin{prf}
+	For each chart $\varphi$ about $p$, $\pi_p^{\varphi}$ induces a map $T_pX \to \bR^n$. This is tautologically injective. We claim it's surjective. Thus $\pi_p^{\varphi}$ identifies $T_pX$ with $\bR^n$, and the identification for different $\varphi$ differ by a linear automorphism of $\bR^n$, the map we called $A$ in the proof of Lemma (\ref{lem:first-order-agreement-independent-of-chart}). So the induced vector space structure on $T_pX$ is independent of $\varphi$ and is hence natural.
+
+	It remains to prove that $\pi_p^{\varphi}$ is surjective. Take $v \in \bR^n$ and consider the curve $t \mapsto \varphi^{-1}\left(\varphi(p) + t_v\right)$ defined on $(-\epsilon, \epsilon)$ for $\epsilon$ small. This satisfies $\pi_p^{\varphi}(\gamma_v) = v$.
+\end{prf}
+
+\begin{defn}\label{defn:basis-of-tangent-space}
+	If $x_1,...,x_n$ are local coordinates defined by $\varphi$ and $e_1,...,e_n$ is the standard basis of $\bR^n$, then write $\frac{\partial}{\partial x_i}$ or $\partial_{x_i}$ or $\partial_i$ for $(\pi_p^\varphi)^{-1}(e_i)$.
+\end{defn}
+
+Intuitively, $\partial_{x_i}$ is the direction obtained by moving along the $x_i$-axis, i.e. keep all other $x_j$ constant and increase $x_i$ at unit speed. Compare $\partial_x,\partial_y$ to $\partial_r,\partial_\theta$ as coordinates for $\bR^2$. The magnitude of $\partial_x$ and $\partial_y$ won't change as you move around in the $x,y$-plane, but the magnitude of $\partial_\theta$ will. Changing $\theta$ by unit speed far away from the origin involves moving much farther than it does near the origin.
+
+\textbf{Warning:} The vector $\partial_{x_i}$ depends on \emph{all} of the $x_j$, e.g. if $y_1,...,y_n$ are local coordinates such that $y_i = x_i$ then it need not be true that $\partial_{y_i} = \partial_{x_i}$.
+
+\begin{lem}\label{lem:}
+	Given two sets of local coordinates about $x_i$ and $y_i$ about $p$, we have
+	\begin{align*}
+		\frac{\partial}{\partial y_i} = \sum_j \frac{\partial x_j}{\partial y_i}(p) \cdot \frac{\partial}{\partial x_j},
+	\end{align*}
+	where $\frac{\partial x_j}{\partial y_j}$ comes from the transition function. This will be proved next lecture.
+\end{lem}
 \end{document}

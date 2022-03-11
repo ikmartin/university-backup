@@ -1,0 +1,9 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'notes-ec.blg'
+[43] biber:340> INFO - === Wed Mar  9, 2022, 10:40:26
+[52] Biber.pm:415> INFO - Reading 'notes-ec.bcf'
+[101] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
+[104] Utils.pm:395> WARN - The file 'notes-ec.bcf' does not contain any citations!
+[109] bbl.pm:654> INFO - Writing 'notes-ec.bbl' with encoding 'UTF-8'
+[110] bbl.pm:757> INFO - Output to notes-ec.bbl
+[110] Biber.pm:128> INFO - WARNINGS: 1

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  8 MAR 2022 20:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  9 MAR 2022 11:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**notes-diffgeo.tex
-(./notes-diffgeo.tex
+**notes-ec.tex
+(./notes-ec.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (../preamble.tex (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -1042,12 +1042,8 @@ File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 17.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-) (./notes-diffgeo.aux
-
-LaTeX Warning: Label `lem:' multiply defined.
-
-)
-\openout1 = `notes-diffgeo.aux'.
+) (./notes-ec.aux)
+\openout1 = `notes-ec.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
 LaTeX Font Info:    ... okay on input line 17.
@@ -1140,9 +1136,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 17.
 LaTeX Info: Redefining \pageref on input line 17.
 LaTeX Info: Redefining \nameref on input line 17.
- (./notes-diffgeo.out) (./notes-diffgeo.out)
+ (./notes-ec.out) (./notes-ec.out)
 \@outlinefile=\write5
-\openout5 = `notes-diffgeo.out'.
+\openout5 = `notes-ec.out'.
 
 LaTeX Info: Redefining \microtypecontext on input line 17.
 Package microtype Info: Applying patch `item' on input line 17.
@@ -1178,15 +1174,21 @@ Package biblatex Info: ... and expl3
  (/usr/local/texlive/2021/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 )
-\openout4 = `notes-diffgeo.bcf'.
+\openout4 = `notes-ec.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'notes-diffgeo.bbl' found.
- (./notes-diffgeo.bbl)
+Package biblatex Info: ... file 'notes-ec.bbl' found.
+ (./notes-ec.bbl)
 Package biblatex Info: Reference section=0 on input line 17.
 Package biblatex Info: Reference segment=0 on input line 17.
- (./notes-diffgeo.toc
-LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 5.
+ (./notes-ec.toc)
+\tf@toc=\write6
+\openout6 = `notes-ec.toc'.
+
+ [1
+
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line 31.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
@@ -1194,60 +1196,45 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ztmcm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 5.
+LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line 31.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 5.
+LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line 31.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 5.
+LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line 31.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 5.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 31.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 31.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 5.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-))
-\tf@toc=\write6
-\openout6 = `notes-diffgeo.toc'.
-
- [1
-
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 34.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [2] (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
-File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
-) [3] [4]
-Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 133.
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 137.
-Package hyperref Info: bookmark level for unknown rmk defaults to 0 on input line 146.
- [5]
-Package hyperref Info: bookmark level for unknown predefn defaults to 0 on input line 186.
-Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 201.
-Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 205.
- [6] [7] [8]
-Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 316.
- [9] [10] [11]
-LaTeX Font Info:    Trying to load font information for T1+cmss on input line 429.
+)
+Package hyperref Info: bookmark level for unknown cor defaults to 0 on input line 33.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
+Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 37.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 40.
+Package hyperref Info: bookmark level for unknown rmk defaults to 0 on input line 43.
+Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 48.
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 64.
+ [2] [3]
+LaTeX Font Info:    Trying to load font information for T1+cmss on input line 144.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
@@ -1255,30 +1242,27 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-Package hyperref Info: bookmark level for unknown cor defaults to 0 on input line 461.
- [12] [13] (./notes-diffgeo.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package rerunfilecheck Info: File `notes-diffgeo.out' has not changed.
-(rerunfilecheck)             Checksum: 2D1264E224DB4AAB8DC50F22765BAB01;1620.
-Package logreq Info: Writing requests to 'notes-diffgeo.run.xml'.
-\openout1 = `notes-diffgeo.run.xml'.
+Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 148.
+ [4] (./notes-ec.aux)
+Package rerunfilecheck Info: File `notes-ec.out' has not changed.
+(rerunfilecheck)             Checksum: 9701AE3323121821E9A15CA346871134;131.
+Package logreq Info: Writing requests to 'notes-ec.run.xml'.
+\openout1 = `notes-ec.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39863 strings out of 478287
- 790340 string characters out of 5846765
- 1613978 words of memory out of 5000000
- 56933 multiletter control sequences out of 15000+600000
- 545227 words of font info for 310 fonts, out of 8000000 for 9000
+ 39386 strings out of 478287
+ 782824 string characters out of 5846765
+ 1610268 words of memory out of 5000000
+ 56725 multiletter control sequences out of 15000+600000
+ 528093 words of font info for 186 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,21n,102p,3064b,1349s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on notes-diffgeo.pdf (13 pages, 190676 bytes).
+ 103i,26n,102p,3059b,999s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfss1095.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on notes-ec.pdf (4 pages, 123260 bytes).
 PDF statistics:
- 326 PDF objects out of 1000 (max. 8388607)
- 278 compressed objects within 3 object streams
- 128 named destinations out of 1000 (max. 500000)
- 72277 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 134 PDF objects out of 1000 (max. 8388607)
+ 102 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 61461 words of extra memory for PDF output out of 61914 (max. 10000000)
 
