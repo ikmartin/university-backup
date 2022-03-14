@@ -155,4 +155,136 @@ Compare to Theorem 11.2 from lectures \red{Fix numbering}.
 \begin{prf}
 	By Theorem (\ref{thm:Hilbert90}), identify $H^1$
 \end{prf}
+
+\lecture{2022-03-11}{2022-03-11}
+\begin{lem}\label{lem:ker-of-H1}
+	Let $K:\bQ_p] < \infty$. Then
+	\begin{align*}
+		\ker(H^1(K,\mu_n)\to H^1(K^{nr},\mu_n)) \subseteq \{ x \in K^*/(K^*)^n ~ \mid ~ v(x) \equiv 0 ~(\mod n)\}
+	\end{align*}
+\end{lem}
+\begin{prf}
+	(Continued). The discrete valuation $v: K^*\to \bZ$ extends to $v:(K^{nr)^* \to \bZ})$. Then $v(x) = nv(y) \equiv 0 ~(\mod n)$.
+\end{prf}
+
+\textbf{EXERCISE:} (in local fields.) Show that if $p \not | n$ then $\subseteq$ is actually $=$.
+
+Let $\phi:E\to E'$ be an isogeny of elliptic curves over $K$. Then there is a short exact sequence of $\Gal(\olK/K)$-modules
+\begin{align*}
+	0 \to E[\phi] \to E \to{\phi} \to E' \to 0.
+\end{align*}
+Long-exact sequence:
+\begin{align*}
+	E(K) \to{\phi} E'(K) \to{\delta} H^1(K,E[\phi]) \to H^1(K,E) \to{\phi_*} H^1(K,E').
+\end{align*}
+We get a short exact sequence
+\begin{align*}
+	0 \to \frac{E'(K)}{\phi E(K)} \to H^1(K,E[\phi]) \to H^1(K,E)[\phi*] \to 0.
+\end{align*}
+Now take $K$ to be a number field. For each place $v$ fix an embedding $\olK \subseteq \olK_v$. Then $\Gal(\olK_v/K_v) \subseteq \Gal(\olK/K)$. This gives us a short exact sequence resembling the one above:
+\begin{align*}
+	0 \to \prod_v\frac{E'(K_v)}{\phi E(K_v)} \to \prod_vH^1(K_v,E[\phi]) \to \prod_{ v }H^1(K_v,E)[\phi*] \to 0.
+\end{align*}
+These products just mean that we have an exact sequence
+\begin{align*}
+	0 \to \frac{E'(K_v)}{\phi E(K_v)} \to H^1(K_v,E[\phi]) \to H^1(K_v,E)[\phi*] \to 0
+\end{align*}
+for each place $v$. We also have the following commutative diagram with exact rows:
+\begin{center}
+\begin{tikzcd}
+	0 \arrow[r]& \frac{E'(K)}{\phi E(K)}\arrow[d] \arrow[r,"\delta"]& H^1(K,E[\phi]) \arrow[rd] \arrow[d,"res_v"] \arrow[r] & H^1(K,E)[\phi*]\arrow[d,"res_v"] \arrow[r]& 0 \\
+	
+	0 \arrow[r]& \prod_v\frac{E'(K_v)}{\phi E(K_v)} \arrow[r]& \prod_vH^1(K_v,E[\phi]) \arrow[r] &\prod_{ v }H^1(K_v,E)[\phi*] \arrow[r] & 0. 
+\end{tikzcd}	
+\end{center}
+This leads us to the definition of the \emph{Selma group}.
+\begin{defn}\label{defn:selma-group}
+	The $\phi$-Selma group is
+	\begin{align*}
+		S^{(\phi)}(E/K) &= \ker(\text{downward diagonal map above}) \\
+						&= \ker\big(H^1(K,E[\phi])\to \prod_v H^1(K_v,E)\big) \\
+						&= \{ \alpha \in H^1(K,E[\phi]) ~\mid~ \res_v(\alpha) \in \img(\delta_v) ~ \forall v\}.
+	\end{align*}
+	The \emph{Tate Shaferevich group is }
+	\begin{align*}
+		\text{look at picture and fill in}, weird disjoint union looking symbol with three vertical strokes.
+	\end{align*}
+\end{defn}
+We get a short-exact sequence
+\begin{align*}
+	0 \to \frac{E'(K)}{\phi E(K)} \to S^{(\phi)}(E/K) \to \tateshaf(E/K)[\phi_*] \to 0.
+\end{align*}
+Taking $\phi = [n]$ gives
+\begin{align*}
+	0 \to \frac{E(K)}{nE(K)}\to S^{(n)}(E/K) \to \tateshaf(E/K)[n] \to 0.
+\end{align*}
+Rearranging the proof of weak Mordell-Weil gives
+\begin{thm}\label{thm:S-is-finite}
+	$S^{(n)}(E/K)$ is finite.
+\end{thm}
+\begin{prf}
+	For $L/K$ a finite Galois extension there is an exact sequence
+	\begin{align*}
+		0 \to H^1(\Gal(L/K), E(L)[n]) \to{\inf} H^1(K,E[n]) \to{\res} H^1(L,E[n]).
+	\end{align*}
+	The first nonzero term above is finite, and $S^{(n)}(E/K) \to S^{(n)(E/L)}$ is induced by $\res$ since $S^{(n)}(E/K) \subseteq H^1(K,E[n])$ and $S^{(n)(E/L) \subseteq H^1(L,E[n])}$. Therefore, by extending our field, we may assume $E[n] \subseteq E(K)$ and hence $\mu_n \subseteq K$. This implies that $E[n] \cong \mu_n \times \mu_n$ as a $\Gal(\olK/K)$-module.
+
+	Therefore $H^1(K,E[n]) \cong H^1(K,\mu_n) \times H^1(K,\mu_n)\cong K^*/(K^*)^n \times K^*/(K^*)^n$. Let
+	\begin{align*}
+		S = \text{primes of bad reduction for $E/K$} \cup \{v \mid n \infty\}.
+	\end{align*}
+	N.B. This is a finite set of places.
+\end{prf}
+
+\begin{defn}\label{defn:unramifiedoutsideS}
+	The subgroup of H^1(K,A) unramified outside $S$ is
+	\begin{align*}
+		H^1(K,A;S) = \ker\big(H^1(K,A)\ to \prod_{v\not\in S} H^1(K_v^{nr},A)\big)
+	\end{align*}
+	There is a commutative diagram with exact rows 
+	\begin{center}
+		<put commutative diagram here>
+	\end{center}
+	This map is surjective (the $x_n$ map) for all $v \not\in S$ (see Theorem 9.7 from class) therefore $\Img(\delta_v) \subseteq \ker(\text{green downward map})$.
+\end{defn}
+\begin{lem}
+	Let $\ker\big(H^1(K,\mu_n) \to H^1(K^{nr},\mu_n)\big) \subseteq \{x \in K^*/(K^*)^n ~ \mid ~ v(x) \equiv 0 ~ (\mod n)\}$.
+	Therefore
+	\begin{align*}
+		S^{(n)}(E/K) &= \left\{\alpha \in H^1(K, E[n]) ~\mid ~ \res_v(\alpha) \in \Img(\delta_v) ~ \forall v\right\} \\
+					 &\subseteq H^1(\K,E[n]; S) \\
+					 &\cong H^1(K,\mu; S) \times H^1(K,\mu_n ; S) \\
+					 &\cong K(S,n)\times K(S,n).
+	\end{align*}
+	But $K(S,n)$ is finite by Lemma 11.4, therefore $S^{(n)}(E/K)$ is finite.
+\end{lem}
+
+\begin{rmk}
+	$S^{(n)A}(E/K)$ is finite and effectively computable. If is conjectured that $|\tateshaf(E/K) < \infty$. This would imply that $\rankE(K)$ is effectively computable.
+\end{rmk}
+
+\section{Descent by cyclic isogeny}
+Let $E$ and $E'$ be elliptic curves over a number field $K$, and let $\phi:E\to E'$ be an isogeny of degree $n$. Suppose $E'[\hat{\phi}] \cong \bZ/n\bZ$ as a Galois module $S\mapsto e_\phi(S,T)$. Short-exact sequence of $\Gal(\olK/K)$-modules
+\begin{align*}
+	0\to \mu_n \to E\to{\phi} E' \to 0.
+\end{align*}
+Long exact sequence
+\begin{center}
+	\begin{tikzd}
+		... \arrow[r]& E(K) \arrow[r,"\phi"] & E'(K)\arrow[r,"\delta"] \arrow[rd,"\alpha"] & H^1(K,\mu_n) \arrow[r] \arrow[d, "\cong"]& ... \\
+					 & & & K^*/(K^*)^n & 
+	\end{tikzd}
+\end{center}
+\begin{thm}
+	Let $f \in K(E')$ and $g \in K(E)$ with $\div(f) = n(T) - n(P)$ and $\phi^*f = g^n$. Then $\alpha(P) = f(P) ~ \mod(K^*)^n$ for all $P \in E'(K) \setminus \{0,T\}$.
+\end{thm}
+\begin{prf}
+	Let $Q \in \phi^{-1}P$. Then $\delta(P)$ is represented by the cocycle $\sigma \mapsto \sigma Q - Q \in E[\phi] \cong \mu_n$.
+	\begin{align*}
+		e_\phi(\sigmaQ - Q, T) &= \frac{g(rQ - Q + X)}{gX)} &\text{ for any  } x\in E\setminus \text{zeros and poles} \\
+							   &=  \frac{g(\sigma Q)}{g(Q)} & x = Q \\
+							   &= \frac{\sigma \sqrt[n]{f(P)}}{\sqrt[n]{f(P)}} & \text{N.B.} f(P) = g(Q)^n
+	\end{align*}
+	Therefore $\delta(P)$ is represented by the cocycle $\sigma \mapsto \frac{\sigma(\sqrt[n]{f(P)})}{\sqrt[n]{f(P)}}$. But $H^1(K,\mu_n) \cong K^*/(K^*)^n$, $\\big(\sigma \mapsto \frac{\sigma(\sqrt[n]{x})}{ \sqrt[n]{x} }\big) \mapsfrom x$. Therefore $\alpha(P) = f(P) ~\mod(K^*)^n$.
+\end{prf}
 \end{document}
