@@ -26,6 +26,11 @@
 
 \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
 
+% Tate-Shafarevich Group symbol
+\usepackage[OT2,T1]{fontenc}
+\DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
+\DeclareMathSymbol{\tshaf}{\mathalpha}{cyrletters}{"58}
+
 %Text-in-math Shortcuts%
 \DeclareMathOperator{\res}{res}
 \newcommand{\tx}[1]{\ \ \text{#1}\ \ }
@@ -74,6 +79,7 @@
 \DeclareMathOperator{\pr}{pr}
 \DeclareMathOperator{\rad}{rad}
 \DeclareMathOperator{\img}{img}
+%\DeclareMathOperator{\ker}{ker}
 \DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\codim}{codim}
 \DeclareMathOperator{\im}{im}

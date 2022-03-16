@@ -21,12 +21,14 @@
 	\item Lots of numbered definitions, all of which are standard in the literature. Would it be a better stylistic choice to simply integrate these into the text and drop the numbering?
 	\item Current algorithm for deciding whether a piece of mathematics is included in this document is "is Isaac comfortable with this content? If yes, don't include it. If no, include it." This is good for a document intended only for the author, but is bad for consistency and a standardized assumed background. Why should a discussion of Noetherian rings and modules be omitted but basic filtration definitions be given an entire subsection? For the second full draft, consider scrapping the more elementary pieces of the theory.
 	\item At the time of this writing, induced filtrations only appear in the proof of Theorem (\ref{thm:noeth-assoc-graded-module})
+	\item Likely a good idea to move Definition (\ref{defn:diff-op-rings}) to a section about $D_{R/A}$ in general. Has nothing to do with the characteristic of a field.
 \end{enumerate}
 \newpage
+
 \section{Left Modules Over the Weyl Algebra}
 Here we cover the basic theory of modules over the Weyl algebra, or in other words, the theory of $D$-modules in the case where $X = \bA^n_K$.
 
-\subsection{Weyl Algebra}
+\subsection{Weyl Algebra}\label{subsec:Weyl-algebra}
 Let $K$ be a field of characteristic $0$. We construct the Weyl algebra in two ways and prove that these constructions produce isomorphic rings.
 
 \begin{defn}\label{defn:Weyl-algebra-construction-1}
@@ -66,7 +68,7 @@ We can also write the Weyl algebra down as a quotient of a free algebra in $2n$ 
 	\item $\partial_i$ and $\partial_j$ commute
 	\item $[\partial_i,x_j] = \delta_{ij}$, that is, $\partial_i$ and $x_j$ commute unless $i = j$.
 \end{itemize}
-\begin{example}\label{example:commutator-as-derivative-one-dim}
+\begin{example}\label{ex:commutator-as-derivative-one-dim}
     Given a polynomial $f \in K[x]$, we can think of $f$ as an operator in $\End_K(K[x])$ by the map $x \mapsto \hat{x}$, and the operator $f$ is simply given by multiplication by $f$. I claim that the commutator of $f$ with $\partial$ satisfies the following relation: $[\partial, f] = f'$ where $f'$ is the derivative of $f$. To see this, it suffices to show that $[\partial, x^n] = nx^{n-1}$ for $n \in \bZ_{\geq 0}$, since $[-,-]$ is $K$-bilinear.
 
 	We show this by induction. The commutator relation $[\partial,x] = 1$ serves as the base case, so suppose $[\partial, x^k] = kx^{k-1}$ for $1\leq k < n$. Then
@@ -83,12 +85,6 @@ It is useful to fix a basis for the Weyl algebra, but for arbitrary $n$, the not
 \begin{prop}\label{prop:canonical-basis}
 	The set $\bfB = \{x^\alpha\partial^\beta ~ \mid ~ \alpha,\beta\in \bN^n\}$ is a basis of $A_n$ as a vector space over $K$. This is called the \emph{canonical basis} of $A_n$ and an operator $D \in A_n$ written as a linear combination of elements in $\bfB$ is said to be in \emph{canonical form}.
 \end{prop}
-
-\subsection{Basic Properties of the Weyl Algebra}
-
-Despite the noncommutative of $A_n$, one might be tempted to draw comparisons between the Weyl algebra and a ring of polynomials, especially given that $A_n$ admits such a nice basis. In particular, one might wonder if $A_n$ admits any meaningful graded structure. The answer turns out to be ``sort of''. The goal of this section is primarily to define and examine this approximation of a graded structure. To do this, we first define the \emph{degree} of an element in $A_n$. We then notice that this fails to define a $K[X]$-grading for $A_n$ and provide a workaround.
-
-We also say some words about the ideal structure of $A_n$ and holonomic modules.
 
 \begin{defn}\label{defn:degree-of-Weyl-operator}
 	The \emph{length} of a multindex $\alpha \in \bN^n$ is denoted $|\alpha|$ and is defined
@@ -113,7 +109,46 @@ Note that equality holds in (2) when $\deg(D) \neq \deg(D')$ but that there is r
 	We refer to \cite{d-mod-primer} for the proof of (1) and (3) \red{COMPLETE PROOF OF (2) MANUALLY}.
 \end{prf}
 
-One might expect a graded structure to naturally fall from this definition of degree. The issue, as always, is one of noncommutativity. The element $x_1\partial_1$ ought to homogeneous, but it is the difference $\partial x - 1$ of two elements with non-equal degree. There is no way to define a collection of pairwise disjoint $K[X]$-submodules of $A_n$ whose direct sum recovers $A_n$. Nonetheless, we can still find a collection of $A_n$ submodules which resemble a grading on $A_n$. We will call this a \emph{filtration} of $A_n$, and it turns out that this filtration will come with a natural associated graded $K[X]$-module whose properties will yield new information about $A_n$.
+As an immediate corollary of Theorem (\ref{thm:degree-properties} (2)), we have that $A_n$ is a domain.
+
+\begin{cor}
+	The ring $A_n$ is an integral domain.
+\end{cor}
+\begin{prf}
+	If $D\cdot D' = 0$ in $A_n$, then either $\deg(D) = -\infty$ or $\deg(D') = -\infty$, hence either $D$ or $D'$ is $0$.
+\end{prf}
+
+A slightly less trivial fact whose proof relies on the notion of degree is that the Weyl algebra is simple, that is, it possesses no nontrivial proper two-sided ideals.
+\begin{thm}\label{thm:Weyl-algebra-simple}
+	The algebra $A_n$ is simple.
+\end{thm}
+\begin{prf}
+	Let $I$ be a nonzero two-sided ideal of $A_n$ and suppose $D \in I$ is a nonzero operator. If $deg(D) = 0$, then $D \in K$ and $I = A_n$. If $\deg(D) = d > 0$, then there must be some summand $x^\alpha\partial^\beta$ with nonzero coefficient and for which either $\alpha \neq 0$ or $\alpha \neq 0$. In the former case, suppose the $\alpha_i$ component of $\alpha$ is nonzero. Then $[\partial_i,D] \neq 0$ and $\deg([\partial_i,D]) \leq d - 1$. Furthermore, since $I$ is two-sided, $[\partial_i,D] \in I$. By replacing $D$ with $[\partial_i,D]$ and repeating the above process, we can construct an element of degree 0 in $I$ and hence conclude$I = A_n$. A similar argument in which we instead consider $[x_i,D]$ works in the case that $\beta \neq 0$.
+\end{prf}
+
+Despite having no nontrivial proper two-sided ideals, $A_n$ is far from being a division ring. Another application of Theorem (\ref{thm:degree-properties} (2)) shows that the only elements with either left or right inverses are the constant operators $D \in K$.
+
+Even at this early stage, we can see features of this theory which break when $\fchar K = p > 0$. Let us look at what happens when $K = \bF_p$ for $p$ a prime and $n = 1$. Take $A_1 = K[x,\partial]\subseteq \End_K(K[x])$, i.e. let us first use Definition (\ref{defn:Weyl-algebra-construction-1}). Let $k$ be any positive integer and consider the action $\partial^p$ on $x^k \in K[x]$. If $k < p$, then $\partial^p(x^k) = 0$. If $k \geq p$, then at least one of the integers $k-p+1,k-p+2,...,k-1,k$ is divisible by $p$, and hence
+\begin{align*}
+	\partial^p(x^k) = k(k-1)(k-2)...(k-p+1)x^{k-p} = 0
+\end{align*}
+by Example (\ref{ex:commutator-as-derivative-one-dim})Since $\partial^p$ is zero on a basis for $K[x]$, it is identically zero on all of $K[x]$. This means $\partial$ is a nilpotent element, and in particular that $A_1$ is not a domain.
+
+Now take $A_1$ to be the free algebra in $x$ and $\partial$ over $K$ modulo the relation $[\partial, x] = 1$, i.e. use Definition (\ref{defn:Weyl-algebra-construction-2}). This ring is domain since $\partial^p = \textbf{some product of $[\partial,x] - 1$}$, and in particular, the two definitions do not agree in characteristic $p$. Nonetheless, this formulation of $A_1$ is disparate from the characteristic 0 case in another respect: it is not a simple ring. For example,
+\begin{align*}
+	[\partial, x^p] = px^{p- 1} = 0,
+\end{align*}
+from which it follows that $x^p$ commutes with every element of $A_1$. Thus, $(x^p)$ is a two-sided ideal of $A_1$.
+
+So it is that, in prime characteristic, not only are our two definitions for the Weyl algebra no longer equivalent, but each breaks some elementary property of the Weyl algebra in characteristic 0. It is therefore unclear which definition we should choose.
+
+\subsection{Basic Properties of the Weyl Algebra}
+
+Despite the noncommutative of $A_n$, one might be tempted to draw comparisons between the Weyl algebra and a ring of polynomials, especially given that $A_n$ admits a nice basis and possesses some notion of degree. In particular, one might wonder if $A_n$ admits any meaningful graded structure. The answer turns out to be ``sort of''. The goal of this section is primarily to define and examine this approximation of a graded structure. To do this, we first define the \emph{degree} of an element in $A_n$. We then notice that this fails to define a $K[X]$-grading for $A_n$ and provide a workaround.
+
+We also say some words about the ideal structure of $A_n$ and holonomic modules.
+
+One might expect a graded structure to naturally fall from the notion of degree given in section . The issue, as always, is one of noncommutativity. The element $x_1\partial_1$ ought to homogeneous, but it is the difference $\partial x - 1$ of two elements with non-equal degree. There is no way to define a collection of pairwise disjoint $K[X]$-submodules of $A_n$ whose direct sum recovers $A_n$. Nonetheless, we can still find a collection of $A_n$ submodules which resemble a grading on $A_n$. We will call this a \emph{filtration} of $A_n$, and it turns out that this filtration will come with a natural associated graded $K[X]$-module whose properties will yield new information about $A_n$.
 
 We first define arbitrary filtered rings and modules.
 
@@ -238,7 +273,63 @@ The converse of this theorem need not always hold, that is, if $R$ is Noetherian
 
 \subsection{Pushforwards and Pullbacks of Modules over the Weyl Algebra}
 
-\subsection{Barriers to Positive Characteristic}
+\section{\emph{D}-Modules in Positive Characteristic}
+In this section we'll discuss the theory of $D$-Modules in positive characteristic. 
+\subsection{The Structure of Differential Operators in Positive Characteristic}
+
+\begin{defn}\label{defn:diff-op-rings}
+	Let $A\to R$ be a map of commutative rings and let $M$ and $N$ be (two-sided) $R$-modules. We define
+	\begin{align*}
+		D^0_{R/A}(M,N) = \Hom_R(M,N)
+	\end{align*}
+	and then inductively define
+	\begin{align*}
+		D^i_{R/A}(M,N) = \{\varphi \in \Hom_A(M,N) ~\mid~ [\varphi,f] \in D^{i-1}_{R/A}(M,N) ~ \text{for all} f \in R\}.
+	\end{align*}
+    Note that we may identify $R$ with its image in $\End_R(M)$ by the map $f \mapsto \olf_M$ where $\olf_M: m\mapsto f\cdot m$. By $[\varphi,f]$ we mean $\varphi\circ \olf_M - \olf_N\circ \varphi$.
+
+	We let $D_{R/A}(M,N) = \bigcup_{i=0}^\infty D^{i}_{R/A}(M,N)$. In the case that $M = N$ we write $D_{R/A}(M)$ and when $R = M = N$ we write $D_{R/A}$, sometimes omitting $R$ and $A$ when the context is clear.
+\end{defn}
+It is often convenient to let $D^i_{R/A}(M,N) = 0$ for $i < 0$. In fact, since $\varphi$ is $R$-linear if and only if $[\varphi, f] = 0$ for each $f \in R$, we could instead declare $D^i_{R/A}(M,N) = 0$ before proceeding with the inductive definition above.
+
+The following is our first theorem regarding differential operators in characteristic $p > 0$.
+
+\begin{thm}[{\cite[Lemma 1.4.8]{amon92}}]\label{thm:perfect-field-diff-op}
+	Let $K$ be a perfect field with $\fchar K = p > 0$ and $R$ be essentially of finite type as a $K$-algebra. Then
+	\begin{align*}
+		D_{R/K} = \bigcup_{e\in \bN} \Hom_{R^{p^e}}(R,R).
+	\end{align*}
+\end{thm}
+\begin{prf}
+	The proof of this statement in \cite{amon92} is slightly more general than this statement, likely opportunity to condense it.
+\end{prf}
+
+\begin{defn}\label{defn:D-ideal}
+	Let $A\to R$. A \emph{$D$-ideal} of $R$ is a $D_{R/A}$-submodule of $R$. Since $R \hookrightarrow D_{R/A}$, any such submodule is closed under multiplication by $R$ and is therefore an ideal of $R$, justifying the name.
+\end{defn}
+
+\begin{example}\label{ex:quotient-is-d-mod}
+	If $I \subseteq R$ is a $D$-ideal, then $R/I$ is a $D-module$.
+\end{example}
+
+\begin{prop}\label{prop:localization-of-D-mod}
+	If $W \subseteq R$ is a multiplicatively closed set and $M$ is a $D$-module, then $W^{-1}M$ is a $D$-module by the rule
+	\begin{align*}
+		\alpha\cdot \frac{m}{\omega} = \sum_{i = 0}^{\ord(\alpha)} \frac{\alpha^{(i)}\cdot m}{\omega^{i+1}}
+	\end{align*}
+	where $\alpha^{(0)} = \alpha$ and $\alpha^{(i+1)} = [\alpha^{(i)}, \ol{\omega}]$.
+\end{prop}
+
+\begin{defn}\label{defn:D-module-simple}
+	Let $A\to R$ be a map of rings. We say that $R$ is \emph{$D$-module simple} if it is a simple $D$-module. We say $R$ is \emph{$D$-algebra simple} if it is a simple $D$-algebra.
+\end{defn}
+
+The ring of differential operators in prime characteristic can detect singularities. 
+
+\begin{thm}[{\cite[Theorem 2.2 (4)]{ksmith95-d-mod-f-split}}]\label{thm:strongly-F-regular-rings-D-simple}
+	Let $\fchar(R) = p > 0$ and suppose $R$ is $F$-finite. Then $R$ is strongly $F$-regular if and only if $R$ if $F$-split and is a finite product of $D$-simple rings.
+\end{thm}
+
 \newpage
 \printbibliography
 \end{document}

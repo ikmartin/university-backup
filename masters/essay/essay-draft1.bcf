@@ -2347,6 +2347,9 @@
     <bcf:citekey order="1">d-mod-primer</bcf:citekey>
     <bcf:citekey order="2">d-mod-primer</bcf:citekey>
     <bcf:citekey order="3">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="4">amon92</bcf:citekey>
+    <bcf:citekey order="5">amon92</bcf:citekey>
+    <bcf:citekey order="6">ksmith95-d-mod-f-split</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

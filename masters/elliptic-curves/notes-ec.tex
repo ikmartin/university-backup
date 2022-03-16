@@ -212,11 +212,11 @@ This leads us to the definition of the \emph{Selma group}.
 \end{defn}
 We get a short-exact sequence
 \begin{align*}
-	0 \to \frac{E'(K)}{\phi E(K)} \to S^{(\phi)}(E/K) \to \tateshaf(E/K)[\phi_*] \to 0.
+	0 \to \frac{E'(K)}{\phi E(K)} \to S^{(\phi)}(E/K) \to \tshaf(E/K)[\phi_*] \to 0.
 \end{align*}
 Taking $\phi = [n]$ gives
 \begin{align*}
-	0 \to \frac{E(K)}{nE(K)}\to S^{(n)}(E/K) \to \tateshaf(E/K)[n] \to 0.
+	0 \to \frac{E(K)}{nE(K)}\to S^{(n)}(E/K) \to \tshaf(E/K)[n] \to 0.
 \end{align*}
 Rearranging the proof of weak Mordell-Weil gives
 \begin{thm}\label{thm:S-is-finite}
@@ -237,7 +237,7 @@ Rearranging the proof of weak Mordell-Weil gives
 \end{prf}
 
 \begin{defn}\label{defn:unramifiedoutsideS}
-	The subgroup of H^1(K,A) unramified outside $S$ is
+	The subgroup of $H^1(K,A)$ unramified outside $S$ is
 	\begin{align*}
 		H^1(K,A;S) = \ker\big(H^1(K,A)\ to \prod_{v\not\in S} H^1(K_v^{nr},A)\big)
 	\end{align*}
@@ -245,14 +245,14 @@ Rearranging the proof of weak Mordell-Weil gives
 	\begin{center}
 		<put commutative diagram here>
 	\end{center}
-	This map is surjective (the $x_n$ map) for all $v \not\in S$ (see Theorem 9.7 from class) therefore $\Img(\delta_v) \subseteq \ker(\text{green downward map})$.
+	This map is surjective (the $x_n$ map) for all $v \not\in S$ (see Theorem 9.7 from class) therefore $\img(\delta_v) \subseteq \ker(\text{green downward map})$.
 \end{defn}
 \begin{lem}
 	Let $\ker\big(H^1(K,\mu_n) \to H^1(K^{nr},\mu_n)\big) \subseteq \{x \in K^*/(K^*)^n ~ \mid ~ v(x) \equiv 0 ~ (\mod n)\}$.
 	Therefore
 	\begin{align*}
-		S^{(n)}(E/K) &= \left\{\alpha \in H^1(K, E[n]) ~\mid ~ \res_v(\alpha) \in \Img(\delta_v) ~ \forall v\right\} \\
-					 &\subseteq H^1(\K,E[n]; S) \\
+		S^{(n)}(E/K) &= \left\{\alpha \in H^1(K, E[n]) ~\mid ~ \res_v(\alpha) \in \img(\delta_v) ~ \forall v\right\} \\
+					 &\subseteq H^1(K,E[n]; S) \\
 					 &\cong H^1(K,\mu; S) \times H^1(K,\mu_n ; S) \\
 					 &\cong K(S,n)\times K(S,n).
 	\end{align*}
@@ -260,7 +260,7 @@ Rearranging the proof of weak Mordell-Weil gives
 \end{lem}
 
 \begin{rmk}
-	$S^{(n)A}(E/K)$ is finite and effectively computable. If is conjectured that $|\tateshaf(E/K) < \infty$. This would imply that $\rankE(K)$ is effectively computable.
+	$S^{(n)A}(E/K)$ is finite and effectively computable. If is conjectured that $|\tshaf(E/K) < \infty$. This would imply that $\rank E(K)$ is effectively computable.
 \end{rmk}
 
 \section{Descent by cyclic isogeny}
@@ -270,10 +270,10 @@ Let $E$ and $E'$ be elliptic curves over a number field $K$, and let $\phi:E\to 
 \end{align*}
 Long exact sequence
 \begin{center}
-	\begin{tikzd}
-		... \arrow[r]& E(K) \arrow[r,"\phi"] & E'(K)\arrow[r,"\delta"] \arrow[rd,"\alpha"] & H^1(K,\mu_n) \arrow[r] \arrow[d, "\cong"]& ... \\
+	\begin{tikzcd}
+		...\arrow[r]& E(K) \arrow[r,"\phi"] & E'(K)\arrow[r,"\delta"] \arrow[rd,"\alpha"] & H^1(K,\mu_n) \arrow[r] \arrow[d, "\cong"]& ... \\
 					 & & & K^*/(K^*)^n & 
-	\end{tikzd}
+	\end{tikzcd}
 \end{center}
 \begin{thm}
 	Let $f \in K(E')$ and $g \in K(E)$ with $\div(f) = n(T) - n(P)$ and $\phi^*f = g^n$. Then $\alpha(P) = f(P) ~ \mod(K^*)^n$ for all $P \in E'(K) \setminus \{0,T\}$.
@@ -281,10 +281,110 @@ Long exact sequence
 \begin{prf}
 	Let $Q \in \phi^{-1}P$. Then $\delta(P)$ is represented by the cocycle $\sigma \mapsto \sigma Q - Q \in E[\phi] \cong \mu_n$.
 	\begin{align*}
-		e_\phi(\sigmaQ - Q, T) &= \frac{g(rQ - Q + X)}{gX)} &\text{ for any  } x\in E\setminus \text{zeros and poles} \\
+		e_\phi(\sigma Q - Q, T) &= \frac{g(rQ - Q + X)}{gX)} &\text{ for any  } x\in E\setminus \text{zeros and poles} \\
 							   &=  \frac{g(\sigma Q)}{g(Q)} & x = Q \\
 							   &= \frac{\sigma \sqrt[n]{f(P)}}{\sqrt[n]{f(P)}} & \text{N.B.} f(P) = g(Q)^n
 	\end{align*}
-	Therefore $\delta(P)$ is represented by the cocycle $\sigma \mapsto \frac{\sigma(\sqrt[n]{f(P)})}{\sqrt[n]{f(P)}}$. But $H^1(K,\mu_n) \cong K^*/(K^*)^n$, $\\big(\sigma \mapsto \frac{\sigma(\sqrt[n]{x})}{ \sqrt[n]{x} }\big) \mapsfrom x$. Therefore $\alpha(P) = f(P) ~\mod(K^*)^n$.
+	Therefore $\delta(P)$ is represented by the cocycle $\sigma \mapsto \frac{\sigma(\sqrt[n]{f(P)})}{\sqrt[n]{f(P)}}$. But $H^1(K,\mu_n) \cong K^*/(K^*)^n$, $\\big(\sigma \mapsto \frac{\sigma(\sqrt[n]{x})}{ \sqrt[n]{x} }\big) \leftmapsto x$. Therefore $\alpha(P) = f(P) ~\mod(K^*)^n$.
 \end{prf}
+
+\lecture{2022-03-14}{2022-03-14}
+\begin{thm}\label{thm:16-1}
+	Let $f \in K(E')$ and $g \in K(E)$ with $\div(f) = n(T) - n(0)$ and $\phi^*f = g^n$. Then there exists a group homomorphism $\alpha: E'(K) \to K^*/(K^*)^n$ with $\ker \alpha = \phi(E(K))$ and $\alpha(P) = f(P) \mod (K^*)^n$ for all $P \in E'(K)\setminus \{0,T\}$.
+\end{thm}
+
+\subsection{Descent by 2-isogeny}
+$E:~ y^2 = x(x^2 ax + b)$
+
+$E':~ y^2 = x(x^2+a'x + b')$ where $b(a^2 - 4ab) \neq 0$, $a' = -2a$ $b' = a^2 - 4b$. Let $\phi:E\to E',$ $(x,y) \mapsto \left(\left(\frac{x}{y}\right)^2, \frac{y(x^2 - b)}{x^2}\right)$. Then
+\begin{align*}
+	\hat{\phi} E'\to E, ~ (x,y) \mapsto \left(\frac{1}{4}\left(\frac{y}{x}\right), \frac{y(x^2 - b')}{8x^2}\right)^2.
+\end{align*}
+Then $E[\phi] = \{0,T\}$, $T = (0,0) \in E(K)$ and $E'[\hat{\phi}] = \{0,T'\}$, $T' = (0,0) \in E'(K)$.
+\begin{prop}
+	There is a group homomorphism
+	\begin{align*}
+		E'(K) \to K^*/(K^*)^2, ~ (x,y) \mapsto
+		\begin{cases}
+			x(K^*)^2 & \text{if } x \neq 0 \\
+			b'(K^*)^2 & \text{if } x = 0
+		\end{cases}
+	\end{align*}
+	with kernel $\phi E(K)$.
+\end{prop}
+\begin{prf}
+	\textbf{Either} Apply Theorem (\ref{thm:16-1}) with $f = x \in K(E')$ and $g = \frac{y}{x} \in K(E)$ \textbf{or} do direct calculation, see example sheet 4. 
+\end{prf}
+Two maps
+	\begin{align*}
+		\alpha_E:& \frac{E(K)}{\hat{\phi}E'(K)} \hookrightarrow K^*/(K^*)^2 \\
+		\alpha_{E'}:& \frac{E'(K)}{\phi E(K)} \hookrightarrow K^*/(K^*)^2.
+	\end{align*}
+\begin{lem}\label{lem:16-3}
+	\begin{align*}
+		2^{\rank E(K)} = \frac{|\img(\alpha_E)| \cdot |\img \alpha_{E'}}{4}.
+\end{align*}
+\end{lem}
+\begin{prf}
+	If
+	\begin{align*}
+		A \to{f} B \to{g} C
+	\end{align*}
+	is a homomorphism of abelian groups then there is an exact sequence
+	\begin{align*}
+		0 \to \ker(f) \to \ker(gf) \to{f} \ker(g) \to \coker(f) \to{g} \coker(gf) \to \coker(g) \to 0.
+	\end{align*}
+	Since $\hat{\phi}\phi = [2]_E$ we get an exact sequence
+	\begin{align*}
+		0 \to E(K)[\phi] \to E(K)[2] \to{\phi} E'(K)[\hat{\phi}] \to \frac{E'(K)}{\phi E(K)} \to{\hat{\phi}} \frac{E(K)}{2E(K)} \to \frac{E(K)}{\hat{\phi}E'(K)} \to 0.
+	\end{align*}
+	The leftmost nontrivial term above is isomorphic to $\bZ/2\bZ$, the third nontrivial term is also $\bZ/2\bZ$, the fourth is isomorphic to $\img \alpha_{E'}$, and the rightmost nontrivial term is $\img \alpha_E$.
+
+	Therefore
+	\begin{align*}\label{eq:1-lec23}
+		\frac{|E(K)/2E(K)}{|E(K)[2]} = \frac{|\img \alpha_E| \cdot |\img \alpha_{E'}|}{2\cdot 2}.
+	\end{align*}
+	Mordell-Weil implies $E(K) \cong \Delta \times \bZ^r$ where $\Delta$ is a finite group, $r = \rank E(K)$.
+	\begin{align*}
+		\frac{E(K)}{2E(K)} \cong \frac{\Delta}{2\Delta} \times \left(\bZ/2\bZ\right)^r
+	\end{align*}
+	and $E(K)[2] \cong \Delta[2]$. Therefore $\frac{|E(K)/2E(K)|}{|E(K)[2]} = 2^r$. Taken with equation (\ref{eq:1-lec23}), this proves the result.
+\end{prf}
+\begin{lem}\label{lem:16-4}
+	If $K$ is a number field and $a,b \in \cO_K$ then $\img(\alpha_E) \subseteq K(S,2)$ where $S = \{\text{primes dividing $b$}\}$.
+\end{lem}
+\begin{prf}
+	Must show that if $x,y \in K,$ $y^2 = x(x^2 + ax + b)$ and $v_\frakp(b)$, then $v_\frakp(x) = 0 ~(\mod 2)$.
+
+	Case $v_\frakp(x) < 0$, then Lemma 9.1 $\implies$ $v_\frakp(x) = -2r$ and $v_\frakp(y) = -3r$ for some $r \geq 1$.
+
+	Case $v_\frakp(x) < 0$, then $v_\frakp(x^2 + ax + b) = 0 \implies $ $v_\frakp(x) = v_\frakp(y^2) = 2v_{\frakp}(y)$.
+\end{prf}
+
+\begin{lem}\label{lem:16-5}
+	If $b_1b_2 = b$ then $b_1(K^*)^2 \in \img(\alpha_E)$ or equivalently $\omega^2 = b_1u^4 + au^2v^2 + b_2v^4$ is soluble for $u,v,w \in K$ not all zero.
+\end{lem}
+\begin{prf}
+	If $b_1 \in (K^*)$ or $b_2 \in (K^*)^2$ then both conditions are satisfied. So we may assume $b_1,b_2 \not\in (K^*)^2$. Have $b_1(K^*) \in \img(\alpha_E) \iff$ there exists some $(x,y) \in E(K)$ such that $x = b_1t^2$ for some $t \in K^*$. This implies $y^2 = b_1t^2\left((b_1)^2 + ab_1t^2 + b\right)\implies \left(\frac{y}{b_1t}\right)^2 = b_1t^4 + at^2 + b/b_1$. So the $\omega^2$ equation above has a solution $u = t, v = 1, \omega = \frac{y}{b_1t}$.
+
+	Conversely (simply perform same calculation in reverse), if $(u,v,\omega)$ is a solution to the $\omega$ equation above, then $uv \neq 0$ and $\left(b_1\left(\frac{u}{v}\right)^2,b_1\frac{u\omega}{v^3}\right) \in E(K)$.
+\end{prf}
+
+\begin{example}
+	Take $K = \bQ$ and $E:~ t^2 = x^3 - x$, $a = 0$ and $b = -1$. Then $\img(\alpha_E) = \langle -1 \rangle \subseteq \bQ^*/(\bQ^*)^2$, $E':~ y^2 = x^3 + 4x$. $\img(\alpha_E') \subseteq \langle -1,2 \rangle \subseteq \bQ^*/(\bQ^*)^2$.
+
+	Have 
+	\begin{align*}
+		b_1 &= -1 & \omega^2 = -y^4 - 4v^4 \\
+		b_1 &= 2 & \omega^2 = 2u^4 + 2v^4 \\
+		b_1 &= -2 & \omega -2u^4 - 2v^4.
+	\end{align*}
+	The first and third equations are insoluble over $\bR$, while the second has solution $(u,v,\omega) = (1,1,2)$. Therefore $\img(\alpha_{E'}) = \langle 2 \rangle \subseteq \bQ^*/(\bQ^*)^2$ and $2^{\rank E(\bQ)} = \frac{2 \cdot 2}{4} \implies \rank E(\bQ) = 0 \implies 1$ is not a congruent number.
+\end{example}
+
+\begin{example}
+	$E:~ y^2 = x^3 + px$ with $p$ prime $p \equiv 5 ~(\mod 8)$. Let $b_1 = -1,$ $\omega^2 = -u^4 - pv^4$ insoluble over $\bR$. Therefore $\img(\alpha_E) = \langle p \rangle\subseteq \bQ^*/(\bQ^*)^2$.
+\end{example}
+
+\lecture{2022-03-16}{2022-03-16}
 \end{document}

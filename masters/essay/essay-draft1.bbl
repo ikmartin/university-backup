@@ -58,6 +58,71 @@
       \verb https://doi.org/10.1017/CBO9780511623653
       \endverb
     \endentry
+    \entry{ksmith95-d-mod-f-split}{article}{}
+      \name{author}{1}{}{%
+        {{hash=06ab99a7785702b67b6d9d8d3c62034a}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Karen\bibnamedelima E.},
+           giveni={K\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{06ab99a7785702b67b6d9d8d3c62034a}
+      \strng{fullhash}{06ab99a7785702b67b6d9d8d3c62034a}
+      \strng{bibnamehash}{06ab99a7785702b67b6d9d8d3c62034a}
+      \strng{authorbibnamehash}{06ab99a7785702b67b6d9d8d3c62034a}
+      \strng{authornamehash}{06ab99a7785702b67b6d9d8d3c62034a}
+      \strng{authorfullhash}{06ab99a7785702b67b6d9d8d3c62034a}
+      \field{labelalpha}{Smi95}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{1073-2780}
+      \field{journaltitle}{Math. Res. Lett.}
+      \field{number}{4}
+      \field{title}{The {$D$}-module structure of {$F$}-split rings}
+      \field{volume}{2}
+      \field{year}{1995}
+      \field{pages}{377\bibrangedash 386}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.4310/MRL.1995.v2.n4.a1
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.4310/MRL.1995.v2.n4.a1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.4310/MRL.1995.v2.n4.a1
+      \endverb
+    \endentry
+    \entry{amon92}{article}{}
+      \name{author}{1}{}{%
+        {{hash=1ed8573af17963b041f5d8ac74953766}{%
+           family={Yekutieli},
+           familyi={Y\bibinitperiod},
+           given={Amnon},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{1ed8573af17963b041f5d8ac74953766}
+      \strng{fullhash}{1ed8573af17963b041f5d8ac74953766}
+      \strng{bibnamehash}{1ed8573af17963b041f5d8ac74953766}
+      \strng{authorbibnamehash}{1ed8573af17963b041f5d8ac74953766}
+      \strng{authornamehash}{1ed8573af17963b041f5d8ac74953766}
+      \strng{authorfullhash}{1ed8573af17963b041f5d8ac74953766}
+      \field{labelalpha}{Yek92}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0303-1179}
+      \field{journaltitle}{Astérisque}
+      \field{note}{With an appendix by Pramathanath Sastry}
+      \field{number}{208}
+      \field{title}{An explicit construction of the {G}rothendieck residue complex}
+      \field{year}{1992}
+      \field{pages}{127}
+      \range{pages}{1}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
