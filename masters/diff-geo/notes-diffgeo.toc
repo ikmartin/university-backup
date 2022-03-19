@@ -17,3 +17,11 @@
 \contentsline {subsection}{\numberline {1.3}Smooth Maps}{11}{subsection.1.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.4}Tangent Spaces}{12}{subsection.1.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.5}Derivatives}{14}{subsection.1.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Vector bundles and tensors}{15}{section.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1}The tangent bundle}{15}{subsection.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2}Vector Bundles}{16}{subsection.2.2}%

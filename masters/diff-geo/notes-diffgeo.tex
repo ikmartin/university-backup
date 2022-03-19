@@ -484,11 +484,147 @@ Intuitively, $\partial_{x_i}$ is the direction obtained by moving along the $x_i
 
 \textbf{Warning:} The vector $\partial_{x_i}$ depends on \emph{all} of the $x_j$, e.g. if $y_1,...,y_n$ are local coordinates such that $y_i = x_i$ then it need not be true that $\partial_{y_i} = \partial_{x_i}$.
 
-\begin{lem}\label{lem:}
+\begin{lem}
 	Given two sets of local coordinates about $x_i$ and $y_i$ about $p$, we have
 	\begin{align*}
 		\frac{\partial}{\partial y_i} = \sum_j \frac{\partial x_j}{\partial y_i}(p) \cdot \frac{\partial}{\partial x_j},
 	\end{align*}
 	where $\frac{\partial x_j}{\partial y_j}$ comes from the transition function. This will be proved next lecture.
 \end{lem}
+
+\lecture{2021-10-16}{2022-03-19}
+Last time, we discussed the map $\{\text{curves based at $p$}\} \to{\pi_p^\varphi} \bR^n$, which induces a bijection $T_pX \to{\pi_p^\varphi} \bR^n$ when we mod out by equivalence. 
+
+\begin{lem}
+	\begin{align*}
+		\frac{\partial}{\partial y_i} = \sum_j \frac{\partial x_j}{\partial y_i} \frac{\partial}{\partial x_j}.
+	\end{align*}
+\end{lem}
+\begin{prf}
+	Let $\varphi_1$ and $\varphi_2$ be the charts defining $x$ and $y$. By definition $\partial_{y_i} = \left(\pi_p^{\varphi_2}\right)^{-1}(e_i).$ Let $A = D(\varphi_2\cdot \varphi_1^{-1})$ so $\pi_p^{\varphi_2} A\cdot \pi_p^{\varphi_1}$. Get that $\partial_{y_i} = \left(\pi_p^{\varphi_1}\right)^{-1} (A^{-1}e_i)$. Note $A^{-1} = D(\varphi_1 \circ \varphi_2^{-1})$ so $A^{-1}e_i = \sum_j \frac{\partial x_j}{\partial y_i}e_j$ so
+	\begin{align*}
+		\partial_{y_i} &= \left(\pi_p^{\varphi_1}\right)^{-1}\left(\sum_j \frac{\partial x_j}{\partial y_i} e_j\right) \\
+					   &= \sum_j \frac{\partial x_j}{\partial y_i} (\pi_p^{\varphi_1})^{-1}(e_j).
+	\end{align*}
+	Since $\partial_{x_j} = (\pi_p^{\varphi_1})^{-1}e_j$, we are done.
+\end{prf}
+\begin{rmk}\label{rmk:1.39}
+	If $[\gamma] = \sum a_i \partial_{x_i}$ then $(\varphi\circ \gamma)^\bullet(0) = \pi_p^{\varphi}(\gamma) = \sum a_i e_i$ (note the $i$th component of $(\varphi \circ \gamma)^\bullet(0)$ is $(x_i \circ \gamma)^\bullet(0)$).
+
+	So $a_i = (x_i \circ \gamma)^\bullet(0)$.
+\end{rmk}
+
+\subsection{Derivatives} Fix manifolds $X,Y$ and a smooth map $F:X\to Y$.
+\begin{defn}\label{defn:lec1.40}
+	The \emph{derivative} of $F$ at $p$, denoted $D_pF$, is the map
+	\begin{align*}
+		T_pX \to T_{F(p)}Y, ~ [\gamma] \mapsto [F\circ \gamma].
+	\end{align*}
+	We sometimes write $D_pF$ as $F_*$, and call it the \emph{pushforward.}
+\end{defn}
+\begin{lem}\label{lem:1.41}
+	The map $D_pF$ is well-defined and linear.
+\end{lem}
+\begin{prf}
+	Fix charts $\varphi$ about $p$ and $\psi$ about $F(p)$. We then have
+	\begin{align*}
+		\pi^{\psi}_{F(p)}(F\circ \gamma) &= (\psi \circ F \circ \gamma)^\bullet(0) \\
+										 &= [(\varphi\circ F\circ \varphi^{-1}) \circ (\varphi\circ \gamma)]^\bullet (0) \\
+										 &= T\pi_p^{\varphi}(\gamma)
+	\end{align*}
+	where $T = D(\psi \circ F \circ \varphi^{-1})$. Thus, if $\gamma_1$ and $\gamma_2$ are two curves based at $p$ with $[\gamma_1] = [\gamma_2]$ then $[F\circ \gamma_1] = [F\circ \gamma_2]$. So $D_p F$ is well-defined, and it fits into the commutative diagram
+	\begin{center}
+		\begin{tikzcd}
+			T_pX \arrow[r,"D_pF"] \arrow[d,"\pi_p^\varphi"]& T_{F(p)}Y \arrow[d, "\pi_{F(p)}^\psi"]\\
+			R^{\dim X} \arrow[r, "T"] & \bR^{\dim Y}
+		\end{tikzcd}
+	\end{center}
+	in which the vertical maps are isomorphisms. So $D_pF = \pi_{F(p)}^{-1} \circ T\circ \pi_p^\varphi$ is linear.
+\end{prf}
+
+\begin{rmk}\label{rmk:lec1.41}
+	If $x,y$ are the local coordinates associated to the charts $\varphi, \psi$ then $\psi\circ F\circ \varphi^{-1}$ expresses $F$ as giving the $y$'s in terms of the $x$'s.
+
+	So $T$ is the matrix $\left(\frac{\partial y_i}{\partial x_j}\right)_{ij}$. Hence,
+	\begin{align*}
+		D_p F(\partial_{x_i}) = \sum_j \frac{\partial y_j}{\partial x_i} \partial_{y_j}.
+	\end{align*}
+\end{rmk}
+
+\begin{rmk}\label{rmk:lec1.42}
+	$ $
+	\begin{enumerate}[(i)]
+		\item The new notion of derivative coincides with the new one for maps $F:\bR^n \to \bR^m$ by Remark (\ref{rmk:lec1.41})
+		\item If $f$ is a function $X\to \bR$ then $Df (\partial_{x_i}) = \frac{\partial f}{\partial x_i}$.
+		\item For a curve $\gamma$ based at $p$ we can write $[\gamma]$ as $D_0 \gamma(\partial_t)$ where $t$ is simply the standard coordinate on $\bR$.
+	\end{enumerate}
+\end{rmk}
+
+As a final remark, the chain rule is now a tautology.
+\begin{prop}\label{prop:chain-rule}
+	For smooth maps $X\to{F}Y\to{G}Z$, we have
+	\begin{align*}
+		D_p(G\circ F) = D_{F(p)}G \circ D_{p}F.
+	\end{align*}
+\end{prop}
+\begin{prf}
+	For $[\gamma]$ in $T_pX$, both sides give $[G\circ F\circ \gamma]$.
+\end{prf}
+
+\section{Vector bundles and tensors}
+
+\subsection{The tangent bundle}
+
+Given a manifold $X$ and local coordinates $x_1,...,x_n$ on an open set $U \subseteq X$. If we have a tangent vector for a point in $U$ we may write it as a linear combination of $\partial_{x_1}, ...,\partial_{x_n}$. Write $a_1,...,a_n$ for the components of a tangent vector with respect to $\partial_{x_i}$.
+
+This gives us coordinates
+\begin{align*}
+	(x_1,...,x_n,a_1,...,a_n): \sqcup_{p\in U} T_pX \to \bR^{2n}.
+\end{align*}
+Doing this for all coordinate patches defines a smooth pseudo-atlas on $TX := \sqcup_{p\in X} T_pX$. This space $TX$ inherits Hausdorffness and second-countability from $X$.
+
+\begin{defn}\label{defn:tangent-bundle}
+	The \emph{tangent bundle} of $X$ is $TX$ above equipped with the manifold structure given by the above pseudo-atlas.
+\end{defn}
+\begin{example}\label{example:lec2.2}
+	Let $X = S^1 = \{e^{i\theta}\} \subseteq \bC = \bR^2$. The vector $\partial_{\theta}$ makes sense everywhere, it points around the circle with unit speed $1$ (i.e. $|\partial_\theta| = 1$). It forms a basis in each tangent space. We therefore get a diffeomorphism
+	\begin{align*}
+		TS^1 \to S^1 \times \bR, \hspace{2em} (p \in S^1, ~a\partial_\theta \in T_pS^1) \to (p,a).
+	\end{align*}
+\end{example}
+Might be unclear why we would define this space, but one immediate reason is that it allows us to sensibly define vector fields.
+\begin{defn}\label{defn:vector-field}
+	A \emph{vector-field} on $X$ is a smooth map $v: X \to TX$ such that $v(p) \in T_pX$ for all $p$. Another way to phrase this is to say that $v$ is a \emph{section} of the projection $TX \to X$.
+\end{defn}
+
+\subsection{Vector Bundles}
+\begin{defn}\label{defn:vector-bundle}
+	A \emph{vector bundle} of $\rank k$ over a manifold $B$ is a manifold $E$ equipped with
+	\begin{itemize}
+		\item A smooth surjection $\pi: E\to B$
+		\item An open cover $\{U_\alpha\}$ of $B$ and for each $\alpha$ a diffeomorphism $\Phi_\alpha: \pi^{-1}(U_\alpha) \to U_\alpha\times \bR^k$
+	\end{itemize}
+	such that
+	\begin{enumerate}[(a)]
+		\item $\pr_1\circ~\Phi_\alpha = \pi$
+		\item For all $\alpha,\beta$ the map
+			\begin{align*}
+				\Phi_\beta\circ\Phi_\alpha^{-1}: (U_\alpha \cap U_\beta) \times \bR^k \to (U_\alpha \cap U_\beta) \times \bR^k
+			\end{align*}
+			is of the form $(p,x\in \bR^k) \mapsto (p,g_{\beta\alpha}(p)(x))$, where $g_{\alpha\beta}(p)$ is some matrix in being applied to $x$, for some smooth map
+			\begin{align*}
+				g_{\alpha\beta}:U_\alpha \cap U_\beta \to \GL(k,\bR).
+			\end{align*}
+	\end{enumerate}
+	We say that
+	\begin{itemize}
+		\item the manifold $E$ is the \emph{total space},
+		\item the manifold $B$ is the \emph{base space},
+		\item the map $\pi$ is the \emph{projection},
+		\item $\pi^{-1}(p)$ are the \emph{fibres} (denoted $E_p$),
+		\item the maps $\Phi_\alpha$ are \emph{local trivializations} and
+		\item the $g_{\alpha\beta}$ are called the transition functions.
+	\end{itemize}
+\end{defn}
+
 \end{document}

@@ -387,4 +387,109 @@ Two maps
 \end{example}
 
 \lecture{2022-03-16}{2022-03-16}
+Last time had an elliptic curve $E:~ y^2=x(x^2 + ax + b)$, $\phi:E \to E'$ a 2-isogeny. Set $b_2 = b/b_1$ and
+\begin{align*}\tag{\ast}
+	w^2 = b_1u^4 + au^2v^2 + b_2 v^4
+\end{align*} 
+\begin{align*}\tag{\ast'}
+	w^2 = b_1u^4 + a'u^2v^2 + b_2 v^4
+\end{align*}
+with $b_2 = b'/b_1$. Here, we additionally had that $a' = -2a$ and $b' = a^2 - 4b$. We then get an exact sequence
+\begin{center}
+	\begin{tikzcd}
+		0 \arrow[r]& \frac{E'(\bQ)}{\phi E(\bQ)} \arrow[r] \arrow[rd,"\alpha_{E'}"]& S^{(\phi)}(E/\bQ) \arrow[r] \arrow[d,"\text{inc}"]& \tshaf(E/\bQ)[\phi^*] \arrow[r]& 0 \\
+				   & & \bQ^*/(\bQ^*)^2 & &
+	\end{tikzcd}
+\end{center}
+Then $\img(\alpha_E) = \{b_1(\bQ^*)^2 ~ \mid ~ (\ast) \text{ is soluble over } \bQ\}$ is a subset of $S^{(\phi)}(E/\bQ) = \{b_1(\Q^*)^2 ~\mid~ (\ast') \text{ is soluble over }\bR \text{ and over  } \bQ_p \text{ for all primes } p\}$. 
+
+Fact: (Uses Ex Sheet 3, Question 9 and Hensel's lemma) If $a, b_1, b_2 \in \bZ$ and $p\not | 2b(a^2 - 4b)$ then $(\ast)$ is soluble over $\bQ$.
+
+\begin{example}[Continued from last lecture]
+	$y^2 = x^3 + px$ with $p$ prime and $p \equiv 5~ (\mod 8)$, then 
+	\begin{enumerate}[(1)]
+		\item $w^2 = 2u^4 - 2pv^4$
+		\item $w^2 = -2u^4 + 2pv^4$
+		\item $w^2 = pu^4 - 4v^4$.
+	\end{enumerate}
+	(1) and (2) are insoluble over $\bQ_p$ since $\left(\frac{2}{p}\right) = \left(\frac{-2}{p}\right) = -1$, e.g. if (2) had a solution with $u,v,w \in \bQ_p$ (not all zero) then without loss of generality $u,v \in \bZ_p$ are coprime.
+
+	If $p | u$ then $p | w$ and then $p | v$, contradiction. Therefore
+	\begin{align*}
+		\rank E(\bQ) =
+		\begin{cases}
+			0 & \text{if (3) is insoluble over } \bQ \\
+			1 & \text{if (3) is soluble over} \bQ
+		\end{cases}.
+	\end{align*}
+	(3) is soluble over $\bQ_p$ since $\left(\frac{-1}{p}\right) = + 1$, so by Hensel's lemma, $-1 \in (\bZ_p^*)^2$. (3) is insoluble over $\bQ_2$ since $p - 4 \equiv 4 ~ (\mod 8)$ so by Hensel's lemma $p - 4 \in (\bZ_2^*)^2$. (3) is soluble over $\bR$ since $\sqrt{p} \in \bR$.
+\end{example}
+
+It is an \textbf{open conjecture} that $\rank E(\bQ) = 1$ for all primes $p \equiv 5 ~ (\mod 8)$.
+
+\begin{example}[Lind]
+	$E: ~y^2 = x^3 + 17x$. $\img(\alpha_E) = \langle 17 \rangle\subseteq \bQ^*/(\bQ^*)2$. Set $E':~ y^2 = x^3 - 68x$, then $b_1 = 2$ and $\omega^2 = 2u^4 - 34v^4$. Replace $w$ by $2w$ and divide by 2 to get
+	\begin{align*}\label{eq:lec24-1}
+		C: 2w^2 = u^4 - 17v^4.
+	\end{align*}
+\end{example}
+
+\textbf{Notation:} 
+
+\begin{align*}
+	C(K) = \left\{(u,v,w) \in K^3 \setminus \{0\} \midd \text{satisfying equation (\ref{eq:lec24-1})}\right\}
+\end{align*}
+where $(u,v,w) \sim (\lambda u, \lambda v, \lambda^2 w)$ for all $\lambda \in K^*$.
+\begin{itemize}
+	\item $C(\bQ_2) \neq \emptyset$ since $\17 \in (\bQ_2^*)^2$
+	\item $C(\bQ_{17}) \neq \emptyset$ since $2 \in (\bQ_{17}^*)^2$
+	\item $C(\bR) \neq \emptyset$ since $\sqrt{2} \in \bR$.
+\end{itemize}
+Therefore $C(\bQ_p) \neq \emptyset$ for all places $v$ of $\bQ$. Suppose $(u,v,w) \in C(\bQ)$ with (wlog) u,v,w \in \bZ, $\gcd(u,v) = 1$, $w > 0$. If $17 | w$, then $17 | u$ and then $17 | v$. Contradiction since $u$ and $v$ assumed to by coprime. So if $p | w$ with $p$ and odd prime, then $p\neq 17$ and $\left(\frac{17}{p}\right) = 1$ which implies $\left(\frac{p}{17}\right) = \left(\frac{17}{p}\right) = 1$ by quadratic reciprocity. Also note: $\left(\frac{2}{17}\right) = 1$, therefore $\left(\frac{w}{17} = 1\right)$. 
+
+But $2w^2 \equiv u^4 ~(\mod 17)$, hence $2 \in (\bF_{17}^*)^4 = \{\pm_1, \pm 4\}$. A contradiction. Therefore $C(\bQ) = \emptyset$, i.e. $C$ is a counterexample to the Hasse principle. It represents a nontrivial element of $\tshaf(E/\bQ)$.
+
+\subsectiot{Birch Swinterton-Dyer Conjecture}
+Let $E/\bQ$ be an elliptic curve.
+\begin{defn}\label{defn:lec24-1}
+	\begin{align*}
+		L(E,s) = \prod_p L_p(E,s)
+	\end{align*}
+	where
+	\begin{align*}
+		L_p(E,s) = 
+		\begin{cases}
+			\left(1 - a_p p^{-s} + p^{1 - 2s}\right)^{-1} & \text{if $E$ has good reduction at $p$} \\
+			(1 \pm p^{-s})^{-1} & \text{if $E$ has multiplicative reduction at $p$} \\
+			1 & \text{if E has additive reduction at $p$}.
+		\end{cases}
+	\end{align*}
+	Here $\# \tilde{E}(\bF_p) = p+1 - a_p$.
+\end{defn}
+Hasse's theorem implies $|a_p| \leq 2\sqrt{p}$ and so $L(E,s)$ converges for $\Re(s) > 3/2.$
+
+\begin{thm}[Wiles, Breil, Conrad, Diamond, Taylor]\label{thm:modularity-theorem}
+	$L(E,s)$ is the $L$-function of a weight 2 modular form and hence has an analytic continuation to all of $\bC$ (and a function equation $L(E,s) \leftrightarrow L(E,2 - s)$).
+\end{thm}
+Wiles proved the special case of the modularity theorem for semi-simple (semi-stable?) elliptic curves, which was good enough for Fermat's last theorem.
+
+The weak BSD:
+\begin{conj}[Weak BSD]\label{conj:weak-BSD}
+	$\ord_{s=1}L(E,s) = \rank E(\bQ)A.$
+\end{conj}
+\begin{conj}[Strong BSD]\label{conj:strong-BSD}
+	This says 
+	\begin{align*}
+		\lim_{s\to 1} \frac{1}{(s - 1)^r} L(E,s) = \frac{\Omega_E \cdot \Reg E(\bQ) \cdot |\tshaf(E/\bQ)|\cdot \prod_p c_p}{|E(\bQ)_{tors}|^2}
+	\end{align*}
+	where 
+	\begin{itemize}
+		\item $c_p$ is the Tamagawa number of $E/\bQ_p$, i.e. $c_p = [E)\bQ_p) : E_0(\bQ)_p]$
+		\item $E(\bQ)/E(\bQ)_{tors} = \langle p_1,...,p_r \rangle$,
+		\item $\Reg E(\bQ) = \det([P_i, P_j])_{i,j = 1,...,r}$, 
+		\item $\Omega_E = \int_{E(\bR)} \frac{dx}{2y + a_1x + a_3}$,
+		\item $[P,Q] = \hat{h}(P+Q) - \hat{P} - \hat{Q}$ 
+		\item $a_i = $ coefficient of a global minimal Weiestrauss equation for $E/Q$.
+	\end{itemize}
+\end{conj}
 \end{document}
