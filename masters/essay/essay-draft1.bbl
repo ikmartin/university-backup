@@ -58,6 +58,85 @@
       \verb https://doi.org/10.1017/CBO9780511623653
       \endverb
     \endentry
+    \entry{ginzburg_d-mod}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=fd81af24de7d089fca02f6d0b3319d2d}{%
+           family={Ginzburg},
+           familyi={G\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{fd81af24de7d089fca02f6d0b3319d2d}
+      \strng{fullhash}{fd81af24de7d089fca02f6d0b3319d2d}
+      \strng{bibnamehash}{fd81af24de7d089fca02f6d0b3319d2d}
+      \strng{authorbibnamehash}{fd81af24de7d089fca02f6d0b3319d2d}
+      \strng{authornamehash}{fd81af24de7d089fca02f6d0b3319d2d}
+      \strng{authorfullhash}{fd81af24de7d089fca02f6d0b3319d2d}
+      \field{labelalpha}{Gin98}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online Lecture Notes}
+      \field{title}{Lectures on {$D$}-modules}
+      \field{year}{1998}
+      \verb{urlraw}
+      \verb https://people.math.harvard.edu/~gaitsgde/grad_2009/Ginzburg.pdf
+      \endverb
+      \verb{url}
+      \verb https://people.math.harvard.edu/~gaitsgde/grad_2009/Ginzburg.pdf
+      \endverb
+    \endentry
+    \entry{d-mod_ps_rt}{book}{}
+      \name{author}{3}{}{%
+        {{hash=34da163046465e6a62ceb34ba3384f42}{%
+           family={Hotta},
+           familyi={H\bibinitperiod},
+           given={Ryoshi},
+           giveni={R\bibinitperiod}}}%
+        {{hash=aa6eade6441993ee7e01fdd35496598a}{%
+           family={Takeuchi},
+           familyi={T\bibinitperiod},
+           given={Kiyoshi},
+           giveni={K\bibinitperiod}}}%
+        {{hash=486d52cfce814e735994df407bc54c96}{%
+           family={Tanisaki},
+           familyi={T\bibinitperiod},
+           given={Toshiyuki},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Birkhäuser Boston, Inc., Boston, MA}%
+      }
+      \strng{namehash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
+      \strng{fullhash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
+      \strng{bibnamehash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
+      \strng{authorbibnamehash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
+      \strng{authornamehash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
+      \strng{authorfullhash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
+      \field{labelalpha}{HTT08}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-8176-4363-8}
+      \field{note}{Translated from the 1995 Japanese edition by Takeuchi}
+      \field{series}{Progress in Mathematics}
+      \field{title}{{$D$}-modules, perverse sheaves, and representation theory}
+      \field{volume}{236}
+      \field{year}{2008}
+      \field{pages}{xii+407}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1007/978-0-8176-4523-6
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-0-8176-4523-6
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-0-8176-4523-6
+      \endverb
+    \endentry
     \entry{ksmith95-d-mod-f-split}{article}{}
       \name{author}{1}{}{%
         {{hash=06ab99a7785702b67b6d9d8d3c62034a}{%

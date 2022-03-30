@@ -271,7 +271,11 @@ The converse of this theorem need not always hold, that is, if $R$ is Noetherian
 	A finitely generated $A_n$ module $M$ is said to be \emph{holonomic} if $M = 0$ or if $d(M)$ is minimal, i.e. $d(M) = n$ by Bernstein's lemma.
 \end{defn}
 
-\subsection{Pushforwards and Pullbacks of Modules over the Weyl Algebra}
+\subsection{Inverse Image and Direct Image Functors of Modules over the Weyl Algebra}
+\red{Sort out inverse image vs. pullback and direct image vs. pushforward language}
+Here we introduce two operations on $D$-modules, pullbacks and pushforwards. We discuss the former first. Some algebraic constructions are brushed under the rug, the tensor product of bimodules for instance, and the reader may wish to refer to \cite{d-mod-primer}, \cite{d-mod_ps_rt} or \cite{ginzburg_d-mod} throughout this section.
+
+Let $R = K[x_1,...,x_n]$, $S = K[x_1,...,x_m]$ and $M$ be a left $A_n$-module. We wish to build a left $A_m$-module from $M$ in a meaningful way. Suppose further that we are given a polynomial map $F:K^m\to K^n$ whose coordinate polynomials are $F_1,...,F_n\in K[x_1,...,x_m]$. Composition with $F$ gives a map of rings $\varphi:R\to S$ $f\mapsto f\circ F$, and in particular, we may view $S$ as an $R$-module via the $R$-action given by $\varphi$. The tensor product $S\otimes_R M$ is then an $S$-module, and we want to turn it into an $A_m$-module.
 
 \section{\emph{D}-Modules in Positive Characteristic}
 In this section we'll discuss the theory of $D$-Modules in positive characteristic. 
