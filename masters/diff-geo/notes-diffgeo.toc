@@ -25,3 +25,9 @@
 \contentsline {subsection}{\numberline {2.1}The tangent bundle}{15}{subsection.2.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2}Vector Bundles}{16}{subsection.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3}Constructing Vector Bundles by Gluing}{18}{subsection.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4}The Cotangent Bundle}{20}{subsection.2.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5}Multilinear Algebra}{22}{subsection.2.5}%

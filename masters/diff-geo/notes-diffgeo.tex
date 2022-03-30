@@ -445,7 +445,7 @@ One might be worried that two curves agreeing to first order at $p$ is dependent
 	Given a chart $\varphi$ about $p$, write $\pi_p^\varphi$ for the map
 	\begin{align*}
 		\{\text{curves based at $p$}\} &\to \bR^n \\
-		\varphi &\mapsto (\varphi\circ \gamma)^\bullet(0).
+		\gamma &\mapsto (\varphi\circ \gamma)^\bullet(0).
 	\end{align*}
 	Now suppose $\varphi_1$ and $\varphi_2$ are two different charts about $p$. By the chain rule we have 
 	\begin{align*}	
@@ -518,7 +518,7 @@ Last time, we discussed the map $\{\text{curves based at $p$}\} \to{\pi_p^\varph
 \begin{defn}\label{defn:lec1.40}
 	The \emph{derivative} of $F$ at $p$, denoted $D_pF$, is the map
 	\begin{align*}
-		T_pX \to T_{F(p)}Y, ~ [\gamma] \mapsto [F\circ \gamma].
+		T_pX \to T_{F(p)}Y, ~ [\gamma] \mapsto[]{} [F\circ \gamma].
 	\end{align*}
 	We sometimes write $D_pF$ as $F_*$, and call it the \emph{pushforward.}
 \end{defn}
@@ -543,9 +543,7 @@ Last time, we discussed the map $\{\text{curves based at $p$}\} \to{\pi_p^\varph
 \end{prf}
 
 \begin{rmk}\label{rmk:lec1.41}
-	If $x,y$ are the local coordinates associated to the charts $\varphi, \psi$ then $\psi\circ F\circ \varphi^{-1}$ expresses $F$ as giving the $y$'s in terms of the $x$'s.
-
-	So $T$ is the matrix $\left(\frac{\partial y_i}{\partial x_j}\right)_{ij}$. Hence,
+	If $x,y$ are the local coordinates associated to the charts $\varphi, \psi$ then $\psi\circ F\circ \varphi^{-1}$ expresses $F$ as giving the $y$'s in terms of the $x$'s. In the diagram above, $T$ is the matrix $\left(\frac{\partial y_i}{\partial x_j}\right)_{ij}$. Hence,
 	\begin{align*}
 		D_p F(\partial_{x_i}) = \sum_j \frac{\partial y_j}{\partial x_i} \partial_{y_j}.
 	\end{align*}
@@ -627,4 +625,290 @@ Might be unclear why we would define this space, but one immediate reason is tha
 	\end{itemize}
 \end{defn}
 
+\lecture{2021-10-19}{2022-03-21}
+
+Recall from last time that a vector bundle over $B$ with atlas $\{U_\alpha\}$ is a smooth map $E\to{\pi} B$ such that
+\begin{center}
+	\begin{tikzcd}
+		\pi^{-1}(U_\alpha) \arrow[dr, "\pi"] \arrow[r,"\Phi_\alpha"]& U_\alpha \times \bR^k \arrow[d,"\pr_1"] \\
+																	& U_\alpha
+	\end{tikzcd}
+\end{center}
+commutes, $\Phi_\alpha$ is a diffeomorphism and $\Phi_\beta \circ \Phi_\alpha^{-1}:(p,x) \mapsto (p,g_{\beta\alpha}(p)(x))$. Note that the commutativity of the above diagram for each $U_\alpha$ forces $\pi:E\to B$ to be smooth. Finally, $g_{\beta\alpha}:U_\alpha \cap U_\beta \to \GL(k,\bR)$ takes a point $p \in U_{\alpha}\cap U_\beta$ to a smooth automorphism of $\bR^k$. This map is about keeping track of the $\bR^k$ component of the trivialization between $\alpha$'s.
+
+\begin{rmk}\label{rmk:lec2.5}
+	Each fibre $E_p$ has the structure of a $k$-dimensional $\bR$-vector space via $\Phi_\alpha:E_p\to \{p\}\times \bR^k\to{\pr_2}\bR^k$.
+\end{rmk}
+
+\begin{rmk}\label{rmk:lec2.6}
+	Really, each trivialization $\Phi_\alpha$ is like a chart, and the collection $\{\Phi_\alpha\}_{\alpha}$ is like an atlas. There's an obvious notion of equivalence between two collections, and only the equivalence class is part of the structure of the bundle (i.e. the equivalence class is the bit we care about).
+\end{rmk}
+
+\begin{rmk}\label{rmk:lec2.7}
+	We can similarly define complex vector bundles where the fibres are complex vector spaces.
+\end{rmk}
+\begin{example}\label{example:lec2.8}
+	Take $E = B\times \bR^k, \pi = \pr_1$, $\{U_\alpha\} = \{B\}$, $\Phi:E\to B\times \bR^k$ the obvious map. This is the \emph{trivial} vector bundle of rank $k$ over $B$, denoted by $\underline{\bR^k}$. The map $\Phi$ is a $\emph{global}$ trivialization.
+\end{example}
+\begin{example}\label{example:lec2.9}
+	$TX$ is a rank $n$ vector bundle over $X$ where $n = \dim X$.
+\end{example}
+\begin{defn}\label{defn:section-of-bundle}
+	A \emph{section} of a bundle $\pi:E\to B$ is a smooth map $s:B\to E$ such that $\pi\circ s = \id_B$.
+\end{defn}
+The above would be a \emph{global} section, one can similarly consider a \emph{local} section over an open set $U \subseteq B$.
+
+\begin{example}\label{example:lec2.11}
+	The \emph{zero section} is given by $s(p) = (p,0)$ for all $p \in B$.
+\end{example}
+
+\begin{example}\label{example:lec2.12}
+	A vector field is a section of $TX$.
+\end{example}
+
+Jack includes a picture at this point in the lecture, appears at roughly 14:40. Illustrates that a section can look like an exact copy of $B$ inside $E$ \emph{or} can be "twisty" in some sense.
+
+\begin{defn}\label{defn:morphism-vec-bundles}
+	Given a smooth map $F:B_1\to B_2$ and vector bundles $\pi_iE_i \to B_i$ for $i = 1,2$, a \emph{morphism} of vector bundles $E_1 \to E_2$ \emph{covering} $F$ is a smooth map $G:E_1\to E_2$ such that
+	\begin{itemize}
+		\item $\pi\circ G = F\circ \pi$
+		\item For all $p$ the induced map $(E_1)_p \to (E_2)_{F(p)}$ between the fibres of $p$ is linear.
+	\end{itemize}
+	An isomorphism between vector bundles over $B$ is a morphism covering $\id_B$ with a two sided inverse. A bundles isomorphic to a trivial bundle is called \emph{trivial}.
+\end{defn}
+Compare the above to the definition of a morphism between sheaves, especially by swapping ``fibre'' with ``stalk'' in the second item.
+
+\begin{example}\label{example:lec2.14}
+	Last time we saw that $TS^1$ is trivial:
+	\begin{align*}
+		TS^1 \to S^1\times \bR, \hspace{2em} (p,a\partial_\theta) \mapsto (p,a).
+	\end{align*}
+\end{example}
+\begin{example}\label{example:lec2.15}
+	A morphism $G:\ul{\bR}\to E$ (where $E\to B$ and $\ul{\bR}\to B$ are bundles over $B$) covering $\id_B$ is the same thing as a global section $s$.
+    \begin{align*}
+		G &\leadsto s(p) := G(p,1) \\
+		s &\leadsto G(p,t) = ts(p)
+    \end{align*}
+	More generally, morphisms $\ul{\bR^k}\to E$ correspond to $k-tuples$ of sections. The morphism is an isomorphism if and only if the $k$-tuple forms a basis in each fibre.
+\end{example}
+\begin{defn}\label{defn:subbundle}
+	Given a rank $k$ vector bundle $E$, a rank $\ell$ \emph{subbundle} is a submanifold $F \subseteq E$ such that $\forall p \in B$, there exists a trivialization $\Phi:\pi^{-1}_E(U) \to U\times \bR^k$ under which $\pi^{-1}_F(U)$ gets sent to $U\times (\bR^\ell \oplus 0)$.
+\end{defn}
+Once you have a subbundle one can define a quotient bundle $E/F$ which yields short exact sequences
+\begin{align*}
+	0 \to F\to E\to E/F \to 0.
+\end{align*}
+
+\subsection{Constructing Vector Bundles by Gluing}
+To define a vector bundle over $B$, it's enough to give:
+\begin{itemize}
+	\item a set $E$
+	\item a map $\pi :E\to B$
+	\item an open cover $\{U_\alpha\}$ of $B$
+	\item for each $\alpha$ a bijection $\pi^{-1}(U_\alpha) \to U_\alpha \times \bR^k$
+\end{itemize}
+such that $\pr_1\circ \Phi_\alpha = \pi$ and on overlaps $\Phi_\beta\circ \Phi_\alpha^{-1}:(p,x) \mapsto (p,g_{\beta\alpha}(p)(x))$ for some smooth $g_{\beta\alpha}:U_\alpha\cap U_\beta \to \GL(k,\bR)$.
+
+Our pseudo-atlas construction then makes $E$ into a manifold and one can check that it is automatically Hausdorff and second-countable (presumably by pulling back opens such as $U_\alpha \times \bR^k$) and the $\Phi_\alpha$ then become the trivializations.
+
+\begin{example}[Interesting vector bundle which isn't the tangent bundle]\label{example:lec2.17}
+	Take $B = \bRP^n = \{\text{lines in $\bR^{n+1}$}\}/\text{linear equiv.}$. Let
+	\begin{align*}
+		E = \left\{(p,v) \in \bR^n \times \bR^{n+1}~\midd~ \text{$v$ lies in the line labelled by $p$}\right\} .
+	\end{align*}
+	Define $\pi:E\to B$ by $(p,v) \mapsto p$. We have an open cover given by homogeneous coordinates: 
+	\begin{align*}
+		\big\{U_i = \{[x_0:...:x_n] ~\mid~ x_i \neq 0\}\big\}_{i=0,...,n}.
+	\end{align*}
+	We now only need to define the trivializations.Let $\Phi_\alpha:\pi^{-1}(U_i) \to U_i \times \bR$ be the map $\big([x_0:...:x_n], \lambda x_i\big)$. We then have that 
+	\begin{align*}
+		\pr_1 \circ \Phi_i = \pi
+	\end{align*}
+	and
+	\begin{align*}
+		\Phi_j\circ \Phi_i^{-1}\big([x_0:...:x_n],t\big) = \big([x_0:...:x_n], \frac{tx_j}{x_i}\big).
+	\end{align*}
+    This is of the required form with $g_{ji}:U_i \cap U_j \to \GL(1,\bR) = \bR^\times$ where $[x_0:...:x_n]\mapsto \frac{x_j}{x_i}$. This is the \emph{tautological bundle} over $\bRP^n$.
+
+    In fact, we can drop the set $E$ and just specify an open cover $\{U_\alpha\}$ of $B$ and smooth maps $g_{\beta\alpha}:U_\alpha \cap U_\beta \to GL(k,\bR)$ such that
+    \begin{itemize}
+	    \item $g_{\alpha\alpha}(p) = \id_{\bR^k}$ for all $\alpha, p$
+	    \item for all $\alpha, \beta, \gamma$ we have $g_{\gamma\alpha} = g_{\gamma\beta}g_{\beta\alpha}$ on $U_\alpha \cap U_\beta \cap U_\gamma$. This is called the \emph{cocycle condition} (compare this to gluing sheaves).
+    \end{itemize}
+    We then define
+	\begin{align*}
+		E = \left.\coprod_\alpha U_\alpha \times \bR^k \middle/ \left(p \in U_\alpha, ~ x \in \bR^k\right)\sim \left(p \in U_\beta, ~ g_{\beta\alpha}(p)(x)\right)\right.
+	\end{align*}
+	The conditions above make this an equivalence relation.
+\end{example}
+
+\begin{example}\label{example:lec2.18}
+	For any $r \in \bR$ can define a line bundle (rank 1 v.b) over $\bRP^n$ trivialized over the $U_i$ with $g_{ji} = \left(\frac{x_j}{x_i}\right)^{-r}$.
+\end{example}
+\begin{lem}\label{lem:lec2.19}
+	If $\pi :E\to B$ is a rank $k$ vector bundle, trivialized over $\{U_\alpha\}$ with transition functions $g_{\beta\alpha}$, then it's isomorphic to the output of the above construction.
+\end{lem}
+
+\begin{cor}\label{cor:lec2.20}
+	To show two bundles are isomorphic it suffices to find trivialization over the same open cover with the same transition functions.
+\end{cor}
+
+\lecture{2021-10-21}{2022-03-24}
+\begin{defn}\label{defn:pullback-bundle}
+	Given a bundle $\pi:E\to B$ and a smooth map $F:B'\to B$, then the \emph{pullback bundle} $F^*E$ has total space
+	\begin{align*}
+		E' = \coprod_{p \in B'} E_{F(p)}
+	\end{align*}
+	with the following bundle structure. Suppose $E$ is trivialized over $\{U_\alpha\}$ with transition functions $g_{\beta\alpha}$, then the pullback $F^*E$ is trivialized over $\{F^{-1}U_\alpha\}$ with transition functions $g_{\beta\alpha} \circ F$.
+\end{defn}
+
+\begin{defn}\label{defn:}
+	The \emph{dual bundle} $E^\vee$ is the bundle over $B$ with total space
+	\begin{align*}
+		\coprod_{p \in B} (E_p)^\vee,
+	\end{align*}
+	trivialized over $\{U_\alpha\}$ with transition functions $(g_{\beta\alpha}^\vee)^{-1}$ (c.f. dual representation).
+\end{defn}
+\begin{example}\label{example:lec2.23}
+	If $E$ is locally trivialized by smooth sections $s_1,...,s_k$ over $U \subseteq B$, then the fibrewise dual basis defines smooth sections $\sigma_1, ...,\sigma_k$ of $E^\vee$ over $U$ that trivialize it.
+\end{example}
+
+\subsection{The Cotangent Bundle}
+Fix an $n$-manifold $X$.
+
+\begin{defn}\label{defn:cotangent-bundle}
+	The \emph{cotangent bundle} of $X$ is the dual of the tangent bundle, denoted $T^*X$. The fibre over a point $p \in X$ is $T^*_pX$, the \emph{cotangent space at $p$}. For clarity, note that $T^*_pX$ is simply the dual vector space of $T_pX$ and $T^*X$ is the disjoint union of all such fibres.
+\end{defn}
+This is quite algebraic right now -- we had a thing and we took the dual, so what? Turns out that there is a nice geometric interpretation of this object as well.
+
+Consider
+\begin{align*}
+	\{\text{functions at $p$}\} = \left\{(U,f) ~ \midd ~ U ~\text{ is an open neighborhood of $p$, }~ f:U\to \bR \text{ smooth }\right\}.
+\end{align*}
+We say that $f_1$ and $f_2$ \emph{agree to first order} at $p$ if $D_pf_1 = D_pf_2$.
+\begin{prop}\label{prop:lec2.25}
+	There's a canonical isomorphism
+	\begin{align*}
+		\{\text{functions at $p$}\}/\sim \to T^*_pX.
+	\end{align*}
+\end{prop}
+\begin{prf}
+	There's a pairing
+	\begin{align*}
+		\{\text{functions at $p$}\} \times \{\text{curves based at $p$}\} \to \bR, ~ (f,\gamma) \mapsto (f\circ \gamma)^\bullet(0)
+	\end{align*}
+	given by composing our function with $\gamma$ and differentiating at $0$, the point at which the curve is equal to $p$. This induces a map
+	\begin{align*}
+		\theta: \{\text{functions at $p$}\} \to T^*_pX, ~ f\mapsto \big([\gamma] \mapsto (f\circ \gamma)^\bullet(0)\big)
+	\end{align*}
+	In coordinates, this map is
+	\begin{align}\tag{$\ast$}
+		f \mapsto \left(\sum a_i\partial_{x_i} ~\mapsto~ \sum_i a_i \frac{\partial f}{\partial_{x_i}}\middle |_p \right)
+	\end{align}
+	We want to show $\theta$ is surjective and that $\theta(f_1) = \theta(f_2)\iff f_1 \sim f_2$.
+
+	\textbf{Surjective:} The coordinate functions $x_1,...,x_n$ are sent to the duals of the $\partial_{x_i}$:
+	\begin{align*}
+		\big(\theta(x_i)(\partial_{x_j}) = \delta_{ij}\big).
+	\end{align*}
+	Hence surjective.
+
+	\textbf{Injective:} Observe that
+	\begin{align*}
+		\theta(f_1) = \theta(f_2) &\iff \frac{\partial f_1}{\partial x_i}\Big|_p = \frac{\partial f_2}{\partial x_i}\Big|_p ~ \text{ for all $i$} \\
+								  &\iff D_p f_1 = D_p f_2 \\
+								  &\iff f_1 \sim f_2.
+	\end{align*}
+\end{prf}
+Notice that if $f:U\to \bR$ is a smooth function then by Proposition (\ref{prop:lec2.25}) $f$ defines an element of $T_p^*X$ for each $p \in U$.
+
+\begin{lem}\label{lem:lec2.26}
+	This defines a (smooth) section of $T^*X$ over $U$. We denote this by $df$.
+\end{lem}
+\begin{prf}
+	We saw in the proof of surjectivity above that $dx_1,...,dx_n$ are fibrewise dual to $\frac{\partial}{\partial x_1}, ...,\frac{\partial}{\partial x_n}$. Hence (by Example (\ref{example:lec2.23})) $dx_1,...,dx_n$ is a smooth basis of sections. By ($\ast$), we get
+	\begin{align*}
+		df = \sum_i \frac{\partial f}{\partial x_i}dx_i
+	\end{align*}
+	and since $df$ is the sum of smooth functions, it too is smooth.
+\end{prf}
+
+\begin{lem}\label{lem:lec2.27}
+	A section of $T^*X$ is called a \emph{1-form}. The 1-form $df$ is the \emph{differential} of $f$. By construction, $df(v) = \text{derivative of $f$ in the direction $v$}$.
+\end{lem}
+
+\begin{rmk}\label{rmk:lec2.28}
+	Each $dx_i$ depends only on $x_i$ as opposed to the $\partial_{x_i}$, which potentially depend on all the $x_i$.
+\end{rmk}
+
+Now we wish to discuss how smooth functions act on cotangent spaces.
+
+\begin{defn}\label{defn:pullback}
+	Given a smooth map $F:X\to Y$, the map $D_pF^\vee:T_{F(p)}^* Y \to T_{p}^*X$ is called \emph{pullback} by $F$, and it is denoted by $F^*$.
+\end{defn}
+\begin{lem}\label{lem:lec2.30}
+	If $g:Y\to \bR$ is a smooth function on $Y$, then
+	\begin{align*}
+		F^* dg = d(g\circ F).
+	\end{align*}
+\end{lem}
+\begin{prf}
+	Given a vector $[\gamma] \in T_pX$ we have
+	\begin{align*}
+		(F^*dg)([\gamma]) &= (dg)(D_pF([\gamma])) \\
+						  &= (dg)([F\circ \gamma]) \\
+						  &= (g\circ F\circ \gamma)^\bullet(0) \\
+						  &= ((g\circ F)\circ \gamma)^\bullet (0) \\
+						  &= d(g\circ F)([\gamma]).
+	\end{align*}
+\end{prf}
+
+We've gone as far as we can without seeing a few facts from multilinear algebra.
+
+\subsection{Multilinear Algebra}
+
+Fix $U, V$ to be finite-dimensional vector spaces over some arbitrary field $\bK$.
+\begin{defn}\label{defn:tensor-product}
+	The \emph{tensor product} of $U$ and $V$, denoted $U\otimes V$ or $U\otimes_\bK V$, is a $\bK$-vector space generated by symbols $u\otimes v$ for $u \in U$ and $v \in V$ subject to the relations which impose bilinearity:
+	\begin{itemize}
+		\item $(\lambda_1u_1+\lambda_2u_2) \otimes v = \lambda_1(u_1\otimes v_1) + \lambda_2(u_2\otimes v_2)$
+		\item $u\otimes (\mu_1v_1 + \mu_2v_2) = \mu_1(u_1\otimes v_1) + \mu_2(u\otimes v_2)$.
+	\end{itemize}
+\end{defn}
+\begin{lem}\label{lem:lec2.32}
+	If $e_1,...,e_m$ is a basis for $U$ and $f_1,...,f_n$ is a basis for $V$ then $e_i\otimes f_j$ form a basis for $U\otimes V$. So
+	\begin{align*}
+		\dim(U\otimes V) = (\dim U)\cdot (\dim V).
+	\end{align*}
+\end{lem}
+
+\noindent\textbf{WARNING!} A general element of $U\otimes V$ is not of the form $u\otimes v$. It's a linear combination of such things.
+
+\begin{lem}\label{lem:lec2.32}
+	Tensor products are functorial in the following sense: if $\alpha:U\to U'$ and $\beta:V\to V'$ are linear, then there's a unique induced map $U\otimes V\to U'\otimes V'$ denoted $\alpha\otimes \beta$ defined by $(\alpha\otimes\beta)(u\otimes v) = \alpha(u)\otimes \beta(v)$ and extended linearly.
+\end{lem}
+
+\begin{lem}\label{lem:universal-property-tensor-products}
+	A linear map $U\otimes V \to W$ is the same thing as giving a bilinear map $U\times V \to W$, each induces the other.
+\end{lem}
+\begin{example}\label{example:lec2.35}
+	Fix $U,V,W$. Composition defines a bilinear map
+	\begin{align*}
+		\cL(V,W) \times \cL(U,V) \to \cL(U,W).
+	\end{align*}
+	Get an induced linear map
+	\begin{align*}
+		\cL(V,U) \otimes \cL(U,V) \to \cL(U,W), ~ \beta\otimes \alpha \mapsto \beta \circ \alpha.
+	\end{align*}
+	Now take $U = W = \bK$. Get $V^\vee \otimes V \to \bK$. This is called \emph{contraction}. Other tensor factors ``come along for the ride,'' eg
+	\begin{align*}
+		A\otimes V^\vee \otimes V\otimes B \to A\otimes \bK \otimes B = A\otimes B.
+	\end{align*}
+\end{example}
+
 \end{document}
+
+
+
+
