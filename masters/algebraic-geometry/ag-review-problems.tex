@@ -25,7 +25,7 @@
 
 		The ring $\bZ_{(p)}\llbracket t\rrbracket$ comes close; its spectrum is $\{(0), (p), (t), (p,t)\}$. As before however, there is no way to kill the ideal $(t)$ without affecting the rest of the primes. We need a ring for which there length 2 chain of primes $\frakp_1 \subsetneq \frakp_2 \subsetneq \frakp_3$ such that there is no replacement for $\frakp_2$. We can then quotient at $\frakp_1$ and localize and $\frakp_3$.	
 	\end{prf}
-	\prob Let $A$ be the quotient of a polynomial ring in finitely many variable by a prime ideal. Let $\MaxSpec(A)$ be the set of maximal ideal of $A$ equipped with the Zariski topology. Describe a procedure that reconstructs the full Zariski spectrum $\Spec(A)$ and its topology in terms of the irreducible closed subsets of $\MaxSpec(A)$. Apply this procedure to $A = \bC\llbracket x \rrbracket$ to conclude that some rings ``do not have enough maximal ideals''.
+	\prob Let $A$ be the quotient of a polynomial ring in finitely many variable by a prime ideal. Let $\MaxSpec(A)$ be the set of maximal ideals of $A$ equipped with the Zariski topology. Describe a procedure that reconstructs the full Zariski spectrum $\Spec(A)$ and its topology in terms of the irreducible closed subsets of $\MaxSpec(A)$. Apply this procedure to $A = \bC\llbracket x \rrbracket$ to conclude that some rings ``do not have enough maximal ideals''.
 	\prob (Sheafification is functorial) Prove that if $f:\cF \to \cG$ is a morphism of presheaves, there is an induced morphism $f^{sh}:\cF^{sh}\to \cG^{sh}$ with $(f^{sh})_p = f_p$.
 	\prob Describe a non-zero presheaf of abelian groups all of whose stalks are 0. Conclude that that sheafification is the constant sheaf 0.
 	\prob (Exactness is stalk local) Show that a sequence $\dots \to \cF_{i-1} \to \cF_{i} \to \cF_{i+1} \to \dots$ is exact if and only if for every $p \in X$, the corresponding sequence of maps of abelian groups is exact.
@@ -195,7 +195,17 @@ Show there is a scheme $X$ together with morphisms $\psi: X_i \to X$ for each $i
 
 		\item Give an example of a surjective morphism of sheaves $\varphi:\cF\to \cG$, and an open set $U$ such that $\varphi(U):\cF(U)\to \cG(U)$ is not surjective. 
 	\end{enumerate}
+    \begin{prf}
+    	\noindent (a) \hspace{1em} Hartshorne doesn't explain the map $\theta:\cF\to \cF^+$, so we do that first. Notice that a section $s \in \cF(U)$ can always be regarded as a section $s:U\to \bigsqcup_{P\in U}\cF_P$ defined $s(P) = s_P$, where $s_P$ is the image of $s$ under $\cF(U) \mapsto \cF_P$. The map $\theta:\cF\to \cF^+$ simply identifies a section $s \in \cF(U)$ with this element of $\cF^+(U)$. Notice then that $\ker(\theta(U))$ is precisely the elements of $\cF(U)$ which are locally zero, i.e. the sections $s \in \cF(U)$ such that $s_P = 0$ for all $P \in U$. Therefore, $\theta$ is injective precisely when $\cF$ satisfies the locality sheaf axiom.
 
+		Suppose now that $\varphi^+:\cF^+\to \cG^+$ is not injective, i.e. that there is some $U$ and some $s \in \cF^+(U)$ such that $0 \neq s \in \ker \varphi^+(U)$. The map $\varphi^+$ is the one given by the universal property of $\cF$:
+		\begin{center}
+			\begin{tikzcd}
+				\cF \arrow[r,"\theta_1"] \arrow{rd}[swap]{\theta_2\circ \varphi}& \cF^+ \arrow[d,"\varphi^+"] \\
+																			& \cG^+
+			\end{tikzcd}
+		\end{center}
+    \end{prf}
 	\prob[\textsc{Exercise 1.14}] \textit{Support.} Let $\cF$ be a sheaf on $X$, and let $s \in \cF(U)$ be a section over an open set $U$. The \textit{support} of $s$, denoted $\Supp s$, is defined to be $\{P\in U ~ \mid~ s_P \neq 0\}$, where $s_P$ denotes the germ of $s$ in the stalk $\cF_P$. Show that $\Supp s$ is a closed subset of $U$. We define the \textit{support} of $\cF$, $\Supp \cF$, to be $\{P\in X~\mid~ \cF_P \neq 0\}$. It need not be a closed subset.
 
 	\prob[\textsc{Exercise 1.15}] \textit{Sheaf Hom.} Let $\cF$, $\cG$ be sheaves of abelian groups on $X$. For any open set $U \subseteq X$, show that the set $\Hom(\cF|_U, \cG|_U)$ of morphisms of the restricted sheaves has the natural structure of an abelian group. Show that the presheaf $U \mapsto \Hom(\cF|_U, \cG|_U)$ is a sheaf. It is called the \textit{sheaf of local morphisms} of $\cF$ into $\cG$, ``sheaf hom'' for short, and is denoted $\Hom(\cF, \cG)$.
@@ -240,6 +250,7 @@ Show there is a scheme $X$ together with morphisms $\psi: X_i \to X$ for each $i
 		\item For any ideal $\fraka \subseteq A$, we define a submodule $\Gamma_\fraka(M)$ of $M$ by $\Gamma_\fraka(M) = \{m \in M~\mid~\fraka^nm = 0 \text{ for some } n >0\}$. Assume that $A$ is Noetherian, and $M$ any $A$-module. Show that $\Gamma_\fraka(\tilde{M}) \cong \scrH^0_Z(\cF)$, where $Z = V(\fraka)$ and $\cF = \tilde{M}$. [Hint: Use (Ex 1.20) and (5.8) to show a priori that $\scrH^0_Z(\cF)$ is quasi-coherent. Then show that $\Gamma_\fraka(M) \cong \Gamma_Z(\cF)$.]
 		\item Let $X$ be a Noetherian scheme, and let $Z$ be a closed subset. If $\cF$ is a quadi-coherent (respectively, coherent) $\cO_X$=module, then $\scrH^0_Z(\cF)$ is also quasi-coherent (respectively, coherent).
 	\end{enumerate}
+	
 \end{homework}
 \newpage
 \tchap{Problems from Hartshorne II.6}
