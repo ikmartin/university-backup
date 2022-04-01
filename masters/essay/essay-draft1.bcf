@@ -2348,11 +2348,13 @@
     <bcf:citekey order="2">d-mod-primer</bcf:citekey>
     <bcf:citekey order="3">d-mod-primer</bcf:citekey>
     <bcf:citekey order="4">d-mod-primer</bcf:citekey>
-    <bcf:citekey order="5">d-mod_ps_rt</bcf:citekey>
-    <bcf:citekey order="6">ginzburg_d-mod</bcf:citekey>
-    <bcf:citekey order="7">amon92</bcf:citekey>
-    <bcf:citekey order="8">amon92</bcf:citekey>
-    <bcf:citekey order="9">ksmith95-d-mod-f-split</bcf:citekey>
+    <bcf:citekey order="5">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="6">d-mod_ps_rt</bcf:citekey>
+    <bcf:citekey order="7">ginzburg_d-mod</bcf:citekey>
+    <bcf:citekey order="8">hartshorne</bcf:citekey>
+    <bcf:citekey order="9">amon92</bcf:citekey>
+    <bcf:citekey order="10">amon92</bcf:citekey>
+    <bcf:citekey order="11">ksmith95-d-mod-f-split</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

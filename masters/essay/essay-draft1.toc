@@ -10,6 +10,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.4}Inverse Image and Direct Image Functors of Modules over the Weyl Algebra}{9}{subsection.1.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}\emph {D}-Modules in Positive Characteristic}{9}{section.2}%
+\contentsline {section}{\numberline {2}\emph {D}-Modules in Positive Characteristic}{10}{section.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}The Structure of Differential Operators in Positive Characteristic}{9}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}The Structure of Differential Operators in Positive Characteristic}{10}{subsection.2.1}%

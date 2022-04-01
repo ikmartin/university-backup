@@ -26,7 +26,7 @@
 \newpage
 
 \section{Left Modules Over the Weyl Algebra}
-Here we cover the basic theory of modules over the Weyl algebra, or in other words, the theory of $D$-modules in the case where $X = \bA^n_K$.
+Here we cover the basic theory of modules over the Weyl algebra, or in other words, the theory of $D$-modules in the case where $X = \bA^n_K$. This section is essentially an abbreviation of the book \emph{A Primer on Algebraic $D$-modules} (\cite{d-mod-primer}) with hints of more general theory included. We treat the generalized affine case in later sections.
 
 \subsection{Weyl Algebra}\label{subsec:Weyl-algebra}
 Let $K$ be a field of characteristic $0$. We construct the Weyl algebra in two ways and prove that these constructions produce isomorphic rings.
@@ -75,9 +75,10 @@ We can also write the Weyl algebra down as a quotient of a free algebra in $2n$ 
 	\begin{align*}
 		\partial x^n
 		&= (\partial x)x^{n-1} \\
-		&= (1 - x\partial)x^{n-1} \\
-		&= x^{n-1} - x\partial x^{n-1} \\
-		&= x^{n-1} - x\cdot (n-1) x^{n-2} = n\cdot x^{n-1},
+		&= (1 + x\partial)x^{n-1} \\
+		&= x^{n-1} + x\partial x^{n-1} \\
+		&= x^{n-1} + x\big[(n-1)x^{n-2}+x^{n-1}\partial\big] \\
+		&= nx^{n-1} + x^n\partial,
 	\end{align*}
 	giving us the result.
 \end{example}
@@ -85,6 +86,7 @@ It is useful to fix a basis for the Weyl algebra, but for arbitrary $n$, the not
 \begin{prop}\label{prop:canonical-basis}
 	The set $\bfB = \{x^\alpha\partial^\beta ~ \mid ~ \alpha,\beta\in \bN^n\}$ is a basis of $A_n$ as a vector space over $K$. This is called the \emph{canonical basis} of $A_n$ and an operator $D \in A_n$ written as a linear combination of elements in $\bfB$ is said to be in \emph{canonical form}.
 \end{prop}
+The niceness of the Weyl algebra can be largely contributed to this canonical basis. Later, we replace $A_n$ with the ring of differential operators over an arbitrary ring $R$, and this object is far more nebulous when $R$ is not a polynomial ring.
 
 \begin{defn}\label{defn:degree-of-Weyl-operator}
 	The \emph{length} of a multindex $\alpha \in \bN^n$ is denoted $|\alpha|$ and is defined
@@ -275,7 +277,41 @@ The converse of this theorem need not always hold, that is, if $R$ is Noetherian
 \red{Sort out inverse image vs. pullback and direct image vs. pushforward language}
 Here we introduce two operations on $D$-modules, pullbacks and pushforwards. We discuss the former first. Some algebraic constructions are brushed under the rug, the tensor product of bimodules for instance, and the reader may wish to refer to \cite{d-mod-primer}, \cite{d-mod_ps_rt} or \cite{ginzburg_d-mod} throughout this section.
 
-Let $R = K[x_1,...,x_n]$, $S = K[x_1,...,x_m]$ and $M$ be a left $A_n$-module. We wish to build a left $A_m$-module from $M$ in a meaningful way. Suppose further that we are given a polynomial map $F:K^m\to K^n$ whose coordinate polynomials are $F_1,...,F_n\in K[x_1,...,x_m]$. Composition with $F$ gives a map of rings $\varphi:R\to S$ $f\mapsto f\circ F$, and in particular, we may view $S$ as an $R$-module via the $R$-action given by $\varphi$. The tensor product $S\otimes_R M$ is then an $S$-module, and we want to turn it into an $A_m$-module.
+Let $R = K[x_1,...,x_n]$, $S = K[y_1,...,y_m]$ and $M$ be a left $A_n$-module. We wish to build a left $A_m$-module from $M$ in a meaningful way. Suppose further that we are given a polynomial map $F:K^m\to K^n$ whose coordinate polynomials are $F_1,...,F_n\in K[y_1,...,y_m]$. Composition with $F$ gives a map of rings $\varphi:R\to S$ defined $f\mapsto f\circ F$, and in particular, we may view $S$ as an $R$-module via the $R$-action given by $\varphi$. The tensor product $S\otimes_R M$ is then an $S$-module denoted $F^*M$, and we want to turn it into an $A_m$-module. The action of polynomials on $F^*M$ is known, and we define the action of $\partial_{y_i}$ by
+\begin{equation}\label{eqn:action-inv-img}\tag{$\ast$}
+	\partial_{y_i}(q\otimes u) = \partial_{y_i}(q) \otimes u ~ + ~ \sum_{j=1}^n q\partial_{y_i}(F_j) \otimes \partial_{x_j} u.
+\end{equation}
+for $q\in S$ and $u\in M$ and extend by linearity. As the $y_i$'s and $\partial_{y_i}$'s generate $A_m$, to check that this does indeed give us a left $A_m$-action on $F^*M$ we need only check that (\ref{eqn:action-inv-img}) is compatible with the relations
+\begin{align*}
+	[\partial_{y_i}, y_j] &= \delta_{ij} \\
+	[y_i,y_j] &= [\partial_{y_i},\partial_{y_j}] = 0
+\end{align*}
+where $\delta_{ij}$ is the Dirac delta function.
+
+Let us check the first relation on an arbitrary generator $q\otimes u \in F^*M$, referring to the image of $y_j \in S$ in $A_m$ by $\hat{y}_j$ to avoid confusion:
+
+% Possible confusion due to the fact that $[\partial_{y_i}, \hat{y}_j] = \delta_{ij}$ in $A_m$ whereas $\partial_{y_i}(y_j) = \delta_{ij}$ in $S$.
+\begin{align*}
+	\partial_{y_i}\hat{y}_j(q\otimes u)
+	  &= \partial_{y_i}(y_j q \otimes u) ~+~ \sum_{k=1}^n y_jq\partial_{y_i}(F_k) \otimes \partial_{x_k}u \\
+	  &= \big(\partial_{y_i}(y_j q)\big)\otimes u ~+~ y_j \sum_{k=1}^n q \partial_{y_i}(F_k) \otimes \partial_{x_k}u \\
+	  &= q(\partial_{y_i}y_j)\otimes u ~+~ y_j(\partial_{y_i}(q))\otimes u ~+~ y_j \sum_{k=1}^n q \partial_{y_i}(F_k) \otimes \partial_{x_k}u \\
+	  &= q\delta_{ij} \otimes u ~+~ y_j\left(\partial_{y_j}(q) \otimes u ~+~ \sum_{k=1}^n q\partial_{y_i}(F_k) \otimes \partial_{x_k}u\right) \\
+	  &= \delta_{ij}(q\otimes u) ~+~ y_j\partial_{y_i}(q\otimes u) \\
+	  &= \delta_{ij}(q\otimes u) ~+~ \hat{y}_j\big(\partial_{y_i}(q\otimes u)\big).
+\end{align*}
+Since the relation $[\partial_{y_i},\hat{y}_j]v = \delta_{ij}v$ holds when $v$ is of the form $q\otimes u \in F^*M$, it holds for arbitrary elements $v\in F^*M$ once we extend by linearity. The other two relations follow from an easy check and a few applications of Leibniz's rule, respectively. \red{In reality, I simply don't want to write out the relation $[\partial_{y_i},\partial_{y_j}]v = 0$, but perhaps it would be helpful to include in a future draft.} This means the following definition makes sense.
+
+\begin{defn}\label{defn:inv-img}
+	Let $F:K^m\to K^n$ be a polynomial map with components $F_1,...,F_n \in K[y_1,...,y_m]$ and let $M$ be a left $A_n$-module. Then $F^*M$ endowed with the $A_m$-action defined in (\ref{eqn:action-inv-img}) is a left $A_m$-module called the \emph{inverse image} of $M$ by the polynomial map $F$.
+\end{defn}
+
+\begin{rmk}\label{rmk:inv-img}
+	The term ``inverse image'' comes from algebraic geometry. If $X$ is a variety and $D_X$ is its sheaf of differential operators, then a sheaf $M$ over $X$ is said to be a left $D_X$-module if $M$ is a sheaf of left modules over $D_X$. Given a morphism $f:X\to Y$ of smooth algebraic varieties and a left $D_Y$-module $M$, then $f^*M$ is simply the sheaf-theoretic inverse image defined in \cite{hartshorne}.
+\end{rmk}
+
+
+
 
 \section{\emph{D}-Modules in Positive Characteristic}
 In this section we'll discuss the theory of $D$-Modules in positive characteristic. 
