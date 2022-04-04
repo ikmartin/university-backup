@@ -31,3 +31,5 @@
 \contentsline {subsection}{\numberline {2.4}The Cotangent Bundle}{20}{subsection.2.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.5}Multilinear Algebra}{22}{subsection.2.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.6}Tensors and Forms}{25}{subsection.2.6}%

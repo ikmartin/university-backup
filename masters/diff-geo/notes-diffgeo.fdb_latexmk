@@ -1,14 +1,14 @@
 # Fdb version 3
-["biber notes-diffgeo"] 1646134851 "notes-diffgeo.bcf" "notes-diffgeo.bbl" "notes-diffgeo" 1648144786
-  "notes-diffgeo.bcf" 1648144786 106602 0953243b5074c3e1a8aa2a11c0c64d0f "pdflatex"
+["biber notes-diffgeo"] 1649071828 "notes-diffgeo.bcf" "notes-diffgeo.bbl" "notes-diffgeo" 1649076364
+  "notes-diffgeo.bcf" 1649076363 106602 0953243b5074c3e1a8aa2a11c0c64d0f "pdflatex"
   (generated)
   "notes-diffgeo.bbl"
   "notes-diffgeo.blg"
-["pdflatex"] 1648144785 "notes-diffgeo.tex" "notes-diffgeo.pdf" "notes-diffgeo" 1648144786
-  "../preamble.tex" 1648118245 903 5c55ce5ff63ed06344a8cb04c536df26 ""
-  "/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty" 1648118214 10472 fd872bd9d765d5cb6db207702c623609 ""
-  "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1648118219 31474 7a7b6e2c142f9abfc861e60ee1c103ab ""
-  "/home/lwkatzen/texmf/tex/latex/style-sheets/theorem-env.sty" 1648118210 2819 61000d604801d1eee77682cc146ce902 ""
+["pdflatex"] 1649076362 "notes-diffgeo.tex" "notes-diffgeo.pdf" "notes-diffgeo" 1649076364
+  "../preamble.tex" 1648668758 881 61e282073086891dfbf1f7f1fde38bb2 ""
+  "/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty" 1649076362 10472 fd872bd9d765d5cb6db207702c623609 ""
+  "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1649076363 31591 cbe45de1f95db2c9969c77ba96cfadb1 ""
+  "/home/lwkatzen/texmf/tex/latex/style-sheets/theorem-env.sty" 1649066271 2819 61000d604801d1eee77682cc146ce902 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1640468671 2914 8283dfc24eaf1964346f843d7605c2b0 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc" 1529098226 2457 aaabbccba4df2a7f7371410ee4e075a3 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc" 1529098226 3124 3813fd4c981d99822890a2861b0d274c ""
@@ -61,6 +61,7 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb" 1336858727 21098 d4aee7c0aac232caac5688b586b9363c ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb" 1248133631 11493 4f5ed183a47d3197cf8cd322325db6de ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb" 1640468671 239149 b459cdf3364a26072e94167b64f425b2 ""
@@ -293,12 +294,12 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643846389 4379201 718a59215bccc89d4f89ee72c554b0e8 ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643846402 2796796 2c18e0876449a496ae83bd1419ea9c78 ""
   "/usr/local/texlive/2021/texmf.cnf" 1643846386 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "notes-diffgeo.aux" 1648144786 27685 a6abb670dcbf1abe6c94d5021237f676 "pdflatex"
-  "notes-diffgeo.bbl" 1646134852 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber notes-diffgeo"
-  "notes-diffgeo.out" 1648144786 2776 a99413b76037681f631961b7d2860448 "pdflatex"
-  "notes-diffgeo.run.xml" 1648144786 2368 50ced06cfcce5a329e8ba339a41acf37 "pdflatex"
-  "notes-diffgeo.tex" 1648144783 55475 6cf2c8d689438ed73bd6f90cc5ecca88 ""
-  "notes-diffgeo.toc" 1648144786 2059 20e5ef2cd5418a7885637e9e36990c72 "pdflatex"
+  "notes-diffgeo.aux" 1649076363 31553 3ac1bf52cc8c6084b0dedfee0853af71 "pdflatex"
+  "notes-diffgeo.bbl" 1649071829 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber notes-diffgeo"
+  "notes-diffgeo.out" 1649076363 2925 b288eb224c5e268619b1b053b3fa32ee "pdflatex"
+  "notes-diffgeo.run.xml" 1649076363 2368 50ced06cfcce5a329e8ba339a41acf37 "pdflatex"
+  "notes-diffgeo.tex" 1649076361 62933 ad7c321d69d61ddb7c1aaa19ad5a3fa2 ""
+  "notes-diffgeo.toc" 1649076363 2178 1146487640a50b3a1b81a9fd97b75b2b "pdflatex"
   (generated)
   "notes-diffgeo.aux"
   "notes-diffgeo.bcf"

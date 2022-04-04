@@ -16,6 +16,7 @@
 \usepackage{letltxmacro}
 \usepackage{manfnt}
 \usepackage{lipsum}
+\usepackage{cancel} % for diagonal slashes in mathmode
 % Any of the following provide uppercase and lowercase fonts, and probably many more
 %\setmathfont{TeX Gyre Pagella Math}
 %\setmathfont{TeX Gyre Termes Math}
@@ -62,6 +63,7 @@
 \DeclareMathOperator{\fraksl}{\mathfrak{s}\mathfrak{l}}
 \DeclareMathOperator{\frakgl}{\mathfrak{g}\mathfrak{l}}
 \DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\rk}{rk}
 \DeclareMathOperator{\orb}{orb}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Stab}{Stab}
@@ -100,6 +102,7 @@
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\fchar}{char}
 \DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\sgn}{sgn}
 %\DeclareMathOperator{\pr}{pr} % for "projection"
 \DeclareMathOperator{\colim}{colim}
 \DeclareMathOperator{\Ob}{Ob}
@@ -786,6 +789,7 @@ after = \end{multicols}}
 \newcommand{\olY}{\overline{Y}}
 \newcommand{\olZ}{\overline{Z}}
 \newcommand{\ol}[1]{\overline{#1}}
+\newcommand{\ul}[1]{\underline{#1}}
 
 % Basic partial derivative macro
 \newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
