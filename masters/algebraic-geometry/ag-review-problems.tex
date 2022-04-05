@@ -16,7 +16,17 @@
 \begin{homework}[e]
 	\prob Describe the topological spaces $\Spec \bR[x]$, $\Spec \bC[x,y], \Spec\bZ[x]$ and $\Spec \bC\llbracket x\rrbracket$. In each case, describe the subset of maximal ideals.
 	\prob Given an example of a homomorphism of rings $\varphi: A\to B$ such that the preimage of a maximal ideal is not maximal, prove that if $\varphi$ is surjective then the preimage of a maximal ideal is maximal.
+	\begin{prf}
+		The obvious example is $\bZ\hookrightarrow \bQ$ or $R \hookrightarrow \Frac(R)$ for a domain $R$. Pulling back the ideal $(0) \subseteq \Frac(R)$ gives back $(0)$, which is not maximal in $R$ unless $R$ is also a field.
+
+		The actual lesson to learn here is that localizing at a prime turns that prime into a maximal ideal -- take for instance $k[x,y,z] \hookrightarrow k[x,y,z]_{(x)}$ (here we're inverting everything outside $(x)$, we're not inverting $x$ itself). Pulling back $(x)$, maximal in $k[x,y,z]_{(x)}$, gives back $(x) \subseteq k[x,y,z]$, not maximal.
+
+		We now prove the second part. Suppose $\varphi:R\to S$ is a surjective ring homomorphism and $\frakm \subseteq S$ is maximal. Then $\ol{\varphi}:R\to{\varphi}S\to S/\frakm$ is a surjective map from $R$ to a field, meaning $\ker \frakm$ is maximal since $R/\ker \ol{\varphi}$ is a field. However, $r \in \ker\ol{\varphi}$ if and only if $\varphi(r) \in \frakm$, meaning $\ker\ol{\varphi} = \varphi^{-1}(\frakm)$. Thus $\varphi^{-1}(\frakm)$ is maximal in $R$.
+	\end{prf}
 	\prob Let $X_1$ and $X_2$ be the Zariski spectra of rings $A_1$ and $A_2$. Describe a natural ring whose Zariski spectrum is homeomorphic to $X_1 \sqcup X_2$. Notice in particular how this is not $X_1\times X_2$.
+	\begin{prf}
+		The ring is $A_1\times A_2$. The primes in this ring are exactly those of the form $\frakp \times A_2$ or $A_1\times \frakq$ for $\frakp \in X_1$ and $\frakq \in X_2$.
+	\end{prf}
 	\prob Find a ring $A$ whose Zariski spectrum is the \textit{connected doubleton}, i.e. the topological space consisting of two points $\{p_1,p_2\}$ such that $\{p_1\}$ is dense and $\{p_2\}$ is closed. ($\star$) Find a ring $A$ whose Zariski spectrum consists of three points $\{q_1,q_2,q_3\}$ such that $\{q_1\}$ is dense, the set $\{q_2\}$ contains $\{q_3\}$ in its closure, and $\{q_3\}$ is closed.
 	\begin{prf}
 		The first ring is easy to construct. Take $R$ to be any domain and localize at a height 1 prime to obtain a DVR. Examples include $\bZ_{(p)}$ with $p$ prime, $\bC[x,y]_{(f)}$ where $f$ is an irreducible polynomial, and of course $K\llbracket t\rrbracket$, the typical example of a DVR.
@@ -25,7 +35,7 @@
 
 		The ring $\bZ_{(p)}\llbracket t\rrbracket$ comes close; its spectrum is $\{(0), (p), (t), (p,t)\}$. As before however, there is no way to kill the ideal $(t)$ without affecting the rest of the primes. We need a ring for which there length 2 chain of primes $\frakp_1 \subsetneq \frakp_2 \subsetneq \frakp_3$ such that there is no replacement for $\frakp_2$. We can then quotient at $\frakp_1$ and localize and $\frakp_3$.	
 	\end{prf}
-	\prob Let $A$ be the quotient of a polynomial ring in finitely many variable by a prime ideal. Let $\MaxSpec(A)$ be the set of maximal ideals of $A$ equipped with the Zariski topology. Describe a procedure that reconstructs the full Zariski spectrum $\Spec(A)$ and its topology in terms of the irreducible closed subsets of $\MaxSpec(A)$. Apply this procedure to $A = \bC\llbracket x \rrbracket$ to conclude that some rings ``do not have enough maximal ideals''.
+	\prob Let $A$ be the quotient of a polynomial ring in finitely many variable by a prime ideal. Let $\MaxSpec(A)$ be the set of maximal ideal of $A$ equipped with the Zariski topology. Describe a procedure that reconstructs the full Zariski spectrum $\Spec(A)$ and its topology in terms of the irreducible closed subsets of $\MaxSpec(A)$. Apply this procedure to $A = \bC\llbracket x \rrbracket$ to conclude that some rings ``do not have enough maximal ideals''.
 	\prob (Sheafification is functorial) Prove that if $f:\cF \to \cG$ is a morphism of presheaves, there is an induced morphism $f^{sh}:\cF^{sh}\to \cG^{sh}$ with $(f^{sh})_p = f_p$.
 	\prob Describe a non-zero presheaf of abelian groups all of whose stalks are 0. Conclude that that sheafification is the constant sheaf 0.
 	\prob (Exactness is stalk local) Show that a sequence $\dots \to \cF_{i-1} \to \cF_{i} \to \cF_{i+1} \to \dots$ is exact if and only if for every $p \in X$, the corresponding sequence of maps of abelian groups is exact.
@@ -38,6 +48,11 @@
 	i.e. $f^{-1}$ is left adjoint to $f_ *$ and $f_*$ is right adjoint to $f^{-1}$.
 
 	\prob Observe that there is a unique morphism from $\bZ$ to any commutative ring with identity, i.e. $\bZ$ is an initial object in this category. Show that $\Spec \bZ$ is a final object in the category of schemes, i.e. every scheme has a unique morphism to $\Spec \bZ$.
+	\begin{prf}
+		Specifying a morphism $(f,f^{sh}):X\to \Spec \bZ$ requires specifying $f:X\to \Spec\bZ$ and $f^{sh}:\cO_\bZ \to f_*\cO_X$. Let's examine $f$ first.
+
+		Suppose $U\subseteq X$ is affine. We then have a map $\varphi_U:U\to \Spec \bZ$ determined by the unique ring map $\varphi_U^*:\bZ \to \cO_X(U)$. Suppose now that we are given two affine opens $U,V \subseteq X$. Let $\iota_U:U\cap V \to U$ and $\iota_V:U\cap V\to V$ denote the inclusion of $U\cap V$ into $U$ and $V$ respectively. By the uniqueness of
+	\end{prf}
 	\prob (Gluing) Let $\{X\}_{i\in I}$ be a family of schemes (possibly infinite) and suppose for each $i,j \in I$ we are given an open subscheme $U_{ij} \subseteq X_i$ (with $U_{ii} = X$). Suppose we are also given for each pair $i,j \in I$ an isomorphism of schemes $\varphi_{ij}:U_{ij}\to U_{ji}$, such that 
 \begin{enumerate}[(1)]
     \item $\varphi_{ii}:U_{ii}\to U_{ii}$ is the identity on $X_i$
@@ -195,17 +210,7 @@ Show there is a scheme $X$ together with morphisms $\psi: X_i \to X$ for each $i
 
 		\item Give an example of a surjective morphism of sheaves $\varphi:\cF\to \cG$, and an open set $U$ such that $\varphi(U):\cF(U)\to \cG(U)$ is not surjective. 
 	\end{enumerate}
-    \begin{prf}
-    	\noindent (a) \hspace{1em} Hartshorne doesn't explain the map $\theta:\cF\to \cF^+$, so we do that first. Notice that a section $s \in \cF(U)$ can always be regarded as a section $s:U\to \bigsqcup_{P\in U}\cF_P$ defined $s(P) = s_P$, where $s_P$ is the image of $s$ under $\cF(U) \mapsto \cF_P$. The map $\theta:\cF\to \cF^+$ simply identifies a section $s \in \cF(U)$ with this element of $\cF^+(U)$. Notice then that $\ker(\theta(U))$ is precisely the elements of $\cF(U)$ which are locally zero, i.e. the sections $s \in \cF(U)$ such that $s_P = 0$ for all $P \in U$. Therefore, $\theta$ is injective precisely when $\cF$ satisfies the locality sheaf axiom.
 
-		Suppose now that $\varphi^+:\cF^+\to \cG^+$ is not injective, i.e. that there is some $U$ and some $s \in \cF^+(U)$ such that $0 \neq s \in \ker \varphi^+(U)$. The map $\varphi^+$ is the one given by the universal property of $\cF$:
-		\begin{center}
-			\begin{tikzcd}
-				\cF \arrow[r,"\theta_1"] \arrow{rd}[swap]{\theta_2\circ \varphi}& \cF^+ \arrow[d,"\varphi^+"] \\
-																			& \cG^+
-			\end{tikzcd}
-		\end{center}
-    \end{prf}
 	\prob[\textsc{Exercise 1.14}] \textit{Support.} Let $\cF$ be a sheaf on $X$, and let $s \in \cF(U)$ be a section over an open set $U$. The \textit{support} of $s$, denoted $\Supp s$, is defined to be $\{P\in U ~ \mid~ s_P \neq 0\}$, where $s_P$ denotes the germ of $s$ in the stalk $\cF_P$. Show that $\Supp s$ is a closed subset of $U$. We define the \textit{support} of $\cF$, $\Supp \cF$, to be $\{P\in X~\mid~ \cF_P \neq 0\}$. It need not be a closed subset.
 
 	\prob[\textsc{Exercise 1.15}] \textit{Sheaf Hom.} Let $\cF$, $\cG$ be sheaves of abelian groups on $X$. For any open set $U \subseteq X$, show that the set $\Hom(\cF|_U, \cG|_U)$ of morphisms of the restricted sheaves has the natural structure of an abelian group. Show that the presheaf $U \mapsto \Hom(\cF|_U, \cG|_U)$ is a sheaf. It is called the \textit{sheaf of local morphisms} of $\cF$ into $\cG$, ``sheaf hom'' for short, and is denoted $\Hom(\cF, \cG)$.
