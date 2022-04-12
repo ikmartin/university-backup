@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  5 APR 2022 23:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  12 APR 2022 19:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1454,10 +1454,10 @@ Package logreq Info: Writing requests to 'essay-draft1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41493 strings out of 478287
- 819110 string characters out of 5846765
- 1630022 words of memory out of 5000000
- 58691 multiletter control sequences out of 15000+600000
+ 41562 strings out of 478287
+ 819572 string characters out of 5846765
+ 1630658 words of memory out of 5000000
+ 58760 multiletter control sequences out of 15000+600000
  533566 words of font info for 166 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,20n,102p,3063b,1797s stack positions out of 5000i,500n,10000p,200000b,80000s

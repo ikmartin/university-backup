@@ -19,6 +19,34 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global}
+    \entry{bernstein_d-mod}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=1c686e876bdd2285e932d404b87b235a}{%
+           family={Bernstein},
+           familyi={B\bibinitperiod},
+           given={Joseph},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{1c686e876bdd2285e932d404b87b235a}
+      \strng{fullhash}{1c686e876bdd2285e932d404b87b235a}
+      \strng{bibnamehash}{1c686e876bdd2285e932d404b87b235a}
+      \strng{authorbibnamehash}{1c686e876bdd2285e932d404b87b235a}
+      \strng{authornamehash}{1c686e876bdd2285e932d404b87b235a}
+      \strng{authorfullhash}{1c686e876bdd2285e932d404b87b235a}
+      \field{labelalpha}{Ber}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online Lecture Notes}
+      \field{title}{Algebraic Theory of {$D$}-modules}
+      \verb{urlraw}
+      \verb https://ncatlab.org/nlab/files/BernsteinDModule.pdf
+      \endverb
+      \verb{url}
+      \verb https://ncatlab.org/nlab/files/BernsteinDModule.pdf
+      \endverb
+    \endentry
     \entry{d-mod-primer}{book}{}
       \name{author}{1}{}{%
         {{hash=456d616e64c77f002509cea1b3a42f6c}{%

@@ -16,17 +16,7 @@
 \begin{homework}[e]
 	\prob Describe the topological spaces $\Spec \bR[x]$, $\Spec \bC[x,y], \Spec\bZ[x]$ and $\Spec \bC\llbracket x\rrbracket$. In each case, describe the subset of maximal ideals.
 	\prob Given an example of a homomorphism of rings $\varphi: A\to B$ such that the preimage of a maximal ideal is not maximal, prove that if $\varphi$ is surjective then the preimage of a maximal ideal is maximal.
-	\begin{prf}
-		The obvious example is $\bZ\hookrightarrow \bQ$ or $R \hookrightarrow \Frac(R)$ for a domain $R$. Pulling back the ideal $(0) \subseteq \Frac(R)$ gives back $(0)$, which is not maximal in $R$ unless $R$ is also a field.
-
-		The actual lesson to learn here is that localizing at a prime turns that prime into a maximal ideal -- take for instance $k[x,y,z] \hookrightarrow k[x,y,z]_{(x)}$ (here we're inverting everything outside $(x)$, we're not inverting $x$ itself). Pulling back $(x)$, maximal in $k[x,y,z]_{(x)}$, gives back $(x) \subseteq k[x,y,z]$, not maximal.
-
-		We now prove the second part. Suppose $\varphi:R\to S$ is a surjective ring homomorphism and $\frakm \subseteq S$ is maximal. Then $\ol{\varphi}:R\to{\varphi}S\to S/\frakm$ is a surjective map from $R$ to a field, meaning $\ker \frakm$ is maximal since $R/\ker \ol{\varphi}$ is a field. However, $r \in \ker\ol{\varphi}$ if and only if $\varphi(r) \in \frakm$, meaning $\ker\ol{\varphi} = \varphi^{-1}(\frakm)$. Thus $\varphi^{-1}(\frakm)$ is maximal in $R$.
-	\end{prf}
 	\prob Let $X_1$ and $X_2$ be the Zariski spectra of rings $A_1$ and $A_2$. Describe a natural ring whose Zariski spectrum is homeomorphic to $X_1 \sqcup X_2$. Notice in particular how this is not $X_1\times X_2$.
-	\begin{prf}
-		The ring is $A_1\times A_2$. The primes in this ring are exactly those of the form $\frakp \times A_2$ or $A_1\times \frakq$ for $\frakp \in X_1$ and $\frakq \in X_2$.
-	\end{prf}
 	\prob Find a ring $A$ whose Zariski spectrum is the \textit{connected doubleton}, i.e. the topological space consisting of two points $\{p_1,p_2\}$ such that $\{p_1\}$ is dense and $\{p_2\}$ is closed. ($\star$) Find a ring $A$ whose Zariski spectrum consists of three points $\{q_1,q_2,q_3\}$ such that $\{q_1\}$ is dense, the set $\{q_2\}$ contains $\{q_3\}$ in its closure, and $\{q_3\}$ is closed.
 	\begin{prf}
 		The first ring is easy to construct. Take $R$ to be any domain and localize at a height 1 prime to obtain a DVR. Examples include $\bZ_{(p)}$ with $p$ prime, $\bC[x,y]_{(f)}$ where $f$ is an irreducible polynomial, and of course $K\llbracket t\rrbracket$, the typical example of a DVR.
@@ -48,11 +38,6 @@
 	i.e. $f^{-1}$ is left adjoint to $f_ *$ and $f_*$ is right adjoint to $f^{-1}$.
 
 	\prob Observe that there is a unique morphism from $\bZ$ to any commutative ring with identity, i.e. $\bZ$ is an initial object in this category. Show that $\Spec \bZ$ is a final object in the category of schemes, i.e. every scheme has a unique morphism to $\Spec \bZ$.
-	\begin{prf}
-		Specifying a morphism $(f,f^{sh}):X\to \Spec \bZ$ requires specifying $f:X\to \Spec\bZ$ and $f^{sh}:\cO_\bZ \to f_*\cO_X$. Let's examine $f$ first.
-
-		Suppose $U\subseteq X$ is affine. We then have a map $\varphi_U:U\to \Spec \bZ$ determined by the unique ring map $\varphi_U^*:\bZ \to \cO_X(U)$. Suppose now that we are given two affine opens $U,V \subseteq X$. Let $\iota_U:U\cap V \to U$ and $\iota_V:U\cap V\to V$ denote the inclusion of $U\cap V$ into $U$ and $V$ respectively. By the uniqueness of
-	\end{prf}
 	\prob (Gluing) Let $\{X\}_{i\in I}$ be a family of schemes (possibly infinite) and suppose for each $i,j \in I$ we are given an open subscheme $U_{ij} \subseteq X_i$ (with $U_{ii} = X$). Suppose we are also given for each pair $i,j \in I$ an isomorphism of schemes $\varphi_{ij}:U_{ij}\to U_{ji}$, such that 
 \begin{enumerate}[(1)]
     \item $\varphi_{ii}:U_{ii}\to U_{ii}$ is the identity on $X_i$

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  4 APR 2022 21:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  11 APR 2022 10:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1394,29 +1394,29 @@ Package microtype Info: Character `029' is missing
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.95pt on input line 20.
-Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 20.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 24.
+Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 22.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 26.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
 File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 ) [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.95pt on input line 67.
- [3] [4] [5] [6] [7]
+(Font)              scaled to size 10.95pt on input line 52.
+ [2] [3] [4] [5] [6]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 164.
+(Font)              scaled to size 8.0pt on input line 149.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 164.
- [8] [9] [10] [11]
-LaTeX Font Info:    Trying to load font information for U+eus on input line 255.
+(Font)              scaled to size 6.0pt on input line 149.
+ [7] [8] [9] [10]
+LaTeX Font Info:    Trying to load font information for U+eus on input line 240.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-eus.cfg
 File: mt-eus.cfg 2006/07/28 v1.2 microtype config. file: AMS Euler Script (RS)
-) [12] [13] (./ag-review-problems.aux)
+) [11] [12] (./ag-review-problems.aux)
 Package rerunfilecheck Info: File `ag-review-problems.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'ag-review-problems.run.xml'.
@@ -1424,18 +1424,18 @@ Package logreq Info: Writing requests to 'ag-review-problems.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41080 strings out of 478287
- 811297 string characters out of 5846765
- 1636853 words of memory out of 5000000
- 58365 multiletter control sequences out of 15000+600000
- 520968 words of font info for 153 fonts, out of 8000000 for 9000
+ 41061 strings out of 478287
+ 810873 string characters out of 5846765
+ 1631853 words of memory out of 5000000
+ 58354 multiletter control sequences out of 15000+600000
+ 520796 words of font info for 151 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,16n,102p,3069b,1367s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 103i,14n,102p,3069b,1264s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/stmaryrd/stmary8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on ag-review-problems.pdf (13 pages, 297455 bytes).
+Output written on ag-review-problems.pdf (12 pages, 291667 bytes).
 PDF statistics:
- 238 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
- 73 named destinations out of 1000 (max. 500000)
+ 228 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
+ 69 named destinations out of 1000 (max. 500000)
  25613 words of extra memory for PDF output out of 29859 (max. 10000000)
 

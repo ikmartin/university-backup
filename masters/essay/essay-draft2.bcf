@@ -2344,10 +2344,12 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">main.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">d-mod-primer</bcf:citekey>
-    <bcf:citekey order="2">d-mod_ps_rt</bcf:citekey>
-    <bcf:citekey order="3">ginzburg_d-mod</bcf:citekey>
-    <bcf:citekey order="4">hartshorne</bcf:citekey>
+    <bcf:citekey order="1">ginzburg_d-mod</bcf:citekey>
+    <bcf:citekey order="2">bernstein_d-mod</bcf:citekey>
+    <bcf:citekey order="3">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="4">d-mod_ps_rt</bcf:citekey>
+    <bcf:citekey order="5">ginzburg_d-mod</bcf:citekey>
+    <bcf:citekey order="6">hartshorne</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">
