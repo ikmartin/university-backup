@@ -25,25 +25,41 @@ One must first define fields before one defines vectors spaces, define rings bef
 It is worth noting that there are several equivalent ways to define the ring of differential operators in characteristic zero. We discuss two such definitions in the case of the Weyl algebra over a field $K$ and show that they are equivalent when $\fchar(K) = 0$. However, when $\fchar(K) > 0$, these two definitions will no longer coincide. It therefore becomes necessary to fix either the field characteristic or a particular definition for the ring of differential operators, and in these notes, we will do the latter.
 
 \subsection{The Ring of Differential Operators over an Arbitrary Ring}
-Let $A\to B$ be a map of rings and let $M$ and $N$ be two $B$-modules. We may identify $B$ with a subring of $\End_B(M)$ via the map which sends an element $f \in B$ to the $B$-linear map $\hatf:m\mapsto f\cdot m$ on $M$. We denote the image of $f \in B$ in $\End_B(M)$ by $\hatf_M$ when there is risk of confusing the domain of $\hatf$ with some other module. Given a morphism $\alpha \in \Hom_B(M,N)$, we will often abuse notation and write $[\alpha, \hatf]$ to mean $\alpha \circ \hatf_M ~-~ \hatf_N\circ \alpha$. This is no longer an abuse of notation when $M = N$, in which case $[\alpha,\beta] = \alpha \circ \beta ~-~ \beta\circ\alpha$ is well-defined for any $\alpha, \beta \in \End_B(M)$.
+Let $A\to R$ be a map of rings and let $M$ and $N$ be two $R$-modules. We may identify $R$ with a subring of $\End_R(M)$ via the map which sends an element $f \in R$ to the $R$-linear map $\hatf:m\mapsto f\cdot m$ on $M$. We denote the image of $f \in R$ in $\End_R(M)$ by $\hatf_M$ when there is risk of confusing the domain of $\hatf$ with some other module. Given a morphism $\alpha \in \Hom_R(M,N)$, we will often abuse notation and write $[\alpha, \hatf]$ to mean $\alpha \circ \hatf_M ~-~ \hatf_N\circ \alpha$. This is no longer an abuse of notation when $M = N$, in which case $[\alpha,\beta] = \alpha \circ \beta ~-~ \beta\circ\alpha$ is well-defined for any $\alpha, \beta \in \End_R(M)$.
 
 \begin{defn}\label{defn:diff-ops}
-	With $A,B,M$ and $N$ as above, we inductively define the collection of differential operators of order $k \in \bZ$, denoted $D^k_{B/A}(M,N)$, as follows:
+	With $A,R,M$ and $N$ as above, we inductively define the collection of differential operators of order $k \in \bZ$, denoted $D^k_{R/A}(M,N)$, as follows:
 	\begin{itemize}
-		\item $D^k_{B/A}(M,N) = 0$ when $k < 0$
-		\item $D^k_{B/A}(M,N) = \left\{\alpha \in \Hom_A(M,N) ~\middle|~ \left[\alpha,\hatf\right] \in D^{k-1}_{B/A}(M,N) ~ \text{ for all } f\in B\right\} $ when $k \geq 0$.
+		\item $D^k_{R/A}(M,N) = 0$ when $k < 0$
+		\item $D^k_{R/A}(M,N) = \left\{\alpha \in \Hom_A(M,N) ~\middle|~ \left[\alpha,\hatf\right] \in D^{k-1}_{R/A}(M,N) ~ \text{ for all } f\in R\right\} $ when $k \geq 0$.
 	\end{itemize}
-	We set $D_{B/A}(M,N) = \bigcup_{k\in \bZ} D^k_{B/A}(M,N)$ and note that it is a left $B$-module under the action $fD = \hatf_N\circ D$ and a right $B$-module under the action $Df = D\circ \hatf_M$.
+	We set $D_{R/A}(M,N) = \bigcup_{k\in \bZ} D^k_{R/A}(M,N)$.
 \end{defn}
 \begin{rmk}\label{rmk:starting-index-of-diff-op-def}
-	It is worth noting that $\alpha \in D_{B/A}(M,N)$ satisfies $[\alpha,\hatf] = 0 \in D^{-1}_{B/A}(M,N)$ exactly when $\alpha$ is $B$-linear, hence $D_{B/A}(M,N) = \Hom_B(M,N)$. Many sources, \cite{ginzburg_d-mod} and \cite{bernstein_d-mod} for instance, simply define $D^0_{B/A}(M,N) = \Hom_{B}(M,N)$ and proceed inductively from there.
+	It is worth noting that $\alpha \in D_{R/A}(M,N)$ satisfies $[\alpha,\hatf] = 0 \in D^{-1}_{R/A}(M,N)$ exactly when $\alpha$ is $R$-linear, hence $D_{R/A}(M,N) = \Hom_R(M,N)$. Many sources, \cite{ginzburg_d-mod} and \cite{bernstein_d-mod} for instance, simply define $D^0_{R/A}(M,N) = \Hom_{R}(M,N)$ and proceed inductively from there.
 \end{rmk}
 
+The following lemma is elementary but nonetheless quite important:
+\begin{lem}\label{lem:fixed-order-ops-form-module}
+	For each $k \in \bZ$ we have an inclusion $D^{k-1}_{R/A}(M,N) \subseteq D^k_{R/A}(M,N)$. Furthermore, $D^k_{R/A}(M,N)$ is a left $R$-module under the action $f\alpha \mapsto \hatf\circ \alpha$ and a right $R$-module under the action $\alpha f \mapsto \alpha \circ \hatf$. This particularly implies that $R_{R/A}(M,N)$ is a left and right $R$-module under these same actions.
+\end{lem}
+\begin{prf}
+	We prove both claims by induction. The first is clear: the base case follows from the simple fact that $D^{-1}_{R/A}(M,N) = 0 \subseteq D^0_{R/A}(M,N)$, and if $\alpha \in D^{k-1}_{R/A}(M,N)$ then $[\alpha,\hatf] \in D^{k-2}_{R/A}(M,N)$ for any $f \in R$ by definition. The inductive hypothesis then implies that $[\alpha,\hatf] \in D^{k-1}_{R/A}(M,N)$, and hence $\alpha \in D^k_{R/A}(M,N)$.
+
+	By Remark \ref{rmk:starting-index-of-diff-op-def}, $D^0_{R/A}(M,N) = \Hom_R(M,R)$, so our base case is clear. Suppose then that $D^m_{R/A}(M,N)$ is a left $R$-module for each $m < k$ and note that for any two $f,g\in R$ the associated module endomorphisms commute by the commutativity of $R$, i.e. $\hatf\hatg = \hatg\hatf$. Fix $\alpha,\beta \in D^k_{R/A}(M,N)$ and $a,b \in R$. For any other $f \in R$ we have
+	\begin{align*}
+		[\hata\alpha + \hatb\beta, \hatf] 
+		  &= (\hata\alpha + \hatb\beta)\hatf - \hatf(\hata\alpha + \hatb\beta) \\
+		  &= \hata\alpha\hatf - \hata\hatf\alpha + \hatb\beta\hatf - \hatb\hatf\beta \\
+		  &= \hata[\alpha,\hatf] + \hatb[\beta,\hatf].
+	\end{align*}
+	Both $\hata[\alpha,\hatf]$ and $\hatb[\beta,\hatf]$ are elements of the left $R$-module $D^{k-1}_{R/A}(M,N)$, hence so is there sum. The proof that $D^k_{R/A}(M,N)$ is a right $R$-module is similar, so we are done.
+\end{prf}
 \begin{notate}$ $
 	\begin{itemize}
-		\item We write $D_{B/A}(M)$ for $D_{B/A}(M,M)$ when $M = N$. In this case, $D_{B/A}(M)$ is a ring under pointwise-addition and composition, and is called the \emph{ring of differential operators over $M$}. Given two operators $\alpha,\beta \in D_{B/A}(M)$ we often drop the composition symbol and write $\alpha\beta$ to mean $\alpha\circ \beta$.
-		\item When $B = M = N$, we simply write $D_{B/A}$.
-		\item We write $D_B$ for the ring of differential operators over $B$ relative to the unique map $\bZ\to B$.
+		\item We write $D_{R/A}(M)$ for $D_{R/A}(M,M)$ when $M = N$. As we shall see in Corollay \ref{cor:ring-of-diff-ops}$, D_{R/A}(M)$ is a ring under pointwise-addition and composition and is called the \emph{ring of differential operators over $M$}. Given two operators $\alpha,\beta \in D_{R/A}(M)$ we often drop the composition symbol and write $\alpha\beta$ to mean $\alpha\circ \beta$.
+		\item When $R = M = N$, we simply write $D_{R/A}$.
+		\item We write $D_R$ for the ring of differential operators over $R$ relative to the unique map $\bZ\to R$.
 	\end{itemize}
 \end{notate}
 \noindent We will be primarily interested in $D_{R/K}$ for a $K$-algebra $R$.
@@ -57,7 +73,7 @@ It will be useful to establish some basic commutator relations. These have nothi
 		\item $[\hatf\alpha,\beta] = [\alpha,\hatf\beta] = \hatf[\alpha,\beta]$ for $f \in A$
 		\item $[\alpha,\beta] = -[\beta,\alpha]$
 		\item $[\alpha\beta,\gamma] = \alpha[\beta,\gamma] + [\alpha,\gamma]\beta$ and $[\alpha,\beta\gamma] = [\alpha,\beta]\gamma + \beta[\alpha,\gamma]$.
-		\item $[\alpha,[[\beta,\gamma]] + [\beta,[\gamma,\alpha]] + [\gamma,[\alpha,\beta]] = 0$ (Jacobi identity).
+		\item $[\alpha,[[\beta,\gamma]] + [\beta,[\gamma,\alpha]] + [\gamma,[\alpha,\beta]] = 0~$ \hspace{0.5em}(Jacobi identity).
 	\end{enumerate}
 \end{prop}
 \begin{prf}
@@ -90,27 +106,55 @@ It will be useful to establish some basic commutator relations. These have nothi
 \end{prf}
 
 \subsubsection{Order of Differential Operators}
-Fix a commutative ring map $A\to B$. A differential operator $D \in \D_{B/A}$ is said to be of \emph{order $k$} if $D \in D^k_{B/A}$ but $D \not\in D^{k-1}_{B/A}$ and we say $\ord(D) = k$. In this section we aim to understand operators of order 1 and how order interacts with composition, addition, and the commutator. As the operator $0$ is contained in $D^k_{B/A}$ for every $k \in \bZ$, we say $\ord(0) = -\infty$.
+Fix a commutative ring map $A\to R$. A differential operator $D \in D_{R/A}$ is said to be of \emph{order $k$} if $D \in D^k_{R/A}$ but $D \not\in D^{k-1}_{R/A}$ and we say $\ord(D) = k$. In this section we aim to understand operators of order 1 and how order interacts with composition, addition, and the commutator. As the operator $0$ is contained in $D^k_{R/A}$ for every $k \in \bZ$, we say $\ord(0) = -\infty$.
 
-\begin{lem}\label{lem:order-interactions}
-	 Suppose $\alpha \in D^{m}_{B/A}$ and $\beta \in D^{n}_{B/A}$. The following hold:
+\begin{prop}\label{prop:order-interactions}
+	 Suppose $\alpha \in D^{m}_{R/A}(M)$ and $\beta \in D^{n}_{R/A}(M)$. The following hold:
 	 \begin{enumerate}[(a)]
-		 \item $\alpha+\beta \in D^d_{B/A}$ where $d = \max\{m,n\}$
-		 \item $\alpha\beta \in D^{m+n}_{B/A}$
-		 \item $[D,E] \in D^{m+n -1}_{B/A}$.
+		 \item $\alpha+\beta \in D^d_{R/A}(M)$ where $d = \max\{m,n\}$
+		 \item $\alpha\beta \in D^{m+n}_{R/A}(M)$
+		 \item $[\alpha,\beta] \in D^{m+n -1}_{R/A}(M)$.
 	 \end{enumerate}
-\end{lem}
+\end{prop}
 \begin{prf}
-	\begin{enumerate}[(a)]
-		\item This is clear from part (a) of \ref{prop:commutator-relations}; if $f \in B$ then
+	Part (a) follows immediately from Lemma \ref{lem:fixed-order-ops-form-module}. We prove (b) and (c) simultaneously by induction on $m + n$. The base case is clear, for when $m + n = 0$ we have $\alpha\beta \in Hom_R(R,R)$. Suppose then that both (b) and (c) hold for $m + n < k$ for some positive integer $k$. Fix $f \in R$ and let $m+n = k$. By the inductive hypothesis we then have that $\alpha[\beta,\hatf]$ and $[\alpha,\hatf]\beta$ are in $D^{m+n-1}_{R/A}(M)$, and hence
+	\begin{align*}
+		[\alpha\beta,\hatf] = \alpha[\beta,\hatf] + [\alpha, \hatf]\beta \in D^{m+n-1}_{R/A}(M)
+	\end{align*}
+	by Proposition \ref{prop:commutator-relations} (d). This proves (b).
 
-	\end{enumerate}
+	Rearranging the terms of the Jacobi identity, we have that
+	\begin{align*}
+		\big[[\alpha,\beta], \hatf\big] = \big[\alpha, [\beta,\hatf]\big] + \big[\beta,[\hatf,\alpha]\big].
+	\end{align*}
+	The inductive hypothesis tells us that the rightmost terms are elements of $D^{m+n-2}_{R/A}(M)$, hence so is $\big[[\alpha,\beta], \hatf\big]$. This proves (c).
 \end{prf}
-\subsection{The Weyl Algebra}
 
+\begin{cor}\label{cor:ring-of-diff-ops}
+	Let $A \to R$ be a map of commutative rings. Then $D_{R/A}(M)$ is a ring and the graded ring 
+	\begin{align*}
+		S_{R/A}(M) := \bigoplus_{k \in \bN}S^k_{R/A}(M); \hspace{2em} S^k_{R/A}(M) = D^k_{R/A}(M)/D^{k-1}_{R/A}(M)
+	\end{align*}
+	is commutative. We call $S_{R/A}(M)$ the \emph{graded ring associated to} $D_{R/A}(M)$ and discuss it further in Section 2. 
+\end{cor}
+\begin{prf}
+	For any two $\alpha,\beta \in D_{R/A}(M)$, $\alpha \beta \in D_{R/A}(M)$ by Proposition \ref{prop:order-interactions} (b), hence $D_{R/A}(M)$ is a subring of $\End_A(M)$.
+
+	We identify $S^k_{R/A}(M)$ with its image under inclusion $S^k_{R/A}(M) \to S_{R/A}(M)$ and let $\ol{\alpha}$ denote the image of $\alpha \in D^k_{R/A}(M)$ in $S^k_{R/A}(M)$. For $\alpha \in D^m_{R/A}(M)$ and $\beta \in D^n_{R/A}(M)$, we have $[\alpha,\beta] \in D^{m+n-1}_{R/A}(M)$ by Proposition \ref{prop:order-interactions} (c), hence $\ol{\alpha}\ol{\beta} - \ol{\beta}\ol{\alpha} = \ol{[\alpha,\beta]} = 0$. Since every element of $S_{R/A}(M)$ can be written as a sum of finitely many $\ol{\alpha}$, we are done.
+\end{prf}
+\subsection{The Weyl Algebras}
+
+
+We now turn our attention to the case in which $A = K$ and $R = K[x_1,...,x_n]$, where $K$ is a field. The ring $D_{R/K}$ in this case is called the \emph{$n^\text{th}$ Weyl Algebra}. The first Weyl algebra is an early example of a ring of diffferential operators, first appearing as Dirac's \emph{quantum algebra} consisting of polynomial expressions in variables $p$ and $q$ subject to the relation $pq - qp = 1$. Weyl algebras admit tractable, explicit descriptions in terms of generators and relations, and therefore serve as a fantastic source of examples. They also serve as a good starting place for a newcomer to the study of $D$-modules seeking to develop intuition (e.g. the author of this essay).
+
+\begin{lem}(Definition)\label{lem:Weyl-algebra}
+	Let $K$ be a field of characteristic $0$ and let $R = K[x_1,...,x_n]$. The following are 
+\end{lem}
 
 \subsection{Examples of Differential Operators}
 \section{D-Modules over a polynomial ring}
+
+
 
 \subsection{Dimension of modules over the Weyl algebra}
 The primary goal of this section is a proof of Bernstein's Inequality, a striking example of how the theory of $D$-modules can drastically differ from that of modules over commutative rings. To accomplish this, it is necessary to discuss several basic facts regarding the dimension of modules over the Weyl algebra, proofs of which we brazenly omit in eternal deference to Atiyah-Macdonald.
