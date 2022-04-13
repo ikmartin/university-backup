@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber essay-draft2"] 1649856843 "essay-draft2.bcf" "essay-draft2.bbl" "essay-draft2" 1649856847
-  "/home/lwkatzen/texmf/bibtex/bib/main.bib" 1649789284 5933 ac4c9edd9c23c5544bac7741de6be749 ""
-  "essay-draft2.bcf" 1649856846 107497 adf21501ac8fcd6695131e4e59990656 "pdflatex"
+["biber essay-draft2"] 1649862421 "essay-draft2.bcf" "essay-draft2.bbl" "essay-draft2" 1649863681
+  "/home/lwkatzen/texmf/bibtex/bib/main.bib" 1649862420 6288 7bf0bfaae79d0eb59cc162e2211d624f ""
+  "essay-draft2.bcf" 1649863680 107497 adf21501ac8fcd6695131e4e59990656 "pdflatex"
   (generated)
   "essay-draft2.bbl"
   "essay-draft2.blg"
-["pdflatex"] 1649856845 "essay-draft2.tex" "essay-draft2.pdf" "essay-draft2" 1649856847
+["pdflatex"] 1649863679 "essay-draft2.tex" "essay-draft2.pdf" "essay-draft2" 1649863681
   "../preamble.tex" 1649076366 881 61e282073086891dfbf1f7f1fde38bb2 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty" 1649076362 10472 fd872bd9d765d5cb6db207702c623609 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1649679808 33048 8afb53835283a974617732c202f305d0 ""
@@ -59,6 +59,7 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb" 1640468671 239149 b459cdf3364a26072e94167b64f425b2 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb" 1640468671 242844 272316029410f80b74af52f845ebe348 ""
@@ -290,12 +291,12 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643846389 4379201 718a59215bccc89d4f89ee72c554b0e8 ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643846402 2796796 2c18e0876449a496ae83bd1419ea9c78 ""
   "/usr/local/texlive/2021/texmf.cnf" 1643846386 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "essay-draft2.aux" 1649856846 18265 67254e59f2d8fbc045f31341f81d91c6 "pdflatex"
-  "essay-draft2.bbl" 1649856844 9855 743f6379bfef27394ab50086413b7f39 "biber essay-draft2"
-  "essay-draft2.out" 1649856846 4042 ab8efcee3ebe0c9da247e361d3220046 "pdflatex"
-  "essay-draft2.run.xml" 1649856846 2361 b60a86500778824c2b7d4362a6bed013 "pdflatex"
-  "essay-draft2.tex" 1649856839 43793 bf56f8238b18c387983be4eaa47e1841 ""
-  "essay-draft2.toc" 1649856846 2630 5ae1765c8afe40c8dd02f5acdd75f6e8 "pdflatex"
+  "essay-draft2.aux" 1649863680 18728 b04c0238f86629c6eacdd54011ea5ba7 "pdflatex"
+  "essay-draft2.bbl" 1649862422 9855 743f6379bfef27394ab50086413b7f39 "biber essay-draft2"
+  "essay-draft2.out" 1649863680 4165 7f40aeee1679d7f71072a5bb1eee4db1 "pdflatex"
+  "essay-draft2.run.xml" 1649863680 2361 b60a86500778824c2b7d4362a6bed013 "pdflatex"
+  "essay-draft2.tex" 1649863677 46052 9d80bc3cdb6054c9b01f845f5fd7407d ""
+  "essay-draft2.toc" 1649863680 2752 8bccf838f6e24101aaf5c4c6bf1d6822 "pdflatex"
   (generated)
   "essay-draft2.aux"
   "essay-draft2.bcf"

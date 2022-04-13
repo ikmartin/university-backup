@@ -18,6 +18,7 @@
 \section*{Introduction}
 Write this later.
 
+\subsection*{Acknowledgements} I feel I must also offer sincere thanks to Jack Jeffries, whose online notes served as a 
 \newpage
 \section{Differential Operators}
 One must first define fields before one defines vectors spaces, define rings before modules, and indeed, one must first understand the ring of differential operators before one can study $D$-modules. In this section we do exactly that. We first define the ring of differential operators relative to an arbitrary ring homomorphism and discuss some of its basic properties before zooming in on the case of the polynomial ring with field coefficients, whose ring of differential operators is called the Weyl algebra. This latter object will provide a more explicit setting and will motivate arguments in the general case. We conclude this section with several examples.
@@ -106,9 +107,7 @@ It will be useful to establish some basic commutator relations. These have nothi
 \end{prf}
 
 \subsubsection{Order of Differential Operators}
-Fix a commutative ring map $A\to R$. A differential operator $D \in D_{R/A}(M)$ is said to be of \emph{order $k$} if $D \in D^k_{R/A}(M)$ but $D \not\in D^{k-1}_{R/A}(M)$ and we say $\ord(D) = k$. As the operator $0$ is contained in $D^k_{R/A}$ for every $k \in \bZ$, we say $\ord(0) = -\infty$. We already understand operators of order 0 -- they're simply the $R$-linear endomorphisms of $M$ -- and in this section we seek to understand the operators of order 1 as well. We additionally describe how order interacts with composition, addition, and commutation.
-
-Throughout this section $A\to R$ is a map of commutative rings and $M$ is an $R$-module.
+Fix a commutative ring map $A\to R$. A differential operator $D \in D_{R/A}(M)$ is said to be of \emph{order $k$} if $D \in D^k_{R/A}(M)$ but $D \not\in D^{k-1}_{R/A}(M)$ and we say $\ord(D) = k$. As the operator $0$ is contained in $D^k_{R/A}$ for every $k \in \bZ$, we say $\ord(0) = -\infty$. Here, we describe how order interacts with composition, addition, and commutation. Throughout this section $A\to R$ is a map of commutative rings and $M$ is an $R$-module.
 
 \begin{prop}\label{prop:order-interactions}
 	 Suppose $\alpha \in D^{m}_{R/A}(M)$ and $\beta \in D^{n}_{R/A}(M)$. The following hold:
@@ -143,13 +142,36 @@ This proposition yields some basic facts regarding the structure of $D_{R/A}(M)$
 \begin{prf}
 	For any two $\alpha,\beta \in D_{R/A}(M)$, $\alpha \beta \in D_{R/A}(M)$ by Proposition \ref{prop:order-interactions} (b), hence $D_{R/A}(M)$ is a subring of $\End_A(M)$.
 
-	We identify $S^k_{R/A}(M)$ with its image under inclusion $S^k_{R/A}(M) \to S_{R/A}(M)$ and let $\ol{\alpha}$ denote the image of $\alpha \in D^k_{R/A}(M)$ in $S^k_{R/A}(M)$. For $\alpha \in D^m_{R/A}(M)$ and $\beta \in D^n_{R/A}(M)$, we have $[\alpha,\beta] \in D^{m+n-1}_{R/A}(M)$ by Proposition \ref{prop:order-interactions} (c), hence $\ol{\alpha}\ol{\beta} - \ol{\beta}\ol{\alpha} = \ol{[\alpha,\beta]} = 0$. Since every element of $S_{R/A}(M)$ can be written as a sum of finitely many $\ol{\alpha}$, we are done.
+	We identify $S^k_{R/A}(M)$ with its image under inclusion $S^k_{R/A}(M) \to S_{R/A}(M)$ and let $\ol{\alpha}$ denote the image of $\alpha \in D^k_{R/A}(M)$ in $S^k_{R/A}(M)$. For $\alpha \in D^m_{R/A}(M)$ and $\beta \in D^n_{R/A}(M)$, we have $[\alpha,\beta] \in D^{m+n-1}_{R/A}(M)$ by Proposition \ref{prop:order-interactions} (C), hence $\ol{\alpha}\ol{\beta} - \ol{\beta}\ol{\alpha} = \ol{[\alpha,\beta]} = 0$. Since every element of $S_{R/A}(M)$ can be written as a sum of finitely many $\ol{\alpha}$, we are done.
 \end{prf}
 
-Now let us focus on the $R$-module $D^1_{R/A}(M)$.
+\subsubsection{Derivations}
+As of yet there has been no reason to restrict our generality, but now, we focus our attention exclusively on rings of differential operators of the form $D_{R/A}$. We already understand operators of order 0; since $D^0_{R/A} = \Hom_R(R,R) \cong R$, they're simply the operators of the form $\hatf$ for some $f\in R$. In this section we seek to understand the operators of order 1 as well.Let us consider for a moment $D^1_{R/A}$.
+
+Recall that an $A$-derivation of $R$ is an $A$-linear map $d:R\to R$ such that $d(ab) = ad(b) + d(a)b$ for all $a,b\in R$. Note that $d(1) = d(1\cdot 1) = d(1) - d(1) = 0$. Further notice that for any derivation $d \in \Der_A(R)$ and $f,r \in R$,
+\begin{align*}
+	[d,\hatf](r) = d\left(\hatf(r)\right) - \hatf\left(d(r)\right) = d(fr) - fd(r) = d(f)r.
+\end{align*}
+This means that $[d,\hatf]$ is simply $\widehat{d(f)} \in D^0_{R/A}$ as a map on $R$, hence we have an inclusion $\iota: \Der_A(R) \hookrightarrow D^1_{R/A}$.
+
+Let's now consider an arbitrary element $\alpha \in D^1_{R/A}$. The map $\alpha' = \alpha - \widehat{\alpha(1)}$ is also an order 1 operator by Lemma \ref{lem:fixed-order-ops-form-module}; in fact, it's a derivation. Indeed, it is $A$-linear by virtue of its membership to $D^1_{R/A}$ and for any $r,s\in R$ we have
+\begin{align*}
+	\alpha'(rs) = \alpha'\hatr(s) = (\hatr \alpha')(s) + \widehat{\alpha'(r)}(s) = r\alpha'(s) + \alpha'(r)s
+\end{align*}
+since $[\alpha',\hatr] = \alpha'(r)$. 
+
+Consider then the map $\varphi:D^1_{R/A}\to \Der_A(R)$ defined $\varphi(\alpha) = \alpha - \widehat{\alpha(1)}$. It is $A$-linear, and since $\alpha(1) = 0$ for any derivation $\alpha$, $\varphi\circ \iota$ is the identity on $\Der_A(R)$. This means the short exact sequence
+\begin{align*}
+	0 \to \ker \varphi \to D^1_{R/A} \to{\varphi} \Der_R(A) \to 0
+\end{align*}
+splits, giving us an isomorphism $D^1_{R/A} \cong \ker \varphi\varphi \Der_R(A)$. However, $\varphi(\alpha) = 0$ precisely when $\alpha = \widehat{\alpha(1)}$, i.e. when $\alpha \in D^0_{R/A} \cong \Hom_R(R,R) \cong R$. The results of this discussion are summarized in the proposition below.
+
+\begin{prop}\label{prop:order-one-operators}
+	Let $A\to R$ be a map of commutative rings. Then $D^1_{R/A}\cong R\oplus \Der_A(R)$ as $A$-modules via the map which sends $(f,d) \in R\oplus \Der_A(R)$ to $d + \hatf$. \hfill $\square$
+\end{prop}
 \subsection{The Weyl Algebras}
 
-We now turn our attention to the case in which $A = K$ and $R = K[x_1,...,x_n]$, where $K$ is a field. The ring $D_{R/K}$ in this case is called the \emph{n\textsuperscript{th} Weyl Algebra}. The first Weyl algebra is an early example of a ring of diffferential operators, first appearing as Dirac's \emph{quantum algebra} consisting of polynomial expressions in variables $p$ and $q$ subject to the relation $pq - qp = 1$. Weyl algebras admit tractable, explicit descriptions in terms of generators and relations, and therefore serve as a fantastic source of examples. They also serve as a good starting place for a newcomer to the study of $D$-modules seeking to develop intuition (e.g. the author of this essay).
+We now turn our attention to the case where $A = K$ and $R = K[x_1,...,x_n]$, where $K$ is a field. The ring $D_{R/K}$ in this case is called the \emph{n\textsuperscript{th} Weyl Algebra}. The first Weyl algebra is an early example of a ring of diffferential operators, first appearing as Dirac's \emph{quantum algebra} consisting of polynomial expressions in variables $p$ and $q$ subject to the relation $pq - qp = 1$. Weyl algebras admit tractable, explicit descriptions in terms of generators and relations, and therefore serve as a fantastic source of examples. They also serve as a good starting place for a newcomer to the study of $D$-modules seeking to develop intuition (e.g. the author of this essay).
 
 Our first aim in this section is to prove that the three main presentations of the n\textsuperscript{th} Weyl algebra are equivalent.
 
