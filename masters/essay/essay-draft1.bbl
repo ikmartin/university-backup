@@ -116,56 +116,6 @@
       \field{pages}{xvi+496}
       \range{pages}{-1}
     \endentry
-    \entry{d-mod_ps_rt}{book}{}
-      \name{author}{3}{}{%
-        {{hash=34da163046465e6a62ceb34ba3384f42}{%
-           family={Hotta},
-           familyi={H\bibinitperiod},
-           given={Ryoshi},
-           giveni={R\bibinitperiod}}}%
-        {{hash=aa6eade6441993ee7e01fdd35496598a}{%
-           family={Takeuchi},
-           familyi={T\bibinitperiod},
-           given={Kiyoshi},
-           giveni={K\bibinitperiod}}}%
-        {{hash=486d52cfce814e735994df407bc54c96}{%
-           family={Tanisaki},
-           familyi={T\bibinitperiod},
-           given={Toshiyuki},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Birkhäuser Boston, Inc., Boston, MA}%
-      }
-      \strng{namehash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
-      \strng{fullhash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
-      \strng{bibnamehash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
-      \strng{authorbibnamehash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
-      \strng{authornamehash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
-      \strng{authorfullhash}{2a131e0a06f9f3fb3155ab8e63ee5dac}
-      \field{labelalpha}{HTT08}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{978-0-8176-4363-8}
-      \field{note}{Translated from the 1995 Japanese edition by Takeuchi}
-      \field{series}{Progress in Mathematics}
-      \field{title}{{$D$}-modules, perverse sheaves, and representation theory}
-      \field{volume}{236}
-      \field{year}{2008}
-      \field{pages}{xii+407}
-      \range{pages}{-1}
-      \verb{doi}
-      \verb 10.1007/978-0-8176-4523-6
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/978-0-8176-4523-6
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/978-0-8176-4523-6
-      \endverb
-    \endentry
     \entry{ksmith95-d-mod-f-split}{article}{}
       \name{author}{1}{}{%
         {{hash=06ab99a7785702b67b6d9d8d3c62034a}{%
@@ -232,6 +182,7 @@
       \range{pages}{1}
     \endentry
   \enddatalist
+  \missing{d-mod_ps_rt}
 \endrefsection
 \endinput
 

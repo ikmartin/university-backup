@@ -2344,16 +2344,22 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">main.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">ginzburg_d-mod</bcf:citekey>
-    <bcf:citekey order="2">bernstein_d-mod</bcf:citekey>
-    <bcf:citekey order="3">d-mod-primer</bcf:citekey>
-    <bcf:citekey order="4">d-mod-primer</bcf:citekey>
-    <bcf:citekey order="5">d-mod_ps_rt</bcf:citekey>
-    <bcf:citekey order="6">ginzburg_d-mod</bcf:citekey>
-    <bcf:citekey order="7">hartshorne</bcf:citekey>
-    <bcf:citekey order="8">amon92</bcf:citekey>
-    <bcf:citekey order="9">amon92</bcf:citekey>
-    <bcf:citekey order="10">ksmith95-d-mod-f-split</bcf:citekey>
+    <bcf:citekey order="1">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="2">d-mod_ps-rt</bcf:citekey>
+    <bcf:citekey order="3">jeffries_d-mod</bcf:citekey>
+    <bcf:citekey order="4">ginzburg_d-mod</bcf:citekey>
+    <bcf:citekey order="5">bernstein_d-mod</bcf:citekey>
+    <bcf:citekey order="6">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="7">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="8">ginzburg_d-mod</bcf:citekey>
+    <bcf:citekey order="9">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="10">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="11">d-mod_ps-rt</bcf:citekey>
+    <bcf:citekey order="12">ginzburg_d-mod</bcf:citekey>
+    <bcf:citekey order="13">hartshorne</bcf:citekey>
+    <bcf:citekey order="14">amon92</bcf:citekey>
+    <bcf:citekey order="15">amon92</bcf:citekey>
+    <bcf:citekey order="16">ksmith95-d-mod-f-split</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

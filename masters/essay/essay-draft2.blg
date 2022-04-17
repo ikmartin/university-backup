@@ -1,17 +1,17 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'essay-draft2.blg'
-[44] biber:340> INFO - === Wed Apr 13, 2022, 16:07:02
-[53] Biber.pm:415> INFO - Reading 'essay-draft2.bcf'
-[96] Biber.pm:952> INFO - Found 7 citekeys in bib section 0
-[104] Biber.pm:4340> INFO - Processing section 0
-[110] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
-[193] bibtex.pm:1689> INFO - LaTeX decoding ...
-[208] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
-[242] Utils.pm:395> WARN - ISBN '0-521-55119-6; 0-521-55908-1' in entry 'd-mod-primer' is invalid - run biber with '--validate_datamodel' for details.
-[264] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[264] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[264] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[264] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[270] bbl.pm:654> INFO - Writing 'essay-draft2.bbl' with encoding 'UTF-8'
-[273] bbl.pm:757> INFO - Output to essay-draft2.bbl
-[273] Biber.pm:128> INFO - WARNINGS: 1
+[44] biber:340> INFO - === Sat Apr 16, 2022, 20:06:36
+[52] Biber.pm:415> INFO - Reading 'essay-draft2.bcf'
+[95] Biber.pm:952> INFO - Found 8 citekeys in bib section 0
+[103] Biber.pm:4340> INFO - Processing section 0
+[109] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
+[183] bibtex.pm:1689> INFO - LaTeX decoding ...
+[198] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
+[226] Utils.pm:395> WARN - ISBN '0-521-55119-6; 0-521-55908-1' in entry 'd-mod-primer' is invalid - run biber with '--validate_datamodel' for details.
+[251] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[251] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[251] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[252] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[258] bbl.pm:654> INFO - Writing 'essay-draft2.bbl' with encoding 'UTF-8'
+[260] bbl.pm:757> INFO - Output to essay-draft2.bbl
+[260] Biber.pm:128> INFO - WARNINGS: 1

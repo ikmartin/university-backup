@@ -144,7 +144,7 @@
       \field{pages}{xvi+496}
       \range{pages}{-1}
     \endentry
-    \entry{d-mod_ps_rt}{book}{}
+    \entry{d-mod_ps-rt}{book}{}
       \name{author}{3}{}{%
         {{hash=34da163046465e6a62ceb34ba3384f42}{%
            family={Hotta},
@@ -192,6 +192,35 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1007/978-0-8176-4523-6
+      \endverb
+    \endentry
+    \entry{jeffries_d-mod}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=0eaf71fc0b736127ce5dc71ccc3589ef}{%
+           family={Jeffries},
+           familyi={J\bibinitperiod},
+           given={Jack},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{0eaf71fc0b736127ce5dc71ccc3589ef}
+      \strng{fullhash}{0eaf71fc0b736127ce5dc71ccc3589ef}
+      \strng{bibnamehash}{0eaf71fc0b736127ce5dc71ccc3589ef}
+      \strng{authorbibnamehash}{0eaf71fc0b736127ce5dc71ccc3589ef}
+      \strng{authornamehash}{0eaf71fc0b736127ce5dc71ccc3589ef}
+      \strng{authorfullhash}{0eaf71fc0b736127ce5dc71ccc3589ef}
+      \field{labelalpha}{Jef21}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online Lecture Notes}
+      \field{title}{{$D$}-modules}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://jack-jeffries.github.io/S2020/D-modules.pdf
+      \endverb
+      \verb{url}
+      \verb https://jack-jeffries.github.io/S2020/D-modules.pdf
       \endverb
     \endentry
     \entry{ksmith95-d-mod-f-split}{article}{}
