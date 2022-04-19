@@ -44,7 +44,15 @@ Let $A\to R$ be a map of rings and let $M$ and $N$ be two $R$-modules. We may id
 	It is worth noting that $\alpha \in D_{R/A}(M,N)$ satisfies $[\alpha,\hatf] = 0 \in D^{-1}_{R/A}(M,N)$ exactly when $\alpha$ is $R$-linear, hence $D_{R/A}(M,N) = \Hom_R(M,N)$. Many sources, \cite{ginzburg_d-mod} and \cite{bernstein_d-mod} for instance, simply define $D^0_{R/A}(M,N) = \Hom_{R}(M,N)$ and proceed inductively from there.
 \end{rmk}
 
-The following lemma is elementary but nonetheless quite important:
+\begin{example}\label{example:module-finite-K-alg-diff-ops}
+	As a first example, suppose $K$ is a field and $R$ is a module finite $K$-algebra. Once we fix a basis for $R$, for any $f \in R$ the operator $\hatf$ is simply the diagonal matrix $fI$, where $I$ is the identity matrix. Any other map $A \in \Hom_K(R,R)$ then satisfies
+	\begin{align*}
+		A\circ \hatf = A\cdot fI = fI\cdot A = \hatf\circ A,
+	\end{align*}
+	hence $[A,\hatf] = 0$ and $A \in D^0_{R/K}$. It then follows that $D_{R/K} = \Hom_K(R,R)$.
+\end{example}
+
+We will see far more interesting examples later in section \ref{sec:Weyl-algebra} and \ref{sec:diff-op-examples}, but first we lay out some of the basis structure of rings of differential operators in general. The following lemma is elementary but nonetheless quite important:
 \begin{lem}\label{lem:fixed-order-ops-form-module}
 	For each $k \in \bZ$ we have an inclusion $D^{k-1}_{R/A}(M,N) \subseteq D^k_{R/A}(M,N)$. Furthermore, $D^k_{R/A}(M,N)$ is a left $R$-module under the action $f\alpha \mapsto \hatf\circ \alpha$ and a right $R$-module under the action $\alpha f \mapsto \alpha \circ \hatf$. This particularly implies that $R_{R/A}(M,N)$ is a left and right $R$-module under these same actions.
 \end{lem}
@@ -58,7 +66,7 @@ The following lemma is elementary but nonetheless quite important:
 		  &= \hata\alpha\hatf - \hata\hatf\alpha + \hatb\beta\hatf - \hatb\hatf\beta \\
 		  &= \hata[\alpha,\hatf] + \hatb[\beta,\hatf].
 	\end{align*}
-	Both $\hata[\alpha,\hatf]$ and $\hatb[\beta,\hatf]$ are elements of the left $R$-module $D^{k-1}_{R/A}(M,N)$, hence so is their sum. The proof that $D^k_{R/A}(M,N)$ is a right $R$-module is similar, so we are done.
+	Both $\hata[\alpha,\hatf]$ and $\hatb[\beta,\hatf]$ are elements of the left $R$-module $D^{k-1}_{R/A}(M,N)$, hence so is their sum. The proof that $D^k_{R/A}(M,N)$ is a right $R$-module is similar.
 \end{prf}
 \begin{notate}$ $
 	\begin{itemize}
@@ -173,7 +181,7 @@ splits, giving us an isomorphism $D^1_{R/A} \cong \ker \varphi\varphi \Der_R(A)$
 \begin{prop}\label{prop:order-one-operators}
 	Let $A\to R$ be a map of commutative rings. Then $D^1_{R/A}\cong R\oplus \Der_A(R)$ as $A$-modules via the map which sends $(f,d) \in R\oplus \Der_A(R)$ to $d + \hatf$. \hfill $\square$
 \end{prop}
-\subsection{The Weyl Algebras}
+\subsection{The Weyl Algebras}\label{sec:Weyl-algebra}
 
 Throughout this section $A = K$ and $R = K[x_1,...,x_n]$, where $K$ is a field. The ring $D_{R/K}$ in this case is called the \emph{n\textsuperscript{th} Weyl Algebra}. The first Weyl algebra is an early example of a ring of diffferential operators, first appearing as Dirac's \emph{quantum algebra} consisting of polynomial expressions in variables $p$ and $q$ subject to the relation $pq - qp = 1$. Weyl algebras admit tractable, explicit descriptions in terms of generators and relations and thereby serve as a fantastic source of examples. They also provide a good starting point for newcomers seeking to develop intuition (e.g. the author of this essay).
 
@@ -341,7 +349,7 @@ from which it follows that $D_1$ has a nontrivial center, a two-sided ideal.
 
 To summarize, when working with rings of differential operators $D_{R/K}$, it is necessary to fix either the characteristic of $K$ or the choice of definition for $D_{R/K}$. In this document we have chosen to do the later -- in situations of prime characteristic, we use the definition for $D_{R/K}$ given in Section \ref{sec:general-diff-ops}.
 
-\subsection{Examples of Differential Operators}
+\subsection{Examples of Differential Operators}\label{sec:diff-op-examples}
 \section{\textit{D}-Modules: Basic Definitions and Facts}
 A $D$-module is simply a module over a ring of differential operators, i.e. a left or right $D_{R/A}$-module. We start this section with several examples before discussing the more general, basic theory of $D$-modules.
 
@@ -425,7 +433,7 @@ Extending this multiplication to all of $\gr^\cF R$ by distributivity makes $\gr
 	\begin{align*}
 		\pi_1(\partial_i x_i) = \pi_1(x_i\partial_i + 1) = \pi_1(x_i\partial_i) + \pi_1(1) = \pi_1(x_i\partial_i),
 	\end{align*}
-	so $[\partial_i,x_i] = 0$ in $B_1/B_0$. This gives us commutativity in $S_n$ and allows us to define a surjective homomorphism $K[y_1,...,y_{2n}] \to S_n$. Since there are no additional relations between the generators $x_1,...,x_n,\partial_1,...,\partial_n$, this is an isomorphism. Coutinho's proof fills in the details of this sketch, found here \cite[pg. 58]{d-mod-primer}.
+	so $[\partial_i,x_i] = 0$ in $B_1/B_0$. This gives us commutativity in $S_n$ and allows us to define a surjective homomorphism $K[y_1,...,y_{2n}] \to S_n$. Since there are no additional relations between the generators $x_1,...,x_n,\partial_1,...,\partial_n$, this is an isomorphism. Coutinho's proof fills in the details of this sketch \cite[pg. 58]{d-mod-primer}.
 \end{example}
 
 \begin{defn}\label{defn:filtered-module}	
@@ -560,6 +568,8 @@ When $s$ is an integer and $f^s$ is treated not as a formal symbol but as a powe
 
 \section{Inverse Images, Direct Images and Kashiwara's Theorem}
 Here we introduce two operations on $D$-modules, inverse images and direct images, and Kashiwara's theorem. We discuss the former first. As should be expected by now, some algebraic constructions are brushed under the rug, the tensor product of bimodules perhaps chief among them. The reader may wish to visit \cite{d-mod-primer}, \cite{d-mod_ps-rt} or \cite{ginzburg_d-mod} if this is unfamiliar.
+
+Throughout this section we restrict ourselves to the case in which $D_{R/K}$ is generated by $\Der_{K}(R)$ and $R$, as is the primary setting in \cite{d-mod_ps-rt} for instance. This setting is slightly more general than one might think. Alluding to the global case for a minute, it is true that $D_X$ is locally generated by 
 
 \subsection{Inverse Images}
 Let $R = K[x_1,...,x_n]$, $S = K[y_1,...,y_m]$ and $M$ be a left $A_n$-module. We wish to build a left $A_m$-module from $M$ in a meaningful way. Suppose further that we are given a polynomial map $F:K^m\to K^n$ whose coordinate polynomials are $F_1,...,F_n\in K[y_1,...,y_m]$. Composition with $F$ gives a map of rings $\varphi:R\to S$ defined $f\mapsto f\circ F$, and in particular, we may view $S$ as an $R$-module via the $R$-action given by $\varphi$. The tensor product $S\otimes_R M$ is then an $S$-module denoted $F^*M$, and we want to turn it into an $A_m$-module. The action of polynomials on $F^*M$ is known, and we define the action of $\partial_{y_i}$ by

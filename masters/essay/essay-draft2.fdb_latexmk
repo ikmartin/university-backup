@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber essay-draft2"] 1650135995 "essay-draft2.bcf" "essay-draft2.bbl" "essay-draft2" 1650198524
+["biber essay-draft2"] 1650135995 "essay-draft2.bcf" "essay-draft2.bbl" "essay-draft2" 1650275159
   "/home/lwkatzen/texmf/bibtex/bib/main.bib" 1650020865 6500 cf9ef73eb14f6fcabd0a027522dc7b47 ""
-  "essay-draft2.bcf" 1650198399 107830 e54f4519616cc7d82caa959b9ade29b6 "pdflatex"
+  "essay-draft2.bcf" 1650275153 107830 e54f4519616cc7d82caa959b9ade29b6 "pdflatex"
   (generated)
   "essay-draft2.bbl"
   "essay-draft2.blg"
-["pdflatex"] 1650198524 "essay-draft2.tex" "essay-draft2.pdf" "essay-draft2" 1650198524
+["pdflatex"] 1650275159 "essay-draft2.tex" "essay-draft2.pdf" "essay-draft2" 1650275159
   "../preamble.tex" 1650198119 945 7adc34b7d81dac7a5a118841e6c8aebf ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty" 1649887042 10472 fd872bd9d765d5cb6db207702c623609 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1649887041 33048 8afb53835283a974617732c202f305d0 ""
@@ -299,12 +299,12 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643846389 4379201 718a59215bccc89d4f89ee72c554b0e8 ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643846402 2796796 2c18e0876449a496ae83bd1419ea9c78 ""
   "/usr/local/texlive/2021/texmf.cnf" 1643846386 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "essay-draft2.aux" 1650198399 21479 3aa350874ebf7eacbf65f507392a5761 "pdflatex"
+  "essay-draft2.aux" 1650275153 21948 b3a2fc34fccbadacd005c3c766e8b7e1 "pdflatex"
   "essay-draft2.bbl" 1650135996 10979 11085fe0739938b8907ff4b4c1ed87a9 "biber essay-draft2"
-  "essay-draft2.out" 1650198399 4657 dd2e58abc14ec3370fe42a4805259e51 "pdflatex"
-  "essay-draft2.run.xml" 1650198399 2361 b60a86500778824c2b7d4362a6bed013 "pdflatex"
-  "essay-draft2.tex" 1650198524 56490 1e3d10ed335ca1f769baf9eda3f0ac27 ""
-  "essay-draft2.toc" 1650198399 3047 a5d110457089e18ff06643261a56a3e3 "pdflatex"
+  "essay-draft2.out" 1650275153 4657 dd2e58abc14ec3370fe42a4805259e51 "pdflatex"
+  "essay-draft2.run.xml" 1650275153 2361 b60a86500778824c2b7d4362a6bed013 "pdflatex"
+  "essay-draft2.tex" 1650275158 57263 d99c62ada90297f3ef336df70e2be2a4 ""
+  "essay-draft2.toc" 1650275153 3047 3b12fc0c7b92452ecfbba44141744096 "pdflatex"
   (generated)
   "essay-draft2.aux"
   "essay-draft2.bcf"
