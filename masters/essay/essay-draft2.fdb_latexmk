@@ -1,11 +1,11 @@
 # Fdb version 3
-["biber essay-draft2"] 1650135995 "essay-draft2.bcf" "essay-draft2.bbl" "essay-draft2" 1650275159
+["biber essay-draft2"] 1650403699 "essay-draft2.bcf" "essay-draft2.bbl" "essay-draft2" 1650463418
   "/home/lwkatzen/texmf/bibtex/bib/main.bib" 1650020865 6500 cf9ef73eb14f6fcabd0a027522dc7b47 ""
-  "essay-draft2.bcf" 1650275153 107830 e54f4519616cc7d82caa959b9ade29b6 "pdflatex"
+  "essay-draft2.bcf" 1650463289 107885 0459c4619b8d6096d5dab3fdfe037d2c "pdflatex"
   (generated)
   "essay-draft2.bbl"
   "essay-draft2.blg"
-["pdflatex"] 1650275159 "essay-draft2.tex" "essay-draft2.pdf" "essay-draft2" 1650275159
+["pdflatex"] 1650463418 "essay-draft2.tex" "essay-draft2.pdf" "essay-draft2" 1650463418
   "../preamble.tex" 1650198119 945 7adc34b7d81dac7a5a118841e6c8aebf ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty" 1649887042 10472 fd872bd9d765d5cb6db207702c623609 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1649887041 33048 8afb53835283a974617732c202f305d0 ""
@@ -20,6 +20,8 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cyrillic/wncyr10.tfm" 1246382020 1560 6124d052cbd335b9a9796fb029bfb3e2 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm" 1246382020 1040 b84415f97d114011685943ade933dc71 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm" 1246382020 1040 82eb6630b094bff824fccca83ff507f9 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
@@ -63,6 +65,7 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb" 1336858727 21098 d4aee7c0aac232caac5688b586b9363c ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb" 1640468671 239149 b459cdf3364a26072e94167b64f425b2 ""
@@ -164,6 +167,7 @@
   "/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1359763108 13829 94730e64147574077f8ecfea9bb69af4 ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/euscript.sty" 1359763108 1319 275cecae59b75cbd38ce73df76acdb23 ""
+  "/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd" 1359763108 1047 4252767c0fde12e3ce9f914ef4bb1ea1 ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsa.fd" 1359763108 961 6518c6525a34feb5e8250ffa91731cff ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd" 1359763108 961 d02606146ba5601b5645f987c92e6193 ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/amsmath/amsbsy.sty" 1622667781 2222 da905dc1db75412efd2d8f67739f0596 ""
@@ -242,6 +246,7 @@
   "/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.cfg" 1639175081 26645 99abe152cb45cee54a727fdf4ef65681 ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.sty" 1639175081 88856 75be68db27878453d58d492b457973ea ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-cmr.cfg" 1635714533 22905 d04845fe2810f982374bd0d47ab7706c ""
+  "/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg" 1635714533 3023 998f481ca90a076b0bbf8a1229b81abf ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-msa.cfg" 1635714533 5928 73817a3576c87e17bcff2a717017f3ec ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-msb.cfg" 1635714533 5593 428f02443ecf7ba7329e84a32c80d72c ""
   "/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-ptm.cfg" 1635714533 12426 8c5117e9cfc533783a87ab02a1f9115f ""
@@ -299,12 +304,12 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643846389 4379201 718a59215bccc89d4f89ee72c554b0e8 ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643846402 2796796 2c18e0876449a496ae83bd1419ea9c78 ""
   "/usr/local/texlive/2021/texmf.cnf" 1643846386 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "essay-draft2.aux" 1650275153 21948 b3a2fc34fccbadacd005c3c766e8b7e1 "pdflatex"
-  "essay-draft2.bbl" 1650135996 10979 11085fe0739938b8907ff4b4c1ed87a9 "biber essay-draft2"
-  "essay-draft2.out" 1650275153 4657 dd2e58abc14ec3370fe42a4805259e51 "pdflatex"
-  "essay-draft2.run.xml" 1650275153 2361 b60a86500778824c2b7d4362a6bed013 "pdflatex"
-  "essay-draft2.tex" 1650275158 57263 d99c62ada90297f3ef336df70e2be2a4 ""
-  "essay-draft2.toc" 1650275153 3047 3b12fc0c7b92452ecfbba44141744096 "pdflatex"
+  "essay-draft2.aux" 1650463289 23461 955e0ccf64affc570d61f94f6d5389e6 "pdflatex"
+  "essay-draft2.bbl" 1650403700 9856 90fb85bc7d6ac5475335f0f9e70cf263 "biber essay-draft2"
+  "essay-draft2.out" 1650463289 5167 e4c071ed8e0c3ca231be093011d90970 "pdflatex"
+  "essay-draft2.run.xml" 1650463289 2361 b60a86500778824c2b7d4362a6bed013 "pdflatex"
+  "essay-draft2.tex" 1650463417 63016 60701b526b2ef8aaf1d4d52d7e05010e ""
+  "essay-draft2.toc" 1650463289 3332 db8e598e643ebf07de4f9bdfc031478d "pdflatex"
   (generated)
   "essay-draft2.aux"
   "essay-draft2.bcf"

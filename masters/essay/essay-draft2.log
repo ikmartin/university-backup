@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  18 APR 2022 10:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  20 APR 2022 15:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1209,26 +1209,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathcal' in version `bold'
 File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )) (/usr/local/texlive/2021/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
-)
-
-./essay-draft2.tex:9: LaTeX Error: Option clash for package geometry.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.9 
-    
-The package geometry has already been loaded with options:
-  [tmargin=1in,bmargin=1in,lmargin=0.8in,rmargin=1in]
-There has now been an attempt to load it with options
-  [showframe]
-Adding the global options:
-  tmargin=1in,bmargin=1in,lmargin=0.8in,rmargin=1in,showframe
-to your \documentclass declaration may fix this.
-Try typing  <return>  to proceed.
-
-(/usr/local/texlive/2021/texmf-dist/tex/latex/titling/titling.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/titling/titling.sty
 Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip98
 \thanksmargin=\skip99
@@ -1434,9 +1415,9 @@ Package microtype Info: Loading generic protrusion settings for font family
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 (Font)              scaled to size 10.95pt on input line 3.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
-(Font)              scaled to size 10.95pt on input line 17.
+(Font)              scaled to size 10.95pt on input line 21.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.95pt on input line 19.
+(Font)              scaled to size 10.95pt on input line 23.
 )
 \tf@toc=\write6
 \openout6 = `essay-draft2.toc'.
@@ -1469,54 +1450,118 @@ LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 (Font)              scaled to size 10.29301pt on input line 121.
  [6]
 Package hyperref Info: bookmark level for unknown cor defaults to 0 on input line 147.
- [7]
+ [7] [8]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 8.0pt on input line 186.
-Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 190.
- [8] [9] [10] [11]
+(Font)              scaled to size 8.0pt on input line 236.
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 240.
+ [9] [10] [11] [12]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 420.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
+File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
+)
 LaTeX Font Info:    Font shape `T1/qhv/b/it' will be
-(Font)              scaled to size 13.53603pt on input line 353.
+(Font)              scaled to size 13.53603pt on input line 425.
+ [13]
 LaTeX Font Info:    Font shape `T1/qhv/b/it' will be
-(Font)              scaled to size 11.28003pt on input line 357.
- [12] [13] [14] [15]
+(Font)              scaled to size 11.28003pt on input line 429.
+ [14] [15] [16]
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 10.29301pt on input line 516.
- [16] [17] [18] [19] [20]
+(Font)              scaled to size 10.29301pt on input line 588.
+ [17] [18] [19]
+
+./essay-draft2.tex:679: LaTeX Error: Command \end{example} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.679 \end{example}
+                   
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./essay-draft2.tex:679: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.679 \end{example}
+                   
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./essay-draft2.tex:679: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.679 \end{example}
+                   
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./essay-draft2.tex:679: Missing $ inserted.
+<inserted text> 
+                $
+l.679 \end{example}
+                   
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+./essay-draft2.tex:679: Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.679 \end{example}
+                   
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+[20] [21] [22]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 668.
+(Font)              scaled to size 10.95pt on input line 747.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/ntxtlf/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 668.
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 747.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.95pt on input line 668.
+(Font)              scaled to size 10.95pt on input line 747.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ntxtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [21] (./essay-draft2.aux)
+ [23] (./essay-draft2.aux)
 Package rerunfilecheck Info: File `essay-draft2.out' has not changed.
-(rerunfilecheck)             Checksum: DD2E58ABC14EC3370FE42A4805259E51;4657.
+(rerunfilecheck)             Checksum: E4C071ED8E0C3CA231BE093011D90970;5167.
 Package logreq Info: Writing requests to 'essay-draft2.run.xml'.
 \openout1 = `essay-draft2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 41936 strings out of 478287
- 826120 string characters out of 5846765
- 1640087 words of memory out of 5000000
- 58986 multiletter control sequences out of 15000+600000
- 549290 words of font info for 202 fonts, out of 8000000 for 9000
+ 41982 strings out of 478287
+ 826983 string characters out of 5846765
+ 1640152 words of memory out of 5000000
+ 59011 multiletter control sequences out of 15000+600000
+ 550079 words of font info for 206 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,21n,102p,3063b,1821s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on essay-draft2.pdf (21 pages, 444896 bytes).
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist
+/fonts/type1/public/newtx/ztmri.pfb>
+Output written on essay-draft2.pdf (23 pages, 458823 bytes).
 PDF statistics:
- 561 PDF objects out of 1000 (max. 8388607)
- 488 compressed objects within 5 object streams
- 183 named destinations out of 1000 (max. 500000)
- 47293 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 598 PDF objects out of 1000 (max. 8388607)
+ 520 compressed objects within 6 object streams
+ 194 named destinations out of 1000 (max. 500000)
+ 47309 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -115,35 +115,6 @@
       \verb https://people.math.harvard.edu/~gaitsgde/grad_2009/Ginzburg.pdf
       \endverb
     \endentry
-    \entry{hartshorne}{book}{}
-      \name{author}{1}{}{%
-        {{hash=ee65baaab88f9233fbad3d51c399ee25}{%
-           family={Hartshorne},
-           familyi={H\bibinitperiod},
-           given={Robin},
-           giveni={R\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer-Verlag, New York-Heidelberg}%
-      }
-      \strng{namehash}{ee65baaab88f9233fbad3d51c399ee25}
-      \strng{fullhash}{ee65baaab88f9233fbad3d51c399ee25}
-      \strng{bibnamehash}{ee65baaab88f9233fbad3d51c399ee25}
-      \strng{authorbibnamehash}{ee65baaab88f9233fbad3d51c399ee25}
-      \strng{authornamehash}{ee65baaab88f9233fbad3d51c399ee25}
-      \strng{authorfullhash}{ee65baaab88f9233fbad3d51c399ee25}
-      \field{labelalpha}{Har77}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{isbn}{0-387-90244-9}
-      \field{series}{Graduate Texts in Mathematics, No. 52}
-      \field{title}{Algebraic geometry}
-      \field{year}{1977}
-      \field{pages}{xvi+496}
-      \range{pages}{-1}
-    \endentry
     \entry{d-mod_ps-rt}{book}{}
       \name{author}{3}{}{%
         {{hash=34da163046465e6a62ceb34ba3384f42}{%
