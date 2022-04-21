@@ -20,14 +20,14 @@
 \section*{Introduction}
 Write this later.
 
-The exposition on $D$-modules was largely informed by \cite{d-mod-primer} and \cite{d-mod_ps-rt}, while the online notes \cite{jeffries_d-mod} by Jack Jeffries inspired the treatment of differential operators in section 1. 
+The exposition on $D$-modules was largely informed by \cite{d-mod-primer} and \cite{d-mod_ps-rt}, while the online notes \cite{jeffries_d-mod} by Jack Jeffreys inspired the treatment of differential operators in section 1. 
 
-\section*{Acknowledgements}
+\section*{Acknowledgments}
 \newpage
 \section{Differential Operators}
-One must first define fields before one defines vectors spaces, define rings before modules, and indeed, one must first understand the ring of differential operators before one can study $D$-modules. In this section we do exactly that. We first define the ring of differential operators relative to an arbitrary ring homomorphism and discuss some of its basic properties before zooming in on the case of the polynomial ring with field coefficients, whose ring of differential operators is called the Weyl algebra. This latter object will provide a more explicit setting and will motivate arguments in the general case. We conclude this section with several examples.
+One must first understand fields before one can define vectors spaces, and similarly one must first understand the ring of differential operators before one can study $D$-modules. In this section we do exactly that. We first define the ring of differential operators relative to an arbitrary ring homomorphism $A\to R$ and discuss some of its basic properties before focusing on the case where $A$ is a field and $R$ a polynomial ring with coefficients in $A$. This latter object will provide a more explicit setting and will motivate arguments in the general case. We discuss several other examples, and conclude this section by defining the sheaf of differential operators over a smooth variety.
 
-It is worth noting that there are several equivalent ways to define the ring of differential operators in characteristic zero. We discuss two such definitions in the case of the Weyl algebra over a field $K$ and show that they are equivalent when $\fchar(K) = 0$. However, when $\fchar(K) > 0$, these two definitions will no longer coincide. It therefore becomes necessary to fix either the field characteristic or a particular definition for the ring of differential operators, and in these notes, we will do the latter.
+It is worth noting that there are several equivalent ways to define the ring of differential operators in characteristic zero. We discuss two such definitions in the case of a polynomial ring over a field and show that they are equivalent when $\fchar(K) = 0$. However, when $\fchar(K) > 0$, these two definitions will no longer coincide. It therefore becomes necessary to fix either the field characteristic or a particular definition for the ring of differential operators, and in these notes, we will do the latter.
 
 \subsection{The Ring of Differential Operators over an Arbitrary Ring}\label{sec:general-diff-ops}
 Let $A\to R$ be a map of rings and let $M$ and $N$ be two $R$-modules. We may identify $R$ with a subring of $\End_R(M)$ via the map which sends an element $f \in R$ to the $R$-linear map $\hatf:m\mapsto f\cdot m$ on $M$. We denote the image of $f \in R$ in $\End_R(M)$ by $\hatf_M$ when there is risk of confusing the domain of $\hatf$ with some other module. Given a morphism $\alpha \in \Hom_R(M,N)$, we will often abuse notation and write $[\alpha, \hatf]$ to mean $\alpha \circ \hatf_M ~-~ \hatf_N\circ \alpha$. This is no longer an abuse of notation when $M = N$, in which case $[\alpha,\beta] = \alpha \circ \beta ~-~ \beta\circ\alpha$ is well-defined for any $\alpha, \beta \in \End_R(M)$.
@@ -86,7 +86,7 @@ It will be useful to establish some basic commutator relations. These have nothi
 		\item $[\hatf\alpha,\beta] = [\alpha,\hatf\beta] = \hatf[\alpha,\beta]$ for $f \in A$
 		\item $[\alpha,\beta] = -[\beta,\alpha]$
 		\item $[\alpha\beta,\gamma] = \alpha[\beta,\gamma] + [\alpha,\gamma]\beta$ and $[\alpha,\beta\gamma] = [\alpha,\beta]\gamma + \beta[\alpha,\gamma]$.
-		\item $[\alpha,[[\beta,\gamma]] + [\beta,[\gamma,\alpha]] + [\gamma,[\alpha,\beta]] = 0~$ \hspace{0.5em}(Jacobi identity).
+		\item $[\alpha,[\beta,\gamma]] + [\beta,[\gamma,\alpha]] + [\gamma,[\alpha,\beta]] = 0~$ \hspace{0.5em}(Jacobi identity).
 	\end{enumerate}
 \end{prop}
 \begin{prf}
@@ -199,7 +199,7 @@ Proposition \ref{prop:order-one-operators} tells us that to understand $D^1_{R/A
 	\end{align*}
 	Since monomials form a basis over $K$ for $R$, we get that $\alpha = \alpha(x_1)\partial_{x_1}~+~...~+~\alpha(x_n)\partial_{x_n}$. Hence $\{\partial_{x_1},...,\partial_{x_n}\}$ generates $\Der_K(R)$ as a $R$-module. In particular, $\Der_K(R)$ is a free-module over $R$ of rank $n$.
 \end{example}
-\begin{example}\label{example:cusp}
+\begin{example}\label{example:cusp-derivations}
 	As before, let $K$ be a field of characteristic zero. Consider the ring $R = K[t^2,t^3]$, noting that $R \cong K[x,y]/J$ for $J = (y^2 - x^3)$ via the map $x\mapsto t^2$ and $y\mapsto t^3$. As we will see, $\Der_K(R)$ is generated by $t\partial_t$ and $t^2\partial_t$.
 
 	First consider the derivations $D_1 = 2y\partial_x + 3x^2\partial_y$ and $D_2 = 3y\partial_y + 2x\partial_x$ on $K[x,y]$. They are also derivations on $K[x,y]/J$ since $D_1(J), D_2(J) \subseteq J$, and we will show they generate all of $\Der_K \left(K[x,y]/J\right)$. Any other derivation $\alpha$ on $K[x,y]/J$ can be written as $\alpha = f_1\partial_x + f_2\partial_y$ by the previous example with the extra condition that $\alpha(J)\subseteq J$. This is equivalent to the condition
@@ -378,13 +378,16 @@ Note that while $A_n$ does not have any proper nontrivial two-sided ideals, it h
 
 	Define a map $\psi: A_n\to D_n$ by setting $\psi(x^\alpha\partial^\beta) = y^{(\alpha,\beta)} + J$, noting that it suffices to define $\psi$ on monomials in canonical form. A quick check shows that each of the relations on the generators of $A_n$ given in Lemma \ref{lem:Weyl-algebra-relations} are preserved by $\psi$, so it is indeed a map of rings. Using the relations given by $J$, the same proof used in Lemma \ref{lem:canonical-basis} can be used to show $\{y^{\alpha,\beta} + J\}_{\alpha,\beta \subseteq \bN^n}$ is a basis for $D_n$, so it is clear that $\psi$ is surjective. Furthermore, $\psi$ is a map of unital rings and is therefore injective by Corollary \ref{cor:maps-from-Weyl-inj}. Hence $\psi$ is an isomorphism.
 
-	The isomorphism $A_n \to D_{R/K}$ is slightly more tedious and requires several lemmas, so we instead give a rough sketch of the proof and refer the reader to \cite[Chapter 3]{d-mod-primer}.
-
-	Denote by $C^k$ the subset of $A_n$ consisting of operators of degree at most $k$. From  Proposition \ref{prop:degree-properties} it is clear that $C^k \subseteq D^k_{R/K}$, so it suffices to prove the reverse inclusion. We proceed by induction.
-
-	For the base case, one show that every derivation $d \in \Der_K(R)$ is of the form $\sum_{i=1}^n \hatf_i\partial_i$, from whence we get $D^1_{R/K} = \Der_K(R)\oplus R = C^1$.
-	
-	\textbf{NOT FINISHED FINISH THE SKETCH YOU PIECE OF SHITTTTTTTTTT}
+	We now wish to prove $A_n \cong D_{R/K}$. Denote by $C_k$ the subset of $A_n$ consisting of operators of degree at most $k$. We use the following two facts without proof:
+	\begin{enumerate}[(i)]
+		\item If $P \in D_{R/K}$ and $[P,\hatx_i] = 0$ for each $1\leq i\leq n$, then $P \in R$ \hspace{1em} (\cite[Lemma 3.2.1]{d-mod-primer}).
+		\item Let $P_1,...,P_n \in C_{r-1}$ and assume that $[P_i,x_j] = [P_j,x_i]$ for all $1\leq i,j\leq n$. Then there exists $Q \in C_r$ such that $P_i = [Q,x_i]$, for $i=1,...,n$ \hspace{1em} (\cite[Lemma 3.2.2]{d-mod-primer}).
+	\end{enumerate}
+	From  Proposition \ref{prop:degree-properties} it is clear that $C_k \subseteq D^k_{R/K}$, so it suffices to prove the reverse inclusion. We proceed by induction. Proposition \ref{prop:order-one-operators} gives us the base case $k = 1$. Suppose then that $D^r_{R/K} = C_r$ for all $0\leq r \leq k - 1$ and that $P \in D^k_{R/K}$. Let $P_i = [P,\hatx_i]$ and note that $P_i \in D^{k-1}_{R/K}$ by definition. Since $\hatx_i$ and $\hatx_j$ commute for all $1\leq i,j \leq n$ we have
+	\begin{align*}
+		[P_i,x_j] = [[P,x_i],x_j] = [[P,x_j],x_i] = [P_j,x_j]
+	\end{align*}
+	by the Jacobi identity. By fact (ii) above, there exists some $Q \in C_k$ such that $[Q,x_i] = P_i$ for each $1\leq i\leq n$ and hence $[Q - P,x_i] = 0$. Then $Q - P \in R$ by fact (i) above, so $P = Q + \hatf$ for some $f \in R$. This means $P \in C_k$, and we are done.
 \end{prf}
 
 \subsubsection{Difficulties in Prime Characteristic}
@@ -400,16 +403,66 @@ Now consider $D_1$, the free algebra in $x$ and $\partial$ over $K$ modulo the r
 \end{align*}
 from which it follows that $D_1$ has a nontrivial center, a two-sided ideal.
 
+Furthermore, in characteristic zero, not all operators can be written as $R$-linear combinations of compositions of derivations. Take for instance the operator $\alpha \in D_{R/\bF_p}$ when $R = \bF_p[x]$ defined
+\begin{align*}
+	x^n \mapsto
+	\begin{cases}
+		\binom{n}{p}x^{n-p} & \text{if } n \geq p \\
+		0 & \text{otherwise}
+	\end{cases}.
+\end{align*}
+In characteristic zero, this operator is simply $\frac{1}{p!}\partial^p$, but in characteristic $p > 0$ it cannot be written as the composition of smaller order operators.
 \bigskip
 
 To summarize, when working with rings of differential operators $D_{R/K}$, it is necessary to fix either the characteristic of $K$ or the choice of definition for $D_{R/K}$. In this document we have chosen to do the later -- in situations of prime characteristic, we use the definition for $D_{R/K}$ given in Section \ref{sec:general-diff-ops}.
 
-\subsection{Examples of Differential Operators}\label{sec:diff-op-examples}
-We would now like to calculate explicit examples of $D_{R/A}$ for rings other than polynomial rings. 
+\subsection{Differential Operators on a Smooth Variety}\label{sec:diff-op-examples}
+It seems natural to ask whether there exist nice descriptions of $D_{R/K}$ comparable to those given by Theorem \ref{thm:Weyl-algebra-defs} and Lemma \ref{lem:canonical-basis} when $R$ is ``nearly a polynomial ring''. When ``nearly a polynomial ring'' is interpreted to mean ``a regular $K$-algebra of finite type, the answer turns out to be ``yes''. The regular hypothesis is quite necessary, as we shall see. Regular finitely-generated $K$-algebras are also precisely the local version of smooth algebraic varieties, which we introduce in the context of differential operators here. Throughout this section $K$ is still a field of characteristic zero.
+\subsubsection{Regular \textit{K}-Algebras of Finite Type}
 
-\subsection{Sheaf of Differential Operators Over a Smooth Variety}
+\begin{thm}\label{thm:regular-finite-K-algebra}
+	Let $R$ be a regular $K$-algebra of finite type. Then $D^m_{R/K}$ is generated as an $R$-module by all products of up to $m$ many $K$-derivations of $R$. In particular, $D_{R/K}$ is generated by $R$ and $\Der_K(R)$ as an $R$-module.
+\end{thm}
+\begin{prf}
+	The case in which $R$ is a domain is handled by \cite[Theorem 15.5.5]{mcconnell-robson}. Here is a rough outline of the ideas used: suppose $L = \Frac(R)$ and let $\{x_1,...,x_n\}$ be a transcendence basis for $L$ over $K$. One can pass to the polynomial ring $K[x_1,...,x_n]$ and use the fact that $\Der_K(L) = \sum L\cdot \partial/\partial x_i$ to show that $D_{L/K}$ is spanned by $L$ and $\Der_K(L)$ by mimicing the proof of the polynomial case. It then only remains to prove $D_{R/K} = \{\alpha \in D_{L/K} ~\mid~ \alpha(R) \subseteq R\}$.
 
-\begin{thm}\label{thm}
+	The general case is given by \cite[Theorem 1.15]{muhasky}. Every regular ring is reduced, hence the intersection of all minimal primes in $R$ is $0$. The ring $R$ can therefore be written as a product of domains by the Chinese Remainder Theorem. Muhasky uses the fact that $D_{(R_1\times R_2)/K} \cong D_{R_1/K} \times D_{R_2/K}$ to conclude.
+\end{prf}
+Let us examine two examples, one in which the hypotheses of Theorem \ref{thm:regular-finite-K-algebra} hold and one in which they do not.
+\begin{example}\label{example:elliptic-curve}
+	Let $K$ be a field of characteristic zero and set $R = K[x,y]/(f)$ where $f = x^3 - x - y^2$. As the matrix
+	\begin{align*}
+		\begin{bmatrix}
+			\frac{\partial f}{\partial x}(x_0,y_0) & \frac{\partial f}{\partial y}(x_0, y_0)
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			3x_0^2 - 1 & -2y_0
+		\end{bmatrix}
+	\end{align*}
+	is rank 1 for all points $(x_0,y_0)\in K^2$ in the graph of $f$, $R$ is easily seen to be regular by the Jacobian criterion. Hence, to understand $D_{R/K}$ it suffices to understand the derivations on $R$.
+
+	It isn't terribly difficult to see that the set of derivations on $R$ is given by
+	\begin{align*}
+		\Der_K(R) = \frac{\{\theta \in \Der_K(K[x,y])~|~ \theta((f)) \subseteq (f)\}}{(f)\Der_K(K[x,y])}.
+	\end{align*}
+	We know $\Der_K(R)$ is a one-dimensional $K$-vector space since $\Der_K(R)$ is two-dimensional by example \ref{example:derivations-of-poly-ring}. It therefore suffices to find one derivation $\theta:K[x,y] \to K[x,y]$ which fixes $(f)$ to compute $\Der_K(R)$. Furthermore, since $\theta(f\cdot g) = f\theta(g) + g\theta(f)$, $\theta$ fixes $(f)$ if and only if $\theta(f) \in (f)$, reducing our task of calculating $\Der_K(R)$ to finding a single derivation $\theta$ on $K[x,y]$ which sends $f$ to a multiple of itself. But this is exceptionally easy; the derivation $\theta = \partial_x(f)\partial_y - \partial_y(f)\partial_x$ maps $f$ to zero.
+
+	We conclude that $D_{R/K} = \bigoplus_{k=0}^\infty R\cdot \theta^k$ where $\theta = (3x^2 - 1)\partial_y + 2y\partial_x$.
+\end{example}
+\begin{example}\label{example:cubic-not-well-behaved}
+	We return to the curve $f = y^2 - x^3$, which has a singularity at the origin. Let $R = K[t^2,t^3]$ and recall from Example \ref{example:cusp-derivations} that $K[x,y]/(f) \cong K[t^2,t^3]$. 
+
+	Consider the operator $\alpha = t\partial_t^2 - \partial_t$ in $D_{K[t]/K}$. Since $\alpha(t^2) = 0$ and $\alpha(t^3) = 3t^2$, $\alpha(R) \subseteq R$ and therefore $\alpha|_{R} \in D_{R/K}$. However, $\Der_K(R)$ is generated as a vector space by $t\partial_t$ and $t^2\partial$, and by considering these to be operators on $K[t]$ it is clear that $\alpha$ is outside the subring of $D_{K[t]/K}$ generated by $t^2\partial_t$ and $t\partial_t$. Therefore $D_{R/K}$ is strictly larger than the ring generated by $\Der_K(R)$ and $R$, highlighting the need for the regular hypothesis in 
+\end{example}
+\subsubsection{Smooth Varieties}
+To conclude our discussion of differential operators, we define the sheaf of differential operators on a smooth variety, the primary setting of \cite{d-mod_ps-rt}. The definitions given here are precisely those found in section 1.1 of \cite{d-mod_ps-rt} contextualized within the discussion up to this point.
+
+\begin{defn}\label{defn:diff-ops-on-variety}
+	Let $X$ be a smooth variety over a field $K$ of characteristic zero and $\cO_X$ be its structure sheaf. We denote by $\sEnd_K\cO_X$ the sheaf of $K$-linear endomorphisms of $\cO_X$, i.e. $(\sEnd_K\cO_X)(U) = \End_K(\cO_X(U))$ for $U\subseteq X$. We say that a section $\theta \in (\sEnd_K\cO_X)(X)$ is a \emph{vector field on $X$} if for each open subset $U \subseteq X$ the restriction $\theta|_U$ is a $K$-derivation on $\cO_X(U)$. For any open subset $U \subseteq X$, the set of vector fields on $U$ is denoted $\Theta(U)$. Then $\Theta(U)$ is an $\cO_X(U)$-module, and the assignment $U\mapsto \Theta(U)$ is a sheaf of $\cO_X$-modules. We denote this sheaf by $\Theta_X$ and note that when $X$ is affine, $\Theta_X \cong \widetilde{\Der_K(\cO_X(X))}$.
+\end{defn}
+We then have the following theorem.
+\begin{thm}\label{thm:sheaf-of-vector-fields}
 	Let $X$ be a smooth algebraic variety of dimension $n$ over an algebraically closed field $K$. Then for each point $p \in X$, there exist an affine open neighborhood $V$ of $p$, regular functions $x_i \in K[V] = \cO_X(V),$ and vector fields $\partial_i \in \Theta_X(V)$ for $1\leq i\leq n$ satisfying the conditions
 	\begin{align*}
 		\begin{cases}
@@ -417,11 +470,27 @@ We would now like to calculate explicit examples of $D_{R/A}$ for rings other th
 			\Theta_V = \bigoplus_{i=1}^n \cO_V \partial_i
 		\end{cases}.
 	\end{align*}
-	Moreover, we can choose the functions $x_1,...,x_n$ so that they generate the maximal ideal $\frakm_p$ of $\cO_{X,p}$.
+	Moreover, we can choose the functions $x_1,...,x_n$ so that they generate the maximal ideal $\frakm_p$ of $\cO_{X,p}$. We call the set $\{x_i,\partial_i\}_{1\leq i\leq n}$ a \emph{local coordinate system of $p$ on $U$}.
 \end{thm}
 \begin{prf}
 	{\cite[Theorem A.5.1]{d-mod_ps-rt}}.
 \end{prf}
+It follows from Theorem \ref{thm:regular-finite-K-algebra} that for any affine open $U \subseteq X$, the ring of differential operators of $\cO_X(U)$ is generated by $\cO_X(U)$ and $\Theta_X(U)$. This justifies the following definition:
+\begin{defn}\label{defn:sheaf-of-differential-operators}
+	Let $X$ be a smooth variety over a field $K$ of characteristic zero. We define the sheaf $D_X$ of \emph{differential operators on $X$} to be the $K$-subalgebra of $\sEnd_{K}(\cO_X)$ generated by $\cO_X$ and $\Theta_X$. 
+\end{defn}
+For any point $p \in X$, we may find an affine open $U \subseteq X$ containing $p$ and a local coordinate system $\{x_i,\partial_i\}_{1\leq i\leq n}$ such that
+\begin{align*}
+	D_U = D_X|_U = \bigoplus_{\alpha \in \bN^n}\cO_X(U) \partial^{\alpha}
+\end{align*}
+by combining Theorems \ref{thm:regular-finite-K-algebra} and \ref{thm:sheaf-of-vector-fields}.
+
+When $X$ is not smooth, it is instead necessary to consider the sheaf given by the assignment $U \mapsto D_{\cO_X(U)/K}$. This case is not dealt with in these notes.
+
+\subsubsection{A Brief Words Regarding Differential Operators Over Non-Regular Rings}
+\begin{example}\label{example:veronese}
+	
+\end{example}
 \section{\textit{D}-Modules: Basic Definitions and Facts}
 A $D$-module is simply a module over a ring of differential operators, i.e. a left or right $D_{R/A}$-module. We start this section with several examples before discussing the more general, basic theory of $D$-modules.
 
@@ -644,7 +713,14 @@ Here we introduce two operations on $D$-modules, inverse images and direct image
 Throughout this section we restrict ourselves to the case in which $D_{R/K}$ is generated by $\Der_{K}(R)$ and $R$, as is the primary setting in \cite{d-mod_ps-rt} for instance. This setting is slightly more general than one might think. Alluding to the global case for a minute, it is true that $D_X$ is locally generated by 
 
 \subsection{Inverse Images}
-Let $R = K[x_1,...,x_n]$, $S = K[y_1,...,y_m]$ and $M$ be a left $A_n$-module. We wish to build a left $A_m$-module from $M$ in a meaningful way. Suppose further that we are given a polynomial map $F:K^m\to K^n$ whose coordinate polynomials are $F_1,...,F_n\in K[y_1,...,y_m]$. Composition with $F$ gives a map of rings $\varphi:R\to S$ defined $f\mapsto f\circ F$, and in particular, we may view $S$ as an $R$-module via the $R$-action given by $\varphi$. The tensor product $S\otimes_R M$ is then an $S$-module denoted $F^*M$, and we want to turn it into an $A_m$-module. The action of polynomials on $F^*M$ is known, and we define the action of $\partial_{y_i}$ by
+Suppose $\varphi:X\to Y$ is a morphism of smooth algebraic varieties over $K$ and $M$ is a left $D_Y$-module. We wish to build a left $D_X$-module from $M$ in a meaningful way. The inverse image of $M$
+\begin{align*}
+	\varphi^*M = \cO_X \otimes_{\varphi^{-1}} \varphi^{-1}M
+\end{align*}
+is a left $\cO_X$-module, and it turns out that we can endow it with a $D_X$-module structure in the following way.
+
+Fix a point $p \in Y$, an affine neighborhood $U$ of $p$, and a local coordinate system $\{y_i,\partial_i\}$ of $p$ on $U$. For a vector field $\theta \in \Theta_X(X)$ and an element 
+Suppose further that we are given a polynomial map $F:K^m\to K^n$ whose coordinate polynomials are $F_1,...,F_n\in K[y_1,...,y_m]$. Composition with $F$ gives a map of rings $\varphi:R\to S$ defined $f\mapsto f\circ F$, and in particular, we may view $S$ as an $R$-module via the $R$-action given by $\varphi$. The tensor product $S\otimes_R M$ is then an $S$-module denoted $F^*M$, and we want to turn it into an $A_m$-module. The action of polynomials on $F^*M$ is known, and we define the action of $\partial_{y_i}$ by
 \begin{equation}\label{eqn:action-inv-img}\tag{$\ast$}
 	\partial_{y_i}(q\otimes u) = \partial_{y_i}(q) \otimes u ~ + ~ \sum_{j=1}^n q\partial_{y_i}(F_j) \otimes \partial_{x_j} u.
 \end{equation}
@@ -675,7 +751,7 @@ Since the relation $[\partial_{y_i},\hat{y}_j]v = \delta_{ij}v$ holds when $v$ i
 
 As a sanity check, let's ensure the inverse image works as expected when $F$ is the identity map.
 \begin{example}\label{example:inv-img-sanity-check}
-	Let $$
+	Let 
 \end{example}
 
 %\begin{rmk}\label{rmk:inv-img}

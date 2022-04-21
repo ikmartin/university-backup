@@ -1,0 +1,799 @@
+\input{../preamble.tex}
+\usepackage{indentfirst}
+
+% Title page stuff
+\title{\textit{D}-Modules on Affine Space}
+\date{}
+%\author{Author Name}
+%\usepackage[showframe]{geometry}
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+\begin{document}
+\maketitle
+
+\newpage
+
+\tableofcontents
+\newpage
+\section*{Introduction}
+Write this later.
+
+The exposition on $D$-modules was largely informed by \cite{d-mod-primer} and \cite{d-mod_ps-rt}, while the online notes \cite{jeffries_d-mod} by Jack Jeffreys inspired the treatment of differential operators in section 1. 
+
+\section*{Acknowledgments}
+\newpage
+\section{Differential Operators}
+One must first understand fields before one can define vectors spaces, and similarly one must first understand the ring of differential operators before one can study $D$-modules. In this section we do exactly that. We first define the ring of differential operators relative to an arbitrary ring homomorphism $A\to R$ and discuss some of its basic properties before focusing on the case where $A$ is a field and $R$ a polynomial ring with coefficients in $A$. This latter object will provide a more explicit setting and will motivate arguments in the general case. We discuss several other examples, and conclude this section by defining the sheaf of differential operators over a smooth variety.
+
+It is worth noting that there are several equivalent ways to define the ring of differential operators in characteristic zero. We discuss two such definitions in the case of a polynomial ring over a field and show that they are equivalent when $\fchar(K) = 0$. However, when $\fchar(K) > 0$, these two definitions will no longer coincide. It therefore becomes necessary to fix either the field characteristic or a particular definition for the ring of differential operators, and in these notes, we will do the latter.
+
+\subsection{The Ring of Differential Operators over an Arbitrary Ring}\label{sec:general-diff-ops}
+Let $A\to R$ be a map of rings and let $M$ and $N$ be two $R$-modules. We may identify $R$ with a subring of $\End_R(M)$ via the map which sends an element $f \in R$ to the $R$-linear map $\hatf:m\mapsto f\cdot m$ on $M$. We denote the image of $f \in R$ in $\End_R(M)$ by $\hatf_M$ when there is risk of confusing the domain of $\hatf$ with some other module. Given a morphism $\alpha \in \Hom_R(M,N)$, we will often abuse notation and write $[\alpha, \hatf]$ to mean $\alpha \circ \hatf_M ~-~ \hatf_N\circ \alpha$. This is no longer an abuse of notation when $M = N$, in which case $[\alpha,\beta] = \alpha \circ \beta ~-~ \beta\circ\alpha$ is well-defined for any $\alpha, \beta \in \End_R(M)$.
+
+\begin{defn}\label{defn:diff-ops}
+	With $A,R,M$ and $N$ as above, we inductively define the collection of differential operators of order $k \in \bZ$, denoted $D^k_{R/A}(M,N)$, as follows:
+	\begin{itemize}
+		\item $D^k_{R/A}(M,N) = 0$ when $k < 0$
+		\item $D^k_{R/A}(M,N) = \left\{\alpha \in \Hom_A(M,N) ~\middle|~ \left[\alpha,\hatf\right] \in D^{k-1}_{R/A}(M,N) ~ \text{ for all } f\in R\right\} $ when $k \geq 0$.
+	\end{itemize}
+	We set $D_{R/A}(M,N) = \bigcup_{k\in \bZ} D^k_{R/A}(M,N)$.
+\end{defn}
+\begin{rmk}\label{rmk:starting-index-of-diff-op-def}
+	It is worth noting that $\alpha \in D_{R/A}(M,N)$ satisfies $[\alpha,\hatf] = 0 \in D^{-1}_{R/A}(M,N)$ exactly when $\alpha$ is $R$-linear, hence $D_{R/A}(M,N) = \Hom_R(M,N)$. Many sources, \cite{ginzburg_d-mod} and \cite{bernstein_d-mod} for instance, simply define $D^0_{R/A}(M,N) = \Hom_{R}(M,N)$ and proceed inductively from there.
+\end{rmk}
+
+\begin{example}\label{example:module-finite-K-alg-diff-ops}
+	As a first example, suppose $K$ is a field and $R$ is a module finite $K$-algebra. Once we fix a basis for $R$, for any $f \in R$ the operator $\hatf$ is simply the diagonal matrix $fI$, where $I$ is the identity matrix. Any other map $A \in \Hom_K(R,R)$ then satisfies
+	\begin{align*}
+		A\circ \hatf = A\cdot fI = fI\cdot A = \hatf\circ A,
+	\end{align*}
+	hence $[A,\hatf] = 0$ and $A \in D^0_{R/K}$. It then follows that $D_{R/K} = \Hom_K(R,R)$.
+\end{example}
+
+We will see far more interesting examples later in section \ref{sec:Weyl-algebra} and \ref{sec:diff-op-examples}, but first we lay out some of the basis structure of rings of differential operators in general. The following lemma is elementary but nonetheless quite important:
+\begin{lem}\label{lem:fixed-order-ops-form-module}
+	For each $k \in \bZ$ we have an inclusion $D^{k-1}_{R/A}(M,N) \subseteq D^k_{R/A}(M,N)$. Furthermore, $D^k_{R/A}(M,N)$ is a left $R$-module under the action $f\alpha \mapsto \hatf\circ \alpha$ and a right $R$-module under the action $\alpha f \mapsto \alpha \circ \hatf$. This particularly implies that $R_{R/A}(M,N)$ is a left and right $R$-module under these same actions.
+\end{lem}
+\begin{prf}
+	We prove both claims by induction. The first is clear: the base case follows from the simple fact that $D^{-1}_{R/A}(M,N) = 0 \subseteq D^0_{R/A}(M,N)$, and if $\alpha \in D^{k-1}_{R/A}(M,N)$ then $[\alpha,\hatf] \in D^{k-2}_{R/A}(M,N)$ for any $f \in R$ by definition. The inductive hypothesis then implies that $[\alpha,\hatf] \in D^{k-1}_{R/A}(M,N)$, and hence $\alpha \in D^k_{R/A}(M,N)$.
+
+	Note first that $\Hom_A(M,N)$ is an $R$-module by maps $R\to \Hom_R(M,N) \to \Hom_A(M,N)$, and since $D^k_{R/A}(M,N)\subseteq \Hom_A(M,N)$, it suffices to show that $D^k_{R/A}(M,N)$ is closed under addition and multiplication by $R$. By Remark \ref{rmk:starting-index-of-diff-op-def}, $D^0_{R/A}(M,N) = \Hom_R(M,R)$, so our base case is done. Suppose then that $D^m_{R/A}(M,N)$ is a left $R$-module for each $m < k$ and note that for any two $f,g\in R$ the associated module endomorphisms commute by the commutativity of $R$, i.e. $\hatf\hatg = \hatg\hatf$. Fix $\alpha,\beta \in D^k_{R/A}(M,N)$ and $a,b \in R$. For any other $f \in R$ we have
+	\begin{align*}
+		[\hata\alpha + \hatb\beta, \hatf] 
+		  &= (\hata\alpha + \hatb\beta)\hatf - \hatf(\hata\alpha + \hatb\beta) \\
+		  &= \hata\alpha\hatf - \hata\hatf\alpha + \hatb\beta\hatf - \hatb\hatf\beta \\
+		  &= \hata[\alpha,\hatf] + \hatb[\beta,\hatf].
+	\end{align*}
+	Both $\hata[\alpha,\hatf]$ and $\hatb[\beta,\hatf]$ are elements of the left $R$-module $D^{k-1}_{R/A}(M,N)$, hence so is their sum. The proof that $D^k_{R/A}(M,N)$ is a right $R$-module is similar.
+\end{prf}
+\begin{notate}$ $
+	\begin{itemize}
+		\item We write $D_{R/A}(M)$ for $D_{R/A}(M,M)$ when $M = N$. As we shall see in Corollay \ref{cor:ring-of-diff-ops}$, D_{R/A}(M)$ is a ring under pointwise-addition and composition and is called the \emph{ring of differential operators over $M$}. Given two operators $\alpha,\beta \in D_{R/A}(M)$ we often drop the composition symbol and write $\alpha\beta$ to mean $\alpha\circ \beta$.
+		\item When $R = M = N$, we simply write $D_{R/A}$.
+		\item We write $D_R$ for the ring of differential operators over $R$ relative to the unique map $\bZ\to R$.
+	\end{itemize}
+\end{notate}
+\noindent We will be primarily interested in $D_{R/K}$ for a $K$-algebra $R$.
+
+It will be useful to establish some basic commutator relations. These have nothing to do with differential operators but will used extensively in later sections, often without comment.
+
+\begin{prop}\label{prop:commutator-relations}
+	Let $A$ be a (not necessarily commutative) ring, $M$ a left $A$-module and $\alpha,\beta,\gamma \in \End_A(M)$ $A$-linear maps on $M$. Then
+	\begin{enumerate}[(a)]
+		\item $[\alpha,\beta + \gamma] = [\alpha,\beta] + [\alpha, \gamma]$ and $[\alpha + \beta, \gamma] = [\alpha, \gamma] + [\beta,\gamma]$
+		\item $[\hatf\alpha,\beta] = [\alpha,\hatf\beta] = \hatf[\alpha,\beta]$ for $f \in A$
+		\item $[\alpha,\beta] = -[\beta,\alpha]$
+		\item $[\alpha\beta,\gamma] = \alpha[\beta,\gamma] + [\alpha,\gamma]\beta$ and $[\alpha,\beta\gamma] = [\alpha,\beta]\gamma + \beta[\alpha,\gamma]$.
+		\item $[\alpha,[[\beta,\gamma]] + [\beta,[\gamma,\alpha]] + [\gamma,[\alpha,\beta]] = 0~$ \hspace{0.5em}(Jacobi identity).
+	\end{enumerate}
+\end{prop}
+\begin{prf}
+	These are all straightforward computations.
+	\begin{enumerate}[(a)]
+		\item We have that
+			\begin{align*}
+				[\alpha,\beta+\gamma] 
+				  &~=~ \alpha(\beta+\gamma) - (\beta+\gamma)\alpha
+				  ~=~ \alpha\beta - \beta\alpha + \alpha\gamma - \gamma\alpha
+				  ~=~ [\alpha,\beta] + [\alpha,\gamma].
+			\end{align*}
+			A nearly identical computation gives us the other identity.
+		\item Fix an element $f \in A$. Every operator $\lambda \in \End_A(M)$ is $A$-linear and hence $\hatf\circ\lambda = \lambda\circ \hatf$, i.e. $\hatf$ is in the center of $\End_A(M)$. The desired identity follows immediately from this fact.
+		\item $[\alpha,\beta] = \alpha\beta - \beta\alpha = -(\beta\alpha - \alpha\beta) = -[\beta,\alpha]$. 
+		\item This is more symbol pushing:
+			\begin{align*}
+				[\alpha\beta,\gamma] 
+				  &= \alpha\beta\gamma - \gamma\alpha\beta \\
+				  &= \alpha \beta\gamma - \alpha\gamma\beta + \alpha\gamma\beta - \gamma\alpha\beta \\
+				  &= \alpha[\beta,\gamma] + [\alpha,\gamma]\beta.
+			\end{align*}
+			The other identity is proven nearly identically.
+		\item The left hand side of this identity is
+			\begin{align*}
+				\alpha(\beta\gamma - \gamma\beta) - (\beta\gamma - \gamma\beta)\alpha + \beta(\gamma\alpha - \alpha\gamma) + (\gamma\alpha - \alpha\gamma)\beta + \gamma(\alpha\beta - \beta\alpha) - (\alpha\beta-\beta\alpha)\gamma.
+			\end{align*}
+			All terms cancel one this expression is fully expanded.
+	\end{enumerate}
+\end{prf}
+
+\subsubsection{Order of Differential Operators}
+Fix a commutative ring map $A\to R$. A differential operator $D \in D_{R/A}(M)$ is said to be of \emph{order $k$} if $D \in D^k_{R/A}(M)$ but $D \not\in D^{k-1}_{R/A}(M)$ and we say $\ord(D) = k$. As the operator $0$ is contained in $D^k_{R/A}$ for every $k \in \bZ$, we say $\ord(0) = -\infty$. Here, we describe how order interacts with composition, addition, and commutation. Throughout this section $A\to R$ is a map of commutative rings and $M$ is an $R$-module.
+
+\begin{prop}\label{prop:order-interactions}
+	 Suppose $\alpha \in D^{m}_{R/A}(M)$ and $\beta \in D^{n}_{R/A}(M)$. The following hold:
+	 \begin{enumerate}[(a)]
+		 \item $\alpha+\beta \in D^d_{R/A}(M)$ where $d = \max\{m,n\}$
+		 \item $\alpha\beta \in D^{m+n}_{R/A}(M)$
+		 \item $[\alpha,\beta] \in D^{m+n -1}_{R/A}(M)$.
+	 \end{enumerate}
+\end{prop}
+\begin{prf}
+	Part (a) follows immediately from Lemma \ref{lem:fixed-order-ops-form-module}. We prove (b) and (c) simultaneously by induction on $m + n$. The base case is clear, for when $m + n = 0$ we have $\alpha\beta \in Hom_R(R,R)$. Suppose then that both (b) and (c) hold for $m + n < k$ for some positive integer $k$. Fix $f \in R$ and let $m+n = k$. By the inductive hypothesis we then have that $\alpha[\beta,\hatf]$ and $[\alpha,\hatf]\beta$ are in $D^{m+n-1}_{R/A}(M)$, and hence
+	\begin{align*}
+		[\alpha\beta,\hatf] = \alpha[\beta,\hatf] + [\alpha, \hatf]\beta \in D^{m+n-1}_{R/A}(M)
+	\end{align*}
+	by Proposition \ref{prop:commutator-relations} (d). This proves (b).
+
+	Rearranging the terms of the Jacobi identity, we have that
+	\begin{align*}
+		\big[[\alpha,\beta], \hatf\big] = \big[\alpha, [\beta,\hatf]\big] + \big[\beta,[\hatf,\alpha]\big].
+	\end{align*}
+	The inductive hypothesis tells us that the rightmost terms are elements of $D^{m+n-2}_{R/A}(M)$, hence so is $\big[[\alpha,\beta], \hatf\big]$. This proves (c).
+\end{prf}
+
+This proposition yields some basic facts regarding the structure of $D_{R/A}(M)$.
+\begin{cor}\label{cor:ring-of-diff-ops}
+	Let $A \to R$ be a map of commutative rings. Then $D_{R/A}(M)$ is a ring and the graded ring 
+	\begin{align*}
+		S_{R/A}(M) := \bigoplus_{k \in \bN}S^k_{R/A}(M); \hspace{2em} S^k_{R/A}(M) = D^k_{R/A}(M)/D^{k-1}_{R/A}(M)
+	\end{align*}
+	is commutative. We call $S_{R/A}(M)$ the \emph{graded ring associated to} $D_{R/A}(M)$ and discuss it further in Section 2. 
+\end{cor}
+\begin{prf}
+	For any two $\alpha,\beta \in D_{R/A}(M)$, $\alpha \beta \in D_{R/A}(M)$ by Proposition \ref{prop:order-interactions} (b), hence $D_{R/A}(M)$ is a subring of $\End_A(M)$.
+
+	We identify $S^k_{R/A}(M)$ with its image under inclusion $S^k_{R/A}(M) \to S_{R/A}(M)$ and let $\ol{\alpha}$ denote the image of $\alpha \in D^k_{R/A}(M)$ in $S^k_{R/A}(M)$. For $\alpha \in D^m_{R/A}(M)$ and $\beta \in D^n_{R/A}(M)$, we have $[\alpha,\beta] \in D^{m+n-1}_{R/A}(M)$ by Proposition \ref{prop:order-interactions} (C), hence $\ol{\alpha}\ol{\beta} - \ol{\beta}\ol{\alpha} = \ol{[\alpha,\beta]} = 0$. Since every element of $S_{R/A}(M)$ can be written as a sum of finitely many $\ol{\alpha}$, we are done.
+\end{prf}
+
+\subsubsection{Derivations}
+As of yet there has been no reason to restrict our generality, but now, we focus our attention exclusively on rings of differential operators of the form $D_{R/A}$. We already understand operators of order 0; since $D^0_{R/A} = \Hom_R(R,R) \cong R$, they're simply the operators of the form $\hatf$ for some $f\in R$. In this section we seek to understand the operators of order 1 as well, i.e. the $R$-module $D^1_{R/A}$.
+
+Recall that an $A$-derivation of $R$ is an $A$-linear map $d:R\to R$ such that $d(ab) = ad(b) + d(a)b$ for all $a,b\in R$. Note that $d(1) = d(1\cdot 1) = d(1) - d(1) = 0$. Further notice that for any derivation $d \in \Der_A(R)$ and $f,r \in R$,
+\begin{align*}
+	[d,\hatf](r) = d\left(\hatf(r)\right) - \hatf\left(d(r)\right) = d(fr) - fd(r) = d(f)r.
+\end{align*}
+This means that $[d,\hatf]$ is simply $\widehat{d(f)} \in D^0_{R/A}$ as a map on $R$, hence we have an inclusion $\iota: \Der_A(R) \hookrightarrow D^1_{R/A}$.
+
+Let's now consider an arbitrary element $\alpha \in D^1_{R/A}$. The map $\alpha' = \alpha - \widehat{\alpha(1)}$ is also an order 1 operator by Lemma \ref{lem:fixed-order-ops-form-module}; in fact, it's a derivation. Indeed, it is $A$-linear by virtue of its membership to $D^1_{R/A}$ and for any $r,s\in R$ we have
+\begin{align*}
+	\alpha'(rs) = \alpha'\hatr(s) = (\hatr \alpha')(s) + \widehat{\alpha'(r)}(s) = r\alpha'(s) + \alpha'(r)s
+\end{align*}
+since $[\alpha',\hatr] = \alpha'(r)$. 
+
+Consider then the map $\varphi:D^1_{R/A}\to \Der_A(R)$ defined $\varphi(\alpha) = \alpha - \widehat{\alpha(1)}$. It is $A$-linear, and since $\alpha(1) = 0$ for any derivation $\alpha$, $\varphi\circ \iota$ is the identity on $\Der_A(R)$. This means the short exact sequence
+\begin{align*}
+	0 \to \ker \varphi \to D^1_{R/A} \to{\varphi} \Der_R(A) \to 0
+\end{align*}
+splits, giving us an isomorphism $D^1_{R/A} \cong \ker \varphi\varphi \Der_R(A)$. However, $\varphi(\alpha) = 0$ precisely when $\alpha = \widehat{\alpha(1)}$, i.e. when $\alpha \in D^0_{R/A} \cong \Hom_R(R,R) \cong R$. The results of this discussion are summarized in the proposition below.
+
+\begin{prop}\label{prop:order-one-operators}
+	Let $A\to R$ be a map of commutative rings. Then $D^1_{R/A}\cong R\oplus \Der_A(R)$ as $A$-modules via the map which sends $(f,d) \in R\oplus \Der_A(R)$ to $d + \hatf$. \hfill $\square$
+\end{prop}
+
+\subsubsection{Derivation Examples}
+Proposition \ref{prop:order-one-operators} tells us that to understand $D^1_{R/A}$ it suffices to understand $\Der_A(R)$. Here, we explicitly describe the module $\Der_A(R)$ for specific rings $R$.
+\begin{example}\label{example:derivations-of-poly-ring}
+	Let $K$ be a field of characteristic zero and $R = K[x_1,...,x_n]$ a polynomial ring over $K$. By the product rule, the $K$-linear maps $\partial_{x_i}$ ($1\leq i\leq n$) which send a polynomial $f$ to its partial derivative in $x_i$ are derivations. Any other derivation $\alpha \in \Der_K(R)$ satisfies 
+	\begin{align*}
+		\alpha(x_i^k) = kx_i^{k-1}\alpha(x_i) = \partial_{x_i}(x_i^{k_i})\alpha(x_i).
+	\end{align*}
+	This means that for a monomial $x_1^{k_1}...x_n^{k_n}$ we have
+	\begin{align*}
+		\alpha \left(x_1^{k_1}...x_n^{k_n}\right) 
+		  &= \alpha(x_1^{k_1})x_2^{k_2}...x_n^{k_n} ~+~ x_1^{k_1}\alpha(x_2^{k_2}...x_n^{k_n}) \\
+		  &= \alpha(x_1)\partial_{x_1}(x_1^{k_1}...x_n^{k_n}) ~+~ x_1^{k_1}\left(\alpha(x_2^{k_2})x_3^{k_3}...x_n^{k_n} ~+~ x_2^{k_2}\alpha(x_3^{k_3}...x_n^{k_n})\right) \\
+		  &\hspace{0.6em}\vdots \\
+		  &= \alpha(x_1)\partial_{x_1}(x_1^{k_1}...x_n^{k_n}) ~+~ ... ~+~ \alpha(x_n)\partial_{x_1^{k_1}...x_n^{k_n}}.
+	\end{align*}
+	Since monomials form a basis over $K$ for $R$, we get that $\alpha = \alpha(x_1)\partial_{x_1}~+~...~+~\alpha(x_n)\partial_{x_n}$. Hence $\{\partial_{x_1},...,\partial_{x_n}\}$ generates $\Der_K(R)$ as a $R$-module. In particular, $\Der_K(R)$ is a free-module over $R$ of rank $n$.
+\end{example}
+\begin{example}\label{example:cusp-derivations}
+	As before, let $K$ be a field of characteristic zero. Consider the ring $R = K[t^2,t^3]$, noting that $R \cong K[x,y]/J$ for $J = (y^2 - x^3)$ via the map $x\mapsto t^2$ and $y\mapsto t^3$. As we will see, $\Der_K(R)$ is generated by $t\partial_t$ and $t^2\partial_t$.
+
+	First consider the derivations $D_1 = 2y\partial_x + 3x^2\partial_y$ and $D_2 = 3y\partial_y + 2x\partial_x$ on $K[x,y]$. They are also derivations on $K[x,y]/J$ since $D_1(J), D_2(J) \subseteq J$, and we will show they generate all of $\Der_K \left(K[x,y]/J\right)$. Any other derivation $\alpha$ on $K[x,y]/J$ can be written as $\alpha = f_1\partial_x + f_2\partial_y$ by the previous example with the extra condition that $\alpha(J)\subseteq J$. This is equivalent to the condition
+	\begin{equation}\label{eqn:cusp-derivations-1}
+		-3x^2f_1 ~+~ 2yf_2 = u(y^2 - x^3)
+	\end{equation}
+	for some polynomial $u \in K[x,y]$. Notice that $f_1$ cannot have a constant term, if it did, the LHS of equation (\ref{eqn:cusp-derivations-1}) would have a $x^2$ term while the RHS would not. This means $f_1$ may have terms of degree 1 or higher, hence we may write $f_1 = 2(yg + xh)$ for some $g, h \in K[x,y]$. Plugging this into equation (\ref{eqn:cusp-derivations-1}) and rearranging yields
+	\begin{align*}
+		2yf_2 = u(y^2 - x^3) + 6x^2yg + 6x^3h
+	\end{align*}
+	and substituting $u' = u - 6(y^2 - x^3)h$ gives
+	\begin{align*}
+		2yf_2 = u'(y^2 - x^3) + 6x^2yg + 6x^3h + 6(y^2 - x^3)h = u'(y^2 - x^3) + 6x^2yg + 6y^2h.
+	\end{align*}
+	The LHS of this equation is divisible by $y$ hence the RHS is too, implying $v = \frac{u'}{2y} \in K[x,y]$.Hence $f_2 = v(y^2 - x^3) + 3x^2g + 3yh$. We then get
+	\begin{align*}
+		\alpha = f_1\partial_x + f_2\partial_y 
+		  &= 2(yg + xh)\partial_x + \left(v(y^2 - x^3) + 3x^2g + 3yh\right) \partial_y \\
+		  &= g(2y\partial_x + 3x^2\partial_y) + h(2x\partial_x + 3y\partial_y) + v(y^2-x^3)\partial_y \\
+		  &= gD_1 + hD_2 + v(y^2 - x^3)\partial_y.
+	\end{align*}
+	Since $v(y^2-x^3)\partial_y$ is the trivial derivation on $K[x,y]/J$, the above shows that $\alpha$ is in the $K[x,y]/J$-span of $D_1$ and $D_2$. Finally, for an arbitrary $f \in R$ we have
+	\begin{align*}
+		t\partial_t(f) = t\cdot \frac{\partial f}{\partial x} \frac{dx}{dt} + t\cdot \frac{\partial f}{\partial y} \frac{dy}{dt} = 2t^2\frac{\partial f}{\partial x} + 3t^3\frac{\partial f}{\partial_y} = (2x\partial_x + 3y\partial_y)(f) = D_2(f)
+	\end{align*}
+	and
+	\begin{align*}
+		t^2\partial_t(f) = t^2\cdot \frac{\partial f}{\partial x}\frac{dx}{dt} + t^2 \cdot \frac{\partial f}{\partial y}\frac{dy}{dt} = 2t^3\frac{\partial f}{\partial x} + 3t^4\frac{\partial f}{\partial y} = (2y\partial_x + 3x^2\partial_y)(f) = D_1(f)
+	\end{align*}
+	by the chain rule. 
+\end{example}
+\subsection{The Weyl Algebras}\label{sec:Weyl-algebra}
+
+Throughout this section $A = K$ and $R = K[x_1,...,x_n]$, where $K$ is a field. The ring $D_{R/K}$ in this case is called the \emph{n\textsuperscript{th} Weyl Algebra}. The first Weyl algebra is an early example of a ring of differential operators. It first appeared as Dirac's \emph{quantum algebra}, which consists of polynomial expressions in variables $p$ and $q$ subject to the relation $pq - qp = 1$. Weyl algebras admit tractable, explicit descriptions in terms of generators and relations and thereby serve as a fantastic source of examples. They also provide a good starting point for newcomers seeking to develop intuition (e.g. the author of this essay).
+
+Our first aim in this section is to show the three main presentations of the n\textsuperscript{th} Weyl algebra are equivalent.
+
+\begin{thm}(Definition)\label{thm:Weyl-algebra-defs}
+	Let $K$ be a field of characteristic $0$ and let $R = K[x_1,...,x_n]$. The following are isomorphic modules.
+	\begin{itemize}
+		\item The $K$-subalgebra $A_n \subseteq \End_K(R)$ generated by the maps $\hatx_i$ and $\partial_{x_i} = \frac{\partial}{\partial x_i}$
+		\item The $K$-algebra $D_n$ defined to be the free $K$-algebra in the $2n$-variables $y_1,...,y_{2n}$ modulo the ideal $J$, where multiplication is given by concatenation on monomials and $J$ is generated by all the elements of the form $[y_{i+n},y_{i}] - 1$ for $1\leq i\leq n$ or $[y_a,y_b]$ for $a \not\equiv b ~ \mod n$, $1\leq a,b\leq 2n$.
+		\item The ring of differential operators $D_{R/K}$.
+	\end{itemize}
+\end{thm}
+
+\noindent Before we prove this we need to understand some basic facts about the module $A_n$.
+
+\begin{lem}\label{lem:Weyl-algebra-relations}
+	The generators of $A_n$ satisfy the following relations:
+	\begin{align*}
+		[\partial_{x_i},\hatx_j] = \delta_{ij}, \hspace{2em} [\partial_{x_i}, \partial_{x_j}] = [\hatx_i,\hatx_j] = 0
+	\end{align*}
+	where $\delta_{ij}$ is the Kronecker delta function. Furthermore, for $f \in R$,
+	\begin{align*}
+		[\partial_{x_i}, \hatf] = \widehat{\frac{\partial f}{\partial x_i}}.
+	\end{align*}
+\end{lem}
+\begin{prf}
+	For any polynomial $f$ (and more generally, any differentiable function) we have
+	\begin{align*}
+		\partial_{x_i}\hatx_j(f) = \partial_{x_i}(x_j\cdot f) = \partial_{x_i}(x_j) \cdot f ~+~ x_j \cdot \partial_{x_i}(f)
+	\end{align*}
+	from the product rule in Calculus. Since $\partial_{x_i}(x_j) = \delta_{ij}$ and $x_j\cdot \partial_{x_i}(f) = \hatx_j\partial_{x_i}(f)$, rearranging the above yields the first relation.
+
+	Differentiation is $K$-linear, so it suffices to prove $\partial_{x_i}\partial_{x_j}(f) = \partial_{x_j}\partial_{x_j}(f)$ for a monomial $f$. This is clear from the power rule in Calculus. The fact $[\hatx_i,\hatx_j] = 0$ is a consequence of the commutativity of $x_i$ and $x_j$ in $R$.
+
+	Finally, it once again suffices to prove $[\partial_{x_i},\hatf] = \frac{\partial f}{\partial_{x_i}}$ for monic monomials. We first show it holds for $f = x_i^m$. The relation $[\partial_{x_i}, \hatx_1] = 1$ serves as the base case, so suppose it holds for all $m < k$. Then
+	\begin{align*}
+		\partial_{x_i}\hatx_i^k = (\partial_{x_i}\hatx_i)\hatx_i^{k-1} = (1+\hatx_i\partial_{x_i})\hatx_i^{k-1} = \hatx_i^{k-1} + \hatx_i\partial_{x_i}\hatx_i^k-1.
+	\end{align*}
+	The inductive hypothesis implies $\partial_{x_i}\hatx_i^{k-1} = (k-1)\hatx_i^{k-1} + \hatx_i^{k-1}\partial_{x_i}$, so after rearranging the above and combining like terms we have exactly that $[\partial_{x_i}, \hatx_i^k] = k\hatx_i^{k-1}$.
+
+	For an arbitrary monic monomial $x_1^{m_1}...x_n^{m_n}$ we have that
+	\begin{align*}
+		[\partial_{x_i}, \hatx_1^{m_1}...\hatx_n^{m_n}] = \hatx_1^{m_1}...\hatx_{i-1}^{m_{i-1}}[\partial_{x_i}, x_i^{m_i}]\hatx_{i+1}^{m+1}...\hatx_{n}^{m_n}
+	\end{align*}
+	by repeated use of Proposition \ref{prop:commutator-relations} (d). This reduces to
+	\begin{align*}
+		[\partial_{x_i}, \hatx_1^{m_1}...\hatx_n^{m_n}] = k\cdot \hatx_{1}^{m_1}...\hatx_i^{m_i - 1}...\hatx_n^{m_n}
+	\end{align*}
+	by what we have already proven. 
+\end{prf}
+\begin{rmk}
+	It is worth saying a few words about our choice of notation. Some authors suppress the notation $\hatf$ simply write ``$f$'' to refer interchangeably to $f \in R$ and its image in $D_{R/A}(M)$. This is reasonable, especially since the $R$-action on $D_{R/A}(M)$ is given by the inclusion $R\hookrightarrow D_{R/A}(M)$. Nonetheless, we prefer to differentiate between an element $f\in R$ and its image in $D_{R/A}(M)$ in this essay due to the notational similarity between $\partial_{x_i}\hatf$ and $\partial_{x_i}(f)$. These are two very different things; for example, $\partial_x(x) = 1 \in K[x]$ whereas $\partial_x\hatx = 1 + \hatx\partial_x \neq 1 \in A_1$.
+\end{rmk}
+
+We now construct a basis for the Weyl algebra, a basis known as the \emph{canonical basis}.
+\begin{lem}\label{lem:canonical-basis}
+	The set $\bfB = \{\hatx^\alpha\partial^\beta ~\mid~ \alpha,\beta \in \bN^n\}$ is a basis for $A_n$ as a $K$-vector space. By $\hatx^\alpha$ we mean the operator $\hatx^\alpha_1\cdot...\cdot \hatx^\alpha_n$, and the degree of this monomial is the length of $\alpha$ defined $|\alpha| = \alpha_1 + ... + \alpha_n$.
+\end{lem}
+\begin{prf}
+	By definition, $A_n$ is generated by monomials in $\partial_{x_i}$ and $\hatx_j$ for $i$ and $j$ ranging between $1$ and $n$. Using the fact that $\partial_{x_i}\hatx_i - \hatx_i\partial_{x_i} = \widehat{\frac{\partial f}{\partial x_i}}$ from Lemma \ref{lem:Weyl-algebra-relations} we can move all $\hatx_j$ terms to the left of all $\partial_i$ terms, so it is clear that $\bf{B}$ spans $A_n$. 
+
+	We now show that $\bfB$ is linearly independent. Suppose that 
+	\begin{align*}
+		D = \sum_{i=1}^m c_{i}\hatx^{\alpha_i}\partial^{\beta_i}.
+	\end{align*}
+	We call this summation the \emph{canonical form} of $D \in A_n$ and show that $D = 0$ if and only if $c_i = 0$ for each $1\leq i\leq m$. Assume without loss of generality that $c_i \neq 0$ for all $1\leq i\leq m$ and $(\alpha_i,\beta_j) = (\alpha_j,\beta_j)$ if and only if $i = j$; that is, make $m$ as small as possible. Let $\beta_\ell$ be the multi-index such that $|\beta_\ell| = \min\{|\beta_1|,...,|\beta_m|\}$. By repeated use of the power law we get that
+	\begin{align*}
+		\partial^{\beta_\ell}(x^{\beta_\ell}) = \beta_\ell! \neq 0
+	\end{align*}
+	where $\beta! = \beta_1!\cdot...\cdot \beta_n!$ for $\beta \in \bN^n$, but that $\partial^{\beta_i}(x^{\beta_\ell}) = 0$ for all $|\beta_i| > |\beta_\ell|$. It is possible that $\partial^{\beta_\ell}$ appears multiple times in the above summation. For simplicity, set $\lambda = \beta_ell!$ and let $\{\alpha'_1,...,\alpha'_k\}$ be the (necessarily distinct) multi-indices such that $\hatx^{\alpha'_i}\partial^{\beta_\ell}$ appears with nonzero coefficient in the canonical form of $D$. Likewise let $c'_i$ be the coefficient of $\hatx^{\alpha'_i}\partial^{\beta_\ell}$ appearing in the canonical form of $D$. Then
+	\begin{align*}
+		D(x^{\beta_\ell}) = \sum_{i=1}^k c'_{i}\hatx^{\alpha'_i}\partial^{\beta_\ell}(x^{\beta_\ell}) = \lambda \left(c'_1x^{\alpha'_1} + ... + c'_kx^{\alpha'_k}\right).
+	\end{align*}
+	Since the $\alpha'_i$ are pairwise distinct, the above polynomial is nonzero and $D \neq 0$. We conclude that $D = 0$ if and only if $c_i = 0$ and we conclude that $\bfB$ is linearly independent over $K$.
+\end{prf}
+
+To illuminate the details of the above proof, let's examine some examples of differential operators over a polynomial ring in canonical form.
+\begin{example}\label{example:diff-op-canonical-form}
+	Consider the first Weyl algebra $D_{K[x]/K}$, which is generated by $\hatx$ and $\partial$. The following identities hold:
+	\begin{enumerate}[(a)]
+		\item $\partial^m \hatx = \hatx\partial^m + m\cdot\partial^{m-1}$ and 
+		\item $\partial^a\hatx^b = \sum^d_{j=0} j!\binom{a}{j}\binom{b}{j} \hatx^{b-j}\partial^{a-j}$.
+	\end{enumerate}
+	These of course easily generalize to $D_{R/K}$ by replacing $\hatx$ with $\hatx_i$ and $\partial$ with $\partial_i$. They are both proven via induction and liberal use of the fact that $[\partial,\hatx^b] = b\hatx^{b-1}$, but neither proof is particularly enlightening. It is perhaps more useful to see an explicit computation for low values of $a$ and $b$:
+    \begin{align*}
+    	\partial^2\hatx^3 
+		&= \partial\left(\partial \hatx^3\right) \\
+		&= \partial\left(\hatx^3\partial ~+~ 3\hatx^2\right) \\
+		&= \hatx^3\partial^2 ~+~ 6\hatx^2\partial ~+~ 6\hatx
+    \end{align*}
+
+	% alternate discussion
+	\begin{comment}
+		It is perhaps more useful to see how $\hatx$ migrates across the $\partial$ terms in (a),
+		\begin{align*}
+			\partial^m\hatx
+			&= \partial^{m-1}(\hatx\partial+1) ~=~ \partial^{m-1}\hatx\partial+\partial^{m-1}\\
+			&= \partial^{m-2}(\hatx\partial+1)\partial + \partial^{m-1}~=~  \partial^{m-2}\hatx\partial^2+2\partial^{m-1} \\
+			&\hspace{0.5em}\vdots \\
+			&= \partial \hatx\partial^{m-1}+ (m-1)\partial^{m-1} ~=~ (\hatx\partial + 1)\partial^{m-1} + (m-1)\partial^{m-1}\\
+			&= \hatx\partial^m + m\partial^{m-1},
+		\end{align*}
+	\end{comment}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	\noindent and how (b) can be used to compute the canonical form of operators in larger Weyl algebras, for instance in $D_{K[x,y]/K}$:
+	\begin{align*}
+		\partial_x\partial^2_y\hatx^3\haty^2
+		&= \partial^2_x\hatx^3\cdot  \partial_6^2\haty^2 \\
+		&= \left(\hatx^3\partial_x ~+~ 3\hatx^2\right)\left(\haty^2\partial^2 ~+~ 4\haty\partial_y ~+~ 2\right) \\
+		&= \hatx^3\haty\partial_x\partial_y^2 ~+~ 3\hatx^2\haty^2\partial^2_y ~+~ 4\hatx^3\haty\partial_x\partial_y ~+~ 12\hatx^2\haty\partial_y ~+~ 2\hatx^3\partial_x ~+~ 6\hatx^2.
+	\end{align*}
+\end{example}
+In the general of setting of $D_{R/A}$ where $A\to R$ is an arbitrary map of rings, we have a notion of order. For the ring of differential operators over a polynomial ring, the existence of the canonical basis gives us something something better: a notion of degree. This doesn't give us a graded structure, but it does recover some of the properties of degree in a polynomial ring. 
+
+Let $D \in A_n$ be an operator in canonical form. The degree of $D$, denoted $\deg(D)$, is the length $|(\alpha,\beta)|$ of the largest multindex $(\alpha,\beta) \in \bN^n\times \bN^n$ such that $x^\alpha\partial^\beta$ appears with nonzero coefficient in the canonical form of $D$. The following proposition should be compared to Proposition \ref{prop:order-interactions}, and due to its similarity the proof is omitted (Hint: it suffices to check monomials).
+\begin{prop}[{\cite[Theorem 2.1.1.]{d-mod-primer}}]\label{prop:degree-properties}
+    Let $D,D' \in A_n$ and assume $\fchar(K) = 0$.
+	\begin{enumerate}[(a)]
+		\item $\deg(DD') = \deg(D) + \deg(D')$
+		\item $\deg(D+D') \leq \max\{\deg(D), \deg(D')\}$
+		\item $\deg[D,D']\leq \deg(D) + \deg(D') - 2$.
+	\end{enumerate}
+\end{prop}
+As $\deg(0) = -\infty$, an immediate corollary to part (a) of the above proposition is that $A_n$ is a domain. We can also use the proposition to prove the following theorem:
+
+\begin{thm}\label{thm:Weyl-algebra-simple}
+	The algebra $A_n$ is simple.
+\end{thm}
+\begin{prf}
+	Let $I$ be a nonzero two-sided ideal of $A_n$ and suppose $D \in I$ is a nonzero operator. If $deg(D) = 0$, then $D \in K$ and $I = A_n$. If $\deg(D) = d > 0$, then there must be some summand $x^\alpha\partial^\beta$ with nonzero coefficient and for which either $\alpha \neq 0$ or $\alpha \neq 0$. In the former case, suppose the $\alpha_i$ component of $\alpha$ is nonzero. Then $[\partial_i,D] \neq 0$ and $\deg([\partial_i,D]) \leq d - 1$. Furthermore, since $I$ is two-sided, $[\partial_i,D] \in I$. By replacing $D$ with $[\partial_i,D]$ and repeating the above process, we can construct an element of degree 0 in $I$ and hence conclude$I = A_n$. A similar argument in which we instead consider $[x_i,D]$ works in the case that $\beta \neq 0$.
+\end{prf}
+Note that while $A_n$ does not have any proper nontrivial two-sided ideals, it has many left and right ideals and is by no means a division ring. Furthermore, the kernel of any map of nontrivial unital rings must necessarily be a two-sided ideal, hence we have the following corollary.
+\begin{cor}\label{cor:maps-from-Weyl-inj}
+	If $\phi:A_n\to B$ is a map of unital rings then it is injective. \hfill $\square$
+\end{cor}
+
+\bigskip
+
+\noindent We are now ready to prove Theorem \ref{thm:Weyl-algebra-defs}.
+\begin{prf}[Theorem \ref{thm:Weyl-algebra-defs}]
+	We first show $A_n \cong D_n$. Let $K\{y_1,...,y_{2n}\}$ denote the free algebra over $K$ in $2n$ variables with multiplicative given by concatenation of monomials and let $J\subseteq K\{y_1,...,y_{2n}\}$ be the ideal generated by all the elements of the form $[y_{i+n},y_{i}] - 1$ for $1\leq i\leq n$ or $[y_a,y_b]$ for $a \not\equiv b ~ \mod n$, $1\leq a,b\leq 2n$. Note $D_n = K\{y_1,...,y_{2n}\}/J$ by definition. 
+
+	Define a map $\psi: A_n\to D_n$ by setting $\psi(x^\alpha\partial^\beta) = y^{(\alpha,\beta)} + J$, noting that it suffices to define $\psi$ on monomials in canonical form. A quick check shows that each of the relations on the generators of $A_n$ given in Lemma \ref{lem:Weyl-algebra-relations} are preserved by $\psi$, so it is indeed a map of rings. Using the relations given by $J$, the same proof used in Lemma \ref{lem:canonical-basis} can be used to show $\{y^{\alpha,\beta} + J\}_{\alpha,\beta \subseteq \bN^n}$ is a basis for $D_n$, so it is clear that $\psi$ is surjective. Furthermore, $\psi$ is a map of unital rings and is therefore injective by Corollary \ref{cor:maps-from-Weyl-inj}. Hence $\psi$ is an isomorphism.
+
+	The isomorphism $A_n \to D_{R/K}$ is slightly more tedious and requires several lemmas, so we instead give a rough sketch of the proof and refer the reader to \cite[Chapter 3]{d-mod-primer}.
+
+	Denote by $C^k$ the subset of $A_n$ consisting of operators of degree at most $k$. From  Proposition \ref{prop:degree-properties} it is clear that $C^k \subseteq D^k_{R/K}$, so it suffices to prove the reverse inclusion. We proceed by induction.
+
+	For the base case, one show that every derivation $d \in \Der_K(R)$ is of the form $\sum_{i=1}^n \hatf_i\partial_i$, from whence we get $D^1_{R/K} = \Der_K(R)\oplus R = C^1$.
+	
+	\textbf{NOT FINISHED FINISH THE SKETCH YOU PIECE OF SHITTTTTTTTTT}
+\end{prf}
+
+\subsubsection{Difficulties in Prime Characteristic}
+Even at this early stage, we can see pieces of this theory break when $\fchar K = p > 0$. Consider $A_1 = K[x,\partial]\subseteq \End_K(K[x])$ for $K = \bF_p$. Let $k$ be any positive integer and consider the action $\partial^p$ on $x^k \in K[x]$. If $k < p$, then $\partial^p(x^k) = 0$. If $k \geq p$, then at least one of the integers $k-p+1,k-p+2,...,k-1,k$ is divisible by $p$, and hence
+\begin{align*}
+	\partial^p(x^k) = k(k-1)(k-2)...(k-p+1)x^{k-p} = 0.
+\end{align*}
+Since $\partial^p$ is zero on a basis for $K[x]$, it is identically zero on all of $K[x]$. This means $\partial$ is a nilpotent element and hence $A_1$ is not a domain.
+
+Now consider $D_1$, the free algebra in $x$ and $\partial$ over $K$ modulo the relation $[\partial, x] = 1$. In contrast to $A_1$, this ring is a domain since Proposition \ref{prop:degree-properties} still holds, so we no longer have $A_1 \cong D_1$. It is not clear that $D_1$ ought to be our choice of definition for the Weyl algebra however, for there is another major departure from the characteristic zero world: $D_n$ is not simple. For example,
+\begin{align*}
+	[\partial, x^p] = px^{p- 1} = 0,
+\end{align*}
+from which it follows that $D_1$ has a nontrivial center, a two-sided ideal.
+
+Furthermore, in characteristic zero, not all operators can be written as $R$-linear combinations of compositions of derivations. Take for instance the operator $\alpha \in D_{R/\bF_p}$ when $R = \bF_p[x]$ defined
+\begin{align*}
+	x^n \mapsto
+	\begin{cases}
+		\binom{n}{p}x^{n-p} & \text{if } n \geq p \\
+		0 & \text{otherwise}
+	\end{cases}.
+\end{align*}
+In characteristic zero, this operator is simply $\frac{1}{p!}\partial^p$, but in characteristic $p > 0$ it cannot be written as the composition of smaller order operators.
+\bigskip
+
+To summarize, when working with rings of differential operators $D_{R/K}$, it is necessary to fix either the characteristic of $K$ or the choice of definition for $D_{R/K}$. In this document we have chosen to do the later -- in situations of prime characteristic, we use the definition for $D_{R/K}$ given in Section \ref{sec:general-diff-ops}.
+
+\subsection{Differential Operators on a Smooth Variety}\label{sec:diff-op-examples}
+Given that the differential operators over a polynomial ring admit the nice descriptions in terms of derivations as seen in Theorem \ref{thm:Weyl-algebra-defs} and Lemma \ref{lem:canonical-basis}, it seems natural to ask whether a similarly nice description exists for rings which are nearly polynomial rings. For instance, can we describe the ring of differential operators over a regular $K$-algebra of finite type in terms of derivations? The answer is yes. A full proof of the statement relies on a host of lemmas, and we choose to provide citations and examples instead.
+
+The regular hypothesis is quite necessary, as we shall see. Regular finitely-generated $K$-algebras are also precisely the local version of smooth algebraic varieties, which we introduce in the context of differential operators here. 
+
+\textbf{smooth algebraic general enough to do cool shit but nice enough to be accessible, say that in a good way.}
+
+Throughout this section $K$ is still a field of characteristic zero.
+\subsubsection{Regular Finite Type \textit{K}-Algebras}
+\begin{example}\label{example:elliptic-curve}
+	Let $K$ be a field of characteristic zero and set $R = K[x,y]/(f)$ where $f = x^3 - x - y^2$. As the matrix
+	\begin{align*}
+		\begin{bmatrix}
+			\frac{\partial f}{\partial x}(x_0,y_0) & \frac{\partial f}{\partial y}(x_0, y_0)
+		\end{bmatrix}
+		=
+		\begin{bmatrix}
+			3x_0^2 - 1 & -2y_0
+		\end{bmatrix}
+	\end{align*}
+	is rank 1 for all points $(x_0,y_0)\in K^2$ in the graph of $f$, $R$ is easily seen to be regular by the Jacobian criterion. Hence, to understand $D_{R/K}$ it suffices to understand the derivations on $R$.
+
+	It isn't terribly difficult to see that the set of derivations on $R$ is given by
+	\begin{align*}
+		\Der_K(R) = \frac{\{\theta \in \Der_K(K[x,y])~|~ \theta((f)) \subseteq (f)\}}{(f)\Der_K(K[x,y])}.
+	\end{align*}
+	We know $\Der_K(R)$ is a one-dimensional $K$-vector space since $\Der_K(R)$ is two-dimensional by example \ref{example:derivations-of-poly-ring}. It therefore suffices to find one derivation $\theta:K[x,y] \to K[x,y]$ which fixes $(f)$ to compute $\Der_K(R)$. Furthermore, since $\theta(f\cdot g) = f\theta(g) + g\theta(f)$, $\theta$ fixes $(f)$ if and only if $\theta(f) \in (f)$, reducing our task of calculating $\Der_K(R)$ to finding a single derivation $\theta$ on $K[x,y]$ which sends $f$ to a multiple of itself. But this is exceptionally easy; the derivation $\theta = \partial_x(f)\partial_y - \partial_y(f)\partial_x$ maps $f$ to zero.
+
+	We conclude that $D_{R/K} = \bigoplus_{k=0}^\infty R\cdot \theta^k$ where $\theta = (3x^2 - 1)\partial_y + 2y\partial_x$.
+\end{example}
+\begin{example}\label{example:cubic-not-well-behaved}
+	We return to the curve $f = y^2 - x^3$, which has a singularity at the origin. Let $R = K[t^2,t^3]$ and recall from Example \ref{example:cusp-derivations} that $K[x,y]/(f) \cong K[t^2,t^3]$. 
+
+	Consider the operator $\alpha = t\partial_t^2 - \partial_t$ in $D_{K[t]/K}$. Since $\alpha(t^2) = 0$ and $\alpha(t^3) = 3t^2$, $\alpha(R) \subseteq R$ and therefore $\alpha|{R} \in D_{R/K}$. However, $\Der_K(R)$ is generated as a vector space by $t\partial_t$ and $t^2\partial$, and by considering these to be operators on $K[t]$ it is clear that $\alpha$ is outside the subring of $D_{K[t]/K}$ generated by $t^2\partial_t$ and $t\partial_t$. Therefore $D_{R/K}$ is strictly larger than the ring generated by $\Der_K(R)$ and $R$.
+\end{example}
+\subsubsection{Smooth Varieties}
+To conclude our discussion of differential operators, we define the sheaf of differential operators on a smooth variety. The definitions given here are precisely those found in section 1.1 of \cite{d-mod_ps-rt} contextualized within the theory already provided here. 
+
+\begin{defn}\label{defn:diff-ops-on-variety}
+	Let $X$ be a smooth variety over a field $K$ of characteristic zero and $\cO_X$ be its structure sheaf. We denote by $\Theta_X$ the \emph{sheaf of vector fields} on $X$:
+
+\end{defn}
+\begin{thm}\label{thm}
+	Let $X$ be a smooth algebraic variety of dimension $n$ over an algebraically closed field $K$. Then for each point $p \in X$, there exist an affine open neighborhood $V$ of $p$, regular functions $x_i \in K[V] = \cO_X(V),$ and vector fields $\partial_i \in \Theta_X(V)$ for $1\leq i\leq n$ satisfying the conditions
+	\begin{align*}
+		\begin{cases}
+		    [\partial_i,\partial_j] = 0, \hspace{1.5em} \partial_i(x_j) = \delta_{ij} ~ (1\leq i, j\leq n) \\
+			\Theta_V = \bigoplus_{i=1}^n \cO_V \partial_i
+		\end{cases}.
+	\end{align*}
+	Moreover, we can choose the functions $x_1,...,x_n$ so that they generate the maximal ideal $\frakm_p$ of $\cO_{X,p}$.
+\end{thm}
+\begin{prf}
+	{\cite[Theorem A.5.1]{d-mod_ps-rt}}.
+\end{prf}
+
+\subsubsection{A Brief Words Regarding Differential Operators Over Non-Regular Rings}
+\begin{example}\label{example:veronese}
+	
+\end{example}
+\section{\textit{D}-Modules: Basic Definitions and Facts}
+A $D$-module is simply a module over a ring of differential operators, i.e. a left or right $D_{R/A}$-module. We start this section with several examples before discussing the more general, basic theory of $D$-modules.
+
+As was the case in the latter half of the previous section, from this point onward we will only be interested in rings of differential operators of the form $D_{R/K}$ where $K$ is a field and $R$ is a $K$-algebra, typically finitely generated. 
+\subsection{Examples of \emph{D}-modules over the Weyl algebra}
+Let $R = K[x]$ for a moment, so that $D_{R/K}$ is the $n$\textsuperscript{th} Weyl algebra.
+\begin{example}[Trivial Examples]\label{example:Weyl-algebra-is-D-mod}
+	Every ring is a module over itself, so $D_{R/K}$ is itself a left $D_{R/K}$-module. Left ideals of $D_{R/K}$ are also left $D_{R/K}$-modules. The polynomial ring $R$ is also a left $D_{R/K}$-module, where the left action of an operator $\alpha \in D_{R/K}$ on $f \in R$ is given by applying $\alpha$ to $f$, i.e. $\alpha\cdot f = \alpha(f)$.
+\end{example}
+\begin{example}\label{example:quotient-by-x-and-partial}
+	Let $I = D_{R/K}\partial$ and $J = D_{R/K}\hatx$ be the left ideals of $D_{R/K}$ generated by $\partial$ and $\hatx$ respectively and let $M = D_{R/K}/I$ and $N = D_{R/K}/J$. These are quotients of left $D_{R/K}$-modules and are therefore themselves $D_{R/K}$-modules. As $K$-vector spaces, it is clear that $M \cong K[\hatx]$ and $M \cong K[\partial]$.
+
+	To understand the $D_{R/K}$-action on $M$, it suffices to understand the action of $\hatx$ and $\partial$ on the basis $\{1+I,\hatx + I,\hatx^2 + I,...\}$ of $M$. The action of $\hatx$ is multiplication; it's an infinite Jordan block with one's along the upper diagonal and zeros elsewhere. Since $\partial\hatx = 1 + \hatx\partial$ and $\hatx\partial \in I$, we have that $\partial(\hatx + I) = 1 + I$. Similarly, $\partial(\hatx^k + I) = \partial(\hatx^k) + I = \hatx^{k-1}$, so as a $K$-linear map, $\partial$.
+
+	\textbf{NOT FINISHED FINISH THIS YOU PIECE OF SHIT}
+\end{example}
+\begin{example}\label{example:analytic-functions}
+	ANALYTIC FUNCTIONS EXAMPLE
+\end{example}
+
+\subsection{Dimension}
+
+Despite the noncommutative of $A_n$, one might be tempted to draw comparisons between the Weyl algebra and a ring of polynomials, especially given that $A_n$ admits a nice basis and possesses some notion of degree. In particular, one might wonder if $A_n$ admits any meaningful graded structure. The answer turns out to be ``sort of''. The goal of this section is primarily to define and examine this approximation of a graded structure. To do this, we first define the \emph{degree} of an element in $A_n$. We then notice that this fails to define a $K[X]$-grading for $A_n$ and provide a workaround.
+
+We also say some words about the ideal structure of $A_n$ and holonomic modules.
+
+One might expect a graded structure to naturally fall from the notion of degree given in section . The issue, as always, is one of noncommutativity. The element $x_1\partial_1$ ought to homogeneous, but it is the difference $\partial x - 1$ of two elements with non-equal degree. There is no way to define a collection of pairwise disjoint $K[X]$-submodules of $A_n$ whose direct sum recovers $A_n$. Nonetheless, we can still find a collection of $A_n$ submodules which resemble a grading on $A_n$. We will call this a \emph{filtration} of $A_n$, and it turns out that this filtration will come with a natural associated graded $K[X]$-module whose properties will yield new information about $A_n$.
+
+\subsubsection{Filtrations}
+
+This is a brief overview of some definitions concerning filtered $K$-algebras, tailored to the purposes of this essay. A more general treatment suitable to the case of $\cD_X$-modules over a scheme $X$ can be found in Chapter 1 of \cite{ginzburg_d-mod}, the source which largely served as the inspiration for this section.
+
+\begin{defn}\label{defn:filtered-ring}
+	Let $R$ be a $K$-algebra. We say $R$ is a \emph{filtered $K$-algebra} if it comes equipped with a collection $\cF = \{F_i\}_{i \in \bN}$ of $K$-vector spaces such that
+	\begin{enumerate}[(1)]
+		\item $K = F_0 \subset F_1 \subset F_2 \subset...\subset R$
+		\item $F_i\cdot F_j \subseteq F_{i+j}$.
+		\item $R = \bigcup_{i\geq 0} F_i$, (we say the filtration is \emph{exhausting})
+	\end{enumerate}
+	When equipped with a filtration, $R$ is said to be a \emph{filtered $K$-algebra}. We often write this as a pair $(R,\cF)$ or $(R,F_\bullet)$. We often set $F_{-1} = \{0\}$ and iterate over $\bZ$ rather than $\bN$.
+\end{defn}
+\begin{rmk}[Definition Ext.]\label{rmk:filtration-def-extension}
+	Let $(R,\cF)$ be as in the above definition. The collection of sets $\{F^i + r\}_{i \in \bZ, r\in R}$ form the basis of a topology on $R$. With this in mind, it is often convenient to impose two additional conditions:
+	\begin{enumerate}[(1)]
+		\item[(4)] $\bigcap_{i\geq -1}F_i = \{0\}$, which is equivalent to say that the topology induced by $F_\bullet$ is separating,
+		\item[(5)] $R$ is complete with respect to this topology.
+	\end{enumerate}
+\end{rmk}
+We also have a notion of a filtered ring in which we replace the $K$-vector spaces with abelian groups, but in this essay we will only be concerned with filtered $K$-algebras.
+\begin{example}\label{example:order-filtration}
+	The collection $D^\bullet_{R/K} = \left\{D^k_{R/K}\right\}_{k\in \bN}$ is a filtration of $D_{R/K}$. Requirement (1) holds by Lemma \ref{lem:fixed-order-ops-form-module}, requirement (2) by Proposition \ref{prop:order-interactions} (be) and requirement (3) by definition of $D_{R/K}$. 
+\end{example}
+\begin{example}\label{example:graded-algebras-are-filtered}
+	Suppose $R = \bigoplus_{i \in \bN} R_i$ is a graded ring. Then $(R,F_\bullet)$ is a filtered $K$-algebra with respect to the filtration $F_k = \bigoplus_{i=0}^k A_i$. 
+
+	The order filtration on the $n^{\text{th}}$ Weyl algebra $A_n$ is given a special name: the \emph{Bernstein filtration}. We denote this filtration $\cB = \{B_k\}_{k\geq 0}$ where $B_k = \{D \in A_n ~\mid~ \deg(D) \leq k\}$.
+\end{example}
+\begin{defn}\label{defn:assoc-graded}
+	Let $(R, F_\bullet)$ be a filtered $K$-algebra. The \emph{associated graded $K$-algebra}, $\gr^{F_\bullet} R$, is defined
+	\begin{align*}
+		\gr^{F_\bullet} R = \bigoplus^{\infty}_{i=0} F_i/F_{i-1}.
+	\end{align*}
+	When the filtration is known, we will often suppress it from the notation and simply write $\gr R$. For any $r \in F_i$, we denote by $\sigma_i(r)$ its image in $F_i/F_{i-1}$ and say $\sigma_i(r)$ is the \emph{i\textsuperscript{th} principal symbol} of $r$.
+\end{defn}
+We use the principal symbol maps $\sigma_i$ to define an algebra structure on $\gr^\cF R$. A \emph{homogeneous element} of $\gr^\cF R$ is any operator $d \in \gr^\cF R$ such that $d = \sigma_k(a)$ for some $a \in F_k$. Given two homogeneous elements $\sigma_i(a)$ and $\sigma_j(b)$, we define their product by
+\begin{align*}
+	\sigma_i(a)\cdot \sigma_j(b) = \sigma_{i+j}(a\cdot b).
+\end{align*}
+Extending this multiplication to all of $\gr^\cF R$ by distributivity makes $\gr^\cF R$ into a graded $K$-algebra whose homogeneous components are the individual summands $F_k/F_{k-1}$.
+
+\begin{comment}
+\begin{rmk}\label{rmk:two-filtrations-yield-same-assoc-graded}
+	Given that the notation $\gr A$ makes no reference to the choice of filtration, one would hope that $\gr A$ is independent of the specific filtration chosen, and indeed it is. 
+\end{rmk}
+\end{comment}
+
+\begin{example}\label{example:graded-algebra-of-Weyl-algebra}
+	Let $S_n = \gr^\cB A_n$. Then the graded algebra $S_n$ is isomorphic to $K[y_1,...,y_{2n}]$. 
+
+	Although we only refer to the proof of this statement, it is nonetheless worth thinking about why this ought to be true. Since we have surjective maps $\pi_k:A_n\to B_k \to{\sigma_k} B_k/B_{k-1}$, $S_n$ is generated as an algebra by the images of elements $x_1,...,x_n,\partial_1,...,\partial_n \in A_n$. The only thing preventing us from defining a isomorphism $K[y_1,...,y_{2n}]\to S_n$ sending $y_i\mapsto x_i$ and $y_{i+n}\mapsto \partial_{i}$ for $1\leq i\leq n$ is commutativity, however, we see that
+	\begin{align*}
+		\pi_1(\partial_i x_i) = \pi_1(x_i\partial_i + 1) = \pi_1(x_i\partial_i) + \pi_1(1) = \pi_1(x_i\partial_i),
+	\end{align*}
+	so $[\partial_i,x_i] = 0$ in $B_1/B_0$. This gives us commutativity in $S_n$ and allows us to define a surjective homomorphism $K[y_1,...,y_{2n}] \to S_n$. Since there are no additional relations between the generators $x_1,...,x_n,\partial_1,...,\partial_n$, this is an isomorphism. Coutinho's proof fills in the details of this sketch \cite[pg. 58]{d-mod-primer}.
+\end{example}
+
+\begin{defn}\label{defn:filtered-module}	
+	Let $(R,F_\bullet)$ be a filtered $K$-algebra and $M$ a left $R$-module. A \emph{filtration of $M$} compatible with $F_\bullet$is a family $\Gamma = \{\Gamma_0\}_{i\geq 0}$ of $K$-vector spaces satisfying
+	\begin{enumerate}[(1)]
+		\item $\Gamma_0 \subseteq \Gamma_1 \subseteq \Gamma_2 \subseteq ... \subseteq M$,
+		\item $F_i\Gamma_j \subseteq \Gamma_{i+j}$.
+		\item $M = \bigcup_{i\geq 0} \Gamma_i$
+	\end{enumerate}
+	Such a module is said to be \emph{filtered}, and as with algebras, we set $\Gamma_{-1} = 0$. In this section, we additionally adopt the convention that
+	\begin{enumerate}
+		\item[(4)] $\Gamma_i$ is a finite-dimensional $K$-algebra for each $i \geq 0$,
+	\end{enumerate}
+	which will become important in our discussion of dimension. The \emph{associated graded module} to $M$ is
+	\begin{align*}
+		\gr^{\Gamma} M = \bigoplus_{i=0}^\infty \Gamma_i/\Gamma_{i-1}
+	\end{align*}
+	and is a graded $\gr R$ module.
+\end{defn}
+
+The associated grading can tell us something about its filtered module.
+\begin{thm}\label{thm:noeth-assoc-graded-module}
+	Suppose that $R$ is a Noetherian $K$-algebra with filtration $\cF$ and $M$ is a left $R$-module with filtration $\Gamma = \{\Gamma_i\}_{i\geq 0}$. If $\gr^\Gamma M$ is a Noetherian then so is $M$.
+\end{thm}
+\begin{prf}
+	Set $S = \gr^\cF R$ and let $N \subseteq M$ be a $R$-submodule of $M$. We prove that it is finitely generated. Define $\Gamma'_i = N \cap \Gamma_i$ for $i \geq 0$. The collection $\Gamma' = \{\Gamma'_i\}$ is then a filtration of $N$, which we call the \emph{induced filtration of $N$ by $\Gamma$}. The inclusions $\Gamma_i' \subseteq \Gamma_i$ give us an inclusion $\gr^{\Gamma'} N \subseteq \gr^\Gamma M$, and since $\gr^\Gamma M$ is Noetherian, $\gr^{\Gamma'}N$ must be a finitely generated as an $S$-module.
+
+	Let $\{c_1,...,c_r\}$ be a generating set for $\gr^{\Gamma'}M$. We assume that each $c_i$ is homogeneous without loss of generality; each $c_i$ is a linear sum of finitely many homogeneous elements and we can therefore replace each $c_i$ by its homogeneous components without compromising the finiteness of our generating set. For each $c_i$ we can therefore find some integer $k_i$ and some $u_i \in \Gamma'_{k_i}$ such that $\mu_{k_i}(u_i) = c_i$. Let $m = \max\{k_1,...,k_r\}$, and note that $u_i \in \Gamma'_m$ for each $1\leq i\leq r$. We show that $\Gamma'_m$ generates $N$.
+
+    Suppose $v \in \Gamma_\ell$. If $\ell \leq m$ then $v \in \Gamma'_\ell \subseteq \Gamma'_m$, and hence $v$ is in the $R$-submodule of $M$ generated by $\Gamma'_m$. Suppose now that $\ell > m$ and $\Gamma_{\ell - 1}$ is contained in the $R$-linear span of $\Gamma'_m$. Because $\{\mu_{k_1}(u_1),...,\mu_{k_r}(u_r)\}$ generates $\gr^{\Gamma'}N$ as an $S$-module, there exist $a_1,...,a_r$ such that
+	\begin{align*}
+		\mu_\ell(v) = \sum_{i=1}^r \sigma_{\ell-k_i}(a_i)\mu_{k_i}(u_i).
+	\end{align*}
+	Hence
+	\begin{align*}
+		\mu_\ell \left(v - \sum_{i=1}^r a_i u_i\right) = 0
+	\end{align*}
+	\begin{align*}
+		v' = v - \sum_{i=1}^r a_i u_i \in \Gamma'_{\ell - 1}.
+	\end{align*}
+	The element $v$ is a linear sum of elements in $\Gamma'_m$ if and only if $v'$ is too. However, $v' \in \Gamma'_{\ell - 1}$ and is therefore in the $R$-linear span of $\Gamma'_{m}$ by the inductive hypothesis. Hence $v \in R\cdot \Gamma'_m$, and since every element of $N$ is contained in $\Gamma'_\ell$, $\Gamma'_m$ generates $N$.
+
+	It is left to show that there is a finite subset of $\Gamma'_m$ which generates $N$. However, $\Gamma'_m$ is a finite dimensional $K$-vector space. Any $K$-basis for $\Gamma'_m$ will generate all of $\Gamma'_m$ and will therefore serve as a set of generators for $N$.
+\end{prf}
+Note that the set $\{u_1,...,u_r\}$ in the above proof is not necessarily a generating set for $N$. The induction step gives us an algorithm for writing any $v \in \Gamma'_\ell$ in terms of the $u_i$ only in the case that $\ell > \max\{\deg(u_1),...,\deg(u_r)\}$.
+
+The converse of this theorem need not always hold, that is, if $R$ is Noetherian and $M$ is finitely generated, it need not be the case that $\gr^{\Gamma}M$ is finitely generated. We therefore give filtrations which produce finitely generated associated graded modules a special name: we call $\Gamma$ a \emph{good filtration} of $M$ if $\gr^\Gamma M$ is finitely generated. Good filtrations provide a framework to discuss the dimension of modules over the Weyl algebra.
+
+\subsection{Dimension of modules over the Weyl algebra}
+The primary goal of this section is a proof of Bernstein's Inequality, a striking example of how the theory of $D$-modules can drastically differ from that of modules over commutative rings. To accomplish this, it is necessary to discuss several basic facts regarding the dimension of modules over the Weyl algebra, proofs of which we brazenly omit in eternal deference to Atiyah-Macdonald.
+\subsubsection{Facts about Dimension}
+\begin{thm}\label{thm:basic-dim-properties-A_n}
+	Let $M$ be a finitely-generated left $A_n$-module and $N \subseteq M$ a submodule. Then
+	\begin{enumerate}[(a)]
+		\item $\dim(M) = \max\{d(N),d(M/N)\}$ 
+		\item If $\dim(N) = \dim(M/N)$ then $m(M) = m(N) + m(M/N)$.
+	\end{enumerate}
+\end{thm}
+\begin{prf}$ $
+	\begin{enumerate}[(a)]
+		\item Let us first see how the Hilbert polynomials of $M$, $N$ and $M/N$ related. Denote by $S_n$ the associated graded ring of $A_n$, and let $\Gamma$ be a good filtration of $M$ with respect to $\cB$. Let$\Gamma'$ and $\Gamma''$ be the induced filtrations for $N$ and $M/N$. We then obtain the following short exact sequence of associated graded $S_n$-modules:
+		\begin{align*}
+			0 \to \gr^{\Gamma'}N \to \gr^\Gamma M \to \gr^{\Gamma''}M/N \to 0.
+		\end{align*}
+		We know $\gr^\Gamma M$ is a finitely generated $S_n$-module since $\Gamma$ is good, hence $\gr^{\Gamma''}M/N$ is also finitely generated since it is isomorphic to a quotient of $\gr^\Gamma M$. Likewise, since $S_n$ is Noetherian and $\gr^{\Gamma'}N$ is isomorphic to a submodule of $\gr^\Gamma M$, $\gr^{\Gamma'}N$ is finitely generated. This tells us that $\Gamma'$ and $\Gamma''$ are both good filtrations.
+
+		Now consider the short exact sequence of vector spaces
+		\begin{align*}
+			0 \to \Gamma'_k/\Gamma'_{k-1} \to \Gamma_k/\Gamma_{k-1} \to \Gamma''_{k}/\Gamma''_{k-1}\to 0
+		\end{align*}
+		for $0\leq k$. By the rank-nullity theorem, $\dim_K\Gamma_k/\Gamma_{k-1} = \dim_K\Gamma'_k/\Gamma'_{k-1} + \dim_K\Gamma''_{k}/\Gamma''_{k-1}$, so 
+		\begin{align*}
+			\sum_{k=0}^\infty\left(\dim_K\Gamma_k/\Gamma_{k-1}\right) = \sum_{k = 0}^\infty\left(\dim_K\Gamma'_k/\Gamma'_{k-1} + \dim_K\Gamma''_{k}/\Gamma''_{k-1}\right)
+		\end{align*}
+		and thus for $s >> 0$ we get
+		\begin{align*}
+			\chi(s,\Gamma,M) = \chi(s,\Gamma',M) + \chi(s,\Gamma'', N).
+		\end{align*}
+
+		As all of the above are polynomials with positive leading coefficients by \red{CITE THEOREM}, we get that $\deg\left(\chi(s,\Gamma',M) + \chi(s,\Gamma'', N)\right) = \deg\left(\chi(s,\Gamma',M)\right) + \left(\chi(s,\Gamma'', N)\right)$ and hence
+		\begin{align*}
+			\dim(M) = \max\left\{\dim(N), \dim(M)\right\}.
+		\end{align*}
+		\item If $\dim(M/N) = \dim(N)$ then the polynomials $\chi(s,\Gamma,M), \chi(s,\Gamma',M)$ and $\chi(s,\Gamma'', N)$ all have the same degree. This then implies that the leading term of $\chi(s,\Gamma, M)$ is equal to the sum of the leading terms of $\chi(s,\Gamma',N)$ and $\chi(s,\Gamma'',M/N)$.
+	\end{enumerate}
+\end{prf}
+
+\subsubsection{Bernstein's Inequality}
+
+\begin{thm}\label{thm:bern-inequality}
+	If $M$ is a finitely-generated left $A_n(K)$-module, then either $n \leq \dim(M)\leq 2n$ or $M = 0$.
+\end{thm}
+\begin{prf}
+	TO DO!!!!!!!!!
+\end{prf}
+
+\subsection{Holonomic Modules}
+
+The Bernstein inequality tells us that a nonzero finitely-generated left $A_n(K)$-module $M$ must have dimension at least $n$ and at most $2n$. Those modules of minimal dimension are nice enough that we give them their very own name; we call them \emph{holonomic modules}.
+\begin{defn}\label{defn:holonomic-modules}
+	A finitely generated left $A_n(K)$-module $M$ is said to be \emph{holonomic} if either $M = 0$ or $\dim(M) = n$.
+\end{defn}
+Examples are easy to identify thanks to Bernstein. We know that $R = K[x_1,...,x_n]$ is holonomic since $\dim K[x_1,...,x_n] = n$, and furthermore, both $I$ and $R/I$ are holonomic when $I$ is any proper ideal of $R$. As another example, in the case that $n = 1$, for any nonzero ideal $I \subseteq A_1$ we have that $\dim(A_1/I) \leq 1$ by 
+\subsubsection{Lemma on B-Functions}
+Let $f$ be a polynomial in $K[x_1,...,x_n]$ and let $s$ be a new variable. We will consider the Weyl algebra $A_n(K(s))$ over the field of rational functions in $s$ and the $A_n(K(s))$-module generated by the formal symbol $f^s$, upon which a rational function $p \in K(s)$ acts in the obvious way and the operator $\partial_i$ acts by the formula
+\begin{equation}\label{eqn:formula-preceeding-b-func}
+	\partial_j\left(f^s\right) = \frac{s}{f}\cdot \frac{\partial f}{\partial x_i}.
+\end{equation}
+When $s$ is an integer and $f^s$ is treated not as a formal symbol but as a power, this action of course agrees with the existing action of $\partial_j$. The above formula means that $A_n(K(s))p^s$ is an $A_n(K(s))$-submodule of $K(s)[x_1,...,x_n,f^{-1}]$.
+
+\begin{thm}\label{thm:b-functions-Weyl}
+	Fix $f \in K[x_1,...,x_n]$. There exists a polynomial $B(s) \in K[s]$ and a differential operator $D(s)\in A_n(K)[s]$ such that
+	\begin{align*}
+		B(s)f^s = D(s) f^{s+1}.
+	\end{align*}
+	The set of all such $B(s)$ form an ideal in $K[s]$, the monic generator of which is called the \emph{Bernstein polynomial} of $f$ and is denoted by $b_f(s)$.
+\end{thm}
+\begin{example}\label{example:explicit-b-function1}
+	Let $f = x_1^2+...+x_n^2$. Notice that
+	\begin{align*}
+		\partial_i^2 f^{s+1} = 4x_i^2(s+1)sf^{s-1} + 2(s+1)f^s.
+	\end{align*}
+	Letting $D = \partial_1^2 + ... + \partial_n^2$, we get that
+	\begin{align*}
+		D(f^{s+1})
+		  &= \sum_{i=0}^n \left(4x_i^2(s+1)sf^{s-1} ~+~ 2(s+1)f^s\right) \\
+		  &= 4(s+1)s(x_1^2+...+x_n^2)f^{s-1} + 2n(s+1)f^s \\
+		  &= 2(s+1)(2s+ n)f^s,
+	\end{align*}
+	hence $b_f(s) = 2(s+1)(2s+n)f^s$.
+\end{example}
+
+\section{Inverse Images, Direct Images and Kashiwara's Theorem}
+Here we introduce two operations on $D$-modules, inverse images and direct images, and Kashiwara's theorem. We discuss the former first. As should be expected by now, some algebraic constructions are brushed under the rug, the tensor product of bimodules perhaps chief among them. The reader may wish to visit \cite{d-mod-primer}, \cite{d-mod_ps-rt} or \cite{ginzburg_d-mod} if this is unfamiliar.
+
+Throughout this section we restrict ourselves to the case in which $D_{R/K}$ is generated by $\Der_{K}(R)$ and $R$, as is the primary setting in \cite{d-mod_ps-rt} for instance. This setting is slightly more general than one might think. Alluding to the global case for a minute, it is true that $D_X$ is locally generated by 
+
+\subsection{Inverse Images}
+Let $R = K[x_1,...,x_n]$, $S = K[y_1,...,y_m]$ and $M$ be a left $A_n$-module. We wish to build a left $A_m$-module from $M$ in a meaningful way. Suppose further that we are given a polynomial map $F:K^m\to K^n$ whose coordinate polynomials are $F_1,...,F_n\in K[y_1,...,y_m]$. Composition with $F$ gives a map of rings $\varphi:R\to S$ defined $f\mapsto f\circ F$, and in particular, we may view $S$ as an $R$-module via the $R$-action given by $\varphi$. The tensor product $S\otimes_R M$ is then an $S$-module denoted $F^*M$, and we want to turn it into an $A_m$-module. The action of polynomials on $F^*M$ is known, and we define the action of $\partial_{y_i}$ by
+\begin{equation}\label{eqn:action-inv-img}\tag{$\ast$}
+	\partial_{y_i}(q\otimes u) = \partial_{y_i}(q) \otimes u ~ + ~ \sum_{j=1}^n q\partial_{y_i}(F_j) \otimes \partial_{x_j} u.
+\end{equation}
+for $q\in S$ and $u\in M$ and extend by linearity. As the $y_i$'s and $\partial_{y_i}$'s generate $A_m$, to check that this does indeed give us a left $A_m$-action on $F^*M$ we need only check that (\ref{eqn:action-inv-img}) is compatible with the relations
+\begin{align*}
+	[\partial_{y_i}, y_j] &= \delta_{ij} \\
+	[y_i,y_j] &= [\partial_{y_i},\partial_{y_j}] = 0
+\end{align*}
+where $\delta_{ij}$ is the Dirac delta function.
+
+Let us check the first relation on an arbitrary generator $q\otimes u \in F^*M$, referring to the image of $y_j \in S$ in $A_m$ by $\hat{y}_j$ to avoid confusion:
+
+% Possible confusion due to the fact that $[\partial_{y_i}, \hat{y}_j] = \delta_{ij}$ in $A_m$ whereas $\partial_{y_i}(y_j) = \delta_{ij}$ in $S$.
+\begin{align*}
+	\partial_{y_i}\hat{y}_j(q\otimes u)
+	  &= \partial_{y_i}(y_j q \otimes u) ~+~ \sum_{k=1}^n y_jq\partial_{y_i}(F_k) \otimes \partial_{x_k}u \\
+	  &= \big(\partial_{y_i}(y_j q)\big)\otimes u ~+~ y_j \sum_{k=1}^n q \partial_{y_i}(F_k) \otimes \partial_{x_k}u \\
+	  &= q(\partial_{y_i}y_j)\otimes u ~+~ y_j(\partial_{y_i}(q))\otimes u ~+~ y_j \sum_{k=1}^n q \partial_{y_i}(F_k) \otimes \partial_{x_k}u \\
+	  &= q\delta_{ij} \otimes u ~+~ y_j\left(\partial_{y_j}(q) \otimes u ~+~ \sum_{k=1}^n q\partial_{y_i}(F_k) \otimes \partial_{x_k}u\right) \\
+	  &= \delta_{ij}(q\otimes u) ~+~ y_j\partial_{y_i}(q\otimes u) \\
+	  &= \delta_{ij}(q\otimes u) ~+~ \hat{y}_j\big(\partial_{y_i}(q\otimes u)\big).
+\end{align*}
+Since the relation $[\partial_{y_i},\hat{y}_j]v = \delta_{ij}v$ holds when $v$ is of the form $q\otimes u \in F^*M$, it holds for arbitrary elements $v\in F^*M$ once we extend by linearity. The other two relations follow from an easy check and a few applications of Leibniz's rule, respectively. \red{In reality, I simply don't want to write out the relation $[\partial_{y_i},\partial_{y_j}]v = 0$, but perhaps it would be helpful to include in a future draft.} This means the following definition makes sense:
+
+\begin{defn}\label{defn:inv-img}
+	Let $F:K^m\to K^n$ be a polynomial map with components $F_1,...,F_n \in K[y_1,...,y_m]$ and let $M$ be a left $A_n$-module. Then $F^*M$ endowed with the $A_m$-action defined in (\ref{eqn:action-inv-img}) is a left $A_m$-module called the \emph{inverse image} of $M$ by the polynomial map $F$.
+\end{defn}
+
+As a sanity check, let's ensure the inverse image works as expected when $F$ is the identity map.
+\begin{example}\label{example:inv-img-sanity-check}
+	Let $$
+\end{example}
+
+%\begin{rmk}\label{rmk:inv-img}
+	%The term ``inverse image'' is clearer if we rephrase things in terms of geometry. If $X$ is a variety and $D_X$ is its sheaf of differential operators, then a sheaf $M$ over $X$ is said to be a left $D_X$-module if $M$ is a sheaf of left modules over $D_X$. Given a morphism $f:X\to Y$ of smooth algebraic varieties and a left $D_Y$-module $M$, then $f^*M$ is simply the sheaf-theoretic inverse image defined in \cite{hartshorne}.
+%\end{rmk}
+
+\subsection{Direct Images}
+
+\section{Applications of \textit{D}-Modules}
+
+
+\subsection{\emph{D}-Modules in Positive Characteristic}
+In this section we'll discuss the theory of $D$-Modules in positive characteristic. 
+\subsection{The Structure of Differential Operators in Positive Characteristic}
+
+\begin{defn}\label{defn:diff-op-rings}
+	Let $A\to R$ be a map of commutative rings and let $M$ and $N$ be (two-sided) $R$-modules. We define
+	\begin{align*}
+		D^0_{R/A}(M,N) = \Hom_R(M,N)
+	\end{align*}
+	and then inductively define
+	\begin{align*}
+		D^i_{R/A}(M,N) = \{\varphi \in \Hom_A(M,N) ~\mid~ [\varphi,f] \in D^{i-1}_{R/A}(M,N) ~ \text{for all} f \in R\}.
+	\end{align*}
+    Note that we may identify $R$ with its image in $\End_R(M)$ by the map $f \mapsto \olf_M$ where $\olf_M: m\mapsto f\cdot m$. By $[\varphi,f]$ we mean $\varphi\circ \olf_M - \olf_N\circ \varphi$.
+
+	We let $D_{R/A}(M,N) = \bigcup_{i=0}^\infty D^{i}_{R/A}(M,N)$. In the case that $M = N$ we write $D_{R/A}(M)$ and when $R = M = N$ we write $D_{R/A}$, sometimes omitting $R$ and $A$ when the context is clear.
+\end{defn}
+It is often convenient to let $D^i_{R/A}(M,N) = 0$ for $i < 0$. In fact, since $\varphi$ is $R$-linear if and only if $[\varphi, f] = 0$ for each $f \in R$, we could instead declare $D^i_{R/A}(M,N) = 0$ before proceeding with the inductive definition above.
+
+The following is our first theorem regarding differential operators in characteristic $p > 0$.
+
+\begin{thm}[{\cite[Lemma 1.4.8]{amon92}}]\label{thm:perfect-field-diff-op}
+	Let $K$ be a perfect field with $\fchar K = p > 0$ and $R$ be essentially of finite type as a $K$-algebra. Then
+	\begin{align*}
+		D_{R/K} = \bigcup_{e\in \bN} \Hom_{R^{p^e}}(R,R).
+	\end{align*}
+\end{thm}
+\begin{prf}
+	The proof of this statement in \cite{amon92} is slightly more general than this statement, likely opportunity to condense it.
+\end{prf}
+
+\begin{defn}\label{defn:D-ideal}
+	Let $A\to R$. A \emph{$D$-ideal} of $R$ is a $D_{R/A}$-submodule of $R$. Since $R \hookrightarrow D_{R/A}$, any such submodule is closed under multiplication by $R$ and is therefore an ideal of $R$, justifying the name.
+\end{defn}
+
+\begin{example}\label{ex:quotient-is-d-mod}
+	If $I \subseteq R$ is a $D$-ideal, then $R/I$ is a $D-module$.
+\end{example}
+
+\begin{prop}\label{prop:localization-of-D-mod}
+	If $W \subseteq R$ is a multiplicatively closed set and $M$ is a $D$-module, then $W^{-1}M$ is a $D$-module by the rule
+	\begin{align*}
+		\alpha\cdot \frac{m}{\omega} = \sum_{i = 0}^{\ord(\alpha)} \frac{\alpha^{(i)}\cdot m}{\omega^{i+1}}
+	\end{align*}
+	where $\alpha^{(0)} = \alpha$ and $\alpha^{(i+1)} = [\alpha^{(i)}, \ol{\omega}]$.
+\end{prop}
+
+\begin{defn}\label{defn:D-module-simple}
+	Let $A\to R$ be a map of rings. We say that $R$ is \emph{$D$-module simple} if it is a simple $D$-module. We say $R$ is \emph{$D$-algebra simple} if it is a simple $D$-algebra.
+\end{defn}
+
+The ring of differential operators in prime characteristic can detect singularities. 
+
+\begin{thm}[{\cite[Theorem 2.2 (4)]{ksmith95-d-mod-f-split}}]\label{thm:strongly-F-regular-rings-D-simple}
+	Let $\fchar(R) = p > 0$ and suppose $R$ is $F$-finite. Then $R$ is strongly $F$-regular if and only if $R$ if $F$-split and is a finite product of $D$-simple rings.
+\end{thm}
+\newpage
+\printbibliography
+\end{document}

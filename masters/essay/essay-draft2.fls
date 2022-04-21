@@ -1711,8 +1711,8 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/stmaryrd/stmary10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cyrillic/wncyr10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/newtx/ntx-BoldItalic-tlf-t1.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/newtx/ntx-Italic-tlf-t1.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/newtx/ntx-BoldItalic-tlf-t1.tfm
 OUTPUT essay-draft2.toc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/tex-gyre/ec-qhvb.tfm
@@ -1728,6 +1728,14 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/newtx/ntx-Italic-tlf-t
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/tex-gyre/ec-qhvbi.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1pzc.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1pzc.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1pzc.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1pzc.fd
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/zapfchan/pzcmi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/zapfchan/pzcmi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/zapfchan/pzcmi7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -1739,6 +1747,8 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/zapfchan/pzcmi7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/zapfchan/pzcmi8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/tex-gyre/ec-qhvbi.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/tex-gyre/ec-qhvbi.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/tex-gyre/ec-qhvr.tfm
@@ -1755,6 +1765,7 @@ INPUT essay-draft2.run.xml
 OUTPUT essay-draft2.run.xml
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -1776,6 +1787,7 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvbi.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb
