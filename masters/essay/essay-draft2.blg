@@ -1,17 +1,17 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'essay-draft2.blg'
-[47] biber:340> INFO - === Thu Apr 21, 2022, 22:35:30
-[56] Biber.pm:415> INFO - Reading 'essay-draft2.bcf'
-[100] Biber.pm:952> INFO - Found 9 citekeys in bib section 0
+[46] biber:340> INFO - === Fri Apr 22, 2022, 17:43:55
+[54] Biber.pm:415> INFO - Reading 'essay-draft2.bcf'
+[100] Biber.pm:952> INFO - Found 10 citekeys in bib section 0
 [108] Biber.pm:4340> INFO - Processing section 0
 [114] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
 [191] bibtex.pm:1689> INFO - LaTeX decoding ...
-[208] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
-[236] Utils.pm:395> WARN - ISBN '0-521-55119-6; 0-521-55908-1' in entry 'd-mod-primer' is invalid - run biber with '--validate_datamodel' for details.
-[265] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[265] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[265] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[265] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[272] bbl.pm:654> INFO - Writing 'essay-draft2.bbl' with encoding 'UTF-8'
-[275] bbl.pm:757> INFO - Output to essay-draft2.bbl
-[275] Biber.pm:128> INFO - WARNINGS: 1
+[210] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
+[240] Utils.pm:395> WARN - ISBN '0-521-55119-6; 0-521-55908-1' in entry 'd-mod-primer' is invalid - run biber with '--validate_datamodel' for details.
+[273] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[273] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[273] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[273] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[281] bbl.pm:654> INFO - Writing 'essay-draft2.bbl' with encoding 'UTF-8'
+[284] bbl.pm:757> INFO - Output to essay-draft2.bbl
+[284] Biber.pm:128> INFO - WARNINGS: 1

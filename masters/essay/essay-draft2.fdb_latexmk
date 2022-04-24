@@ -1,14 +1,14 @@
 # Fdb version 3
-["biber essay-draft2"] 1650576929 "essay-draft2.bcf" "essay-draft2.bbl" "essay-draft2" 1650579910
+["biber essay-draft2"] 1650645834 "essay-draft2.bcf" "essay-draft2.bbl" "essay-draft2" 1650809494
   "/home/lwkatzen/texmf/bibtex/bib/main.bib" 1650568682 7583 977f7c58ea137b83ccd760d22e061951 ""
-  "essay-draft2.bcf" 1650579910 108157 4b41561327f406a1213729ad1672991c "pdflatex"
+  "essay-draft2.bcf" 1650809493 108156 a87200029d3856b3c2b26b61f639351c "pdflatex"
   (generated)
   "essay-draft2.bbl"
   "essay-draft2.blg"
-["pdflatex"] 1650579908 "essay-draft2.tex" "essay-draft2.pdf" "essay-draft2" 1650579910
+["pdflatex"] 1650809492 "essay-draft2.tex" "essay-draft2.pdf" "essay-draft2" 1650809494
   "../preamble.tex" 1650198119 945 7adc34b7d81dac7a5a118841e6c8aebf ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty" 1649887042 10472 fd872bd9d765d5cb6db207702c623609 ""
-  "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1650573030 33048 8afb53835283a974617732c202f305d0 ""
+  "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1650807727 33077 2e492b1b69598967f61dccf337a066b8 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/theorem-env.sty" 1649703852 2908 406085b520fc1de609c0237efb4cecb2 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc" 1640468671 3136 aac2e2476de8af6c827239df395814ee ""
@@ -310,12 +310,12 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643846389 4379201 718a59215bccc89d4f89ee72c554b0e8 ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643846402 2796796 2c18e0876449a496ae83bd1419ea9c78 ""
   "/usr/local/texlive/2021/texmf.cnf" 1643846386 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "essay-draft2.aux" 1650579910 26296 4c00f1b45fc72678d2d928e4f82d42c4 "pdflatex"
-  "essay-draft2.bbl" 1650576930 12974 7ebf8e318bc8e7cb216a2317ab07d60a "biber essay-draft2"
-  "essay-draft2.out" 1650579910 5702 616a9be1bcfb4b498aa479ef919afe1f "pdflatex"
-  "essay-draft2.run.xml" 1650579910 2361 b60a86500778824c2b7d4362a6bed013 "pdflatex"
-  "essay-draft2.tex" 1650579908 71568 01773dcf7c20f51e7719f6fef5fbb143 ""
-  "essay-draft2.toc" 1650579910 3649 dbc14232c4fac3d1f90f29064230b228 "pdflatex"
+  "essay-draft2.aux" 1650809493 26683 de2c7f14422ae7f11bbaf684f9121ddb "pdflatex"
+  "essay-draft2.bbl" 1650645835 14097 3a1c2515c5014628059a047ce424683b "biber essay-draft2"
+  "essay-draft2.out" 1650809493 5265 739e36e946d8a67181304ac950e51c96 "pdflatex"
+  "essay-draft2.run.xml" 1650809493 2361 b60a86500778824c2b7d4362a6bed013 "pdflatex"
+  "essay-draft2.tex" 1650809489 77686 5c76d733317ddb806fd4c33cea6de934 ""
+  "essay-draft2.toc" 1650809493 3468 55f01b136d628775056ab2da528095af "pdflatex"
   (generated)
   "essay-draft2.aux"
   "essay-draft2.bcf"

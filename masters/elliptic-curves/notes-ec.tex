@@ -388,10 +388,10 @@ Two maps
 
 \lecture{2022-03-16}{2022-03-16}
 Last time had an elliptic curve $E:~ y^2=x(x^2 + ax + b)$, $\phi:E \to E'$ a 2-isogeny. Set $b_2 = b/b_1$ and
-\begin{align*}\tag{\ast}
+\begin{align*}\tag{$\ast$}
 	w^2 = b_1u^4 + au^2v^2 + b_2 v^4
 \end{align*} 
-\begin{align*}\tag{\ast'}
+\begin{align*}\tag{$\ast$'}
 	w^2 = b_1u^4 + a'u^2v^2 + b_2 v^4
 \end{align*}
 with $b_2 = b'/b_1$. Here, we additionally had that $a' = -2a$ and $b' = a^2 - 4b$. We then get an exact sequence
@@ -401,7 +401,7 @@ with $b_2 = b'/b_1$. Here, we additionally had that $a' = -2a$ and $b' = a^2 - 4
 				   & & \bQ^*/(\bQ^*)^2 & &
 	\end{tikzcd}
 \end{center}
-Then $\img(\alpha_E) = \{b_1(\bQ^*)^2 ~ \mid ~ (\ast) \text{ is soluble over } \bQ\}$ is a subset of $S^{(\phi)}(E/\bQ) = \{b_1(\Q^*)^2 ~\mid~ (\ast') \text{ is soluble over }\bR \text{ and over  } \bQ_p \text{ for all primes } p\}$. 
+Then $\img(\alpha_E) = \{b_1(\bQ^*)^2 ~ \mid ~ (\ast) \text{ is soluble over } \bQ\}$ is a subset of $S^{(\phi)}(E/\bQ) = \{b_1(\bQ^*)^2 ~\mid~ (\ast') \text{ is soluble over }\bR \text{ and over  } \bQ_p \text{ for all primes } p\}$. 
 
 Fact: (Uses Ex Sheet 3, Question 9 and Hensel's lemma) If $a, b_1, b_2 \in \bZ$ and $p\not | 2b(a^2 - 4b)$ then $(\ast)$ is soluble over $\bQ$.
 
@@ -441,15 +441,15 @@ It is an \textbf{open conjecture} that $\rank E(\bQ) = 1$ for all primes $p \equ
 \end{align*}
 where $(u,v,w) \sim (\lambda u, \lambda v, \lambda^2 w)$ for all $\lambda \in K^*$.
 \begin{itemize}
-	\item $C(\bQ_2) \neq \emptyset$ since $\17 \in (\bQ_2^*)^2$
+	\item $C(\bQ_2) \neq \emptyset$ since $17 \in (\bQ_2^*)^2$
 	\item $C(\bQ_{17}) \neq \emptyset$ since $2 \in (\bQ_{17}^*)^2$
 	\item $C(\bR) \neq \emptyset$ since $\sqrt{2} \in \bR$.
 \end{itemize}
-Therefore $C(\bQ_p) \neq \emptyset$ for all places $v$ of $\bQ$. Suppose $(u,v,w) \in C(\bQ)$ with (wlog) u,v,w \in \bZ, $\gcd(u,v) = 1$, $w > 0$. If $17 | w$, then $17 | u$ and then $17 | v$. Contradiction since $u$ and $v$ assumed to by coprime. So if $p | w$ with $p$ and odd prime, then $p\neq 17$ and $\left(\frac{17}{p}\right) = 1$ which implies $\left(\frac{p}{17}\right) = \left(\frac{17}{p}\right) = 1$ by quadratic reciprocity. Also note: $\left(\frac{2}{17}\right) = 1$, therefore $\left(\frac{w}{17} = 1\right)$. 
+Therefore $C(\bQ_p) \neq \emptyset$ for all places $v$ of $\bQ$. Suppose $(u,v,w) \in C(\bQ)$ with (wlog) $u,v,w \in \bZ$, $\gcd(u,v) = 1$, $w > 0$. If $17 | w$, then $17 | u$ and then $17 | v$. Contradiction since $u$ and $v$ assumed to by coprime. So if $p | w$ with $p$ and odd prime, then $p\neq 17$ and $\left(\frac{17}{p}\right) = 1$ which implies $\left(\frac{p}{17}\right) = \left(\frac{17}{p}\right) = 1$ by quadratic reciprocity. Also note: $\left(\frac{2}{17}\right) = 1$, therefore $\left(\frac{w}{17} = 1\right)$. 
 
 But $2w^2 \equiv u^4 ~(\mod 17)$, hence $2 \in (\bF_{17}^*)^4 = \{\pm_1, \pm 4\}$. A contradiction. Therefore $C(\bQ) = \emptyset$, i.e. $C$ is a counterexample to the Hasse principle. It represents a nontrivial element of $\tshaf(E/\bQ)$.
 
-\subsectiot{Birch Swinterton-Dyer Conjecture}
+\subsection{Birch Swinterton-Dyer Conjecture}
 Let $E/\bQ$ be an elliptic curve.
 \begin{defn}\label{defn:lec24-1}
 	\begin{align*}
@@ -474,10 +474,10 @@ Hasse's theorem implies $|a_p| \leq 2\sqrt{p}$ and so $L(E,s)$ converges for $\R
 Wiles proved the special case of the modularity theorem for semi-simple (semi-stable?) elliptic curves, which was good enough for Fermat's last theorem.
 
 The weak BSD:
-\begin{conj}[Weak BSD]\label{conj:weak-BSD}
+\begin{conjecture}[Weak BSD]\label{conj:weak-BSD}
 	$\ord_{s=1}L(E,s) = \rank E(\bQ)A.$
-\end{conj}
-\begin{conj}[Strong BSD]\label{conj:strong-BSD}
+\end{conjecture}
+\begin{conjecture}[Strong BSD]\label{conj:strong-BSD}
 	This says 
 	\begin{align*}
 		\lim_{s\to 1} \frac{1}{(s - 1)^r} L(E,s) = \frac{\Omega_E \cdot \Reg E(\bQ) \cdot |\tshaf(E/\bQ)|\cdot \prod_p c_p}{|E(\bQ)_{tors}|^2}
@@ -491,5 +491,5 @@ The weak BSD:
 		\item $[P,Q] = \hat{h}(P+Q) - \hat{P} - \hat{Q}$ 
 		\item $a_i = $ coefficient of a global minimal Weiestrauss equation for $E/Q$.
 	\end{itemize}
-\end{conj}
+\end{conjecture}
 \end{document}
