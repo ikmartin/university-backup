@@ -19,6 +19,42 @@
 
 \refsection{0}
   \datalist[entry]{anyt/global//global/global}
+    \entry{am}{book}{}
+      \name{author}{2}{}{%
+        {{hash=feb3593a7d423b4961148cc3cc6c0231}{%
+           family={Atiyah},
+           familyi={A\bibinitperiod},
+           given={M.\bibnamedelimi F.},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=c2a02585793a1571ef56486f41d53bb6}{%
+           family={Macdonald},
+           familyi={M\bibinitperiod},
+           given={I.\bibnamedelimi G.},
+           giveni={I\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Westview Press, Boulder, CO}%
+      }
+      \strng{namehash}{001822f39c4aa1f97169e4266b69d7dc}
+      \strng{fullhash}{001822f39c4aa1f97169e4266b69d7dc}
+      \strng{bibnamehash}{001822f39c4aa1f97169e4266b69d7dc}
+      \strng{authorbibnamehash}{001822f39c4aa1f97169e4266b69d7dc}
+      \strng{authornamehash}{001822f39c4aa1f97169e4266b69d7dc}
+      \strng{authorfullhash}{001822f39c4aa1f97169e4266b69d7dc}
+      \field{labelalpha}{AM16}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{economy}
+      \field{isbn}{978-0-8133-5018-9; 0-201-00361-9; 0-201-40751-5}
+      \field{note}{For the 1969 original see [ MR0242802]}
+      \field{series}{Addison-Wesley Series in Mathematics}
+      \field{title}{Introduction to commutative algebra}
+      \field{year}{2016}
+      \field{pages}{ix+128}
+      \range{pages}{-1}
+    \endentry
     \entry{bernstein_d-mod}{misc}{}
       \name{author}{1}{}{%
         {{hash=1c686e876bdd2285e932d404b87b235a}{%
@@ -222,6 +258,41 @@
       \verb{url}
       \verb https://jack-jeffries.github.io/S2020/D-modules.pdf
       \endverb
+    \endentry
+    \entry{jet-spaces-exposition}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=361aa99c5048337805c4b6e1b249eff8}{%
+           family={Moosa},
+           familyi={M\bibinitperiod},
+           given={Rahim},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{361aa99c5048337805c4b6e1b249eff8}
+      \strng{fullhash}{361aa99c5048337805c4b6e1b249eff8}
+      \strng{bibnamehash}{361aa99c5048337805c4b6e1b249eff8}
+      \strng{authorbibnamehash}{361aa99c5048337805c4b6e1b249eff8}
+      \strng{authornamehash}{361aa99c5048337805c4b6e1b249eff8}
+      \strng{authorfullhash}{361aa99c5048337805c4b6e1b249eff8}
+      \field{labelalpha}{Moo04}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Jet spaces in complex analytic geometry: an exposition}
+      \field{year}{2004}
+      \verb{doi}
+      \verb 10.48550/ARXIV.MATH/0405563
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/math/0405563
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/math/0405563
+      \endverb
+      \keyw{Logic (math.LO),Complex Variables (math.CV),FOS: Mathematics,FOS: Mathematics,32C15 (Primary),03C99 (Secondary)}
     \endentry
     \entry{mcconnell-robson}{book}{}
       \name{author}{2}{}{%

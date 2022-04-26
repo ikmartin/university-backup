@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  24 APR 2022 23:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  26 APR 2022 14:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1417,7 +1417,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.95pt on input line 19.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
-(Font)              scaled to size 10.95pt on input line 23.
+(Font)              scaled to size 10.95pt on input line 25.
 )
 \tf@toc=\write6
 \openout6 = `essay-draft2.toc'.
@@ -1452,13 +1452,13 @@ LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
 Package hyperref Info: bookmark level for unknown cor defaults to 0 on input line 147.
  [7] [8]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 8.0pt on input line 236.
-Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 240.
+(Font)              scaled to size 8.0pt on input line 259.
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 263.
  [9] [10] [11] [12] [13]
 LaTeX Font Info:    Font shape `T1/qhv/b/it' will be
-(Font)              scaled to size 10.29301pt on input line 421.
+(Font)              scaled to size 10.29301pt on input line 444.
  [14]
-LaTeX Font Info:    Trying to load font information for OT1+pzc on input line 462.
+LaTeX Font Info:    Trying to load font information for OT1+pzc on input line 485.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1pzc.fd
 File: ot1pzc.fd 2020/03/25 font definitions for OT1/pzc.
 )
@@ -1466,56 +1466,185 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pzc' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 473.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 496.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
 File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 ) [15]
 LaTeX Font Info:    Font shape `T1/qhv/b/it' will be
-(Font)              scaled to size 13.53603pt on input line 511.
+(Font)              scaled to size 11.28003pt on input line 534.
+ [16]
 LaTeX Font Info:    Font shape `T1/qhv/b/it' will be
-(Font)              scaled to size 11.28003pt on input line 520.
- [16] [17] [18] [19] [20]
+(Font)              scaled to size 13.53603pt on input line 545.
+ [17] [18] [19] [20]
+./essay-draft2.tex:710: Missing $ inserted.
+<inserted text> 
+                $
+l.710 ... be a generating set for $M$ over $A_n$A_
+                                                  n and define $\Gamma_k = \...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+./essay-draft2.tex:710: Missing $ inserted.
+<inserted text> 
+                $
+l.710 ... for $M$ over $A_n$A_n and define $\Gamma
+                                                  _k = \sum_{i=0}^rB_ku_i$. ...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+[21]
+./essay-draft2.tex:729: You can't use `\spacefactor' in math mode.
+\blx@leavevmode ...\else \leavevmode \spacefactor 
+                                                  \blx@sf@par \fi 
+l.729 ...ails, or $\cite[Chapter 9]{d-mod-primer}$
+                                                   for a discussion tailored...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./essay-draft2.tex:729: You can't use `\spacefactor' in math mode.
+\blx@leavevmode ...\else \leavevmode \spacefactor 
+                                                  \blx@sf@par \fi 
+l.729 ...ails, or $\cite[Chapter 9]{d-mod-primer}$
+                                                   for a discussion tailored...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./essay-draft2.tex:729: You can't use `\spacefactor' in math mode.
+\blx@leavevmode ...\else \leavevmode \spacefactor 
+                                                  \blx@sf@par \fi 
+l.729 ...ails, or $\cite[Chapter 9]{d-mod-primer}$
+                                                   for a discussion tailored...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./essay-draft2.tex:729: Improper \spacefactor.
+<recently read> \spacefactor 
+                             
+l.729 ...ails, or $\cite[Chapter 9]{d-mod-primer}$
+                                                   for a discussion tailored...
+You can refer to \spacefactor only in horizontal mode;
+you can refer to \prevdepth only in vertical mode; and
+neither of these is meaningful inside \write. So
+I'm forgetting what you said and using zero instead.
+
+./essay-draft2.tex:729: You can't use `\spacefactor' in math mode.
+\blx@leavevmode ...\else \leavevmode \spacefactor 
+                                                  \blx@sf@par \fi 
+l.729 ...ails, or $\cite[Chapter 9]{d-mod-primer}$
+                                                   for a discussion tailored...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./essay-draft2.tex:729: You can't use `\spacefactor' in math mode.
+\blx@leavevmode ...\else \leavevmode \spacefactor 
+                                                  \blx@sf@par \fi 
+l.729 ...ails, or $\cite[Chapter 9]{d-mod-primer}$
+                                                   for a discussion tailored...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./essay-draft2.tex:729: Improper \spacefactor.
+<recently read> \spacefactor 
+                             
+l.729 ...ails, or $\cite[Chapter 9]{d-mod-primer}$
+                                                   for a discussion tailored...
+You can refer to \spacefactor only in horizontal mode;
+you can refer to \prevdepth only in vertical mode; and
+neither of these is meaningful inside \write. So
+I'm forgetting what you said and using zero instead.
+
+./essay-draft2.tex:729: You can't use `\spacefactor' in math mode.
+\blx@leavevmode ...\else \leavevmode \spacefactor 
+                                                  \blx@sf@par \fi 
+l.729 ...ails, or $\cite[Chapter 9]{d-mod-primer}$
+                                                   for a discussion tailored...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+./essay-draft2.tex:729: You can't use `\spacefactor' in math mode.
+\reserved@b ->\spacefactor 
+                           \@m 
+l.729 ...ails, or $\cite[Chapter 9]{d-mod-primer}$
+                                                   for a discussion tailored...
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+Missing character: There is no ò in font cmex10!
+Missing character: There is no ò in font cmex10!
+Missing character: There is no ò in font cmex10!
+Missing character: There is no ò in font cmex10!
+Missing character: There is no ò in font cmex10!
+Missing character: There is no ò in font cmex10!
+Missing character: There is no è in font cmex10!
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 10.29301pt on input line 698.
- [21] [22] [23] [24] [25] [26] [27]
+(Font)              scaled to size 10.29301pt on input line 764.
+[22]
+
+./essay-draft2.tex:781: LaTeX Error: Bad math environment delimiter.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.781 	from which we get that $\(
+                                 A_n^{\oplus r}) = \max\{d(A_n),d(A_n^{\oplu...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[23] [24] [25] [26] [27] [28] [29]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 903.
+(Font)              scaled to size 10.95pt on input line 1016.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/ntxtlf/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 903.
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 1016.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.95pt on input line 903.
+(Font)              scaled to size 10.95pt on input line 1016.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ntxtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [28] (./essay-draft2.aux)
+ [30] (./essay-draft2.aux)
 Package rerunfilecheck Info: File `essay-draft2.out' has not changed.
-(rerunfilecheck)             Checksum: C44ECF9BCDC0B4F5D274A639DD08359B;5441.
+(rerunfilecheck)             Checksum: 302B76450974EC3F600F7237CC8BBB9B;5500.
 Package logreq Info: Writing requests to 'essay-draft2.run.xml'.
 \openout1 = `essay-draft2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42078 strings out of 478287
- 828907 string characters out of 5846765
- 1640716 words of memory out of 5000000
- 59051 multiletter control sequences out of 15000+600000
- 556481 words of font info for 219 fonts, out of 8000000 for 9000
+ 42141 strings out of 478287
+ 830208 string characters out of 5846765
+ 1645166 words of memory out of 5000000
+ 59073 multiletter control sequences out of 15000+600000
+ 557105 words of font info for 225 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,21n,102p,3063b,1979s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fon
 ts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on essay-draft2.pdf (28 pages, 499911 bytes).
+Output written on essay-draft2.pdf (30 pages, 518716 bytes).
 PDF statistics:
- 696 PDF objects out of 1000 (max. 8388607)
- 610 compressed objects within 7 object streams
- 227 named destinations out of 1000 (max. 500000)
- 50909 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 755 PDF objects out of 1000 (max. 8388607)
+ 667 compressed objects within 7 object streams
+ 256 named destinations out of 1000 (max. 500000)
+ 50917 words of extra memory for PDF output out of 51595 (max. 10000000)
 
