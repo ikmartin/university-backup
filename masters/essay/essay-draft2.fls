@@ -1736,6 +1736,8 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1pzc.fd
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/zapfchan/pzcmi7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/zapfchan/pzcmi7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/zapfchan/pzcmi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/zapfchan/pzcmi7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/zapfchan/pzcmi8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
@@ -1747,8 +1749,6 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/zapfchan/pzcmi7t.vf
-INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/zapfchan/pzcmi8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/tex-gyre/ec-qhvbi.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/tex-gyre/ec-qhvbi.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/tex-gyre/ec-qhvr.tfm

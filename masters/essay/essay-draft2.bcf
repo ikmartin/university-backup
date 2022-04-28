@@ -2357,20 +2357,24 @@
     <bcf:citekey order="11">d-mod_ps-rt</bcf:citekey>
     <bcf:citekey order="12">d-mod_ps-rt</bcf:citekey>
     <bcf:citekey order="13">d-mod_ps-rt</bcf:citekey>
-    <bcf:citekey order="14">jet-spaces-exposition</bcf:citekey>
-    <bcf:citekey order="15">d-mod-primer</bcf:citekey>
-    <bcf:citekey order="16">ginzburg_d-mod</bcf:citekey>
-    <bcf:citekey order="17">d-mod-primer</bcf:citekey>
-    <bcf:citekey order="18">am</bcf:citekey>
-    <bcf:citekey order="19">am</bcf:citekey>
+    <bcf:citekey order="14">hartshorne</bcf:citekey>
+    <bcf:citekey order="15">jet-spaces-exposition</bcf:citekey>
+    <bcf:citekey order="16">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="17">hartshorne</bcf:citekey>
+    <bcf:citekey order="18">ginzburg_d-mod</bcf:citekey>
+    <bcf:citekey order="19">d-mod-primer</bcf:citekey>
     <bcf:citekey order="20">d-mod-primer</bcf:citekey>
     <bcf:citekey order="21">d-mod-primer</bcf:citekey>
-    <bcf:citekey order="22">d-mod_ps-rt</bcf:citekey>
-    <bcf:citekey order="23">ginzburg_d-mod</bcf:citekey>
-    <bcf:citekey order="24">hartshorne</bcf:citekey>
-    <bcf:citekey order="25">amon92</bcf:citekey>
-    <bcf:citekey order="26">amon92</bcf:citekey>
-    <bcf:citekey order="27">ksmith95-d-mod-f-split</bcf:citekey>
+    <bcf:citekey order="22">am</bcf:citekey>
+    <bcf:citekey order="23">am</bcf:citekey>
+    <bcf:citekey order="24">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="25">d-mod-primer</bcf:citekey>
+    <bcf:citekey order="26">d-mod_ps-rt</bcf:citekey>
+    <bcf:citekey order="27">ginzburg_d-mod</bcf:citekey>
+    <bcf:citekey order="28">hartshorne</bcf:citekey>
+    <bcf:citekey order="29">amon92</bcf:citekey>
+    <bcf:citekey order="30">amon92</bcf:citekey>
+    <bcf:citekey order="31">ksmith95-d-mod-f-split</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="anyt">

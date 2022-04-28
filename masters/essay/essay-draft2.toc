@@ -22,34 +22,36 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.4}A Word Regarding Non-Regular \textit {K}-Algebras}{17}{subsection.1.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}\textit {D}-Modules: Basic Definitions and Facts}{17}{section.2}%
+\contentsline {section}{\numberline {2}\textit {D}-Modules: Basic Definitions and Facts}{19}{section.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.1}Examples of \emph {D}-modules}{17}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Examples of \emph {D}-modules}{19}{subsection.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Filtrations}{18}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Filtrations}{20}{subsection.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.3}Modules over the Weyl algebra}{22}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Modules over the Weyl algebra}{24}{subsection.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.1}Dimension}{22}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.1}Dimension}{24}{subsubsection.2.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.2}Bernstein's Inequality}{24}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.2}Bernstein's Inequality}{26}{subsubsection.2.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.3}Holonomic Modules}{25}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3}Holonomic Modules}{27}{subsubsection.2.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.4}Lemma on B-Functions}{26}{subsubsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.4}Lemma on B-Functions}{28}{subsubsection.2.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}Algebraic \textit {D}-Modules}{27}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.4}Algebraic \textit {D}-Modules}{31}{subsection.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Inverse Images, Direct Images and Kashiwara's Theorem}{27}{section.3}%
+\contentsline {subsubsection}{\numberline {2.4.1}Filtrations and the Characteristic Variety}{31}{subsubsection.2.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Inverse Images}{27}{subsection.3.1}%
+\contentsline {section}{\numberline {3}Inverse Images, Direct Images and Kashiwara's Theorem}{33}{section.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Direct Images}{30}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.1}Inverse Images}{33}{subsection.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Kashiwara's Equivalence}{30}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.2}Direct Images}{35}{subsection.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Applications of \textit {D}-Modules}{30}{section.4}%
+\contentsline {subsection}{\numberline {3.3}Kashiwara's Equivalence}{35}{subsection.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1}\emph {D}-Modules in Positive Characteristic}{30}{subsection.4.1}%
+\contentsline {section}{\numberline {4}Applications of \textit {D}-Modules}{36}{section.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2}The Structure of Differential Operators in Positive Characteristic}{30}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.1}\emph {D}-Modules in Positive Characteristic}{36}{subsection.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}The Structure of Differential Operators in Positive Characteristic}{36}{subsection.4.2}%
