@@ -5,7 +5,7 @@
 \title{\textit{D}-Modules Over Smooth Affine Varieties}
 \date{}
 %\author{Author Name}
-%\usepackage[showframe]{geometry}
+%\use package[show frame]{geometry}
 
 \usepackage{titling}
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
@@ -18,18 +18,24 @@
 \tableofcontents
 \newpage
 \section*{Introduction}
-Write this later.
 
-A word regarding references is in order. As this essay is entirely expository, all of the material presented here can be found in some form or another in another source. Direct citations are provided where feasible, but are not always possible since many facts exist as amalgamations of several different sources. Specific citations become especially quite difficult when a fact is presented in varying levels of generality in two different sources. 
+\subsection*{Where we're headed}
+\noindent To give a complete account of the theory of $D$-modules requires some highly technical results, particularly from derived algebraic geometry and homological algebra, material with which the author is simply not yet proficient. This poses a severe limitation, as many basic definitions hinge on the use derived categories and functors. It therefore becomes necessary to limit the scope of the discussion to avoid the most technical language pervading the theory. 
 
-This essay focuses exclusively on $D$-modules over smooth varieties, with a heavy emphasis on the affine case. Such content lives somewhere between Coutinho's 
+As suggested by the title of this essay, our primary setting will be that of smooth affine varieties. The ``smooth'' hypothesis guarantees the existence of a so-called local coordinate system $\{x_i,\partial_i\}$ on $D_X|_U$ while the ``affine'' hypothesis means these local coordinate systems actually exist globally. Our goal is to provide as detailed an introduction to the basic theory of $D$-modules as possible while adhering to these two main assumptions. Ideally, this essay will develop enough intuition and background to prepare the reader (and indeed, the author) for a more thorough treatment complete with homological and derived language.
 
-The exposition on $D$-modules was largely informed by \cite{d-mod-primer} and \cite{d-mod_ps-rt}, while the online notes \cite{jeffries_d-mod} by Jack Jeffreys inspired the treatment of differential operators in section 1. 
+We drop the affine hypothesis to discuss certain elementary results concerning $D$-modules over general smooth varieties where appropriate, but this is not our primary focus. Our approach is to first carefully develop the theory in the affine setting and then extend to the global case. Section 3 is the only exception, where we instead define everything globally before specializing to the affine case. This section deals with pushing forward and pulling back along a morphism $\varphi:X\to Y$ of varieties, and there is substantial value in developing the grammar in the global case. We will, nonetheless, adopt two more major limitations to avoid derived functors; namely, we define direct images only for right $D_X$-modules along closed embeddings $\iota:X\hookrightarrow Y$.
 
-\section*{Acknowledgments}
+\bigskip
+
+\subsection*{Map of references}
+\noindent A word regarding references is in order. As this essay is entirely expository, all of the material presented here can be found in some form or another in another source. Direct citations are provided where feasible, but are not always possible. This is most often because the presentation of a particular fact or the approach to a certain idea draws inspiration from multiple different places in the literature, and therefore exists as an amalgamation of several different sources. Specific citations become even more difficult when a fact is presented in a level of generality somewhere between two different sources. 
+
+A We focus exclusively on $D$-modules over smooth varieties with a heavy emphasis on the affine case. Such content lives somewhere between Coutinho's exposition on modules over the Weyl algebra \cite{d-mod-primer} and the book by Hotta, Takeuchi, and Tanisaki \cite{d-mod_ps-rt}, and the influence of both books is felt strongly throughout. The first chapter deals exclusively with rings and sheaves of differential operators, material largely inspired by a combination of the online notes by Jeffries \cite{jeffries_d-mod} and by Ginzburg \cite{ginzburg_d-mod}. The latter source proved invaluable for our discussion on good filtrations as well. Lecture notes by \cite{cschnell} further helped the author bridge the gap between the affine and non-affine cases, particularly in Section \ref{sec:d-mod-smooth-varieties}.
+
 \newpage
 \section{Differential Operators}
-One must first understand fields before one can define vectors spaces, and similarly one must first understand the ring of differential operators before one can study $D$-modules. In this section we do exactly that. We first define the ring of differential operators relative to an arbitrary ring homomorphism $A\to R$ and discuss some of its basic properties before focusing on the case where $A$ is a field and $R$ a polynomial ring with coefficients in $A$. This latter object will provide a more explicit setting and will motivate arguments in the general case. We discuss several other examples, and conclude this section by defining the sheaf of differential operators over a smooth variety.
+One must understand fields before one can define vectors spaces, and similarly we must understand the ring of differential operators before one can study $D$-modules. In this section we do exactly that. We first define the ring of differential operators relative to an arbitrary ring homomorphism $A\to R$ and discuss some of its basic properties before focusing on the case where $A$ is a field and $R$ a polynomial ring with coefficients in $A$. This latter object will provide a more explicit setting and will motivate arguments in the general case. We discuss several other examples, and conclude this section by defining the sheaf of differential operators over a smooth variety.
 
 It is worth noting that there are several equivalent ways to define the ring of differential operators in characteristic zero. We discuss two such definitions in the case of a polynomial ring over a field and show that they are equivalent when $\fchar(K) = 0$. However, when $\fchar(K) > 0$, these two definitions will no longer coincide. It therefore becomes necessary to fix either the field characteristic or a particular definition for the ring of differential operators, and in these notes, we will do the latter.
 
@@ -44,6 +50,7 @@ Let $A\to R$ be a map of rings and let $M$ and $N$ be two $R$-modules. We may id
 	\end{itemize}
 	We set $D_{R/A}(M,N) = \bigcup_{k\in \bZ} D^k_{R/A}(M,N)$.
 \end{defn}
+This is sometimes known as the ``coordinate-free'' approach to differential operators, and was first introduced by Grothendieck.
 \begin{rmk}\label{rmk:starting-index-of-diff-op-def}
 	It is worth noting that $\alpha \in D_{R/A}(M,N)$ satisfies $[\alpha,\hatf] = 0 \in D^{-1}_{R/A}(M,N)$ exactly when $\alpha$ is $R$-linear, hence $D_{R/A}(M,N) = \Hom_R(M,N)$. Many sources, \cite{ginzburg_d-mod} and \cite{bernstein_d-mod} for instance, simply define $D^0_{R/A}(M,N) = \Hom_{R}(M,N)$ and proceed inductively from there.
 \end{rmk}
@@ -1047,7 +1054,7 @@ We can now prove the Lemma on $b$-functions. Like many other named lemmas in mat
 \end{example}
 
 
-\subsection{Algebraic \textit{D}-Modules}
+\subsection{Algebraic \textit{D}-Modules}\label{sec:d-mod-smooth-varieties}
 
 We now wish to extend the results of this section to the setting of algebraic $D$-modules. Throughout this section, $X$ is a smooth variety over $K$ and $\cM$ is a $D_X$-module.
 
@@ -1070,8 +1077,9 @@ Every coherent $D_X$-module $\cM$ has a good filtration locally by Proposition \
 	Let $\cM$ be a coherent $D_X$-module. Then there exists a good filtration $F_\bullet \cM$ of $\cM$ by coherent $\cO_X$-modules.
 \end{lem}
 \begin{prf}
-	
+	\textbf{INCLUDE THIS OR CITE ON LINE NOTES YOU SHIT} \cite{cschnell}.
 \end{prf}
+Unlike in the affine case, 
 \begin{defn}\label{defn:characteristic-variety}
 	The \emph{characteristic variety} $\Ch(\cM)$ of $\cM$ is the closed algebraic subset of $T^*X$ given by $\widetilde{\gr^{\cF_\bullet}\cM}$, the sheaf associated to $\gr^{\cF_\bullet}\cM$, with reduced scheme structure.
 \end{defn}
@@ -1079,18 +1087,27 @@ Every coherent $D_X$-module $\cM$ has a good filtration locally by Proposition \
 \newpage
 
 \section{Inverse Images, Direct Images and Kashiwara's Theorem}
-Given a morphism of smooth varieties $\varphi:X\to Y$, we have functors $\varphi_*:\Sh(X)\to \Sh(Y)$ and $\varphi^*:\Sh(Y) \to \Sh(X)$, which are the direct image and inverse image functors respectively. These are the primary way in which we obtain sheaves on $Y$ from sheaves on $X$ and vice versa. We would like to define similar operations in the categories of left (and right) $D$-modules. 
+Given a morphism of smooth varieties $\varphi:X\to Y$ we may push a sheaf on $X$ forward via the direct image functor $\varphi_*:\Sh(X)\to \Sh(Y)$ and pull back a sheaf on $Y$ via the inverse image functor $\varphi^{-1}:\Sh(Y) \to \Sh(X)$. These two operations are unfortunately not compatible with the action of differential operators; in general, the pushforward $\varphi_*\cM$ of a $D_X$-module $\cM$ is not a $D_Y$-module and the pullback $\varphi^{-1}\cN$ of a $D_Y$-module is not a $D_X$-module. 
 
-Unfortunately, a complete account of these topics requires the use of derived categories. The problem is homological: the full statement of Kathiawar's theorem establishes an equivalence of categories via the direct image functor on the derived category of $D$-modules, but the candidates for this functor are not necessarily exact on the category of $D$-modules themselves. We nonetheless can provide a meaningful discussion if one accepts several limitations. In particular, the direct image functor associated to a closed embedding $\iota:Y\to X$ \emph{is} exact. We focus primarily on this case.
+\begin{example}\label{example:pushforward-naive-breaks}
+	For an example of what goes wrong, let's examine the direct image of a left $D_X$-module $\cM$ along the map $\varphi:\bA^{n}_K\to \bA^{n}_k\times_K \bA_K = \bA^{n+1}_K$ defined by $x_{n+1} = 0$. This corresponds to the ring map $K[x_1,...,x_{n+1}]\to K[y_1,...,y_n]$, $x_i \mapsto y_i$ for $1\leq i\leq n$ and $x_{n+1}\mapsto 0$. There is a natural action of $\hatx_1,...,\hatx_n,\hatx_{n+1}$ on $\varphi_*\cM$, and letting $\partial_{x_i}$ act via $\partial_{y_i}$ for $1\leq i\leq n$ causes no problems. However, since the action of $x_{n+1}$ is trivial, for any section $u$ of $\varphi_*\cM$ we will always have
+	\begin{align*}
+		[\partial_{x_{n+1}},\hatx_{n+1}]u = \partial_{x_{n+1}}(\hatx_{n+1}(u)) - \hatx_{n+1}(\partial_{x_{n+1}}(u)) = 0,
+	\end{align*}
+	so there is no action of $\partial_{n+1}$ will satisfy the relation $[\partial_{x_{n+1}},\hatx_{n+1}] = 1$. 
+\end{example}
+We therefore need to ``fix'' the direct and indirect image functors to work categories of $D$-modules. Unfortunately, a complete account of these topics requires the use of derived categories and Grothendieck's six functor formalism, topics beyond the scope of this essay. The problem is homological: the full statement of Kashiwara's theorem establishes an equivalence of categories via the direct image functor on the derived category of $D$-modules, but the candidates for this functor are not necessarily exact on the category of $D$-modules themselves.
 
-As should be expected by now, many algebraic constructions are brushed under the rug, the tensor product of bimodules perhaps chief among them. The reader may wish to visit \cite{d-mod-primer}, \cite{d-mod_ps-rt} or \cite{ginzburg_d-mod} if this is unfamiliar. Throughout this section, $K$ is a field of characteristic zero and both $X$ and $Y$ are smooth algebraic varieties over $K$. 
+Nonetheless, we can provide a meaningful discussion if we limit our discussion of direct images to closed embeddings $\iota:X\hookrightarrow Y$ and right $D_X$-modules. Our candidate definition for the direct images of $D$-module involves the left exact functor $\varphi_*$ and the right exact functor $\otimes$, and is therefore neither left nor right exact itself. However, the direct image is exact when $\varphi$ is a closed embedding. The inverse image will turn out to be only right exact.
+
+As should be expected by now, many algebraic constructions are brushed under the rug. The now familiar resources \cite{ginzburg_d-mod} serves as a good reference. Throughout this section, $K$ is a field of characteristic zero and both $X$ and $Y$ are smooth algebraic varieties over $K$.
 
 \subsection{Inverse Images}
 Suppose $\varphi:X\to Y$ is a morphism of smooth algebraic varieties over $K$ and $M$ is a left $D_Y$-module. We wish to build a left $D_X$-module from $M$ in a meaningful way. The inverse image of $M$
 \begin{align*}
 	\varphi^*M = \cO_X \otimes_{\varphi^{-1}\cO_Y} \varphi^{-1}M
 \end{align*}
-is a left $\cO_X$-module, and we can endow it with a $D_X$-module structure in the following way.
+is a left $\cO_X$-module, and we can endow it with a left $D_X$-module structure in the following way.
 
 Fix a point $p \in Y$, an affine neighborhood $U$ of $p$, a local coordinate system $\{y_i,\partial_{y_i}\}_{1\leq i\leq n}$ of $p$ on $U$, and set $V = \varphi^{-1}(U)$. It suffices to define the $\cO_X(V)$ and $\Theta_X(V)$ action on elements of the form $r \otimes u \in \cO_X(V) \otimes_{\varphi^{-1}\cO_Y(V)} \varphi^{-1}M(V)$, as such elements generate $\varphi^{-1}M(V)$ and $\cO_X$ and $\Theta_X$ generate $D_X$. We define the action of $a \in \cO_X(V)$ on $r\otimes u$ by $a\cdot (r\otimes u) = ar\otimes u$ and the action of a vector field $\theta \in \Theta_X(V)$ on $r \otimes u$ by
 \begin{align*}\label{eqn:inv-img-action}\tag{$\ast$}
@@ -1129,12 +1146,12 @@ As a sanity check, let's ensure the inverse image works as expected when $\varph
 		&= \theta(1)\otimes u ~+~ \sum_{i=1}^n\theta(x_i\circ \varphi)\otimes \partial_{x_i}(u) \\
 		&= \sum_{i=1}^n \theta(x_i)\otimes \partial_{x_i}(u) \\
 		&= \sum_{i=1}^n a_i\otimes \partial_{x_i}(u) \\
-		1 \otimes \left(\sum_{i=1}^n a_i\partial_{x_i}(u)\right) = 1\otimes \theta(u),
+		&= 1 \otimes \left(\sum_{i=1}^n a_i\partial_{x_i}(u)\right) = 1\otimes \theta(u),
 	\end{align*}
 	so $\varphi^*M \cong M$ via the isomorphism $1\otimes u\mapsto u$.
 \end{example}
-However, inverse images can behave badly even for relatively simple morphisms $\varphi:X\to Y$. For instance, the inverse image of a coherent module need not itself be coherent. 
-\begin{example}\label{example:badly-behaved-inv-img}
+However, inverse images can behave badly even for relatively simple morphisms $\varphi:X\to Y$. For instance, the inverse image of a coherent module need not itself be coherent, as seen in the following example.
+\begin{example}[Loss of Coherence]\label{example:badly-behaved-inv-img}
 	Suppose $X = Y = \bA^1_K$, so that $D_X = D_y = \tilde{A_1}$, the first Weyl algebra (review Theorem \ref{thm:Weyl-algebra-defs} for our Weyl algebra notation). Though $X$ and $Y$ are two copies of the same variety, we distinguish the coordinate systems of $X$ and $Y$ by $\{x,\partial_x\}$ and $\{y,\partial_x\}$, noting that these are valid coordinate systems for any $p\in X$ or $p \in Y$ respectively. 
 	
 	Consider the morphism $\varphi:X\to Y$ defined $\varphi(x) = x^2$ and note that the induced map on global sections $\varphi^\sharp:K[y]\to K[x]$ sends a polynomial $f(y)$ to $f(x^2)$. Finally, let $M = A_1$, so that $\tilde{M}$ is Weyl algebra considered as a module over itself.
@@ -1158,20 +1175,63 @@ Given a morphism $\varphi:X\to Y$, it of course makes sense to take the inverse 
 	Suppose $\varphi:X\to Y$ is a morphism of smooth varieties. We define the \emph{transfer module} $D_{X\to Y}$ to be the $(D_X,\varphi^{-1}D_Y)$-bimodule $\varphi^*D_Y = \cO_X\otimes_{\varphi^{-1}\cO_Y}\varphi^{-1}D_Y$.
 \end{defn}
 
-
 %\begin{rmk}\label{rmk:inv-img}
 	%The term ``inverse image'' is clearer if we rephrase things in terms of geometry. If $X$ is a variety and $D_X$ is its sheaf of differential operators, then a sheaf $M$ over $X$ is said to be a left $D_X$-module if $M$ is a sheaf of left modules over $D_X$. Given a morphism $f:X\to Y$ of smooth algebraic varieties and a left $D_Y$-module $M$, then $f^*M$ is simply the sheaf-theoretic inverse image defined in \cite{hartshorne}.
-%\end{rmk}
+%\end{rm}
 
 \subsection{Direct Images}
+Let $\iota:X\to Y$ be a closed embedding of smooth varieties and recall from the last section that the transfer module $D_{X\to Y} = \iota^*D_Y$ is a $(D_X,\iota^{-1}D_Y)$-bimodule. Let's examine $D_{X\to Y}$ in local coordinates.
+\begin{lem}\label{lem:transfer-module-locally-free}
+	The transfer module $D_{X\to Y}$ is a locally free $D_X$-module of infinite rank and contains a copy of $D_X$
+\end{lem}
+\begin{prf}
+	Fix an affine open $V\subseteq Y$, then $U = \iota^{-1}(V)$ is an open affine in $X$. Since every smooth variety is locally a complete intersection, we can choose local coordinates $y_1,...,y_n$ for $Y$ on $V$ such that $X$ is defined by the equations $y_{r+1} = ... = y_n = 0$ (see \cite[Theorem A.5.3]{d-mod_ps-rt}, for instance). Let $\partial_{y_1},...,\partial_{y_n}$ be the vector fields corresponding to the $y_i$ for $Y$ on $V$ and let $\partial_{x_1},...,\partial_{x_r}$ be the vector fields corresponding to $x_1 = y_1,...,x_r = y_r$ for $X$ on $U$.
+
+	The transfer module has a global section $1\otimes \hat{1}$, where $1$ is the identity section of $\cO_X$ and $\hat{1}$ is the section corresponding to the identity operator in $\iota^{-1}D_Y$. The actions of $D_X$ on $1\otimes \hat{1}$ gives us an embedding $D_X \to D_{X\to Y}$, which can be easily seen in local coordinates. The action of $\partial_{x_i}$ on $1\otimes 1$ as defined in ($\ast$) from the previous section is
+	\begin{align*}
+		\partial_{x_i}(1\otimes \hat{1}) = \partial_{x_i}(1)\otimes \hat{1} ~+~ \sum_{j=1}^n \partial_{x_i}(y_j\circ \iota)\otimes \partial_{y_j}\circ \hat{1} = 1\otimes \partial_{y_i}.
+	\end{align*}
+	More generally, an operator $P = \sum_\alpha f_\alpha \partial^\alpha \in D_X(U)$ with $\alpha \in \bN^r$ acts on $1\otimes \hat{1}$ by the formula
+	\begin{align*}
+		P(1\otimes \hat{1}) = \sum_{\alpha} f_\alpha \otimes \partial_{y_1}^{\alpha_1}...\partial_{y_r}^{\alpha_r}.
+	\end{align*}
+	Hence $P(1\otimes 1) = 0$ only if $P = 0$ in $D_X(U)$, so the map $D_X\to D_{X\to Y}$ given by the action of $D_X$ on $1\otimes \hat{1}$ is injective.
+
+	We now show $D_{X\to Y}$ is a locally free left $D_X$-module. Define the following subalgebra of $D_Y$:
+	\begin{align*}
+		D_Y^X = \bigoplus_{\alpha\in \bN^r} \cO_Y \cdot \partial_{y_1}^{\alpha_1}\cdot...\cdot\partial_{y_r}^{\alpha_r}.
+	\end{align*}
+	This is identical to $D_Y$ itself except that we only allow vector fields which act nontrivially on the image of $X$ in $Y$. Once we add the rest of the vector fields back in we recover $D_Y$, i.e. the map $D_Y^X\otimes_{K}K[\partial_{y_{r+1}},...,\partial_{y_n}]\to D_Y$ given by multiplication is an isomorphism. Furthermore, by the discussion above, we see that the map $D_X\to D_{X\to Y}$ identifies $D_X$ with the subalgebra $\cO_X\otimes_{\iota^{-1}\cO_Y} \iota^{-1}D^X_Y$ of $D_{X\to Y}$. But then
+	\begin{align*}
+		D_{X\to Y} 
+		  &= \cO_X\otimes_{\iota^{-1}\cO_Y}\iota^{-1}D_Y \\
+		  &\cong \cO_X\otimes_{\iota^{-1}\cO_Y} \iota^{-1}\left(D^X_Y\otimes_K K[\partial_{r+1},...,\partial_{n}]\right) \\
+		  &\cong \left(\cO_X\otimes_{\iota^{-1}\cO_Y} \iota^{-1}D^X_Y\right)\otimes_K K[\partial_{r+1},...,\partial_{n}] \\
+		  &\cong D_X\otimes_K K[\partial_{r+1},...,\partial_{n}],
+	\end{align*}
+	where we use the identification $D_Y^X \cong \cO_X\otimes_{\iota^{-1}\cO_Y} \iota^{-1}D^X_Y$ in the final isomorphism. This implies $D_{X\to Y}$ is locally a free $D_X$-module.
+\end{prf}
+The functor $-\otimes_{D_X}D_{X\to Y}$ is exact on left and right $D_X$-modules since $D_{X\to Y}$ is locally free. The direct image functor on $\cO_X$-modules $\iota_*$ is also exact since $\iota$ is a closed embedding, so $\iota_*(-\otimes_{D_X} D_{X\to Y})$ is exact. Thus the following definition fits the desired criterion for a direct image functor on right $D_X$-modules.
+\begin{defn}\label{defn:direct-image-right}
+	Let $\cM$ be a right $D_X$-module. The pushforward of $\cM$ along $\iota$ is
+	\begin{align*}
+		\iota_+(M) = \iota_*(M\otimes_{D_X} D_{X\to Y}),
+	\end{align*}
+	which is a right $D_Y$-module under the morphism $D_Y\to \iota_*\iota^{-1}D_Y$. 
+\end{defn}
+
+\end{defn}
+
+\subsection{Direct Images in the Affine Case}
+We can say a little more about direct images when $X$ and $Y$ are both affine varieties. 
 
 \subsection{Kashiwara's Equivalence}
 \begin{thm}\label{thm:kashiwara}
 	Let $\iota:Y\hookrightarrow X$ be a closed embedding. The functor $\iota_*$ is an equivalence of categories between the category of coherent right $D_Y$-modules and the category of coherent right $D_X$-modules with support contained in $Y$.
 \end{thm}
 
+\begin{comment}
 \section{Applications of \textit{D}-Modules}
-
 
 \subsection{\emph{D}-Modules in Positive Characteristic}
 In this section we'll discuss the theory of $D$-Modules in positive characteristic. 
@@ -1229,6 +1289,8 @@ The ring of differential operators in prime characteristic can detect singularit
 \begin{thm}[{\cite[Theorem 2.2 (4)]{ksmith95-d-mod-f-split}}]\label{thm:strongly-F-regular-rings-D-simple}
 	Let $\fchar(R) = p > 0$ and suppose $R$ is $F$-finite. Then $R$ is strongly $F$-regular if and only if $R$ if $F$-split and is a finite product of $D$-simple rings.
 \end{thm}
+\end{comment}
+
 \newpage
 \printbibliography
 \end{document}

@@ -1,18 +1,18 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'essay-draft2.blg'
-[48] biber:340> INFO - === Thu Apr 28, 2022, 20:44:23
-[57] Biber.pm:415> INFO - Reading 'essay-draft2.bcf'
-[104] Biber.pm:952> INFO - Found 12 citekeys in bib section 0
+[46] biber:340> INFO - === Sat Apr 30, 2022, 15:18:17
+[55] Biber.pm:415> INFO - Reading 'essay-draft2.bcf'
+[103] Biber.pm:952> INFO - Found 11 citekeys in bib section 0
 [112] Biber.pm:4340> INFO - Processing section 0
-[119] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
-[205] bibtex.pm:1689> INFO - LaTeX decoding ...
-[226] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
-[255] Utils.pm:395> WARN - ISBN '0-521-55119-6; 0-521-55908-1' in entry 'd-mod-primer' is invalid - run biber with '--validate_datamodel' for details.
-[276] Utils.pm:395> WARN - ISBN '978-0-8133-5018-9; 0-201-00361-9; 0-201-40751-5' in entry 'am' is invalid - run biber with '--validate_datamodel' for details.
-[294] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[294] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[294] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[294] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[302] bbl.pm:654> INFO - Writing 'essay-draft2.bbl' with encoding 'UTF-8'
-[306] bbl.pm:757> INFO - Output to essay-draft2.bbl
-[306] Biber.pm:128> INFO - WARNINGS: 2
+[118] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
+[196] bibtex.pm:1689> INFO - LaTeX decoding ...
+[222] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
+[253] Utils.pm:395> WARN - ISBN '0-521-55119-6; 0-521-55908-1' in entry 'd-mod-primer' is invalid - run biber with '--validate_datamodel' for details.
+[277] Utils.pm:395> WARN - ISBN '978-0-8133-5018-9; 0-201-00361-9; 0-201-40751-5' in entry 'am' is invalid - run biber with '--validate_datamodel' for details.
+[290] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[290] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[290] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[290] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[298] bbl.pm:654> INFO - Writing 'essay-draft2.bbl' with encoding 'UTF-8'
+[301] bbl.pm:757> INFO - Output to essay-draft2.bbl
+[301] Biber.pm:128> INFO - WARNINGS: 2
