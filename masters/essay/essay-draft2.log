@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  30 APR 2022 15:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  2 MAY 2022 22:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1424,43 +1424,43 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
 
  [2]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 22.
+(Font)              scaled to size 12.0pt on input line 24.
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 11.28003pt on input line 22.
+(Font)              scaled to size 11.28003pt on input line 24.
  [3]
-Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 45.
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 48.
+Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 49.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 52.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 48.
+(Font)              scaled to size 10.95pt on input line 52.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 49.
+(Font)              scaled to size 8.0pt on input line 53.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 49.
-Package hyperref Info: bookmark level for unknown rmk defaults to 0 on input line 54.
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 58.
+(Font)              scaled to size 6.0pt on input line 53.
+Package hyperref Info: bookmark level for unknown rmk defaults to 0 on input line 58.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 62.
  [4]
-Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 67.
-Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 71.
-Package hyperref Info: bookmark level for unknown notate defaults to 0 on input line 82.
-Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 93.
+Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 71.
+Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 75.
+Package hyperref Info: bookmark level for unknown notate defaults to 0 on input line 86.
+Package hyperref Info: bookmark level for unknown prop defaults to 0 on input line 96.
  [5]
 LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 10.29301pt on input line 132.
+(Font)              scaled to size 10.29301pt on input line 135.
  [6]
-Package hyperref Info: bookmark level for unknown cor defaults to 0 on input line 158.
+Package hyperref Info: bookmark level for unknown cor defaults to 0 on input line 161.
  [7] [8]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 8.0pt on input line 270.
+(Font)              scaled to size 8.0pt on input line 273.
  [9]
-Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 274.
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 277.
  [10] [11] [12] [13]
 LaTeX Font Info:    Font shape `T1/qhv/b/it' will be
-(Font)              scaled to size 10.29301pt on input line 455.
+(Font)              scaled to size 10.29301pt on input line 458.
  [14] [15]
-LaTeX Font Info:    Trying to load font information for OT1+pzc on input line 502.
+LaTeX Font Info:    Trying to load font information for OT1+pzc on input line 505.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1pzc.fd
 File: ot1pzc.fd 2020/03/25 font definitions for OT1/pzc.
 )
@@ -1468,88 +1468,62 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `pzc' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 513.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 516.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/mt-euf.cfg
 File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 ) [16] [17]
 LaTeX Font Info:    Font shape `T1/qhv/b/it' will be
-(Font)              scaled to size 11.28003pt on input line 573.
+(Font)              scaled to size 11.28003pt on input line 576.
  [18]
 LaTeX Font Info:    Font shape `T1/qhv/b/it' will be
-(Font)              scaled to size 13.53603pt on input line 586.
- [19]
-
-LaTeX Warning: Reference `prop:localization-of-D-mod' on page 20 undefined on input line 649.
-
-[20] [21] [22] [23] [24]
+(Font)              scaled to size 13.53603pt on input line 589.
+ [19] [20] [21] [22] [23] [24]
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 10.29301pt on input line 851.
- [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36]
-
-./essay-draft2.tex:1223: LaTeX Error: \begin{document} ended by \end{defn}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.1223 \end{defn}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-./essay-draft2.tex:1223: Extra \endgroup.
-<recently read> \endgroup 
-                          
-l.1223 \end{defn}
-                 
-Things are pretty mixed up, but I think the worst is over.
-
-[37]
+(Font)              scaled to size 10.29301pt on input line 860.
+ [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40]
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmss' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [41] [42] [43]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 1295.
+(Font)              scaled to size 10.95pt on input line 1475.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/ntxtlf/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 1295.
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 1475.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.95pt on input line 1295.
+(Font)              scaled to size 10.95pt on input line 1475.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ntxtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [38] (./essay-draft2.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+ [44] [45] (./essay-draft2.aux)
 Package rerunfilecheck Info: File `essay-draft2.out' has not changed.
-(rerunfilecheck)             Checksum: A5C57122172AF73BE90FA165DD71986B;5192.
+(rerunfilecheck)             Checksum: AEC54E65BC1D9E10800C426E305FDD3A;5448.
 Package logreq Info: Writing requests to 'essay-draft2.run.xml'.
 \openout1 = `essay-draft2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42201 strings out of 478287
- 831211 string characters out of 5846765
- 1645526 words of memory out of 5000000
- 59100 multiletter control sequences out of 15000+600000
- 556481 words of font info for 219 fonts, out of 8000000 for 9000
+ 42315 strings out of 478287
+ 833515 string characters out of 5846765
+ 1658364 words of memory out of 5000000
+ 59150 multiletter control sequences out of 15000+600000
+ 558137 words of font info for 230 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,22n,102p,3063b,1979s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fon
-ts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on essay-draft2.pdf (38 pages, 554897 bytes).
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/zapfchan/uzcmi8a.pfb></usr/local/texlive/2021/texmf-
+dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on essay-draft2.pdf (45 pages, 604967 bytes).
 PDF statistics:
- 858 PDF objects out of 1000 (max. 8388607)
- 761 compressed objects within 8 object streams
- 301 named destinations out of 1000 (max. 500000)
- 50909 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 979 PDF objects out of 1000 (max. 8388607)
+ 872 compressed objects within 9 object streams
+ 346 named destinations out of 1000 (max. 500000)
+ 52461 words of extra memory for PDF output out of 61914 (max. 10000000)
 

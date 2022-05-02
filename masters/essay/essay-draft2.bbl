@@ -83,6 +83,41 @@
       \verb https://ncatlab.org/nlab/files/BernsteinDModule.pdf
       \endverb
     \endentry
+    \entry{bruns-herzog}{book}{}
+      \name{author}{2}{}{%
+        {{hash=4a5707a6b71585e6f246c82135734762}{%
+           family={Bruns},
+           familyi={B\bibinitperiod},
+           given={Winfried},
+           giveni={W\bibinitperiod}}}%
+        {{hash=118b20d6d06191ddb6203375265e84bc}{%
+           family={Herzog},
+           familyi={H\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press, Cambridge}%
+      }
+      \strng{namehash}{370e0e869b64ba9ec2b6e1cd86c9d771}
+      \strng{fullhash}{370e0e869b64ba9ec2b6e1cd86c9d771}
+      \strng{bibnamehash}{370e0e869b64ba9ec2b6e1cd86c9d771}
+      \strng{authorbibnamehash}{370e0e869b64ba9ec2b6e1cd86c9d771}
+      \strng{authornamehash}{370e0e869b64ba9ec2b6e1cd86c9d771}
+      \strng{authorfullhash}{370e0e869b64ba9ec2b6e1cd86c9d771}
+      \field{labelalpha}{BH93}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-521-41068-1}
+      \field{series}{Cambridge Studies in Advanced Mathematics}
+      \field{title}{Cohen-{M}acaulay rings}
+      \field{volume}{39}
+      \field{year}{1993}
+      \field{pages}{xii+403}
+      \range{pages}{-1}
+    \endentry
     \entry{d-mod-primer}{book}{}
       \name{author}{1}{}{%
         {{hash=456d616e64c77f002509cea1b3a42f6c}{%
@@ -120,6 +155,43 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1017/CBO9780511623653
+      \endverb
+    \endentry
+    \entry{gabber}{article}{}
+      \name{author}{1}{}{%
+        {{hash=76b811ff140b0f2b4f3b31d044dffa3e}{%
+           family={Gabber},
+           familyi={G\bibinitperiod},
+           given={Ofer},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{76b811ff140b0f2b4f3b31d044dffa3e}
+      \strng{fullhash}{76b811ff140b0f2b4f3b31d044dffa3e}
+      \strng{bibnamehash}{76b811ff140b0f2b4f3b31d044dffa3e}
+      \strng{authorbibnamehash}{76b811ff140b0f2b4f3b31d044dffa3e}
+      \strng{authornamehash}{76b811ff140b0f2b4f3b31d044dffa3e}
+      \strng{authorfullhash}{76b811ff140b0f2b4f3b31d044dffa3e}
+      \field{labelalpha}{Gab81}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0002-9327}
+      \field{journaltitle}{Amer. J. Math.}
+      \field{number}{3}
+      \field{title}{The integrability of the characteristic variety}
+      \field{volume}{103}
+      \field{year}{1981}
+      \field{pages}{445\bibrangedash 468}
+      \range{pages}{24}
+      \verb{doi}
+      \verb 10.2307/2374101
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.2307/2374101
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.2307/2374101
       \endverb
     \endentry
     \entry{ginzburg_d-mod}{misc}{}
@@ -259,6 +331,43 @@
       \verb https://jack-jeffries.github.io/S2020/D-modules.pdf
       \endverb
     \endentry
+    \entry{kashiwara-b-functions}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b7bb8fb56d75656703f28621f0b6f412}{%
+           family={Kashiwara},
+           familyi={K\bibinitperiod},
+           given={Masaki},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b7bb8fb56d75656703f28621f0b6f412}
+      \strng{fullhash}{b7bb8fb56d75656703f28621f0b6f412}
+      \strng{bibnamehash}{b7bb8fb56d75656703f28621f0b6f412}
+      \strng{authorbibnamehash}{b7bb8fb56d75656703f28621f0b6f412}
+      \strng{authornamehash}{b7bb8fb56d75656703f28621f0b6f412}
+      \strng{authorfullhash}{b7bb8fb56d75656703f28621f0b6f412}
+      \field{labelalpha}{Kas77}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0020-9910}
+      \field{journaltitle}{Invent. Math.}
+      \field{number}{1}
+      \field{title}{{$B$}-functions and holonomic systems. {R}ationality of roots of {$B$}-functions}
+      \field{volume}{38}
+      \field{year}{1976/77}
+      \field{pages}{33\bibrangedash 53}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1007/BF01390168
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/BF01390168
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/BF01390168
+      \endverb
+    \endentry
     \entry{jet-spaces-exposition}{misc}{}
       \name{author}{1}{}{%
         {{hash=361aa99c5048337805c4b6e1b249eff8}{%
@@ -377,6 +486,35 @@
       \verb https://doi.org/10.2307/2001194
       \endverb
     \endentry
+    \entry{mpopa-b-function}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=bb8eaa0a68f22533a137b69adc9a03bf}{%
+           family={Popa},
+           familyi={P\bibinitperiod},
+           given={Mihnea},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{bb8eaa0a68f22533a137b69adc9a03bf}
+      \strng{fullhash}{bb8eaa0a68f22533a137b69adc9a03bf}
+      \strng{bibnamehash}{bb8eaa0a68f22533a137b69adc9a03bf}
+      \strng{authorbibnamehash}{bb8eaa0a68f22533a137b69adc9a03bf}
+      \strng{authornamehash}{bb8eaa0a68f22533a137b69adc9a03bf}
+      \strng{authorfullhash}{bb8eaa0a68f22533a137b69adc9a03bf}
+      \field{labelalpha}{Pop21}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online Lecture Notes}
+      \field{title}{The Bernstein Sato Polynomial}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://people.math.harvard.edu/~mpopa/notes/Bernstein-Sato-notes.pdf
+      \endverb
+      \verb{url}
+      \verb https://people.math.harvard.edu/~mpopa/notes/Bernstein-Sato-notes.pdf
+      \endverb
+    \endentry
     \entry{cschnell}{misc}{}
       \name{author}{1}{}{%
         {{hash=f3509a5cd08aebb46897a16d8ca2b9ab}{%
@@ -391,20 +529,55 @@
       \strng{authorbibnamehash}{f3509a5cd08aebb46897a16d8ca2b9ab}
       \strng{authornamehash}{f3509a5cd08aebb46897a16d8ca2b9ab}
       \strng{authorfullhash}{f3509a5cd08aebb46897a16d8ca2b9ab}
-      \field{labelalpha}{Sch22}
+      \field{labelalpha}{Sch19}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Online Lecture Notes}
       \field{title}{Algebraic {$D$}-Modules}
-      \field{year}{2022}
+      \field{year}{2019}
       \verb{urlraw}
       \verb http://www.math.stonybrook.edu/~cschnell/mat615/
       \endverb
       \verb{url}
       \verb http://www.math.stonybrook.edu/~cschnell/mat615/
       \endverb
+    \endentry
+    \entry{sato-kawai-kashiwara}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=bf9a74ba065e43af2f8f07bf4828b762}{%
+           family={Sato},
+           familyi={S\bibinitperiod},
+           given={Mikio},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f333b2ff06b7bb647f70d2b52f07c257}{%
+           family={Kawai},
+           familyi={K\bibinitperiod},
+           given={Takahiro},
+           giveni={T\bibinitperiod}}}%
+        {{hash=b7bb8fb56d75656703f28621f0b6f412}{%
+           family={Kashiwara},
+           familyi={K\bibinitperiod},
+           given={Masaki},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{c250935a9eac12a34d38f429a58b1d91}
+      \strng{fullhash}{c250935a9eac12a34d38f429a58b1d91}
+      \strng{bibnamehash}{c250935a9eac12a34d38f429a58b1d91}
+      \strng{authorbibnamehash}{c250935a9eac12a34d38f429a58b1d91}
+      \strng{authornamehash}{c250935a9eac12a34d38f429a58b1d91}
+      \strng{authorfullhash}{c250935a9eac12a34d38f429a58b1d91}
+      \field{labelalpha}{SKK73}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Hyperfunctions and pseudo-differential equations ({P}roc. {C}onf., {K}atata, 1971; dedicated to the memory of {A}ndré {M}artineau)}
+      \field{title}{Microfunctions and pseudo-differential equations}
+      \field{year}{1973}
+      \field{pages}{265\bibrangedash 529. Lecture Notes in Math.\bibrangessep Vol. 287}
+      \range{pages}{-1}
     \endentry
   \enddatalist
 \endrefsection

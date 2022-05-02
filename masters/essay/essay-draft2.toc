@@ -26,11 +26,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.1}Examples of \emph {D}-modules}{19}{subsection.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2}Filtrations}{20}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Filtrations}{21}{subsection.2.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3}Modules over the Weyl algebra}{24}{subsection.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.3.1}Dimension}{24}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.1}Dimension}{25}{subsubsection.2.3.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.2}Bernstein's Inequality}{26}{subsubsection.2.3.2}%
 \defcounter {refsection}{0}\relax 
@@ -38,16 +38,20 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{\numberline {2.3.4}Lemma on B-Functions}{28}{subsubsection.2.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.4}Algebraic \textit {D}-Modules}{31}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.4}Analogs for Algebraic \textit {D}-Modules}{31}{subsection.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{\numberline {2.4.1}Filtrations and the Characteristic Variety}{31}{subsubsection.2.4.1}%
+\contentsline {section}{\numberline {3}Inverse Images, Direct Images and Kashiwara's Theorem}{34}{section.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Inverse Images, Direct Images and Kashiwara's Theorem}{33}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Inverse Images}{34}{subsection.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}Inverse Images}{33}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Direct Images}{37}{subsection.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}Direct Images}{36}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Direct Images for Affines}{40}{subsubsection.3.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}Direct Images in the Affine Case}{37}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Kashiwara's Equivalence}{41}{subsection.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4}Kashiwara's Equivalence}{37}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Preservation of Holonomy}{43}{subsection.3.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Concluding Remarks}{43}{section.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Where One Goes From Here}{43}{subsection.4.1}%
