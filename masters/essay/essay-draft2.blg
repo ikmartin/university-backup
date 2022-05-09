@@ -1,19 +1,19 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'essay-draft2.blg'
-[46] biber:340> INFO - === Mon May  2, 2022, 20:05:54
-[55] Biber.pm:415> INFO - Reading 'essay-draft2.bcf'
-[102] Biber.pm:952> INFO - Found 16 citekeys in bib section 0
-[110] Biber.pm:4340> INFO - Processing section 0
-[117] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
-[197] bibtex.pm:1689> INFO - LaTeX decoding ...
-[226] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
-[256] Utils.pm:395> WARN - ISBN '0-521-55119-6; 0-521-55908-1' in entry 'd-mod-primer' is invalid - run biber with '--validate_datamodel' for details.
-[282] Utils.pm:395> WARN - ISBN '978-0-8133-5018-9; 0-201-00361-9; 0-201-40751-5' in entry 'am' is invalid - run biber with '--validate_datamodel' for details.
-[290] Utils.pm:395> WARN - legacy year field '1976/77' in entry 'kashiwara-b-functions' is not an integer - this will probably not sort properly.
-[310] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[310] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[310] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
-[310] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
-[321] bbl.pm:654> INFO - Writing 'essay-draft2.bbl' with encoding 'UTF-8'
-[325] bbl.pm:757> INFO - Output to essay-draft2.bbl
-[325] Biber.pm:128> INFO - WARNINGS: 3
+[49] biber:340> INFO - === Wed May  4, 2022, 15:33:35
+[58] Biber.pm:415> INFO - Reading 'essay-draft2.bcf'
+[106] Biber.pm:952> INFO - Found 19 citekeys in bib section 0
+[114] Biber.pm:4340> INFO - Processing section 0
+[121] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
+[203] bibtex.pm:1689> INFO - LaTeX decoding ...
+[235] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
+[270] Utils.pm:395> WARN - ISBN '0-521-55119-6; 0-521-55908-1' in entry 'd-mod-primer' is invalid - run biber with '--validate_datamodel' for details.
+[298] Utils.pm:395> WARN - ISBN '978-0-8133-5018-9; 0-201-00361-9; 0-201-40751-5' in entry 'am' is invalid - run biber with '--validate_datamodel' for details.
+[308] Utils.pm:395> WARN - legacy year field '1976/77' in entry 'kashiwara-b-functions' is not an integer - this will probably not sort properly.
+[330] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[330] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[330] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[330] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[343] bbl.pm:654> INFO - Writing 'essay-draft2.bbl' with encoding 'UTF-8'
+[349] bbl.pm:757> INFO - Output to essay-draft2.bbl
+[349] Biber.pm:128> INFO - WARNINGS: 3
