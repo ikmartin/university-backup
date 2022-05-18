@@ -1,0 +1,18 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'plan-draft1.blg'
+[44] biber:340> INFO - === Tue May 10, 2022, 15:42:53
+[52] Biber.pm:415> INFO - Reading 'plan-draft1.bcf'
+[95] Biber.pm:952> INFO - Found 4 citekeys in bib section 0
+[103] Biber.pm:4340> INFO - Processing section 0
+[109] Biber.pm:4531> INFO - Looking for bibtex format file 'main.bib' for section 0
+[191] bibtex.pm:1689> INFO - LaTeX decoding ...
+[224] bibtex.pm:1494> INFO - Found BibTeX data source '/home/lwkatzen/texmf/bibtex/bib/main.bib'
+[261] Utils.pm:395> WARN - ISBN '978-0-8133-5018-9; 0-201-00361-9; 0-201-40751-5' in entry 'am' is invalid - run biber with '--validate_datamodel' for details.
+[263] Utils.pm:395> WARN - ISBN '0-387-94268-8; 0-387-94269-6' in entry 'eisenbud-com-alg' is invalid - run biber with '--validate_datamodel' for details.
+[271] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[271] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[271] Biber.pm:4168> INFO - Sorting list 'anyt/global//global/global' of type 'entry' with template 'anyt' and locale 'en-US'
+[271] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[276] bbl.pm:654> INFO - Writing 'plan-draft1.bbl' with encoding 'UTF-8'
+[277] bbl.pm:757> INFO - Output to plan-draft1.bbl
+[277] Biber.pm:128> INFO - WARNINGS: 2

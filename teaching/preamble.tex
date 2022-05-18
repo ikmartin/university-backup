@@ -1,0 +1,42 @@
+\documentclass[hidelinks, 11pt]{article}
+\usepackage[tmargin=1in, bmargin=1in, lmargin=0.8in, rmargin=1in]{geometry}
+
+% enable synctex for inverse search, whatever synctex is
+\synctex=1
+\usepackage{float,macrosabound,homework,theorem-env}
+\usepackage{microtype,hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+\urlstyle{same}
+
+% font stuff
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
+
+\linespread{1.1}
+
+% bibtex stuff
+\usepackage[backend=biber,style=alphabetic,sorting=anyt]{biblatex}
+\addbibresource{main.bib}
+
+% colored text shortcuts
+\newcommand{\blue}[1]{\textcolor{MidnightBlue}{#1}}
+\newcommand{\red}[1]{\textsf{\textcolor{Mahogany}{#1}}}
+\newcommand{\green}[1]{\textsf{\textcolor{ForestGreen}{#1}}}
+
+
+% use mathptmx pkg while using default mathcal font
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+
+% fixes the positioning of subscripts in $$ $$
+\renewcommand{\det}{\operatorname{det}}
+
+\usetikzlibrary{positioning, arrows.meta}
+\newcommand{\here}[2]{\tikz[remember picture]{\node[inner sep=0](#2){#1}}}
+

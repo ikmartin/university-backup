@@ -1,0 +1,163 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global}
+    \entry{am}{book}{}
+      \name{author}{2}{}{%
+        {{hash=feb3593a7d423b4961148cc3cc6c0231}{%
+           family={Atiyah},
+           familyi={A\bibinitperiod},
+           given={M.\bibnamedelimi F.},
+           giveni={M\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=c2a02585793a1571ef56486f41d53bb6}{%
+           family={Macdonald},
+           familyi={M\bibinitperiod},
+           given={I.\bibnamedelimi G.},
+           giveni={I\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Westview Press, Boulder, CO}%
+      }
+      \strng{namehash}{001822f39c4aa1f97169e4266b69d7dc}
+      \strng{fullhash}{001822f39c4aa1f97169e4266b69d7dc}
+      \strng{bibnamehash}{001822f39c4aa1f97169e4266b69d7dc}
+      \strng{authorbibnamehash}{001822f39c4aa1f97169e4266b69d7dc}
+      \strng{authornamehash}{001822f39c4aa1f97169e4266b69d7dc}
+      \strng{authorfullhash}{001822f39c4aa1f97169e4266b69d7dc}
+      \field{labelalpha}{AM16}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{economy}
+      \field{isbn}{978-0-8133-5018-9; 0-201-00361-9; 0-201-40751-5}
+      \field{note}{For the 1969 original see [ MR0242802]}
+      \field{series}{Addison-Wesley Series in Mathematics}
+      \field{title}{Introduction to commutative algebra}
+      \field{year}{2016}
+      \field{pages}{ix+128}
+      \range{pages}{-1}
+    \endentry
+    \entry{artin-algebra}{book}{}
+      \name{author}{1}{}{%
+        {{hash=69a473a63b6a5b334a00dacc5c3ef319}{%
+           family={Artin},
+           familyi={A\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall, Inc., Englewood Cliffs, NJ}%
+      }
+      \strng{namehash}{69a473a63b6a5b334a00dacc5c3ef319}
+      \strng{fullhash}{69a473a63b6a5b334a00dacc5c3ef319}
+      \strng{bibnamehash}{69a473a63b6a5b334a00dacc5c3ef319}
+      \strng{authorbibnamehash}{69a473a63b6a5b334a00dacc5c3ef319}
+      \strng{authornamehash}{69a473a63b6a5b334a00dacc5c3ef319}
+      \strng{authorfullhash}{69a473a63b6a5b334a00dacc5c3ef319}
+      \field{labelalpha}{Art91}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-13-004763-5}
+      \field{title}{Algebra}
+      \field{year}{1991}
+      \field{pages}{xviii+618}
+      \range{pages}{-1}
+    \endentry
+    \entry{dummit-foote}{book}{}
+      \name{author}{2}{}{%
+        {{hash=59d4df3a45fec18f996cea87a605b7f0}{%
+           family={Dummit},
+           familyi={D\bibinitperiod},
+           given={David\bibnamedelima S.},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=a4be3df6f2851332679975e063f36089}{%
+           family={Foote},
+           familyi={F\bibinitperiod},
+           given={Richard\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons, Inc., Hoboken, NJ}%
+      }
+      \strng{namehash}{8b86cd6dd2aec2fb7fc9a0e8ec2848ab}
+      \strng{fullhash}{8b86cd6dd2aec2fb7fc9a0e8ec2848ab}
+      \strng{bibnamehash}{8b86cd6dd2aec2fb7fc9a0e8ec2848ab}
+      \strng{authorbibnamehash}{8b86cd6dd2aec2fb7fc9a0e8ec2848ab}
+      \strng{authornamehash}{8b86cd6dd2aec2fb7fc9a0e8ec2848ab}
+      \strng{authorfullhash}{8b86cd6dd2aec2fb7fc9a0e8ec2848ab}
+      \field{labelalpha}{DF04}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Third}
+      \field{isbn}{0-471-43334-9}
+      \field{title}{Abstract algebra}
+      \field{year}{2004}
+      \field{pages}{xii+932}
+      \range{pages}{-1}
+    \endentry
+    \entry{eisenbud-com-alg}{book}{}
+      \name{author}{1}{}{%
+        {{hash=1249d4c8877c098355d267da038c837b}{%
+           family={Eisenbud},
+           familyi={E\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag, New York}%
+      }
+      \strng{namehash}{1249d4c8877c098355d267da038c837b}
+      \strng{fullhash}{1249d4c8877c098355d267da038c837b}
+      \strng{bibnamehash}{1249d4c8877c098355d267da038c837b}
+      \strng{authorbibnamehash}{1249d4c8877c098355d267da038c837b}
+      \strng{authornamehash}{1249d4c8877c098355d267da038c837b}
+      \strng{authorfullhash}{1249d4c8877c098355d267da038c837b}
+      \field{labelalpha}{Eis95}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-387-94268-8; 0-387-94269-6}
+      \field{note}{With a view toward algebraic geometry}
+      \field{series}{Graduate Texts in Mathematics}
+      \field{title}{Commutative algebra}
+      \field{volume}{150}
+      \field{year}{1995}
+      \field{pages}{xvi+785}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1007/978-1-4612-5350-1
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-1-4612-5350-1
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-1-4612-5350-1
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
