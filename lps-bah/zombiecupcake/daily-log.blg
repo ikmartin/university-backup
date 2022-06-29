@@ -1,0 +1,8 @@
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'daily-log.blg'
+[46] biber:340> INFO - === Fri Jun 24, 2022, 15:36:59
+[55] Biber.pm:418> INFO - Reading 'daily-log.bcf'
+[106] Utils.pm:409> ERROR - Error: Found biblatex control file version 3.9, expected version 3.8.
+This means that your biber (2.17) and biblatex (3.18) versions are incompatible.
+See compat matrix in biblatex or biber PDF documentation.
+[106] Biber.pm:135> INFO - ERRORS: 1

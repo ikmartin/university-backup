@@ -1,0 +1,58 @@
+\input{../preamble.tex}
+
+% lecture commands
+\newcounter{entry-counter}
+\newcommand{\entry}[1]
+{
+	\newpage
+	\addtocounter{entry-counter}{1}
+    \tchap{Entry \arabic{entry-counter}}
+	\vspace{-1.5em}
+    \begin{center}
+		\small \emph{Written: #1}
+    \end{center}
+}
+
+% start document
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Sporadic Notes Taken While at LPS Probabilistic Computing \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\tableofcontents
+
+\entry{2022-June-24, Friday}
+
+\section{Reverse Ising Model Description}
+The Ising model is a model of ferromagnetism. We care more about the model itself and less about its physical properties, so here we provide an abstraction. 
+
+\begin{defn}\label{defn:ising-graph}
+	Suppose you are given an undirected graph $G$ with vertices and edges decorated as follows. 
+	\begin{itemize}
+			\item Vertex $i$ receives a \emph{spin} $s_i \in \{\pm 1\}$ and a \emph{local bias} $h_i \in \bR$. The former controls the direct of a vertex's intrinsic contribution to the energy of the system while the second controls the weight of the contribution.
+			\item Edge $e_{ij}$ is given a \emph{coupling strength} $J_{ij} \in \bR$. If edge $e_{ij}$ does not exist then $J_{ij} = 0$ by convention.
+	\end{itemize}
+	Call such a graph an \emph{Ising graph} and call the verticies \emph{sites}. The total energy of the system is given by the Hamiltonian
+	\begin{align*}
+		H(G) = \sum_{i \in V} h_is_i ~+~ \sum_{i,j \in V} J_{ij}s_j.
+	\end{align*}
+\end{defn}
+
+The \textbf{forward Ising problem} takes as input the values of the local biases $\{h_i\}$ and the coupling strengths $\{J_{ij}\}$ and then outputs the (or rather, ``a'') tuple $(s_1,...,s_n)$ of spins which minimize the Hamiltonian.
+
+The \textbf{reverse Ising problem} takes as input a tuple of spins and then outputs the set of $h_{i}$ and $J_{ij}$ which minimize the Hamiltonian, if possible. It is of interest as a slight modification of this problem would allow for the construction of logic gates from Ising graphs, in which a spin value of $1$ and $-1$ represent true and false respectively.
+
+
+
+\begin{example}\label{example:and-gate}
+	
+\end{example}
+
+\end{document}
