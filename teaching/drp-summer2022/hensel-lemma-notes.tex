@@ -1,0 +1,320 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Valued Fields and Hensel's Lemma\\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\section{Absolute Values}
+The reader familiar with metric topologies will be aware of the various norms often considered on the finite dimensional vector space $\bR$. Beyond the typical Euclidean norm, we often consider the norm $\|\cdot\|_1$, the sup norm $\|\cdot\|_\infty$, etc. All of these norms, when restricted to $\bR$, recover the typical absolute value on $\bR$. This begs the question, what are the different absolute values we can place on $\bR$ or on other fields $K$? 
+\begin{defn}\label{defn:absolute-value}
+	Let $K$ be a field. An \emph{absolute value} on $K$ is a function $|\cdot|:K\to \bR_{\geq 0}$ such that
+	\begin{enumerate}[(i)]
+		\item $|x| = 0 \iff x = 0$
+		\item $|xy| = |x|\cdot|y|$
+		\item $|x+y| \leq |x|+|y|$ \hspace{1em} (triangle inequality).
+	\end{enumerate}
+	We refer to the pair $(K,|\cdot|)$ as a \emph{valued field}.
+\end{defn}
+\begin{exercise}[Quick]\label{exercise:abs-val-one}
+	Show that if $(K,|\cdot|)$ is a valued field then $|1| = 1$ and $|-1| = 1$.
+\end{exercise}
+An absolute value $|\cdot|$ on $K$ generates a topology $K$.
+\begin{defn}\label{defn:abs-value-topology}
+	Let $(K,|\cdot|)$ be a valued field. The \emph{open/closed ball of radius $r\in \bR~$ centered at $x \in K$} are
+	\begin{align*}
+		B(x,r) &= \{y \in K \mid |x - y| < r\}, \textbuff{1em}{and}\\
+		\olB(x,r) &= \{y \in K \mid |x - y| \leq r\}, \hspace{1em}
+	\end{align*}
+	respectively. The collection of all such open balls generate a topology on $K$, which we call the metric topology. It is precisely the metric topology on $K$ under the metric $d(x,y) = |x - y|$.
+\end{defn}
+The discussion above begs the question,
+\begin{question}\label{q:how-many-absolute-values}
+	Given a field $K$, how many distinct absolute values are there on $K?$
+\end{question}
+Note that two absolute values $|\cdot|_1$ and $|\cdot|_2$ on a field $K$ are said to be \emph{equivalent} if they generate the same topology on the field.
+
+Absolute values fall into one of two categories: Archimedean and non-Archimedean. An absolute value $|\cdot|$ on a field $K$ is said to be \emph{Archimedean} if it satisfies the Archimedean property: for all $x,y \in K$ there exists an integer $n \in \bZ$ such that $|nx| > |y|$. A field is said to be \emph{non-Archimedean} if it does not satisfy this property.  However, despite the name, non-Archimedean absolute values are more often defined in the following way:
+
+\begin{defn}\label{defn:non-arch-abs-value}
+	An absolute value $|\cdot|$ on a field $K$ is said to be \emph{non-Archimedean} if it satisfies the following stronger version of the triangle inequality:
+	\begin{enumerate}[(i)]
+		\item[(iv)] $|x + y| \leq \max\{|x|,|y|\}$ for all $x,y \in K$.
+	\end{enumerate}
+\end{defn}
+This is quite strange for a myriad of reasons. For one, open and closed balls have no center.
+\begin{prop}\label{prop:balls-no-center}
+	Suppose $x,y \in K$ and $r \in \bR$. If $y \in B(x,r)$ then $B(y,r) = B(x,r)$.
+\end{prop}
+\begin{prf}
+	Suppose $z \in B(x,r)$. Then
+	\begin{align*}
+		|y - z| = |y - x + x - z| \leq \max\{|y - x|,|x - z|\} < r
+	\end{align*}
+	since both $y$ and $z$ are in $B(x,r)$. Hence $B(x,r) \subseteq B(y,r)$. The reverse inclusion follows identically by swapping the roles of $x$ and $y$.
+\end{prf}
+For another, open balls are closed sets and closed balls are open sets.
+\begin{prop}\label{prop:open-balls-are-closed}
+	Suppose that $(K,|\cdot|)$ is a non-Archimedean field, $x \in K$ and $r \in \bR$. Then $B(x,r)$ is a closed set and $\olB(x,r)$ is an open set (i.e. both are clopen).
+\end{prop}
+\begin{prf}
+	We first show that $B(x,r)$ is closed by showing its complement is open. Let $y \not \in B(x,r)$ so that $|x - y| \geq r$. We claim that $B(y,r) \cap B(x,r) = \emptyset$. If this intersection were not trivial, then there would be some $z \in B(y,r) \cap B(x,r)$ satisfying $|x - z| < r$ and $|y - z| < r$. But then
+	\begin{align*}
+	    |x - y| = |x - z + z - y| \leq \max\{|x - z|, |x - y|\} < r,
+	\end{align*}
+	and hence $y \in B(x,r)$, which is not the case. Hence $B(y,r) \cap B(x,r) = \emptyset$ and so $y$ has an open set entirely contained in the complement of $B(x,r)$. Since $y$ was chosen to arbitrarily, the complement of $B(x,r)$ is open.
+
+	We now show that $\olB(x,r)$ is open. Choose $y \in \olB(x,r)$ and pick an arbitrary open neighborhood $U$ of $y$. As the open balls form a basis for the topology on $K$, we may find a $B(y,s) \subseteq U$, and may assume $0 < s < r$. For any $z \in B(y,s)$ we get
+	\begin{align*}
+		|x - z| = |x - y + y - z| \leq \max\{|x - y|, |y - z|\} = r,
+	\end{align*}
+	and so $z \in \olB(x,r)$. This means $B(y,s) \subseteq \olB(x,r)$, and as above we conclude that $\olB(x,r)$ is open.
+\end{prf}
+Quite weird indeed. The reader may be wondering at this point whether non-Archimedean absolute values exist at all. To stave off these concerns, let's consider an example.
+\begin{example}\label{example}
+	Consider $\bQ$ and fix a prime integer $p$. For any $\frac{a}{b}$, we may find a unique $n \in \bZ$ such that $\frac{a}{b} = p^n\frac{x}{y}$ for some integers $x,y\in \bZ$ such that $p \not| x$ and $p \not| y$. Define the \emph{$p$-adic absolute value} $|\cdot|_p:\bQ\to \bR_{\geq 0}$ by
+	\begin{align*}
+		\left|\frac{a}{b}\right|_p = 
+		\begin{cases}
+			0 & \text{if } \frac{a}{b} = 0 \\
+			p^{-n} & \text{otherwise}
+		\end{cases}.
+	\end{align*}
+	We claim that $|\cdot|_p$ is a non-Archimedean absolute value on $\bQ$. Indeed, one may quickly check that $|x| = 0$ if and only if $x = 0$ and $|xy|_p = |x|_p\cdot|y|_p$. For the ultrametric inequality, suppose $x = p^n\frac{a}{b}$ and $y = p^m\frac{c}{d}$ are rational numbers and $p$ does not divide $a,b,c$ or $d$. Suppose without loss of generality that $n < m$, so that $|x|_p = p^{-n} \geq p^{-m} = |y|_p$. Then
+    \begin{align*}
+    	x + y = p^n\left(\frac{a}{b} + p^{m - n}\frac{c}{d}\right) = p^n \left(\frac{ad + p^{m-n}bc}{bd}\right).
+    \end{align*}
+	Since $bd$ is coprime to $p$, any additional factors of $p$ must come from the numerator. That is, if $x + y = p^\ell \frac{a'}{b'}$ with $a'$ and $b'$ coprime to $p$, it must be the case that $n \leq \ell$. Hence $|x + y|_p = p^{-\ell} \leq p^{-n} = \max\{|x|_p,|y|_p\}$.
+
+	Hence $|\cdot|_p$ satisfies the ultrametric property and is therefore a non-Archimedean absolute value.
+\end{example}
+Let's include one more example so as not to be accused of cherry picking.
+\begin{example}\label{example:formal-Laurent-series}
+	Let $K$ be a field. The \emph{power series ring} over $K$ is defined to be
+	\begin{align*}
+		K\llbracket t \rrbracket = \left\{\sum_{n = 0}^\infty a_nt^n \midd a_n \in K\right\}.
+	\end{align*}
+	It's field of fractions is the field of \emph{formal Laurent series} over $K$, given by
+	\begin{align*}
+		K(\!( t )\!) = \left\{\sum_{n = N}^\infty a_n t^n \midd a_n \in K, N\in \bZ\right\}
+	\end{align*}
+	so that a power series is only allowed to contain finitely many terms $a_nt^n$ with $n < 0$. 
+
+	The \emph{$t$-adic} absolute value $|\cdot|_t$ on $K(\!(t)\!)$ is defined
+	\begin{align*}
+		\left|\sum_{n\in N}^\infty a_nt^n\right|_t = \frac{1}{N}
+	\end{align*}
+	where $a_N$ is the first nonzero coefficient. It is left to the reader to check that this is a non-Archimedean absolute value.
+\end{example}
+
+The following theorem provides a characterize of non-Archimedean absolute values. It boils down to showing that an absolute value satisfies the ultrametric inequality if and only if it doesn't satisfy the Archimedean property.
+\begin{thm}\label{thm:non-Arch-bounded-Z}
+	Let $(K,|\cdot|)$ be a valued field. The absolute value $|\cdot|$ is non-Archimedean if and only if $\{|n| \mid n \in \bZ\}$ is bounded in $\bR$.
+\end{thm}
+\begin{prf}
+	To do.
+\end{prf}
+
+Finally, to conclude this introductory section, we list the first lemma that appears in the proof of Hensel's lemma. This condition is used throughout the literature frequently without comment, so it is worth familiarizing yourself with it.
+\begin{lem}[Case of Equality]\label{lem:case-of-equality}
+	Let $(K,|\cdot|)$ be a non-Archimedean absolute value. Then whenever $|x| \neq |y|$ we have $|x+y| = \max\{|x|,|y|\}$.
+\end{lem}
+\begin{prf}
+	Without loss of generality assume that $|x| < |y|$. Then
+	\begin{align*}
+		|y| = |x - x + y| = \max\{|-x|,|x+y|\} = |x+y| \leq \max\{|x|,|y|\} = |y|.
+	\end{align*}
+	Note that $\max\{|-x|,|x+y|\} = |x+y|$ as otherwise $|y| \leq |x|$.
+\end{prf}
+
+\section{Valuations}
+
+This section will be made more comprehensive in the future. For now, we simply write down some definitions.
+
+\begin{defn}\label{defn:valuation}
+	Let $K$ be a field. A \emph{valuation} on $K$ is a map $v:K^\times \to \bR$ satisfying the following properties:
+	\begin{enumerate}[(i)]
+		\item $v(xy) = v(x) + v(y)$
+		\item $v(x + y) \geq \min\{v(x),v(y)\}$.
+	\end{enumerate}
+\end{defn}
+
+The first thing to note about valuations is their connection to absolute values. In particular, valuations yield absolute values and vice versa.
+\begin{prop}\label{prop:val-to-absval}
+	Let $K$ be a field and fix some $\alpha \in \bR$ so that $0 < \alpha < 1$. 
+	\begin{itemize}
+		\item If $|\cdot|:K\to \bR_{0\leq}$ is an absolute value on $K$ then $v:K^\times \to \bR$ defined $v(x) = \log_{\alpha}(|x|)$ is a valuation. 
+		\item If $v:K^\times \to \bR$ is a valuation on $K$, then $|\cdot|:K\to \bR_{0\leq}$ defined $|x| = \alpha^{v(x)}$ is an absolute value on $K$. 
+	\end{itemize}
+\hfill $\square$
+\end{prop}
+However, despite the connection to absolute values, we typically think of valuations on fields as an algebraic construct rather than an analytic one. The following illustrates this point.
+\begin{prop}\label{prop:val-ring}
+	Let $K$ be a field and $v:K^\times \to \bR$ a valuation. The \emph{valuation ring} of $K$ is the set $\cO_K = \{x \in K^\times \mid v(x) \geq 0\} \cup \{0\}$.
+\end{prop}
+
+There is also a special kind of valuation, which we will see corresponds to non-Archimedean absolute values. 
+\begin{defn}\label{defn:discrete-valuation}
+	Let $v:K^\times \to \bR$ be a valuation. We say that $v$ is a \emph{discrete valuation} if there exists some real number $a \in \bR$ such that $a \cdot v(K^\times) = \bZ$. In this case, we redefine $v$ to include this scaling by $a$, i.e. $v(x) = a\cdot v'(x)$ where $v'$ is the original valuation, and write $v:K^\times \to \bZ$.
+\end{defn}
+The valuation ring of a discrete valuation is quite special. It is called a \emph{discrete valuation ring}, and it has some exceptionally nice properties. In particular, it is local:
+\begin{prop}\label{prop:disc-val-ring-max}
+	Suppose $K$ is a field and $v:K^\times \to \bZ$ is a discrete valuation. Then $\cO_K$ is a local ring with unique maximal ideal $\frakm = \{x \in K^\times \mid v(x) \geq 1\} \cup \{0\}$.
+\end{prop}
+
+\noindent We have a case of equality for valuations too.
+\begin{prop}\label{prop:case-of-equality-val}
+	Suppose $v:K^\times \to \bZ$ is a discrete valuation and $x,y \in K^\times$ satisfy $v(x) \neq v(y)$. Then $v(x+y) = \min(v(x),v(y))$. \hfill $\square$
+\end{prop}
+
+\begin{prop}\label{prop:power-series-rep-p-adic}
+	
+Let $(K, |\cdot |)$ be a complete valued field and let $\pi \in \cO_K$ with $|\pi| < 1$. Let $A \subseteq \cO_K$ be a set of coset representatives for the residue field $k = \cO_K/\pi\cO_K$. Show that any $x \in K$ can be written uniquely as a power series $x = \sum^\infty_{i=n} a_i\pi^i$ with $a_i \in A$, $n \in \bZ$ and that any such power series converges to an element of $\cO_K$.
+\end{prop}
+\begin{prf}
+	In essence, we are arguing that we have an isomorphism $K \cong k(\!(t)\!)$. I claim it suffices to prove that for every $x \in \cO_K $ we can uniquely write $x = \sum_{i=0}^\infty a_i \pi^i$ for some $a_i \in A$ and that every such power series converges to a unique element in $\cO_K$. We then get an isomorphism $\cO_K \cong k\llbracket t\rrbracket$ by reducing $a_i$ and sending $t \mapsto \pi$. Taking $\Frac(-)$ on both sides yields the desired result for $K$.
+
+	Let $\sum_{i=0}^\infty a_i \pi^i$ be a power series as above. Note that $|a_i| \leq 1$ since $a_i \in A \subseteq \cO_K$. For any nonnegative integers $n,m$ with $m > n$, we have
+	\begin{align*}
+		\left|\sum_{i=0}^m a_i\pi^i ~ - ~ \sum_{i=0}^n a_i \pi^i\right| 
+		&= \left|a_m \pi^m + \dots + a_{n+1}\pi^{n+1}\right| & \\
+		&\leq \left|\pi^m + ... + \pi^{n+1}\right| & \\
+		&\leq \max\{|a_m\pi^m|,...,|a_{n+1}\pi^{n+1}|\} & \\
+		&\leq \max\{|\pi|^m,...,|\pi|^{n+1}\} & (\text{$|a_i| \leq 1$}) \\
+		&= |\pi|^{n+1}.
+	\end{align*}
+	Because $|\pi| < 1$, $|\pi|^{n+1} \to 0$ as $n \to \infty$. Hence the sequence $\left(\sum_{i=0}^n a_i \pi^i\right)_{n=0}^\infty$ is Cauchy and $\sum_{i=0}^\infty a_i \pi^i$ converges to some element of $K$ by completeness. We have that 
+	\begin{equation*}
+		\left|\sum_{i=0}^n a_i \pi^i\right| \leq \max \left\{|a_0|, ..., |a_n\pi^n|\right\} \leq 1
+	\end{equation*}
+	for each nonnegative integer $n$, since $a_i| \leq 1$ and $|\pi| < 1$ implies $|a_i \pi^i| = |a_i||\pi|^i \leq 1$ for each nonnegative integer $i$. Limits preserve nonstrict inequalities, so
+	\begin{equation*}
+		\left|\sum_{i=0}^\infty a_i \pi^i\right| \leq 1,
+	\end{equation*}
+	meaning the sum necessarily converges to an element of $\cO_K$.
+	
+	\bigskip
+	
+	We now prove that any $x \in \cO_K$ can be written uniquely as a power series $x = \sum_{i=0}^\infty a_i \pi^i$ with $a_i \in A$. Define $a_0 \equiv x ~ (\mod \pi)$. Suppose that we have chosen $a_0,...,a_{n-1} \in A$ such that
+	\begin{equation*}
+		x \equiv \sum_{i=0}^{n-1} a_i \pi^i  ~ (\mod \pi^{n}).
+	\end{equation*}
+	This means there exists some $c_n \in \cO_K$ such that $x - \sum_{i=0}^{n-1} a_i \pi^i = c_n \pi^n$; choose $a_n \in A$ such that $a_n \equiv c_n ~ (\mod \pi)$. There is therefore some $d$ such that $d\pi = c_n -a$. Multiplying both sides by $\pi^n$ yields $d\pi^{n+1} = c_n\pi^n - a\pi^n,$ hence $c_n\pi^n \equiv a_n\pi^n ~ (\mod \pi^{n+1})$. Then
+	\begin{equation*}
+		x - \sum_{i=0}^{n} a_i \pi^i \equiv x - \left(\sum_{i=0}^{n-1} a_i \pi^i\right) ~ -~ a_n\pi^n \equiv x - \left(\sum_{i=0}^{n-1} a_i \pi^i\right) ~ -~ c_n\pi^n \equiv 0 ~ (\mod \pi^{n+1}).
+	\end{equation*}
+	We thus have that for $n \in \bN$, $x - \sum_{i=0}^n a_i \pi^i = c_n\pi^{n+1}$ for some $c_n \in \cO_K$, hence
+	\begin{equation*}
+		\left|x - \sum_{i=0}^n a_i \pi^{i+1}\right| = \left|c_{n+1}\pi^{n+1}\right| \leq \left|\pi^{n+1}\right| = \left|\pi\right|^{n+1} \to 0, 
+	\end{equation*}
+	and therefore $x = \sum_{i=0}^{\infty}a_i \pi^i$ in $\cO_K$. Uniqueness of this summation follows from the fact that the set $A$ contains exactly one representative for each equivalence class in $\cO_K/\pi \cO_K$, and we are done.
+\end{prf}
+Let's write down some integers and fractions in the case that $K = \bQ_p$.
+\begin{example}\label{example}
+	Set $p = 5$, $x = 40$ and let $A = \{0,...,p-1\}$ be the set of coset representatives for $\bF_5$. We can calculate the coefficients $a_i$ by considering $x \mod p^i$ for various powers $i$.
+
+If $40 = a_{0}5^0 + a_15^1 + a_{25}^2 ... $ then $40 \equiv a_0 \mod 5 \implies a_0 = 0$. Similarly,
+\begin{align*}
+	40 \equiv a_{1}5^1 \mod 5^2 \implies 15 \equiv a_{1}5^1 \implies a_1 = 3
+\end{align*}
+and 
+\begin{align*}
+	40 \equiv a_{1}5^1 + a_{2}5^2 \mod 5^3 \implies a_2 = 1.
+\end{align*}
+\end{example}
+\begin{example}\label{example}
+	Now lets try a fraction. Set $p = 5$ again, $x = \frac{9}{40}$ and let $A = \{0,...,4\}$ as before.
+
+	\emph{Step 1:} Factor out as many $5$'s as possible.
+	\begin{align*}
+		\frac{9}{40} = 5^{-1}\frac{9}{8}.
+	\end{align*}
+	
+	\bigskip
+
+	\emph{Step 2:} Since the denominator of $\frac{9}{8}$ contains no $5$'s in its prime factorization, $\frac{9}{8}$ is an element of $\bZ_{(5)} \subseteq \bZ_5$  and hence can be written as a power series $\sum_{i = 0}^\infty a_i5^i$. Calculate the coefficient $a_i$ inductively by looking modulo $5^{i+1}$.
+
+	\noindent For $a_0$:
+	\begin{align*}
+		\frac{9}{8} \equiv a_0 \mod 5 \implies 4 \equiv 8\cdot a_0 \mod 5 \implies a_0 = 3,
+	\end{align*}
+
+	\noindent For $a_1$:
+	\begin{align*}
+		\frac{9}{8} \equiv a_0 + a_{1} 5 \mod 25 
+		  &\implies \frac{9}{8} - 3 \equiv a_1 5 \mod 25 \\
+		  &\implies 9\cdot(-3) - 3 \equiv -30 \equiv 20 \equiv a_1 5 \mod 25 \\
+          &\implies a_1 = 4,
+	\end{align*}
+	
+	\noindent Etc. Notice that this involves computing $\frac{9}{8}$ modulo $5^i$ for each $i \in \bN$.
+    
+	\bigskip
+
+	\emph{Step 3:} Multiply in the $5$'s from step 1.
+	\begin{align*}
+		\frac{9}{40} = 5^{-1}\left(3 + 4 \cdot 5^1 + ...\right) = 3\cdot 5^{-1} + 4\cdot 5^0 + ...
+	\end{align*}
+	and we are done.
+\end{example}
+
+\section{Hensel's Lemma}
+\begin{thm}[Hensel's Lemma]\label{thm:hensel-lemma}
+Let $(K,|\cdot|)$ be a non-Archimedean complete valued field with valuation ring $\cO_K \subseteq K$ and fix $f \in \cO_K[y]$. If $a \in \cO_K$ satisfies $|f(a)| < |f'(a)^2|$ then there exists a unique $x \in \cO_K$ such that $|x - a| < |f'(a)|$ and $f(x) = 0$.
+\end{thm}
+
+Here's the idea behind the proof. Letting $\pi$ be a uniformizer for $K$ with respect to the valuation $v$, construct a sequence $\{x_n\} \subseteq \cO_K$ such that $x_n \equiv a \mod \pi$ and $f(x_n) \equiv 0 \mod \pi^n$. This way, as $n \to \infty$, we converge on an element $x \in \cO_K$ such that $f(x) = 0$ and still have $x \equiv a \mod \pi$. The latter condition helps with uniqueness, as $x \equiv a \mod \pi$ means that $x$ is ``close'' to $a$ in the absolute value corresponding to $\pi$. We construct this sequence recursively as follows:
+\begin{itemize}
+	\item set $x_0 = a$
+	\item set $x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$.
+\end{itemize}
+This is precisely Newton's method. To ensure this sequence actually converges, we need the following two lemmas.
+\begin{lem}\label{lem:case-of-equality}
+	Let $v:K^\times\to \bR$ be a valuation on a field $K$. If $x,y\in K^\times$ and $v(x) \neq v(y)$, then $v(x+y) = \min\{v(x),v(y)\}$.
+\end{lem}
+
+\begin{lem}\label{lem:polynomial-lemma-hensel}
+	Let $R$ be any ring, and consider $f(x) \in R[x]$. If $y$ is another indeterminant, then there exist $f_0,...,f_d \in R[x]$ where $d = \deg f$ such that
+	\begin{align*}
+		f(x+y) = f_0(x) + f_1(x)y + f_2(x)y^2 + ... + f_d(x)y^d.
+	\end{align*}
+	Furthermore, $f_0x(x) = f(x)$ and $f_1(x) = f'(x)$.
+\end{lem}
+\begin{prf}
+	Proof here
+\end{prf}
+We are now ready to prove Hensel's lemma.
+\begin{prf}[Hensel's Lemma]
+	Proof goes here woo. 
+\end{prf}
+
+When identifying/counting roots of a polynomial, we often use the following corollary instead. It immediately follows from Hensel's lemma in the case that $v(f'(a)) = 0$.
+\begin{cor}\label{cor:simple-root-hensel}
+	Let $(K,|\cdot|)$ be a non-Archimedean complete valued field with valuation ring $\cO_K \subseteq K$ and fix $f \in \cO_K[y]$. If $a\in \cO_K$ is a simple root of $\olf \in \cO_K/\frakm$, then there exists a unique $x \in \cO_K$ such that $x \equiv a \mod \frakm$ and $f(x) = 0$.
+\end{cor}
+
+Let's look at some examples.
+
+\begin{example}
+	Show that the equation $x^3 - 3x + 4 = 0$ has a unique solution in $\bZ_7$, but has no solutions in $\bZ_5$ or in $\bZ_3$. How many are there in $\bZ_2$?
+\end{example}
+\begin{prf}
+	Let $f(x) = x^3 - 3x + 4$ denote the polynomial of interest in $\bZ_p[x]$. First consider $p = 7$ and $\ol{f} \in \bF_7$. We see here that we have a factorization $\olf = (x - 4)(x^2 + 4x - 1)$. If $x^2 + 4x - 1$ were reducible, then it would necessarily factor into linear factors and therefore have a root in $\bF_7$, but via exhaustion we see that no such root exists. This means $x  = 4$ is a simple root of $\ol{f}$, and by a Corollary to Hensel's lemma, there must exist a unique solution $a \in \bZ_7[x]$ to the equation $f(x) = 0$ where $a \equiv 4 ~ (\mod 7)$.
+	
+	Now consider $p = 3$ $\ol{f} \in \bF_3[x]$. Here, $\ol{f}(x) = x^3 + 1$. If $f$ had a root $a \in \bZ_3$, then $\ol{f}(\ola) = 0$ in $\bF_3$. However, one can easily check $\olf(x) = x^3 + 1$ has no roots in $\bF_3$, and hence has no roots in $\bZ_3$.
+	
+	Similarly, for $p = 5$, the polynomial $\ol{f}(x) = x^3 + 2 - 1 \in \bF_5$ has no roots, and therefore $f$ has no roots in $\bZ_5$.
+	
+	Now let $p = 2$. The polynomial $\olf(x) = x^3 - 3x + 4= x^3 + x = x(x^2+1) = x(x+1)^2$ in $\bF_2[x]$. Because $x = 0$ is a simple root in $\bF_2$, Hensel's lemma tells us that $f$ has a simple root $a \in \bZ_2[x]$ such that $a \in (2) \in \bZ_2$. However, it does not tell us whether the double root appearing modulo $2$ lifts to a root (or possibly two roots) in $\bZ_2$. If this roots lifted to $\bZ_2$ then it would necessarily also lift to $\bZ_2/(4)$, however, $\olf(x) \equiv x(x^2 - 3) ~ (\mod 2^2)$. Via exhaustion, we check that $x^2 - 3$ has no root in $\bZ_2/(4)$, and hence the double root in $\bF_2$ does not lift to a root in $\bZ_2$. We conclude that $f(x) = x^3 - 3x + 4$ has only one root in $\bZ_2$.
+\end{prf}
+
+\newpage
+%\printbibliography
+\end{document}

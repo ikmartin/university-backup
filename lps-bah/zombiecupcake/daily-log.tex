@@ -4,9 +4,10 @@
 \newcounter{entry-counter}
 \newcommand{\entry}[1]
 {
-	\newpage
 	\addtocounter{entry-counter}{1}
     \tchap{Entry \arabic{entry-counter}}
+	\addcontentsline{toc}{section}{Entry \arabic{entry-counter}: #1}
+	\addtocounter{section}{1}
 	\vspace{-1.5em}
     \begin{center}
 		\small \emph{Written: #1}
@@ -28,9 +29,9 @@
 \hru
 \tableofcontents
 
-\entry{2022-June-24, Friday}
+\entry{2022-June-24}
 
-\section{Reverse Ising Model Description}
+\section*{Reverse Ising Model Description}
 The Ising model is a model of ferromagnetism. We care more about the model itself and less about its physical properties, so here we provide an abstraction. 
 
 \begin{defn}\label{defn:ising-graph}
@@ -43,16 +44,570 @@ The Ising model is a model of ferromagnetism. We care more about the model itsel
 	\begin{align*}
 		H(G) = \sum_{i \in V} h_is_i ~+~ \sum_{i,j \in V} J_{ij}s_j.
 	\end{align*}
+	The \emph{size} of an Ising graph is the number of vertices.
 \end{defn}
 
 The \textbf{forward Ising problem} takes as input the values of the local biases $\{h_i\}$ and the coupling strengths $\{J_{ij}\}$ and then outputs the (or rather, ``a'') tuple $(s_1,...,s_n)$ of spins which minimize the Hamiltonian.
 
 The \textbf{reverse Ising problem} takes as input a tuple of spins and then outputs the set of $h_{i}$ and $J_{ij}$ which minimize the Hamiltonian, if possible. It is of interest as a slight modification of this problem would allow for the construction of logic gates from Ising graphs, in which a spin value of $1$ and $-1$ represent true and false respectively.
 
-
-
 \begin{example}\label{example:and-gate}
-	
+	Fill in later
 \end{example}
 
+\entry{2022-June-29}
+Let us give a more complete description of the reverse Ising problem. First, some notation.
+\begin{notation}[Reverse Ising Problem Notation]\label{not:rev-ising-problem}
+	Fix an Ising graph $G$ of size $n+m$. We call the first $n$ vertices \emph{inputs} and the last $m$ vertices outputs. Unless otherwise specified, the indicies $i,j$ denote vertices of $G$.
+	\begin{itemize}
+		\item For $\ell \in \bN$, let $A_\ell := \{-1,1\}^\ell$ be the Cartesian product of $\{-1,1\}$ with itself $n$-times.
+		\item Let $s_i$ denote the spin of vertex $i$.
+		\item Let $h_i$ denote the local bias of vertex $i$
+		\item Let $J_{ij}$ denote the coupling strength between $ij$.
+		\item For $x\in A_n$ and $y \in B_m$ let $H(x,y)$ be the Hamiltonian of $G$.
+	\end{itemize}
+\end{notation}
+\begin{problem}[Reverse Ising Problem]\label{prob:fixed-rev-ising}
+    Let $G$ be an Ising graph of size $n+m$ and let $f:A_n\to A_m$ be a function which maps every possible input $x \in A_n$ to a specific output $y \in A_m$. We call $(G,f)$ a \textbf{reverse Ising problem (RIP)}. The problem $(G,f)$ is said to be \textbf{solvable} if there exist $J_{ij} \in \bR$ and $h_i \in \bR$ such that for every $a \in A_n$,
+	\begin{equation}\label{eqn:rev-ising}
+		H(x,y) > H(x,f(x)) \iff y \neq f(x).
+	\end{equation}
+	We often refer to the size of $(G,f)$, by which we mean the size of $G$.
+\end{problem}
+Notice that in equation (\ref{eqn:rev-ising}) we have $2^n$ choices for $x \in A_n$ and likewise $2^m - 1$ choices for $y \in A_m$ for each $x \in A_n$, giving us a system of $2^n\cdot (2^m - 1)$ inequalities. It doesn't take much for this system to be inconsistent, and indeed, it often isn't. However, the scientist/engineer hoping to use Ising models to build computers sincerely wishes that these systems are in fact always solvable, and in an attempt to protect their dreams from the cold reality of mathematics, we generalize this problem in the following way.
+
+\begin{defn}\label{defn:rev-ising-lift}
+	Let $(G,f)$ be a RIP. If $(G',f')$ is another RIP, we say $G' \geq G$ if $n'\geq n$ and $m'\geq m$. We say that $(G',f')$ is a \emph{lift} of $G$ if 
+	\begin{itemize}
+		\item $G' \geq G$
+		\item $f$ factors through $f':A_{n+k}\to A_m$ and the inclusion $\iota:A_n\to A_{n+k}$, i.e. $f = f'\circ \iota$.
+	\end{itemize}
+\end{defn}
+We can now define the \emph{generalized} reverse Ising problem, which we often simply call the reverse Ising problem.
+\begin{problem}[Generalized Reverse Ising Problem]\label{prop:gen-rev-ising}
+	Let $(G,f)$ be a reverse Ising problem. We say that the \textbf{\emph{general} reverse Ising problem (GRIP)} is solvable if there exists some lift $(G',f')$ of $(G,f)$ which is solvable.
+\end{problem}
+
+\entry{30-June-2022}
+
+\section*{Algebra-Inspired Formulation of Reverse Ising}
+We would like to define a category of Ising graphs and a category of Ising circuits. The hope is that morphisms between Ising graphs/circuits will hint at how to extend structure. First, we define Ising Graphs.
+\begin{defn}[Ising Graph]\label{defn:ising-graph}
+	Let $(K,|\cdot|)$ be a valued field, typically $\bQ$ or $\bR$. An \emph{Ising graph} is a graph $G$ over $K$ together with the following extra data:
+	\begin{enumerate}[(i)]
+		\item $h_i \in K$ for every vertex $i$
+		\item $J_{ij} \in K$ for every edge $(i,j)$ such that $J_{ij} = 0$ if and only if  $(i,j)$ is not an edge and $J_{ij} = J_{ji}$.
+	\end{enumerate}
+	We write $(G,h,J)$, or simply $G$, to denote an Ising graph, and commonly denote the vertex set of $G$ by $V_G$.
+\end{defn}
+\begin{rmk}\label{rmk:generality-in-ising-graph}
+	For now, we opt for an arbitrary valued field $K$ rather than fixing either $\bQ$, $\bR$ or $\bC$ as there may be some utility in considering the $p$-adics. The idea is that spins in the Hamiltonian can be thought of as elements of $\bF_3$, where a zero valued spin serves as a stand-in for a candidate deleted vertex, and the $3-adic$ numbers $\bQ_3$ preserve some of the algebraic properties of this finite field.
+\end{rmk}
+For the remainder of this section, $K$ denotes a valued field and every Ising graph is an Ising graph over $K$. Now let's define spins.
+\begin{defn}\label{defn:spin-space}
+	Let $G$ be an Ising graph over $K$ and $A\subseteq K$. A \emph{spin state} (or simply \emph{spin}) of $G$ is a function $s:V_G\to A$. The \emph{spin space} $S_G$ of $G$ is the set of all such functions, i.e. $S_G = A^{V_G}$.
+\end{defn}
+\begin{rmk}\label{rmk:spin-intuition}
+	Throughout this document the set $A$ will be $\{-1,1\}$, but as we would end up naming this set for convenience anyways we may as well preserve generality and allow $A$ to be more or less arbitrary. Regarding the somewhat unorthodox definition of spin: this definition is essentially equivalent to the typical definition of spin, in which we think of the above spin configuration as a tuple of $\pm 1$'s, for instance, resembling something like $(+1,-1,-1,...,+1)$. The choice of coordinates matters when discussing graph embeddings, and more generally graph morphisms, and in these situations the coordinate-free definition will simplify notation.
+\end{rmk}
+
+\begin{defn}\label{defn:hamiltonian}
+	The \emph{Hamiltonian} of an Ising graph $G$ is the function $H_G:S_G\to K$ defined
+	\begin{align*}
+		H_G(s) = \sum_{i \in V_G} s(i)h_i ~+~ \frac{1}{2} \sum_{(i,j) \in V_G} s(i)J_{ij}s(j).
+	\end{align*}
+	This describes the total energy of the Ising graph.
+\end{defn}
+This describes the total energy of the Ising graph. As the Ising model is about the energetic viability of various spin states, it makes sense to consider an ordering on the spin space of an Ising graph.
+\begin{defn}\label{defn:ordering-on-spins}
+	For $s,s' \in S_G$, we say $s\leq s'$ if $H_G(s) \leq H_G(s')$; i.e. if $s$ is a higher energy state than $s'$. For two subsets $U,V \subseteq S_G$, we say $U\leq V$ if
+	\begin{align*}
+		\min_{s \in U} H(s) \leq \min_{t\in V} H(t),
+	\end{align*}
+	or equivalently, if there exists $s \in U$ such that $s \leq t$ for all $t \in V$.
+\end{defn}
+\begin{defn}\label{defn:energy-states}
+	For $s\in S_G$, the \emph{energy class} (or \emph{energy coset,}, \emph{Ham fiber}) is the set of spins with equal energy to $s$:
+	\begin{align*}
+		[s]_{G} = \{s' \in S_G \mid H_G(s) = H_G(s')\} = H_{G}^{-1}(H_G(s)).
+	\end{align*}
+	Alternatively, one may check that the \emph{energy equivalence} relation
+	\begin{align*}
+		s \sim t \textbuff{1em}{if} H_G(s) = H_G(t)
+	\end{align*}
+	is indeed an equivalence relation, in which case $[s]_G$ is simply the energy equivalence coset of $s$. The set of all energy classes is denoted $S_G/H_G$.
+
+	For spin states $s$ and $t$ we say $[s]_G\leq [t]_G$ if $s \leq t$. We will commonly enumerate energy classes according to this ordering as follows: $\{S_{G,0},...,S_{G,k}\}$ where $S_{G,i}\leq S_{G,j}$ whenever $i \leq j$. We call $S_{G,0} $ the \emph{class of ground states} and $S_{G,k}$ the \emph{$k$th energy class}.
+\end{defn}
+
+We are now ready to define morphisms of Ising graphs. 
+
+\entry{5-July-2022}
+Here was what I had in mind for the definition of a morphism of Ising graphs. Consider first a morphism $\varphi:G\to G'$ of graphs, both of which happen to be Ising graphs. We have an induced map $\varphi^*:S_{G'}\to S_G$ given by precomposition: $\varphi(s') = s'\circ \varphi$. Placing an extra condition on this map gives us an Ising morphism.
+
+\begin{defn}\label{defn:morphism-Ising-graphs}
+	Suppose $G$ and $G'$ are Ising graphs. We say that a morphism of graphs $\varphi:G\to G'$ is an \emph{Ising graph homomorphism} if it strictly preserves spin order, i.e.
+	\begin{align*}
+		s < t \implies \varphi^{*-1}(s) < \varphi^{*-1}(t)
+	\end{align*}
+    for all $s,t \in S_{G}$.
+\end{defn}
+\begin{example}\label{example:GAND-to-GXOR}
+	Consider the following two Ising graphs:
+	\[
+		\begin{array}{c c c c}
+			\opn{GAND} & \text{order} = 3, & h = (1,1,-1), &J = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}  \\
+			\opn{GXOR} & \text{order} = 4, & h = (1,1,-1,-2), & J = \begin{pmatrix} 0 & 0 & -1 & -2 \\ 0 & 0 & 1 & 2\\ 0 & 0 & 0 & 2 \\ 0 & 0 & 0 & 0 \end{pmatrix} \\
+		\end{array}
+	\]
+	The graph embedding $\varphi:\opn{GAND} \to \opn{GXOR}$ defined $v_i \mapsto v_i$ extends to a partial morphism on the Ising Graphs by defining
+	\begin{align*}
+		\sigma:~
+		\begin{array}{r}
+			(-1,-1,-1) \\
+			(+1,-1,-1) \\
+			(-1,+1,-1) \\
+			(+1,+1,+1)
+		\end{array}~
+		\longmapsto~
+		\begin{array}{l}
+			(-1,-1,-1,+1) \\
+			(+1,-1,-1,+1) \\
+			(-1,+1,-1,+1) \\
+			(+1,+1,+1,+1)
+		\end{array}.
+	\end{align*}
+	This works under the fixed lift paradigm but not the free lift paradigm.
+\end{example}
+
+\entry{6-July-2022}
+It seems that up until this point I've treated this document more like a set of notes and less like a daily entry log, I intend to begin making it more free form from this point onward. Today I'd like to discuss auxiliary spins and translational equivalence. The most important thing to remember about auxiliary spins is this: they \emph{cannot} be chosen to vary with the input. For this reason, we treat them as outputs. 
+
+Throughout today, $T\subseteq K^\times$ is the multiplicative group of spins, so for an Ising graph $G$
+\begin{align*}
+	S_G = \Hom(V_G,T) = T^{V_G}.
+\end{align*}
+
+\section*{Ising Circuit}
+First I should write down the definition of a pre Ising circuit and an Ising circuit I suppose.
+
+\begin{defn}[Pre-Ising Circuit]\label{defn:pre-ising-circuit}
+	A pre-Ising circuit (or a preising circuit or PIsing circuit) is a graph $G$ together with the following additional data:
+	\begin{itemize}
+	\item Two collections of vertices $N$ and $M$ which together form a partition of the vertex set, i.e. $N \cap M = \emptyset$ and $N \cup M = V_G$. We call $N$ the collection of \emph{input vertices} and $M$ the set of \emph{output vertices}.
+		\item A function $f:S_N\to S_M$ called the \emph{logic map}, or simply the \emph{logic}, which maps each input to an output.
+	\end{itemize}
+	We will sometimes write a preising circuit as $(G,N,M,f)$, sometimes as $(G,f)$ and sometimes as $G$ when the circumstance allows.
+\end{defn}
+There is nothing here about $h$'s or $J$'s, it's just a graph which is a circuit. The language is suggestive however, for ideally we would want the logic map $f$ to depend on the values of $h$'s and $J$'s.
+\begin{defn}[Ising Circuit]\label{defn:ising-circuit}
+	An Ising circuit is a preising circuit $(G,N,M,\gamma)$ such that $(G,h,J)$ is an Ising graph and the logic map $\gamma:S_N\to S_M$ is given by
+	\begin{align*}
+		\gamma(s) = t \textbuff{1em}{such that} H(t) = \min_{t' \in S_M}\{H(s,t')\}
+	\end{align*}
+	where $H$ is the Hamiltonian of $G$. Implicit in this definition is that $t$ is the \emph{unique} output minimizing the Hamiltonian, otherwise we don't have well defined logic. In this case we will refer to $\gamma$ as \emph{Ising logic.}
+\end{defn}
+With that, we can now define auxiliary spins. We do this via a theory of lifting. First, we need morphisms of preising circuits and Ising circuits.
+
+\begin{defn}[Ising Circuit Morphism]\label{defn:ising-lift}
+	Let $(G,N,M,f)$ and $(G',N',M',f')$ be preising circuits. We say that $\varphi:G\to G'$ is a \emph{homomorphism of preising circuits} if it is a graph homomorphism such that $\varphi(N)\subseteq N'$, $\varphi(M) \subseteq M'$, and the diagram
+	\begin{center}
+		\begin{tikzcd}[row sep=large,column sep=huge]
+			S_{n'} \arrow[r,"f'"] \arrow[d,"\varphi^\sharp"]& S_{m'} \arrow[d,"\varphi^\sharp"] \\
+			S_n \arrow[r,"f"]& S_m
+		\end{tikzcd}
+	\end{center}
+	commutes. A \emph{morphism of Ising circuits} is simply a morphism of the underlying preising circuits.
+\end{defn}
+Note that $\varphi^\sharp:S_{G'}\to S_{G}$ is simply the natural map $\varphi^\sharp(s') = s'\circ \varphi$, and it is well defined on both $S_{N'}$ and $S_{M'}$ since $\varphi(N)\subseteq N'$ and $\varphi(M') \subseteq M'$.
+
+Now we define lifts!
+\begin{defn}[Ising Lifts]\label{defn:ising-lift}
+	Let $(G,N,M,f)$ be a preising circuit. A \emph{lift} of $G$ is a preising circuit $(G',N',M',f')$ together with a morphism $\varphi:(G,N,M,f)\to (G',N',M',f')$ such that $\varphi:G\to G'$ is injective and $\varphi(N) = N'$.
+
+	The set of additional output vertices $A = M'\setminus \varphi(M)$ is called the set of \emph{auxiliary} vertices. The evaluation of a spin $s$ at an auxiliary vertex $s(\alpha)$ is called an \emph{auxiliary spin}.
+
+	If $(G',N',M',\varphi)$ is an Ising circuit, then we call $\varphi$ \emph{zingification} and $G'$ a \emph{zingification of $G$} (the evolution is Isingification $\to$ 'singification $\to$ zingification). Alternate names could be an \emph{Ising lift} or a \emph{zingy lift} or simply \emph{a zing}.
+\end{defn}
+This definition encodes a fair amount of information in relatively few words, so let us unpack it a bit. Suppose $(G',N',M',\gamma)$ is a zingification of $(G,N,M,f)$. First, because $\varphi$ is injective, $|N'| = |N|$ and hence we may identify $S_{N}$ and $S_{N'}$ along $\varphi^\sharp$. Our zing diagram is then
+\begin{center}
+	\begin{tikzcd}[row sep=large,column sep=huge]
+		& S_{M'} \arrow[d,"\varphi^\sharp"] \\
+		S_N \arrow[ru,"\gamma"] \arrow[r,"f"]& S_{M}
+	\end{tikzcd}.
+\end{center}
+Next, let's identify $M$ with its image in $M'$. This means the restriction of $\varphi^\sharp$ to $\S_{M'}$ simply gives us projection onto $S_M$, which is made even more clear by the equivalence.
+\begin{align*}
+	S_{M'} = \Hom(M',T) = \Hom(M \cup A,T) = \Hom(M,T)\times \Hom(A,T) = S_M\times S_A.
+\end{align*}
+Our zing diagram now looks like
+\begin{equation}\label{diag:zingification}
+	\begin{tikzcd}[row sep=large,column sep=huge]
+		& S_{M}\times S_A \arrow[d,"\pi"] \\
+		S_N \arrow[ru,"\gamma"] \arrow[r,"f"]& S_{M}
+	\end{tikzcd},
+\end{equation}
+and hence we see that finding a zingification of $G$ amounts to finding $\gamma$ and $S_A$. As $\gamma$ depends entirely on $h$ and $J$, this means finding a zingification is the process of finding $h$, $J$ and $S_A$ such that (\ref{diag:zingification}) commutes.
+
+\bigskip
+
+\noindent \textbf{Reverse Ising Problem:} Given a preising circuit $G$, zingify.
+
+\subsection*{Auxiliary spins are outputs}
+Auxiliary spins are weird. In the typical formulation of the reverse Ising problem they sometimes feel input-y and sometimes feel output-y. I argue that they are in fact just additional output spins that we ignore.
+
+Originally, I wrote down two formulations of the Ising lift, one called a fixed Ising lift and another called the free Ising lift. The latter is what you see here, whereas the fixed Ising lift adds auxiliary spin to the input vertices rather than the output vertices. The idea is that you consider a fiber $\sigma:S_N\to S_N\times S_A$ of the projection $S_N\times S_A \to S_N$ and then demand Ising logic for $S_N\times S_A\to S_M$, giving a commutative diagram
+\begin{center}
+	\begin{tikzcd}[row sep=large,column sep=huge]
+		S_{N}\times S_A \arrow[rd,"\gamma"] &\\
+		S_N \arrow[u,"\sigma"] \arrow[r,"f"]& S_{M}
+	\end{tikzcd}.
+\end{center}
+The problem with this is that we are prescribing a specific auxiliary spin $\alpha \in S_A$ for each unique input $S_N$, but this choice is not required to minimize the Hamiltonian among all possible \emph{auxiliary} choices. This means that we would require an oracle to pick an appropriate section $\sigma$.
+
+In contrast, diagram (\ref{diag:zingification}) reproduces the behavior described in \cite{intro-ising}. The Ising logic $\gamma:S_N\to S_M\times S_A$ now means that the out/aux pair $(t,\alpha)$ corresponding to an input $s \in S_N$ now must minimize the Hamiltonian in both output and auxiliary. The commutativity of the diagram then forces $\gamma$ to agree with our prescribed logic $f$ on $S_N$ but allows the actual values of the auxiliary spins to remain irrelevant. Thus, auxiliary spins are outputs.
+
+\section*{Translational Invariance}
+This section lays out a technique that may be useful in actually computing the zing lift. The key observation is that the choice $T\subseteq K^\times$ means we have an abelian multiplicative group structure on the set $T$ of possible spins which extends to $S_G = \Hom(V_G,T)$ via pointwise multiplication. 
+
+Consider a preising circuit $(G,N,M,f)$ which we would like to zingify. Computing viable $h,J$ and $S_A$ to find such a zing lift involves solving a hefty system of inequalities. A priori, we have absolutely no idea which input will minimize the Hamiltonian and which will maximize it, but one can imagine it such information could prove helpful. Here, we describe a process by which one may obtain a new preising circuit $G'$ from $G$ whose features we can somewhat control. We may then compute a zing lift of $G'$ and invert this process to obtain a zing lift for $G$.
+
+\begin{defn}[Spin Action]\label{defn:spin-action}
+	Let $(G,N,M,f)$ be a preising circuit. We may define a group action on 
+\end{defn}
+
+\entry{13-July-2022}
+Today I have been thinking again about Ising graphs instead of Ising circuits. As a precursor, it seems like there are two worlds: Ising graphs and circuits (circuits are what we have been calling ``pre Ising circuits'' up until this point.) Ising graphs are graphs decorated with the parameters $h_i$ and $J_{ij}$ and come equipped with a Hamiltonian function $H$. Circuits are graphs with specified input/output vertices together with a logic function. Ising circuits are both Ising graphs and circuits, and their logic comes from the Hamiltonian.
+
+I briefly looked at the structure of Ising grpahs before defining a bunch of stuff about circuits and spin actions. It appeared initially as if the important features of an Ising graph were its \emph{energy classes} and the \emph{ordering} placed on the set of these classes. Recall the following ordering on the spin space of an Ising graph $G$: say $s \leq t$ if $H(s) \leq H(t)$ for $s,t \in S_G$. We then have $s\sim t$ when $s \leq t$ and $t \leq s$ and have $s < t$ when $s \leq t$ but $s \neq t$. We called $S_G/\sim$ the set of energy classes of $G$ and noted that $S_G/\sim$ partitoined $S_G$. The values of paramters $h_i$ and $J_{ij}$ determine this partition.
+
+I then began investigating the spin action on a circuit. Specifically, there were two actions I considered, an input action and an output action. These actions modify the logic of a circuit in a predictable way, and most notably, one can define a spin action on the parameters of an Ising circuit which ``undoes'' the action on the logic. The result is that, given an Ising circuit $G$, we can use the spin action to move spins between energy classes without changing the size or the underlying ordering.
+
+This points back to investigating the ordering on the enrgy classes. When does one have an energy class with more than one element? How do the balues of the parameters affect the ordering? We turn back to Ising graphs to investigate these questions.
+
+\begin{conjecture}\label{conjecture:ising-graph-conj-1}$ $
+	\begin{itemize}
+		\item The ordering of parameters (e.g. $0 < h_1 < -J_{12} < h_2$) entirely determines the energy partition and the ordering on the energy classes
+		\item All energy classes are singletons if and only if there exist no equality relations of the form $$\sum_i a_i h_i ~+~ \sum_{ij} b_{ij} J_{ij} = 0$$ where $a_i,b_{ij} \in \{-1,0,1\}$.
+	\end{itemize}
+\end{conjecture}
+\newpage
+\entry{18-July-2022}
+Let's first discuss issues with the conjectures provided last entry. In the days following the statement I ran a bunch of python simulations to test the conjectures, and both are false. These counterexamples are detailed in the Jupyter Notebook, and should be translated to python at some point.
+
+I also broke an attempted fix at another conjecture: the substitutions $h_i \mapsto -h_i$ and $J_{ij}\mapsto -J_{ij}$ don't affect the number of energy classes. This is false, counterexample also given in Jupyter.
+
+This leads me to a bit of a pickle, and I now wish to backtrack to examine the case of order 2 Ising graphs.
+
+\section*{Ising Graph Order 2}
+We consider orderings of parameters that look like $0 \leq h_1\leq -J_{12} \leq h_2$. Up to spin equivalence, we may assume $h_1$ and $h_2$ are positive, so we need only deal with separate cases for $J_{12}$ and $-J_{12}$. Furthermore, the labels on the parameters are arbitrary, so we can always assume $h_1 \leq h_2$. For now we assume this is also a strict inequality.
+
+\textbf{Case 1:} $0 \leq h_1 < h_2 < J_{12}$.
+\begin{align*}
+	\begin{array}{c}
+		(-1,-1) \\
+		(-1,+1) \\
+		(+1,-1) \\
+		(+1,+1) \\
+	\end{array} \xrightarrow{H}
+	\begin{array}{c|c}
+		-h_1-h_2+J_{12} & \text{1 positive term: } J_{12}\\
+		-h_1+h_2-J_{12} & \text{1 positive term: } h_2\\
+		+h_1-h_2-J_{12} & \text{1 positive term: } h_1\\
+		\hline
+		+h_1+h_2+J_{12} & \text{3 positive terms: all} \\
+	\end{array}
+\end{align*}
+As all parameters are positive, $H(1,1)$ is the maximum here. In every other case, we are adding one positive term to two negative terms, and hence
+\begin{align*}
+	(+1,-1) < (-1,+1) < (-1,-1) < (+1,+1).
+\end{align*}
+
+\bigskip
+
+\textbf{Case 2:} $0 \leq h_1 < h_2 < -J_{12}$.
+\begin{align*}
+	\begin{array}{c}
+		(-1,-1) \\
+		(-1,+1) \\
+		(+1,-1) \\
+		(+1,+1) \\
+	\end{array} \xrightarrow{H}
+	\begin{array}{c|c}
+		-h_1-h_2+J_{12} & \text{3 negative terms: all}\\
+		-h_1+h_2-J_{12} & \text{1 negative term: } h_1\\
+		+h_1-h_2-J_{12} & \text{1 negative term: } h_2\\
+		\hline
+		+h_1+h_2+J_{12} & \text{1 negative term: } J_{12}
+	\end{array}
+\end{align*}
+Using a similar argument as above, we count the number of \emph{negative} terms now to get the following.
+\begin{align*}
+	(-1,-1) < (+1,+1) < (+1,-1) < (-1,+1)
+\end{align*}
+Notice that this result can also be obtained by multiplying the ordering in Case 1 by $-1$.
+
+\bigskip
+
+\textbf{Case 3:} $0 \leq h_1 < J_{12} < h_2$.
+\begin{align*}
+	\begin{array}{c}
+		(-1,-1) \\
+		(-1,+1) \\
+		(+1,-1) \\
+		(+1,+1) \\
+	\end{array} \xrightarrow{H}
+	\begin{array}{c|c}
+		-h_1-h_2+J_{12} & \text{1 positive term: } J_{12}\\
+		-h_1+h_2-J_{12} & \text{1 positive term: } h_2\\
+		+h_1-h_2-J_{12} & \text{1 positive term: } h_1\\
+		\hline
+		+h_1+h_2+J_{12} & \text{3 positive terms: all} \\
+	\end{array}
+\end{align*}
+As in case 1, the final spin will be the maximum as it consists of all positive spins.
+\begin{align*}
+	(+1,-1) < (-1,-1) < (-1,+1) < (+1,+1).
+\end{align*}
+This is obtained from Case 1 by swapping the positions of $J_{12}$ with $h_2$.
+
+\bigskip
+
+\textbf{Case 4:} $0 \leq h_1 < -J_{12}< h_2$. This can be obtained either by swapping the middle spins of Case 2 or by multipling the result of Case 3 by $-1$:
+\begin{align*}
+	\begin{array}{c}
+		(-1,-1) \\
+		(-1,+1) \\
+		(+1,-1) \\
+		(+1,+1) \\
+	\end{array} \xrightarrow{H}
+	\begin{array}{c|c}
+		-h_1-h_2+J_{12} & \text{3 negative terms: all}\\
+		-h_1+h_2-J_{12} & \text{1 negative term: } h_1\\
+		+h_1-h_2-J_{12} & \text{1 negative term: } h_2\\
+		\hline
+		+h_1+h_2+J_{12} & \text{1 negative term: } J_{12}
+	\end{array}
+\end{align*}
+\begin{align*}
+	(-1,-1) < (+1,-1) < (+1,+1) < (-1,+1).
+\end{align*}
+
+\textbf{Case 5:} $0 \leq J_{12} < h_1 < h_2$.
+\begin{align*}
+	\begin{array}{c}
+		(-1,-1) \\
+		(-1,+1) \\
+		(+1,-1) \\
+		(+1,+1) \\
+	\end{array} \xrightarrow{H}
+	\begin{array}{c|c}
+		-h_1-h_2+J_{12} & \text{1 positive term: } J_{12}\\
+		-h_1+h_2-J_{12} & \text{1 positive term: } h_2\\
+		+h_1-h_2-J_{12} & \text{1 positive term: } h_1\\
+		\hline
+		+h_1+h_2+J_{12} & \text{3 positive terms: all} \\
+	\end{array}
+\end{align*}
+\begin{align*}
+	(-1,-1) < (+1,-1) < (-1,+1) < (+1,+1).
+\end{align*}
+This is obtained from Case 3 by swapping the positions of $J_{12}$ with $h_1$, resulting in the last two spins being swapped.
+
+\textbf{Case 6:} $0 \leq -J_{12} < h_1 < h_2$. This can be obtained either by swapping the rightmost spins of Case 4 or by multipling the result of Case 5 by $-1$:
+\begin{align*}
+	\begin{array}{c}
+		(-1,-1) \\
+		(-1,+1) \\
+		(+1,-1) \\
+		(+1,+1) \\
+	\end{array} \xrightarrow{H}
+	\begin{array}{c|c}
+		-h_1-h_2+J_{12} & \text{3 negative terms: all}\\
+		-h_1+h_2-J_{12} & \text{1 negative term: } h_1\\
+		+h_1-h_2-J_{12} & \text{1 negative term: } h_2\\
+		\hline
+		+h_1+h_2+J_{12} & \text{1 negative term: } J_{12}
+	\end{array}
+\end{align*}
+\begin{align*}
+	(-1,-1) < (+1,-1) < (-1,+1) < (+1,+1)
+\end{align*}
+\newpage
+\entry{19-July-2022}
+What's a good way to visualize/concretely define the problem on which we're working? It 'feels' like we're adding relations between parameters $h$ and $J$ in the hopes of fully separating the space of spins. Maybe we can meaningfully think of relations $h < J$ as generating some topology on the space of spins...
+
+New idea. Notice the following:
+\begin{align*}
+	(-1,-1) < (-1,1) \iff -h_1 - h_2 + J_{12} < -h_1 + h_2 - J_{12} \iff 0 < h_2 - J_{12}.
+\end{align*}
+That is, any inequality on spins corresponds to a unique inequality on parameters. This is rather obvious when you think about it, and is even addressed directly by the intro Ising document.
+
+\newpage
+\entry{20-July-2022}
+Let's combine the last few weeks of pursuit a bit. Take a circuit $(G,N,M,f)$ and a proposed Ising lift $(G,N,M,A,\gamma)$. For each input/output pair $s \in N$ and $t \in M$, i.e. $f(s) = t$, we want an $a \in A$ such that $\gamma(s) = (t,a)$. This means that to construct an Ising lift that works for the specific input/output pair $s,t$ in $G$ involves choosing
+\begin{enumerate}[(1)]
+	\item parameters $h$ and $J$ for an Ising graph of size $N + M + A$
+	\item the spin $a \in A$ such that $\gamma(s) = (t,a)$.
+\end{enumerate}
+Constructing the total lift requires choosing $h,J$ such that there exists $a \in A$ for each $s \in N$ such that $\gamma(s) = (f(s),a)$.
+
+\begin{question}\label{q:given-h-J-exist-a}
+	Suppose we have a circuit $(G,N,M,f)$, fix $s \in N$ and $t \in M$ such that $f(s) = t$ and fix $A$ to be the set of auxilary spins of a certain length. For arbitrary $h,J$ parameters, can we find $a \in A$ such that $\gamma(s) = (t,a)$? Notice that, in particular, this is asking whether it's possible to do this for $|A| = 0$. In other words, can we always find $h$ and $J$ that work for a specific input/output pair?
+\end{question}
+The answer to this question feels like it should be no. Consider the most restrictive case for a minute, $|A| = 0$. For a pair $s \in N$ and $t \in M$, we need to satisfy $|M| - 1$ many inequalities, i.e. we need $(s,t) < (s,t')$ for every $t' \in M \setminus \{t\}$. For large $|M|$, this feels untenable.
+
+At the end of the day however, it involves taking an intersection of a bunch of half spaces. Each inequality $(s,t) < (s,t')$ corresponds to a unique inequality of the form
+\begin{align*}
+	0 < \sum_{i = 1}^n (t_i' - t_i)h_{n+1} ~+~ \sum_{\substack{1 \leq i \leq n \\ 1\leq j \leq m}} (s_it_j' - s_it_j)J_{ij} ~+~ \sum_{\substack{1\leq i < j \leq m}} (t_i't_j' - t_it_j)J_{n+i,n+j}
+\end{align*}
+or in a more readable format
+\begin{align*}
+	0 < \sum_{i = 1}^n a_ih_{n+1} ~+~ \sum_{\substack{1 \leq i \leq n \\ 1\leq j \leq m}} b_{ij}J_{ij} ~+~ \sum_{\substack{1\leq i < j \leq m}} c_{ij}J_{n+i,n+j}
+\end{align*}
+where $a_i,b_{ij},c_{ij} \in \{-1,0,1\}$. This is simply a half space in $h$ and $J$, so we are asking whether the collection of all of the above inequalities for all posible $t'$ have nontrivial intersection. When does this happen?
+
+\bigskip
+
+\noindent \textbf{Fact:} The boundary of each valid half space passes through the origin of parameter space $\bR^p$. This should imply that either the intersection is empty or is unbounded/non-compact. In particular, either the intersection is empty or it contains a ray in $\bR^p$ originating from $0$.
+
+\bigskip
+
+Let's examine the system of inequalities resulting from a fixed input/output pair $s,t$ in $(G,N,M,f)$. We are looking for $h$ and $J$ such that for every $t' \in M \setminus \{t\}$, 
+\begin{align*}
+	0 < \sum_{i = 1}^n (t_i' - t_i)h_{n+1} ~+~ \sum_{\substack{1 \leq i \leq n \\ 1\leq j \leq m}} (s_it_j' - s_it_j)J_{ij} ~+~ \sum_{\substack{1\leq i < j \leq m}} (t_i't_j' - t_it_j)J_{n+i,n+j}
+\end{align*}
+or 
+\begin{align*}
+	0 < \sum_{i = 1}^n a_ih_{n+1} ~+~ \sum_{\substack{1 \leq i \leq n \\ 1\leq j \leq m}} b_{ij}J_{ij} ~+~ \sum_{\substack{1\leq i < j \leq m}} c_{ij}J_{n+i,n+j}
+\end{align*}
+where $a_i = t_i' - t_i$, $b_{ij} = s_i(t'_j - t_{j})$ and $c_{ij} = t'_{i} t'_j - t_i t_j$.
+
+Given a potential $a$, we can check for valid $h$'s and $J$'s in $O(n\log n)$ by intersecting half spaces, possibly faster if we use the fact that all our half planes pass through the origin.
+
+\entry{22-July-2022}
+I think I finally know how to think of morphisms of Ising graphs, or at least I think I know what the correct notion of morphism should be in the category of Ising circuits.
+
+When trying to find an Ising lift of a preising graph, one wants to take a graph $G$ of shape $(N,M)$ and add some number of auxiliary spins to get a new graph of shape $(N,M,A)$. Here we interpret a shape $(V_1,...,V_n)$ of $G$ to be some partition of the vertex set so that $V_i \cap V_j = \emptyset$ and $V_1 \cup ... \cup V_n = G$. 
+
+I've been hung up on finding the correct notion of order preservation for quite some time. What I didn't realize is that we don't care about comparing $(s,t)$ to $(s',t')$, we only care about $(s,t)$ and $(s,t')$. Furthermore, in the case of Ising circuits, we only care about the minimum output. Thus, for Ising circuits, the condition we want to satisfy for an embedding $G \to G\sqcup A$ is this: if $(s,t) < (s,t')$ for all $t' \in M\setminus \{t\}$, then there exists an $a \in A$ such that $(s,t,a) < (s,t',a')$ for all $t' \in M\setminus \{t\}$ and $a' \in A\setminus \{a\}$.
+
+Somehow, the notion we're looking for is something like ``order preservation along $N$'' or something like that.
+
+UPDATE: I did indeed figure out a formalism that worked. Ising morphisms are a go.
+
+Now I'm wondering about the following: say you have $s < t$ for some Ising graph $G$. Can you add an auxiliary spin so that $t < s$?
+
+\begin{example}\label{ex:swap-relation-low-value}
+	Let $|N| = 1$, $|M| = 1$. Suppose you want to swap $(s,t) < (s,-t)$ for $(s,-t) < (s,t)$. The former condition says that
+	\begin{align*}
+		0 < h_2 + J_{1,2}.
+	\end{align*}
+	We need to find an $a$, $h_3$, $J_{1,3}$ and $J_{2,3}$ such that
+	\begin{align*}
+		0 &< -h_{3} -J_{1,3} -J_{2,3} \\
+		0 &< -h_{2} -J_{1,2} -J_{2,3} \\
+		0 &< -h_{2} -h_{3} -J_{1,2} -J_{1,3}.
+	\end{align*}
+	The middle inequality says we ought to pick $J_{2,3}$ so that $h_2 + J_{1,2} < -J_{2,3}$. The last inequality says that
+\end{example}
+
+\entry{01-Aug-2022}
+I have neglected writing in this daily log for a while as I've been updating the actual document filled with a more concrete version of these musings. I'm back at the musing stage, however, and am once again jotting down ideas.
+
+I now have what I think is a good definition of an Ising graph morphism. I also have some additional structure which, when naturally applied to Ising graphs, yields Ising circuits as a special case. These are called \emph{components} of an Ising graph and the \emph{shape} of an Ising graph; Ising circuits are of shape $(N,M,A)$ or $(N,M)$ when there aren't any auxiliary spins.
+
+A morphism is a graph homomorphism whose induced map on spin space preserves the \emph{floors} of the Ising graphs in question. A homomorphism $\varphi:G \to G'$ of graphs gives a natural decomposition of $G'$ into components: $G' = (\varphi(G),A)$ where $A = G' \setminus \varphi(G)$. For a spin $s \in S_{\varphi(G)}$, the $s$-level is the set of spins of the form $(s,a)$ for $a \in S_A$, i.e. the fiber of $s$ along the projection $S_{\varphi(G)}\times S_A \to S_{\varphi(G)}$. The \emph{floor} of this level is the spin $(s,a)$ which is minimum on the level. We say that $\varphi$ is an Ising morphism if $\varphi^*:S_{G'} \to S_G$ is order-preserving (in the sense that it is a Galois connection) when restricted to each $\varphi(G)$-level. This in particular means that it must preserve the floor of each level, but that it is not required to preserve the order among the floor themselves. We don't care if the floor of level \#1 is bigger than the floor of level \#2, we only care that it is still the floor of its own level.
+
+\entry{02-Aug-2022} My current idea is to use this framework to come up with a good rewards function and then train an algorithm to get close to correct circuits using reinforcement learning. The hope is that it will be able to pick out some of the structure that (I hope) connects smaller circuits to big circuits. By giving it, say, 100 nodes to play with and that times whatever number of parameters with the ability to set $h$ and $J$ to zero, it should be able to reproduce a large number of circuits.
+
+With this in mind, I would like to 
+\begin{enumerate}[(1)]
+	\item Produce a good visualization tool to monitor the training (IsingVis or IsingGUI)
+	\item Come up with a viable rewards function
+\end{enumerate}
+
+\entry{03-Aug-2022}
+
+Coming up with a viable rewards function will be involved.
+
+Let's consider what we're trying to do. We start with a preising graph $G$ which we want to zingify. This graph is really just a wrapper for a preorder (NOT a partial order as I've been saying, as it need not be antisymmetric). Any Ising graph will be a total preorder, i.e. we will be able to compare any two elements of $S_G$ through use of the Hamiltonian function. Thus, if our bot looks at a preising graph $G$ and produces an Ising graph $H$ meant to approximate $G$, the grade we assign should reflect how well the total preorder on $H$ reproduces the preorder on $G$.
+
+Zingification is successful if for every relation $s < s'$ in $S_G$, there is an $a \in S_A$ such that $(s,a) \leq (s',a')$ for every $a' \in S_A$ (where $S_H = S_{\varphi(G)}\times S_A$ for zingification $\varphi:G \to H$). Nonetheless, some zingifications will be better than others, for instance, the larger the average gap between correct and incorrect answers the better.
+
+Zingification is close to successful if most of the relations are satisfied. If this is our sole metric for grading, then we will do badly as there will likely be many ways to satisfy, say, half of the relations. However, as our newly produced $H$ is a total preorder, it carries additional information which we can use to further grade the guess. For instance, some input/output pairs $(s,t)$ will be "better" to minimize than others, for instance, if $(s,t)$ is a correct solution which is also ``close'' to other correct solutions, it's better for it to be small. If $(s,t)$ is a wrong answer which is far from many correct solutions, then it is better to maximize it.
+
+This qualitative sketch might be enough to construct some holistic, patched-together rewards function which accomplishes what we want. What we'd \emph{really} like, however, is a metric on the space of all possible preorders.
+
+Given this, I've been reading about preorders today. One nice fact is this: for a finite set $A$, the set of preorders on A is in one-to-one correspondence with the set of topologies on $A$. The correspondence goes like this.
+
+\begin{prop}\label{prop}
+	Let $A$ be a finite set. The number of distinct topologies on $A$ is equal to the number of preorders on $A$.
+\end{prop}
+\begin{prf}
+	If $\cT$ is a topology on $A$ then we define a preorder on $A$ as follows: $x \leq y$ if and only if for every open set $U \in \cT$ such that $y \in U$, we have $x \in U$. Similarly, if $\leq$ is a preorder on $A$, then we may obtain a topology on $A$ by defining $U \subseteq A$ to be open if and only if for all $x \in U$ and $y\in X\setminus U$ we have $x \leq y$, that is, no element in $X \setminus U$ is less than an element in $U$.
+\end{prf}
+
+So in our case we are equivalently looking for a good way to compare topologies on a finite set. Unfortunately, these open sets aren't super helpful to us in the Ising case. In particular, the pullbacks of open sets in our preising graphs over an Ising lift won't be open in (totally preordered) spin space of the Ising graph. We could use these to generate a topology and then ask something about that potentially.
+
+String Matching.
+
+Ignore auxiliary spins for a moment. In the preising AND circuit we have the following preorder:
+\begin{align*}
+\begin{array}{ccc}
+	(-1,-1,-1) & < & (-1,-1,+1) \\
+	(-1,+1,-1) & < & (-1,+1,+1) \\
+	(+1,-1,-1) & < & (+1,-1,+1) \\
+	(+1,+1,+1) & < & (+1,+1,-1)
+\end{array}
+\end{align*}
+We may view this as a directed graph where each connected component is an input level. This is visualized in figure \ref{fig:AND_1x1x0_preorder} where we have converted our spins to binary and then to decimal.
+\begin{figure}[ht]
+    \centering
+    \begin{Huge}
+    	\incfig{AND_1x1x0_preorder}
+    \end{Huge}
+	\bigskip
+	\caption{The $1\times 1$ preorder of the AND circuit visualized as a graph}
+    \label{fig:AND_1x1x0_preorder}
+\end{figure}
+We can create an Ising graph reproducing the AND preising circuit by setting $h = (1,1,1)$ and $J = \left(\begin{smallmatrix}0 & 0 & -1 \\ 0 & 0 & -1 \\ 0 & 0 & 0\end{smallmatrix}\right)$. This gives us the following total order on $S_G$: 
+\begin{align*}
+\begin{array}{c}
+	(-1,-1,-1)
+\end{array} <
+\begin{array}{c}
+	(+1,-1,-1) \\
+	(-1,+1,-1)
+\end{array} <t
+\begin{array}{c}
+	(+1,+1,+1) \\
+	(-1,+1,+1) \\
+	(+1,-1,+1)
+\end{array} <
+\begin{array}{c}
+	(+1,+1,+1)
+\end{array}
+\end{align*}
+and is visualized as a directed graph in figure \ref{fig:AND_1x1x0_total-preorder}. 
+\begin{figure}[ht]
+    \centering
+    \begin{Huge}
+    	\incfig{AND_1x1x0_total-preorder}
+    \end{Huge}
+	\bigskip
+	\caption{The total preorder of the $1\times 1$ AND circuit for $h = (1,1,1),$ $J_{12} = -1$ and $J_{13} = -1$. The preorder from the preising AND is seen below.}
+    \label{fig:AND_1x1x0_total-preorder}
+\end{figure}
+
+\entry{4-Aug-2022}
+Examining ising distance right now, which I also sometimes call second order Hamming distance. It's defined as follows on spins $s,t \in S_N$:
+\begin{align*}
+	d(s,t) = \overbrace{\frac{1}{2} \sum_{i=1}^N | s_i - t_i|}^{\text{hamming distance}} ~+~ \overbrace{\frac{1}{2} \sum_{i=1}^N\sum_{j=i+1}^N |s_is_j - t_it_j|}^{\text{second order contribution}}.
+\end{align*}
+
+I'm also looking at these two variations. Ising distance is identical to taking the difference of Hamiltonian values with $h = J = 1$ and Ising Hamming mixed distance is given by combining the traditional Hamming distance with the second order Ising contribution.
+\begin{align*}
+	\text{Ising Distance:} \hspace{2em} d(s,t) = \left|\overbrace{\frac{1}{2} \sum_{i=1}^N  s_i - t_i}^{\text{hamming distance}} ~+~ \overbrace{\frac{1}{2} \sum_{i=1}^N\sum_{j=i+1}^N s_is_j - t_it_j}^{\text{second order contribution}}.\right|
+\end{align*}
 \end{document}

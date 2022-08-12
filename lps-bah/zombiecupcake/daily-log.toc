@@ -1,1 +1,14 @@
-\contentsline {section}{\numberline {1}Reverse Ising Model Description}{2}{section.1}%
+\contentsline {section}{Entry 1: 2022-June-24}{1}{section*.1}%
+\contentsline {section}{Entry 2: 2022-June-29}{2}{example.1.2}%
+\contentsline {section}{Entry 3: 30-June-2022}{3}{problem.2.6}%
+\contentsline {section}{Entry 4: 5-July-2022}{4}{defn.3.13}%
+\contentsline {section}{Entry 5: 6-July-2022}{5}{example.4.15}%
+\contentsline {section}{Entry 6: 13-July-2022}{8}{defn.5.20}%
+\contentsline {section}{Entry 7: 18-July-2022}{9}{conjecture.6.21}%
+\contentsline {section}{Entry 8: 19-July-2022}{11}{section*.7}%
+\contentsline {section}{Entry 9: 20-July-2022}{12}{section*.7}%
+\contentsline {section}{Entry 10: 22-July-2022}{13}{question.9.1}%
+\contentsline {section}{Entry 11: 01-Aug-2022}{13}{example.10.22}%
+\contentsline {section}{Entry 12: 02-Aug-2022}{14}{example.10.22}%
+\contentsline {section}{Entry 13: 03-Aug-2022}{14}{Item.6}%
+\contentsline {section}{Entry 14: 4-Aug-2022}{15}{figure.2}%

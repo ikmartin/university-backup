@@ -6,10 +6,20 @@
 \usepackage{float,macrosabound,homework,theorem-env}
 \usepackage{microtype}
 
+% figure stuff
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+    \def\svgwidth{\columnwidth}
+    \import{./figures/}{#1.pdf_tex}
+}
+
 % font stuff
 \usepackage{sectsty}
 \allsectionsfont{\sffamily}
-
 \linespread{1.1}
 
 % bibtex stuff

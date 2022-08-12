@@ -1,0 +1,265 @@
+\input{../preamble.tex}
+
+% start document
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Sporadic Notes Taken While at LPS Probabilistic Computing \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\tableofcontents
+
+\section{Introduction}
+This section is for an introduction to the Ising model and the reverse Ising problem. No need to fill it out now, but may be useful if this document is seen by more than four people at some point.
+\begin{comment}
+	The \textbf{forward Ising problem} takes as input the values of the local biases $\{h_i\}$ and the coupling strengths $\{J_{ij}\}$ and then outputs the (or rather, ``a'') tuple $(s_1,...,s_n)$ of spins which minimize the Hamiltonian.
+
+	The \textbf{reverse Ising problem} takes as input a tuple of spins and then outputs the set of $h_{i}$ and $J_{ij}$ which minimize the Hamiltonian, if possible. It is of interest as a slight modification of this problem would allow for the construction of logic gates from Ising graphs, in which a spin value of $1$ and $-1$ represent true and false respectively.
+\end{comment}
+
+\section{Ising Graphs}
+The Ising model is a model of ferromagnetism. We care more about the model itself and less about its physical properties, so here we provide an abstraction. 
+\begin{defn}\label{defn:ising-graph}
+	Suppose you are given an undirected graph $G$ with vertices and edges decorated as follows. 
+	\begin{itemize}
+			\item Vertex $i$ receives a \emph{spin} $s_i \in \{\pm 1\}$ and a \emph{local bias} $h_i \in \bR$. The former controls the direct of a vertex's intrinsic contribution to the energy of the system while the second controls the weight of the contribution.
+			\item Edge $e_{ij}$ is given a \emph{coupling strength} $J_{ij} \in \bR$. If edge $e_{ij}$ does not exist then $J_{ij} = 0$ by convention.
+	\end{itemize}
+	Call such a graph an \emph{Ising graph} and call the verticies \emph{sites}. The total energy of the system is given by the Hamiltonian
+	\begin{align*}
+		H(G) = \sum_{i \in V} h_is_i ~+~ \sum_{i,j \in V} J_{ij}s_j.
+	\end{align*}
+	The \emph{size} of an Ising graph is the number of vertices.
+\end{defn}
+
+\section{Ising Circuits}
+
+\entry{6-July-2022}
+It seems that up until this point I've treated this document more like a set of notes and less like a daily entry log, I intend to begin making it more free form from this point onward. Today I'd like to discuss auxiliary spins and translational equivalence. The most important thing to remember about auxiliary spins is this: they \emph{cannot} be chosen to vary with the input. For this reason, we treat them as outputs. 
+
+Throughout today, $T\subseteq K^\times$ is the multiplicative group of spins, so for an Ising graph $G$
+\begin{align*}
+	S_G = \Hom(V_G,T) = T^{V_G}.
+\end{align*}
+
+\section{Ising Circuit}
+First I should write down the definition of a pre Ising circuit and an Ising circuit I suppose.
+
+\begin{defn}[Pre-Ising Circuit]\label{defn:pre-ising-circuit}
+	A pre-Ising circuit (or a preising circuit or PIsing circuit) is a graph $G$ together with the following additional data:
+	\begin{itemize}
+	\item Two collections of vertices $N$ and $M$ which together form a partition of the vertex set, i.e. $N \cap M = \emptyset$ and $N \cup M = V_G$. We call $N$ the collection of \emph{input vertices} and $M$ the set of \emph{output vertices}.
+		\item A function $f:S_N\to S_M$ called the \emph{logic map}, or simply the \emph{logic}, which maps each input to an output.
+	\end{itemize}
+	We will sometimes write a preising circuit as $(G,N,M,f)$, sometimes as $(G,f)$ and sometimes as $G$ when the circumstance allows.
+\end{defn}
+There is nothing here about $h$'s or $J$'s, it's just a graph which is a circuit. The language is suggestive however, for ideally we would want the logic map $f$ to depend on the values of $h$'s and $J$'s.
+\begin{defn}[Ising Circuit]\label{defn:ising-circuit}
+	An Ising circuit is a preising circuit $(G,N,M,\gamma)$ such that $(G,h,J)$ is an Ising graph and the logic map $\gamma:S_N\to S_M$ is given by
+	\begin{align*}
+		\gamma(s) = t \textbuff{1em}{such that} H(t) = \min_{t' \in S_M}\{H(s,t')\}
+	\end{align*}
+	where $H$ is the Hamiltonian of $G$. Implicit in this definition is that $t$ is the \emph{unique} output minimizing the Hamiltonian, otherwise we don't have well defined logic. In this case we will refer to $\gamma$ as \emph{Ising logic.}
+\end{defn}
+With that, we can now define auxiliary spins. We do this via a theory of lifting. First, we need morphisms of preising circuits and Ising circuits.
+
+\begin{defn}[Ising Circuit Morphism]\label{defn:ising-lift}
+	Let $(G,N,M,f)$ and $(G',N',M',f')$ be preising circuits. We say that $\varphi:G\to G'$ is a \emph{homomorphism of preising circuits} if it is a graph homomorphism such that $\varphi(N)\subseteq N'$, $\varphi(M) \subseteq M'$, and the diagram
+	\begin{center}
+		\begin{tikzcd}[row sep=large,column sep=huge]
+			S_{n'} \arrow[r,"f'"] \arrow[d,"\varphi^\sharp"]& S_{m'} \arrow[d,"\varphi^\sharp"] \\
+			S_n \arrow[r,"f"]& S_m
+		\end{tikzcd}
+	\end{center}
+	commutes. A \emph{morphism of Ising circuits} is simply a morphism of the underlying preising circuits.
+\end{defn}
+Note that $\varphi^\sharp:S_{G'}\to S_{G}$ is simply the natural map $\varphi^\sharp(s') = s'\circ \varphi$, and it is well defined on both $S_{N'}$ and $S_{M'}$ since $\varphi(N)\subseteq N'$ and $\varphi(M') \subseteq M'$.
+
+Now we define lifts!
+\begin{defn}[Ising Lifts]\label{defn:ising-lift}
+	Let $(G,N,M,f)$ be a preising circuit. A \emph{lift} of $G$ is a preising circuit $(G',N',M',f')$ together with a morphism $\varphi:(G,N,M,f)\to (G',N',M',f')$ such that $\varphi:G\to G'$ is injective and $\varphi(N) = N'$.
+
+	The set of additional output vertices $A = M'\setminus \varphi(M)$ is called the set of \emph{auxiliary} vertices. The evaluation of a spin $s$ at an auxiliary vertex $s(\alpha)$ is called an \emph{auxiliary spin}.
+
+	If $(G',N',M',\varphi)$ is an Ising circuit, then we call $\varphi$ \emph{zingification} and $G'$ a \emph{zingification of $G$} (the evolution is Isingification $\to$ 'singification $\to$ zingification). Alternate names could be an \emph{Ising lift} or a \emph{zingy lift} or simply \emph{a zing}.
+\end{defn}
+This definition encodes a fair amount of information in relatively few words, so let us unpack it a bit. Suppose $(G',N',M',\gamma)$ is a zingification of $(G,N,M,f)$. First, because $\varphi$ is injective, $|N'| = |N|$ and hence we may identify $S_{N}$ and $S_{N'}$ along $\varphi^\sharp$. Our zing diagram is then
+\begin{center}
+	\begin{tikzcd}[row sep=large,column sep=huge]
+		& S_{M'} \arrow[d,"\varphi^\sharp"] \\
+		S_N \arrow[ru,"\gamma"] \arrow[r,"f"]& S_{M}
+	\end{tikzcd}.
+\end{center}
+Next, let's identify $M$ with its image in $M'$. This means the restriction of $\varphi^\sharp$ to $\S_{M'}$ simply gives us projection onto $S_M$, which is made even more clear by the equivalence.
+\begin{align*}
+	S_{M'} = \Hom(M',T) = \Hom(M \cup A,T) = \Hom(M,T)\times \Hom(A,T) = S_M\times S_A.
+\end{align*}
+Our zing diagram now looks like
+\begin{equation}\label{diag:zingification}
+	\begin{tikzcd}[row sep=large,column sep=huge]
+		& S_{M}\times S_A \arrow[d,"\pi"] \\
+		S_N \arrow[ru,"\gamma"] \arrow[r,"f"]& S_{M}
+	\end{tikzcd},
+\end{equation}
+and hence we see that finding a zingification of $G$ amounts to finding $\gamma$ and $S_A$. As $\gamma$ depends entirely on $h$ and $J$, this means finding a zingification is the process of finding $h$, $J$ and $S_A$ such that (\ref{diag:zingification}) commutes.
+
+\bigskip
+
+\noindent \textbf{Reverse Ising Problem:} Given a preising circuit $G$, zingify.
+
+\subsection{Auxiliary spins are outputs}
+Auxiliary spins are weird. In the typical formulation of the reverse Ising problem they sometimes feel input-y and sometimes feel output-y. I argue that they are in fact just additional output spins that we ignore.
+
+Originally, I wrote down two formulations of the Ising lift, one called a fixed Ising lift and another called the free Ising lift. The latter is what you see here, whereas the fixed Ising lift adds auxiliary spin to the input vertices rather than the output vertices. The idea is that you consider a fiber $\sigma:S_N\to S_N\times S_A$ of the projection $S_N\times S_A \to S_N$ and then demand Ising logic for $S_N\times S_A\to S_M$, giving a commutative diagram
+\begin{center}
+	\begin{tikzcd}[row sep=large,column sep=huge]
+		S_{N}\times S_A \arrow[rd,"\gamma"] &\\
+		S_N \arrow[u,"\sigma"] \arrow[r,"f"]& S_{M}
+	\end{tikzcd}.
+\end{center}
+The problem with this is that we are prescribing a specific auxiliary spin $\alpha \in S_A$ for each unique input $S_N$, but this choice is not required to minimize the Hamiltonian among all possible \emph{auxiliary} choices. This means that we would require an oracle to pick an appropriate section $\sigma$.
+
+In contrast, diagram (\ref{diag:zingification}) reproduces the behavior described in \cite{intro-ising}. The Ising logic $\gamma:S_N\to S_M\times S_A$ now means that the out/aux pair $(t,\alpha)$ corresponding to an input $s \in S_N$ now must minimize the Hamiltonian in both output and auxiliary. The commutativity of the diagram then forces $\gamma$ to agree with our prescribed logic $f$ on $S_N$ but allows the actual values of the auxiliary spins to remain irrelevant. Thus, auxiliary spins are outputs.
+
+\section{Translational Invariance}
+This section lays out a technique that may be useful in actually computing the zing lift. The key observation is that the choice $T\subseteq K^\times$ means we have an abelian multiplicative group structure on the set $T$ of possible spins which extends to $S_G = \Hom(V_G,T)$ via pointwise multiplication. 
+
+Consider a preising circuit $(G,N,M,f)$ which we would like to zingify. Computing viable $h,J$ and $S_A$ to find such a zing lift involves solving a hefty system of inequalities. A priori, we have absolutely no idea which input will minimize the Hamiltonian and which will maximize it, but one can imagine it such information could prove helpful. Here, we describe a process by which one may obtain a new preising circuit $G'$ from $G$ whose features we can somewhat control. We may then compute a zing lift of $G'$ and invert this process to obtain a zing lift for $G$.
+
+\begin{defn}[Spin Action]\label{defn:spin-action}
+	Let $(G,N,M,f)$ be a preising circuit. We may define a group action on 
+\end{defn}
+\section{Reverse Ising Model Description}
+
+
+
+\entry{2022-June-29, Wednesday}
+Let us give a more complete description of the reverse Ising problem. First, some notation.
+\begin{notation}[Reverse Ising Problem Notation]\label{not:rev-ising-problem}
+	Fix an Ising graph $G$ of size $n+m$. We call the first $n$ vertices \emph{inputs} and the last $m$ vertices outputs. Unless otherwise specified, the indicies $i,j$ denote vertices of $G$.
+	\begin{itemize}
+		\item For $\ell \in \bN$, let $A_\ell := \{-1,1\}^\ell$ be the Cartesian product of $\{-1,1\}$ with itself $n$-times.
+		\item Let $s_i$ denote the spin of vertex $i$.
+		\item Let $h_i$ denote the local bias of vertex $i$
+		\item Let $J_{ij}$ denote the coupling strength between $ij$.
+		\item For $x\in A_n$ and $y \in B_m$ let $H(x,y)$ be the Hamiltonian of $G$.
+	\end{itemize}
+\end{notation}
+\begin{problem}[Reverse Ising Problem]\label{prob:fixed-rev-ising}
+    Let $G$ be an Ising graph of size $n+m$ and let $f:A_n\to A_m$ be a function which maps every possible input $x \in A_n$ to a specific output $y \in A_m$. We call $(G,f)$ a \textbf{reverse Ising problem (RIP)}. The problem $(G,f)$ is said to be \textbf{solvable} if there exist $J_{ij} \in \bR$ and $h_i \in \bR$ such that for every $a \in A_n$,
+	\begin{equation}\label{eqn:rev-ising}
+		H(x,y) > H(x,f(x)) \iff y \neq f(x).
+	\end{equation}
+	We often refer to the size of $(G,f)$, by which we mean the size of $G$.
+\end{problem}
+Notice that in equation (\ref{eqn:rev-ising}) we have $2^n$ choices for $x \in A_n$ and likewise $2^m - 1$ choices for $y \in A_m$ for each $x \in A_n$, giving us a system of $2^n\cdot (2^m - 1)$ inequalities. It doesn't take much for this system to be inconsistent, and indeed, it often isn't. However, the scientist/engineer hoping to use Ising models to build computers sincerely wishes that these systems are in fact always solvable, and in an attempt to protect their dreams from the cold reality of mathematics, we generalize this problem in the following way.
+
+\begin{defn}\label{defn:rev-ising-lift}
+	Let $(G,f)$ be a RIP. If $(G',f')$ is another RIP, we say $G' \geq G$ if $n'\geq n$ and $m'\geq m$. We say that $(G',f')$ is a \emph{lift} of $G$ if 
+	\begin{itemize}
+		\item $G' \geq G$
+		\item $f$ factors through $f':A_{n+k}\to A_m$ and the inclusion $\iota:A_n\to A_{n+k}$, i.e. $f = f'\circ \iota$.
+	\end{itemize}
+\end{defn}
+We can now define the \emph{generalized} reverse Ising problem, which we often simply call the reverse Ising problem.
+\begin{problem}[Generalized Reverse Ising Problem]\label{prop:gen-rev-ising}
+	Let $(G,f)$ be a reverse Ising problem. We say that the \textbf{\emph{general} reverse Ising problem (GRIP)} is solvable if there exists some lift $(G',f')$ of $(G,f)$ which is solvable.
+\end{problem}
+
+\section{Algebra-Inspired Formulation of Reverse Ising}
+We would like to define a category of Ising graphs and a category of Ising circuits. The hope is that morphisms between Ising graphs/circuits will hint at how to extend structure. First, we define Ising Graphs.
+\begin{defn}[Ising Graph]\label{defn:ising-graph}
+	Let $(K,|\cdot|)$ be a valued field, typically $\bQ$ or $\bR$. An \emph{Ising graph} is a graph $G$ over $K$ together with the following extra data:
+	\begin{enumerate}[(i)]
+		\item $h_i \in K$ for every vertex $i$
+		\item $J_{ij} \in K$ for every edge $(i,j)$ such that $J_{ij} = 0$ if and only if  $(i,j)$ is not an edge and $J_{ij} = J_{ji}$.
+	\end{enumerate}
+	We write $(G,h,J)$, or simply $G$, to denote an Ising graph, and commonly denote the vertex set of $G$ by $V_G$.
+\end{defn}
+\begin{rmk}\label{rmk:generality-in-ising-graph}
+	For now, we opt for an arbitrary valued field $K$ rather than fixing either $\bQ$, $\bR$ or $\bC$ as there may be some utility in considering the $p$-adics. The idea is that spins in the Hamiltonian can be thought of as elements of $\bF_3$, where a zero valued spin serves as a stand-in for a candidate deleted vertex, and the $3-adic$ numbers $\bQ_3$ preserve some of the algebraic properties of this finite field.
+\end{rmk}
+For the remainder of this section, $K$ denotes a valued field and every Ising graph is an Ising graph over $K$. Now let's define spins.
+\begin{defn}\label{defn:spin-space}
+	Let $G$ be an Ising graph over $K$ and $A\subseteq K$. A \emph{spin state} (or simply \emph{spin}) of $G$ is a function $s:V_G\to A$. The \emph{spin space} $S_G$ of $G$ is the set of all such functions, i.e. $S_G = A^{V_G}$.
+\end{defn}
+\begin{rmk}\label{rmk:spin-intuition}
+	Throughout this document the set $A$ will be $\{-1,1\}$, but as we would end up naming this set for convenience anyways we may as well preserve generality and allow $A$ to be more or less arbitrary. Regarding the somewhat unorthodox definition of spin: this definition is essentially equivalent to the typical definition of spin, in which we think of the above spin configuration as a tuple of $\pm 1$'s, for instance, resembling something like $(+1,-1,-1,...,+1)$. The choice of coordinates matters when discussing graph embeddings, and more generally graph morphisms, and in these situations the coordinate-free definition will simplify notation.
+\end{rmk}
+
+\begin{defn}\label{defn:hamiltonian}
+	The \emph{Hamiltonian} of an Ising graph $G$ is the function $H_G:S_G\to K$ defined
+	\begin{align*}
+		H_G(s) = \sum_{i \in V_G} s(i)h_i ~+~ \frac{1}{2} \sum_{(i,j) \in V_G} s(i)J_{ij}s(j).
+	\end{align*}
+	This describes the total energy of the Ising graph.
+\end{defn}
+This describes the total energy of the Ising graph. As the Ising model is about the energetic viability of various spin states, it makes sense to consider an ordering on the spin space of an Ising graph.
+\begin{defn}\label{defn:ordering-on-spins}
+	For $s,s' \in S_G$, we say $s\leq s'$ if $H_G(s) \leq H_G(s')$; i.e. if $s$ is a higher energy state than $s'$. For two subsets $U,V \subseteq S_G$, we say $U\leq V$ if
+	\begin{align*}
+		\min_{s \in U} H(s) \leq \min_{t\in V} H(t),
+	\end{align*}
+	or equivalently, if there exists $s \in U$ such that $s \leq t$ for all $t \in V$.
+\end{defn}
+\begin{defn}\label{defn:energy-states}
+	For $s\in S_G$, the \emph{energy class} (or \emph{energy coset,}, \emph{Ham fiber}) is the set of spins with equal energy to $s$:
+	\begin{align*}
+		[s]_{G} = \{s' \in S_G \mid H_G(s) = H_G(s')\} = H_{G}^{-1}(H_G(s)).
+	\end{align*}
+	Alternatively, one may check that the \emph{energy equivalence} relation
+	\begin{align*}
+		s \sim t \textbuff{1em}{if} H_G(s) = H_G(t)
+	\end{align*}
+	is indeed an equivalence relation, in which case $[s]_G$ is simply the energy equivalence coset of $s$. The set of all energy classes is denoted $S_G/H_G$.
+
+	For spin states $s$ and $t$ we say $[s]_G\leq [t]_G$ if $s \leq t$. We will commonly enumerate energy classes according to this ordering as follows: $\{S_{G,0},...,S_{G,k}\}$ where $S_{G,i}\leq S_{G,j}$ whenever $i \leq j$. We call $S_{G,0} $ the \emph{class of ground states} and $S_{G,k}$ the \emph{$k$th energy class}.
+\end{defn}
+
+We are now ready to define morphisms of Ising graphs. 
+
+\entry{5-July-2022}
+Here was what I had in mind for the definition of a morphism of Ising graphs. Consider first a morphism $\varphi:G\to G'$ of graphs, both of which happen to be Ising graphs. We have an induced map $\varphi^*:S_{G'}\to S_G$ given by precomposition: $\varphi(s') = s'\circ \varphi$. Placing an extra condition on this map gives us an Ising morphism.
+
+\begin{defn}\label{defn:morphism-Ising-graphs}
+	Suppose $G$ and $G'$ are Ising graphs. We say that a morphism of graphs $\varphi:G\to G'$ is an \emph{Ising graph homomorphism} if it strictly preserves spin order, i.e.
+	\begin{align*}
+		s < t \implies \varphi^{*-1}(s) < \varphi^{*-1}(t)
+	\end{align*}
+    for all $s,t \in S_{G}$.
+\end{defn}
+\begin{example}\label{example:GAND-to-GXOR}
+	Consider the following two Ising graphs:
+	\[
+		\begin{array}{c c c c}
+			\opn{GAND} & \text{order} = 3, & h = (1,1,-1), &J = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 1 \\ 0 & 0 & 0 \end{pmatrix}  \\
+			\opn{GXOR} & \text{order} = 4, & h = (1,1,-1,-2), & J = \begin{pmatrix} 0 & 0 & -1 & -2 \\ 0 & 0 & 1 & 2\\ 0 & 0 & 0 & 2 \\ 0 & 0 & 0 & 0 \end{pmatrix} \\
+		\end{array}
+	\]
+	The graph embedding $\varphi:\opn{GAND} \to \opn{GXOR}$ defined $v_i \mapsto v_i$ extends to a partial morphism on the Ising Graphs by defining
+	\begin{align*}
+		\sigma:~
+		\begin{array}{r}
+			(-1,-1,-1) \\
+			(+1,-1,-1) \\
+			(-1,+1,-1) \\
+			(+1,+1,+1)
+		\end{array}~
+		\longmapsto~
+		\begin{array}{l}
+			(-1,-1,-1,+1) \\
+			(+1,-1,-1,+1) \\
+			(-1,+1,-1,+1) \\
+			(+1,+1,+1,+1)
+		\end{array}.
+	\end{align*}
+	This works under the fixed lift paradigm but not the free lift paradigm.
+\end{example}
+
+\end{document}

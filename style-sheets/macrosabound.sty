@@ -27,6 +27,9 @@
 
 \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
 
+% shorten \operatorname
+\newcommand{\opn}[1]{\operatorname{#1}}
+
 % Tate-Shafarevich Group symbol
 \usepackage[OT2,T1]{fontenc}
 \DeclareSymbolFont{cyrletters}{OT2}{wncyr}{m}{n}
@@ -202,6 +205,7 @@
 \newcommand{\powerset}{\raisebox{.12\baselineskip}{\scaleobj{1.2}{\wp}}}
 \newcommand{\bigO}{\mathcal{O}}
 \renewcommand{\div}{\operatorname{div}}
+\newcommand{\flr}[1]{\lfloor #1\rfloor} % wrapper for floor function
 
 %Relational Symbols%
 \mathchardef\ordinarycolon\mathcode`\:

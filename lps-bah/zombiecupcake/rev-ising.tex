@@ -2,7 +2,7 @@
 \usepackage{indentfirst}
 
 % Title page stuff
-\title{\textit{D}-Modules Over Smooth Affine Varieties}
+\title{Ising Graphs and Circuits: A Categorical Approach}
 \date{}
 %\author{Author Name}
 %\use package[show frame]{geometry}
@@ -11,7 +11,7 @@
 \renewcommand\maketitlehooka{\null\mbox{}\vfill}
 \renewcommand\maketitlehookd{\vfill\null}
 \begin{document}
-\setcounter{page}{2}
+\setcounter{page}{1}
 \maketitle
 
 \newpage
@@ -19,5 +19,160 @@
 \tableofcontents
 
 \newpage
+\section{Ising Graphs}
+The 2D Ising model allows only adjacent spins to be connected. An Ising graph generalizes this notion by allowing connections between any spins.
+\begin{defn}[Ising Graph]\label{defn:ising-graph}
+	Let $K$ be either $\bR$ or $\bQ$. An \emph{Ising graph} over $K$ is a finite simple graph $G$ together with the following extra data:
+	\begin{enumerate}[(i)]
+		\item a \emph{local bias} $h_i \in K$ for every vertex $i\in V_G$
+		\item a \emph{coupling coefficient} $J_{ij} \in K$ for every pair of vertices $(i,j) \in V_G \times V_G$ such that $J_{ij} = 0$ if and only if $(i,j)$ is an edge of $G$ and $J_{ij} = J_{ij}$.
+	\end{enumerate}
+	We write $(G,h,J)$ or simply $G$ to denote an Ising graph. Since $J$ provides the edge data, we use $G$ itself to refer to the vertex set, rather than $V_G$. We will frequently identify $G$ with some finite subset of sequential natural numbers: $G = \{1,...,n\} = 1..n$.
+\end{defn}
+Note that because $G$ is simple we get that $J_{ii} = 0$. Furthermore, it is useful to use $K$ as a placeholder for our field as we may later consider fields other than $\bQ$ or $\bR$, for instance $\bC$.
+
+According to the Ising model, each node of the graph assumes a value of either $-1$ or $1$ to denote down and up spins respectively. The total energy of the Ising graph is determined by these spin values, as described by the Hamiltonian of the graph.
+\begin{defn}\label{defn:hamiltonian}
+	Let $G$ be an Ising graph of order $n$ and let $S_G = \{\pm 1\}^n$ be the spin space of $G$. The \emph{Hamiltonian} of an Ising graph $G$ over $K$ is the function $H_G:S_G\to K$ defined
+	\begin{align*}
+		H_G(s_1,...,s_n) = \sum_{i \in G} s_ih_i ~+~ \frac{1}{2}\sum_{i,j \in G} s_i J_{ij}s_j.
+	\end{align*}
+	Alternatively, because $J_{ij} = J_{ji}$ and $J_{ii} = 0$ for all $i,j \in G$, we equivalently have
+	\begin{align*}
+		H_G(s) = \sum_{i\in G} s_ih_i ~+~ \sum_{i < j} s_i J_{ij}s_j.
+	\end{align*}
+	This describes the total energy of the Ising graph in a certain spin configuration.
+\end{defn}
+
+The probability of observing an Ising graph in a given spin state increases as the energy of the that state descreases. Because of this, it is fruitful and pertitant to discuss the ordering on the spin space induced by the Hamiltonian function and the absolute value on $K$.
+\begin{defn}\label{defn:spin-ordering}
+	Let $G$ be an Ising graph. For $s,t\in S_G$ we say $s < t$ or $s \leq t$ if $H_G(s) < H_G(t)$ or $H_G(s) \leq H_G(t)$ respectively. We write $s \sim t$ if $H_G(s) = H_G(t)$and say $s$ and $t$ are \emph{energy equivalent.}
+\end{defn}
+\begin{lem}\label{lem:energy-equiv}
+	Energy equivalence is an equivalence relation on $S_G$. \hfill $\square$
+\end{lem}
+\begin{defn}\label{defn:energy-cosets}
+	The \emph{energy spectrum} of an Ising graph $G$ is the quotient $S_G/\sim$ where $\sim$ is energy equivalence. That is, $S_G/\sim$ is the partition of $S_G$ into subsets all of whose spins evaluate to the same value under the Hamiltonian. We call it the \emph{energy spectrum} of $G$ because we have exactly one energy coset for each value assumed by the Hamiltonian.
+\end{defn}
+Finding the likelihood of observing a given Ising graph in each spin configuration is known as the \emph{forward Ising problem}, and it essentially requires one to simply write down the order of spin states.
+
+We would like to accomplish something slightly different. Instead of reading off the relative energies of the Ising graph at different spin values, we wish to prescribe a total or partial order on the set of possible spins for a graph of order $n$ and then find $h$ and $J$ values which recover that ordering from the Hamiltonian. This is known as the \emph{reverse Ising problem} and is relevant if one wishes to exploit Ising models for use in computation, for instance.
+
+To accomplish this, it will be useful to develop a collection of terminology, notation and objects to highlight the pertinant pieces of Ising graph structure. In essence, it would be useful to develop a category of Ising graphs.
+
+\bigskip
+
+\subsection{Preising Graphs}
+To solve the reverse Ising problem on a graph $G$ one must find $h$ and $J$ such that spin ordering induced by the Hamiltonian of $G$ recovers a specified partial ordering on $S_G$. Let's write down some definitions to make this as precise and clear as possible.
+
+First, let's generalize our notion of spin space slightly.
+\begin{defn}\label{defn:spin-space}
+	Let $G$ be a graph and let $K$ be field. Fix a set $W \subseteq K^\times$. A \emph{spin state} of $G$ is a function $s:G \to W$ which assigns to every vertex of $G$ a value in $W$. The \emph{spin space} $S_G$ of $G$ is the set of all such functions, i.e. $S_G = W^{G} = \Hom(G,W)$.
+\end{defn}
+\begin{rmk}\label{rmk:spin-clarification}
+	Several comments are in order regarding this definition. In the Ising model one always defines $W = \{-1,+1\}$ so that a spin is either spin up or spin down. We avoid this definition as it may be fruitful in the future to consider other possible spin sets, for instance, $W = \{\pm i,\pm 1\} \subseteq \bC$. It also simplifies notation.
+
+	The literature also handles spins themselves in a different manner; they are typically treated as a tuple from the set from the Cartesian product of $W$ with itself $|G|$-many times, e.g. $(-1,1,-1,-1)$. Treating spins as functions gives us a coordinate free approach and hence yields nice naturality properties which are particularly useful when thinking about maps of Ising graphs.
+\end{rmk}
+
+We now need an object which lends itself to "becoming Isingsingified". Taking cues from algebraic geometry, we call this object a preising graph.
+\begin{defn}\label{defn:preising-graph}
+	A \emph{preising graph} is a simple graph $G$ together with a choice of partial ordering $\leq$ so that $(S_G,\leq)$ is a partially ordered set. We say $G$ is a \emph{totally ordered preising graph} if $\leq$ is a total ordering.
+\end{defn}
+All Ising graphs are totally ordered preising graphs whose order is induced by the Hamiltonian. We haven't specified anything about this partial order, so as is this definition is not particularly useful. Before we add more structure, let's make some observations about the spin space.
+
+Our definition of spin provides one more distinct advantage over the traditional coordinate approach: it is easy to describe restrictions of spins to a certain group of vertices. This is due to the following easy, but crucial, lemma:
+\begin{lem}\label{lem:spin-decomp}
+	Let $G$ be a set and let $\Hom(G,K)$ be the set of functions on $G$ to some codomain $W$. If $U,V \subseteq G$ are disjoint sets which cover $G$, then there is a natural isomorphism $\Hom(G,K) \cong \Hom(U,K) \times \Hom(V,K)$.
+\end{lem}
+\begin{prf}
+	This is the well known fact that the disjoint union is the coproduct in the category of sets. For clarity, the natural transformation to the right is given by $s \mapsto (s|_U,s|_V)$ and the natural transformation to the left is given $(s,t) \mapsto (s\sqcup t)$ where $(s\sqcup t)(x) = s(x), t(x)$ when $x \in U$ and $x \in V$ respectively.
+\end{prf}
+\begin{cor}\label{cor:spin-decomp}
+	If $G$ is a set with a pairwise-disjoint cover $V_1,...,V_n$, then there is a natural isomorphism $\Hom(G,K)\cong \Hom(V_1,K)\times...\times \Hom(V_n, K)$ for any set $K$. \hfill $\square$
+\end{cor}
+These observations are somewhat trivial but are nonetheless vital to exposing the structure we care about. For instance, in designing Ising graphs for computation, one fixes a set of input verticies $N \subseteq G$, output vertices $M \subseteq G$ and sometimes even auxiliary vertices $A \subseteq G$, all of which together form a disjoint cover of $G$.
+\begin{defn}\label{defn:shape-of-ising-graph}
+	Let $G$ be a graph and let $V_1,...,V_n \subseteq G$ be a set of pairwise disjoint subsets which cover $G$. For a fixed choice of such a partition, we say $G$ \emph{is of shape} $(V_1,...,V_n)$ or of $(|V_1|,...,|V_n|)$, and call the collection $\{V_1,...,V_n\}$ the \emph{components} of $G$.
+\end{defn}
+By Corollary \ref{cor:spin-decomp} above, we can refer interchangably between $S_G$ and $S_{V_1}\times...\times S_{V_n}$ for an Ising graph of shape $(V_1,...,V_n)$. This description will come in handy for the theory of Ising circuits, where we localize our attention on one or two components of $G$.
+
+In the computation case, one only cares about comparing the order of spins with matching input components.
+
+\begin{defn}\label{defn:levels-of-preising-graph}
+	Let $G$ be a preising graph of shape $(V_1,...,V_n)$. For $t \in S_{V_i}$, the $t$-level of $G$ is the fiber $S_G(t) = \pi^{-1}(t)$ together with the order $\leq$, where $\pi:S_{G}\to S_{V_i}$ is the projection. The $V_i$-levels of $G$ is the collection of all $t$-levels for $t \in V_{i}$ and is denoted $\cL_{V_i}$ or simply $\cL_i$. For clarity, 
+	\begin{itemize}
+		\item $S_G(t) = \pi^{-1}(t) = \{(s_1,...,t,...,s_n) \in S_{V_1}\times...\times S_{V_i}\times...\times S_{V_n}\}$
+		\item $\cL_{V_i} = \{S_G(t) \mid t \in V_i\}$.
+	\end{itemize}
+\end{defn}
+We also standardize some terminology regarding levels.
+\begin{defn}\label{defn:levels-features}
+	Let $G$ be a preising graph of shape $(V_1,...,V_n)$ and let $t,t' \in V_i$.
+	\begin{itemize}
+		\item If $s \in S_G(t)$ is the unique element such that $s \leq s'$ for all $s' \in S_G(t)$, then we call $s$ the \emph{floor} of $S_G(t)$ and denote it $\lfloor t\rfloor$.
+		\item If $\lfloor t \rfloor \leq \lfloor t'\rfloor$ then we say $S_G(t) \leq S_G(t')$.
+		\item If $\flr{t}$ exists for each $t \in V_i$, then $\flr {V_i} = \{\flr{t} ~\mid ~ t \in V_i\}$ is the collection of \emph{$V_i$-floors}.
+	\end{itemize}
+\end{defn}
+
+\begin{example}\label{example:XOR}
+	Put XOR example here with a nice picture.
+\end{example}
+\subsection{Morphisms of Preising Graphs}
+Being earnest and obedient algebraists, it comes time now to define morphisms of Ising graphs. The first thing we notice is this:
+\begin{lem}\label{lem:spin-pullback}
+	Let $G$ and $G'$ be graphs and $\varphi:G\to G'$ a graph homomorphism. Then $\varphi$ induces a map $\varphi^*:S_{G'}\to S_G$ given by precomposition $s' \mapsto s'\circ \varphi$.
+\end{lem}
+Knowing this and remembering that the key structure of an Ising graph is the energy ordering, one might try this definition.
+\begin{defn}(\textbf{Overly Strict Definition})\label{defn:morphisms-of-Ising}
+	Let $G$ and $G'$ be two Ising graphs and let $\varphi:G\to G'$ be a function mapping verticies of $G$ to verticies of $G'$. We say $\varphi$ is a \emph{graph morphism} if it is a homomorphism of the underlying graphs. In addition, $\varphi$ is said to be
+	\begin{enumerate}[(i)]
+		\item \emph{energy preserving} if $s' \sim t'$ then $\varphi^*(s) \sim \varphi^*(t)$
+		\item \emph{order preserving} if $s' < t'$ then $\varphi^*(s') < \varphi^*(t')$
+		\item a \emph{strict Ising morphism} if $\varphi$ is both energy and order preserving.
+	\end{enumerate}
+	A strong Ising morphism $\varphi:G\to G'$ is said to be an \emph{isomorphism} if there exists some other Ising morphism $\psi:G' \to G$ which is the two-sided inverse of $\varphi$.
+\end{defn}
+
+The problem with definition is that it is exceedingly strict. For example, imagine we have an embedding $\varphi:G\to G'$ of Ising graphs. We can then identify $G$ with its image in $G'$ and declare the rest of the vertices to be auxiliary: $A = G'\setminus G$. Now $G'$ is an Ising graph of shape $(G,A)$, and the spin space $S_G'$ is $S_G \times S_A$. The induced map $\varphi^*:S_{G'} \to S_G$ is then simply the projection $(s,a) \mapsto s$. For $s,t \in S_G$ and $a,b \in S_A$, if $s < t$ then by energy and order preservation we must have $(s,a) < (t,b)$ \emph{regardless of the specific values of $a$ and $b$.} This places a huge restriction on the possible parameters assumed by auxiliary spins in $G'$, as the underlying order relies far more heavily on the $G$-spins than the $A$-spins. If you are, say, attempting to build a computer from an Ising model, this definition is overly restrictive, as auxiliary spins won't be able to add much to the logic of your circuit.
+
+One possible fix borrows an idea from Galois theory called a Galois connection.
+\begin{defn}\label{defn:galois-connection}
+	Let $A$ and $B$ be posets. A \emph{Galois connection} between $A$ and $B$ is a pair of monotone functions $F:A\to B$ and $G:B\to A$ such that $F(a) \leq b$ if and only if $a \leq G(b)$ for all $a \in A$ and $b \in B$. Considering $A$ and $B$ to be categories, we see that $F$ and $G$ are left and right adjoints respectively.
+\end{defn}
+An important feature of Galois connections is that the left adjoint determines the right adjoint and vice versa when $A$ and $B$ are totally ordered.
+\begin{lem}\label{lem:uniqueness-of-galois-connection}
+	Let $A$ and $B$ be totally ordered sets and let $F:A\to B$ and $G:B\to A$ form a Galois connection. If $F':A\to B$ is another function such that $F',G$ form a Galois connection then $F' = F$. Similarly with $G':B\to A$.
+\end{lem}
+
+We would like to demand that $\varphi^*:S_{G'}\to S_G$ is a Galois connection given a preising graph homomorphism $\varphi:G\to G'$. However, if we set the domain to be all of $S_{G'}$, then the monotonicity in the definition of Galois connection will cause the same problems as our old order preserving axiom. Instead, we will restrict the domain of $\varphi^*$ to something more reasonable: the $\varphi(G)$-floors.
+
+\begin{defn}\label{defn:floor-preserving-map}
+	Let $G$ and $G'$ be preising graphs and $\varphi:G\to G'$ be a graph homomorphism. We may decompose $G'$ as a preising graph of shape $(\varphi(G), A)$ where $A = G'\setminus \varphi(G)$. We say that $\varphi$ is a preising graph homomorphism if $\varphi^*$ forms the left adjoint of a Galois connection between $\flr{\varphi(G)}$ and $S_G$.
+\end{defn}
+\begin{defn}\label{defn:zingification}
+	Let $G$ be a preising graph. An \emph{Ising lift} or \emph{zingification} of $G$ is a preising embedding $\iota:G\to G'$ where $G'$ is an Ising graph. The \emph{order} of $\iota$ is the order of $G'$.
+\end{defn}
+\begin{question}\label{q:zingification}
+	Given a preising graph $G$, what is the minimum order of an Ising lift of $G$?
+\end{question}
+
+\newpage
+
+\section{Ising Circuits}
+\begin{defn}\label{defn:preising-circuit}
+	A \emph{preising circuit} is a preising graph $G$ of shape $(N,M)$ or $(N,M,A)$ such that all $N$-floors exist. In the latter case, $G$ is said to be a \emph{preising circuit with auxiliary spins.} We call $N$ the set of input verticies and $M$ the set of output verticies. Each preising circuit comes equipped with a \emph{circuit logic function} $f:S_N\to S_M\times S_A$, defined $f(s) = \flr{s}$.
+\end{defn}
+Remember that a preising graph comes equipped with a partial ordering on $S_G$ by definition. Rather than directly defining this order when cooking up a preising circuit, one can instead write down a logic function $f(s):S_N \to S_M\times S_A$ and then define $(s,f(s)) \leq (s,t,a)$ for all $s \in S_N$, $t \in S_M$ and $a \in S_A$. This produces a partial ordering on $S_G$ whose $N$-floors are exactly the spins which look like $(s,f(s))$.
+
+\begin{defn}\label{defn:ising-circuit}
+	An \emph{Ising circuit} is a preising circuit $G$ such that $G$ is also an Ising graph.
+\end{defn}
+\begin{rmk}\label{rmk:ising-circuit-defn}
+	It is a good idea to trace back through our definitions at this point. Remember that an Ising graph $G$ is a preising graph whose partial ordering on $S_G$ is induced by the Hamiltonian. An Ising circuit is then an Ising graph of a specific shape $(N,M,A)$ with a function $f$ which, given a spin $s \in S_N$, retrieves the output spin in $(t,a)\in S_M\times S_A$ which minimizes $H(s,t,a)$ for the fixed value $s$. Notice that we require a unique floor for $s$.
+\end{rmk}
+
+
 \printbibliography
 \end{document}

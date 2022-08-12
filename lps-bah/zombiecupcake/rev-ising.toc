@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {1}Ising Graphs}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Preising Graphs}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Morphisms of Preising Graphs}{5}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Ising Circuits}{8}{section.2}%
