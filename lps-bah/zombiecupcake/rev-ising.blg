@@ -1,8 +1,5 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'rev-ising.blg'
-[49] biber:340> INFO - === Fri Jul 22, 2022, 12:02:52
-[59] Biber.pm:418> INFO - Reading 'rev-ising.bcf'
-[108] Utils.pm:409> ERROR - Error: Found biblatex control file version 3.9, expected version 3.8.
-This means that your biber (2.17) and biblatex (3.18) versions are incompatible.
-See compat matrix in biblatex or biber PDF documentation.
-[108] Biber.pm:135> INFO - ERRORS: 1
+[67] biber:340> INFO - === Fri Aug 12, 2022, 11:33:24
+[80] Utils.pm:409> ERROR - rev-ising.bcf is malformed, last biblatex run probably failed. Deleted rev-ising.bbl
+[81] Biber.pm:135> INFO - ERRORS: 1
