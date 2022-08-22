@@ -1,0 +1,209 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Information for Summer DRP 2022\\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\tableofcontents
+\newpage
+\section{Starting out in Commutative Algebra}
+This is some sort of resource intended for those encountering commutative algebra for the first time.
+\subsection{Suggested Textbooks}
+\begin{itemize}
+	\item \emph{Abstract Algebra} by Dummit and Foote. This will cover all of your bases and more.\cite{dummit-foote}.
+	\item \emph{Algebra} by Michael Artin. Not an amazing textbook by any means, but brief and introductory. \cite{artin-algebra}.
+	\item \emph{Introduction to Commutative Algebra} by Atiyah and Macdonald. Brief, yet somehow quite comprehensive and somewhat exhaustive. Wonderful selection of exercises. A sliver of God captured in print. Some printings have aged poorly and may melt your eyes if you stare at them for too long. \cite{am}
+	\item \emph{Commutative Algebra with a View Towards Algebraic Geometry} by David Eisenbud. Another fantastic book, perhaps more advanced than others on this list. \cite{eisenbud-com-alg}.
+\end{itemize}
+
+\subsection{List of Fundamental Topics}
+
+The following list of fundamental commutative algebra topics/concepts is meant to serve as a suggestion to a beginner encountering commutative algebra for the first time. It is intended merely as a suggestion. The user may find it particularly useful to look up definitions, examples, and facts mentioned in this list online as a supplement to whatever textbook they happen to be reading. Alternatively, one could simply read chapters 1-3 of Atiyah Macdonald, googling things as necessary and completing as many exercises as time permits.
+
+As with any subject, its a good idea to make multiple passes through this material. We suggest spending some amount of time on each topic, moving on and then coming back periodically to complete exercises and discover new examples dealing with past topics throughout your studies.
+\begin{enumerate}[(1)]
+	\item First ring theory definitions (1-2 sittings)
+		\begin{enumerate}[(a)]
+			\item Definition of a ring
+			\item $\bZ$ as a ring, $\bZ/n\bZ$ as a ring
+			\item Polynomial rings $K[x_1,...,x_n]$
+			\item Examples of rings with and without commutativity, e.g. matrices and the ring of endomorphisms of a vector space $\End_K(V)$ are both examples of noncommutative rings
+			\item Zero divisors, nilpotent elements, irreducible elements, units
+			\item Classes of rings, in particular reduced rings, integral domains, unique factorization rings, and fields.
+		\end{enumerate}
+		Suggested Exercises:
+		\begin{itemize}
+			\item Exercises from sections 1 and 2 of \cite[Chapter 11]{artin-algebra}
+			\item (1) and (2) in Chapter 1 of \cite[Chapter 1]{am}
+		\end{itemize}
+	\item Ideals and Homomorphisms (2-3 sittings)
+		\begin{enumerate}[(a)]
+			\item Definition of ideal
+			\item Definition of ring homomorphism
+			\item Quotient rings
+			\item First isomorphism theorem for rings
+			\item Every ideal is the kernel of some ring homomorphism
+			\item Product rings
+			\item The characteristic of a ring (important!)
+			\item The characteristic of a field
+		\end{enumerate}
+		Suggested Exercises:
+		\begin{itemize}
+			\item Exercises from sections 3 and 4 of \cite[Chapter 1]{artin-algebra}
+			\item Exercises 3-6 in \cite[Chapter 1]{am}
+		\end{itemize}
+	\item Prime ideals and maximal ideals {(3-4 sittings)}
+		\begin{enumerate}[(a)]
+			\item Definition of prime ideals and maximal ideals
+			\item Every prime ideal $\frakp$ of a ring $A$ is the kernel of some ring homomorphism $\varphi:A\to R$, where $R$ is an integral domain\
+			\item Every maximal ideal $\frakm$ of a ring $A$ is the kernel of some surjective ring homomorphism $\varphi:A\to K$, where $K$ is a field
+			\item The proof of the following fact: ``every proper ideal is contained in a maximal ideal'' (the proof I have in mind makes use of Zorn's lemma)
+			\item The proof of the following (opposite) fact: ``the set of primes in a commutative ring $A$, ordered with respect to inclusion, contains at least one minimal element.''That is, in every commutative ring $A$, there is a prime ideal $\frakp$ which does not properly contain any other prime ideal.
+		\end{enumerate}
+		Suggested Exercises:
+		\begin{itemize}
+			\item Exercises 7-15 of \cite[Chapter 1]{am} (some of these are rather difficult at this stage)
+			\item Exercises from Chapter 7.4 in \cite{dummit-foote}
+		\end{itemize}
+	\item Modules (3-6 sittings)
+		\begin{enumerate}[(a)]
+			\item Basic definitions
+			\item $\bZ$-modules are exactly Abelian groups
+			\item $K[x]$-modules where $K$ is a field \cite[Chapter 10.1]{dummit-foote}
+			\item Submodules, Quotient Modules
+			\item Direct sums of modules
+			\item Tensor Products of Modules* (somewhat difficult)
+		\end{enumerate}
+		Suggested Exercises:
+		\begin{itemize}
+			\item Chapter 2 of \cite{am}
+			\item Chapter 10 of \cite{dummit-foote}
+		\end{itemize}
+	\item Localization (3-6 sittings)
+		\begin{enumerate}[(a)]
+			\item Definition of localization
+			\item Correspondence of ideals
+			\item Definition of a local ring
+			\item Localization at a prime ideal, i.e. $A_\frakp$ for a prime $\frakp \subseteq A$
+			\item Localization at an element, i.e. $A_f$ for an element $f \in A$.
+			\item The field of fractions of an integral domain
+		\end{enumerate}
+		Suggested Exercises:
+		\begin{itemize}
+			\item Chapter 3 of \cite{am}
+			\item Chapter 15.4 of \cite{dummit-foote}
+		\end{itemize}
+	\item Miscellaneous Topics (many sittings)
+		\begin{enumerate}[(a)]
+			\item Noetherian rings (read several characterizations of these)
+			\item Finitely generated modules over Noetherian rings (what are some characterizations of these?)
+			\item Height of an ideal in a Noetherian ring and Krull dimension
+			\item Artinian Rings
+			\item Integral extensions of rings
+			\item Hilbert's Nullstellensatz
+		\end{enumerate}
+\end{enumerate}
+
+\section{Project Suggestions}
+These are ideas for directed reading projects suitable for students with some background in abstract algebra.
+\subsection{\textit{F}-Singularities}
+
+Geometry is about topological spaces (shapes) with maps (functions) to some other set, usually a field. In differential geometry, the shapes are called manifolds and the functions are differentiable functions to $\bR$. In algebraic geometry, the ``shapes'' are called a varieties and the functions are either polynomials or rational functions mapping to a field $K$, which we call the \emph{base field}. That is, a variety $X$ is essentially just a topological space with functions $f:X\to K$ which locally ``look like'' polynomials. A ``singularity'' is a point on $X$ which intuitively has a badly behaved tangent space, see the \href{https://www.desmos.com/calculator/rvbmomcqge}{cusp in this graph} for instance or the \href{https://www.desmos.com/calculator/bgga6nyvyu}{node at the origin} of this graph.
+
+More explicitly, we associate to every point $P \in X$ something called a \emph{local ring} $R_P$. If $R_P$ is what we call \emph{regular}, then $P$ is a regular point. If $R_P$ is not regular, then $P$ is a singular point, or a \emph{singularity}. Singularities are a big area of study in algebraic geometry, and they fall into two cases depending on the \emph{characteristic} $\fchar(K)$ of the base field $K$.
+\begin{itemize}
+	\item $\fchar(K) = 0$. This case is more or less understood at this point, after much sweat and blood.
+	\item $\fchar(K) > 0$. This case has evaded complete classification, and it is this case with which we would be concerned. \textbf{Singularities in positive characteristic are collectively referred to as \emph{$F$-Singularities}}, for reasons that would become quickly clear.
+\end{itemize}
+Since a singularity $P \in X$ is really understood via the properties of its local ring $R_P$, one can forget about all of the algebraic geometry surrounding $P$ and instead study the commutative algebra of $R_P$. With this framing, a ``$F$-Singularity'' is simply a local ring $R$ of prime characteristic which is not regular.
+
+A participant in this project would learn
+\begin{itemize}
+	\item Lots of commutative algebra
+	\item The basic theory of finite fields
+	\item The properties of the Frobenius endomorphism $F:R\to R$
+	\item Kunz's theorem
+	\item Different classes of $F$-Singularities (e.g. $F$-finite singularities, $F$-rational singularities, strongly $F$-regular singularities, etc.)
+\end{itemize}
+as well as additional topics depending on the interest of the student.
+
+\subsection{Galois Theory and Solvability by Radicals}
+In number theory, it is natural to consider fields which are nested inside one another. We say that a field $K$ is a \emph{subfield} of a field $L$ if there is an injective homomorphism $K\hookrightarrow L$ from $K$ to $L$. This is equivalent to saying that $L$ contains a copy of the field $K$, and for this reason, we typically think of $K$ as a subset of $L$ and write $K \subseteq L$. For example, $\bQ \subseteq \bR$ and $\bR \subseteq \bC$.
+
+There are several natural questions to ask in situations such as these. One is ``what is the dimension of $L$ when considered to be a vector space over $K$?'' In the case of $\bR \subseteq \bC$, the answer is ``2'', since every complex number can be written $a + ib$ for real numbers $a,b$. Another question one might ask is ``are there any intermediate extensions $F$ such that $K \subseteq F\subseteq L$, and if so, how many are there?'' In the case of the field extension $\bQ \subseteq \bC$, the answer ``yes, a lot of them''. For instance, the field
+\begin{align*}
+	\bQ(i) = \{a + ib \mid a,b \in \bQ\}
+\end{align*}
+is a subfield of $\bC$ which contains $\bQ$.
+
+A slightly less obvious question is this: ``what are the field automorphisms of $L$ which fix $K$, and what does the collection of these automorphisms tell us?'' The answers to this question end up being surprisingly deep, and in fact have spawned entire new subfields of math. Incidentally, they also provide answers to our two other questions above. If $K\subseteq L$ is a field extension, then an automorphism of $\sigma:L \to L$ is said to \emph{fix $K$ pointwise} if $\sigma(x) = x$ for each $x \in K$. If every automorphism of $L$ fixes the points in $K$ and nothing more, then $L/K$ is called a \emph{Galois extension} and the group of automorphisms $\Aut(L/K)$ is called the \emph{Galois group} $\Gal(L/K)$ of $L/K$. Galois theory was first used to prove the nonexistence of a quintic formula and has since become a vital part the algebraist/number theorist/algebraic geometer's toolkit. It notably played a role in Wiles's proof of Fermat's Last Theorem and represents (ha...) one half of the conjectured correspondence in the famed Langland's Program.
+
+A student pursuing this project would first need to learn basic field theory, including finite field extensions and finite fields. They would then study finite Galois extensions and learn the fundamental theorem of Galois theory. The project could then progress in several different directions. The student could prove the quintic is not soluble by radicals, describe which polygons are constructible, or show that it is impossible to trisect an angle using only a compass and straightedge. Alternatively, if the student has had some exposure to topology, they could learn about infinite Galois extensions, delve into local fields, or even study aspects of the inverse Galois problem.
+\section{More Project Info: Early-Mid Project}
+Here we discuss two project possibilities in greater detail.
+
+\subsection{\textit{F}-Singularities and Kunz's Theorem}
+The essential goals of this project, listed in order of importance, are as follows:
+\begin{itemize}
+	\item Learn the essential basic facts and techniques from commutative algebra
+	\item Learn about localization, define regular rings, connect them to singularities on algebraic curves via a mix of intuitive and formal arguments
+	\item Discuss the Frobenius endomorphism, modules obtained via restriction of scalars, and prove one direction of Kunz's theorem under local hypotheses.
+\end{itemize}
+As you can see, while Kunz's theorem is the terminal point of the project, but the main content lies in learning the requisite material to actually prove the theorem. We now examine the statement of Kunz's theorem in the local setting and discuss the material needed to understand it.
+\begin{thm}\label{thm:kunz-theorem}
+	Let $R$ be a Noetherian ring of prime characteristic $p > 0$. Then $R$ is regular if and only if $F^e_*R$ is free as an $R$-module.
+\end{thm}
+This project would aim to prove the forward direction of this theorem, i.e. you should show that if $R$ is regular then $F^e_*R$ is free as an $R$-module.
+
+Here is a list of topics that will need to be understood.
+\begin{itemize}
+	\item *Basics of ring theory: rings, ideals, prime ideals, maximal ideals and their existence, quotient rings, homomorphisms, first isomorphism, ideal correspondence theorem, nilpotent elements, zero divisors.
+	\item *Localization at an arbitrary multiplicatively closed subset $S\subseteq R$. Correspondence of ideals for localization.
+	\item *Definition of a Noetherian ring, fact that a ring is Noetherian if and only if all ideals are finitely generated, examples of Noetherian and non-Noetherian rings.
+	\item Definition of Krull dimension, examples of Krull dimension for various rings (this will be glossed over)
+	\item Definition of a regular local ring (this theory can be glossed over)
+	\item *Understanding of free modules, examples of non-free modules.
+	\item Familiarity with the Auslander-Buchsbaum formula, and by necessity, the concept of the \emph{depth} of a module.
+	\item *Definition of the functor $F^e_*(-)$ and an understanding of simple facts regarding it.
+\end{itemize}
+Much of this will, by necessity, need to be understood at the surface-level. The essential topics are listed with an asterisk (*), and these should be understood a little more deeply.
+
+\subsection{Hensel's Lemma and Discrete Valuation Rings}
+The goals of this project are quite similar to the one already discussed:
+\begin{itemize}
+	\item Learn the essential basic facts and techniques from commutative algebra
+	\item Learn the basics of integral closure, valued fields/rings, and discretely valued fields/rings.
+	\item Define and understand the $p$-adic integers $\bZ_p$ and the $p$-adic numbers $\bQ_p$
+	\item Prove Hensel's lemma and use it to compute lifts of roots of polynomials over $\bZ_p$.
+\end{itemize}
+Here is the statement of Hensel's lemma; and yes, it is a theorem not a lemma.
+\begin{thm}\label{thm:hensels-lemma}
+	Let $\bQ_p$ be the $p$-adic numbers and $\bZ_p$ be the $p$-adic integers. Given $a \in \bZ_p$ and $f \in \bZ_p[x]$, if the condition 
+	\begin{align*}
+		\left|f(a)\right|_p < \left|f'(a)\right|_p^2
+	\end{align*}
+	is satisfied, then there exists a unique element $y \in \bZ_p$ such that $a \equiv y \mod p$, $|y - a|_p < |f'(a)|_p$ and (most importantly) $f(y) = 0$.
+\end{thm}
+Note that the condition $|y - a|_p < |f'(a)|_p$ actually implies that $y \equiv a \mod p$, but the latter condition is more enlightening as to the nature of the theorem.
+
+Here are the topics necessary to learn in order to prove Hensel's lemma.
+\begin{itemize}
+	\item *Basics of ring theory: rings, ideals, prime ideals, maximal ideals and their existence, quotient rings, homomorphisms, first isomorphism, ideal correspondence theorem, nilpotent elements, zero divisors.
+	\item *Localization at an arbitrary multiplicatively closed subset $S\subseteq R$. Correspondence of ideals for localization.
+	\item Basic definitions of integral closure, examples and non-examples of integral which are integrally closed in their fields of fractions
+	\item The definition of a valuation on a field, the definition of a discrete valuation (ask for reference)
+	\item **A good understanding of discrete valuation rings, their characterization as local PID's, and intimate familiarity with the concept of a \emph{uniformizer}. (Mentor should provide a lecture on this material).
+	\item Understanding of the definition of a non-Archimedean absolute value.
+	\item Understanding of completion with respect to a $p$-adic absolute value, i.e. the definition of $\bQ_p$. This is exactly the same as understanding $\bR$ as the completion of $\bQ$ with respect to the typical absolute value.
+\end{itemize}
+
+\printbibliography
+\end{document}
