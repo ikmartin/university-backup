@@ -1,21 +1,32 @@
 \documentclass[hidelinks, 11pt]{article}
 \usepackage[tmargin=1in, bmargin=1in, lmargin=0.8in, rmargin=1in]{geometry}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% For inkscape-figures
+%%% Assumes the following directory structure:
+%%% master.tex
+%%% figures/
+%%%     figure1.pdf_tex
+%%%     figure1.svg
+%%%     figure1.pdf
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+
+\newcommand{\incfig}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
 % enable synctex for inverse search, whatever synctex is
 \synctex=1
 \usepackage{float,macrosabound,homework,theorem-env}
 \usepackage{microtype}
 
-% figure stuff
-\usepackage{import}
-\usepackage{xifthen}
-\usepackage{pdfpages}
-\usepackage{transparent}
-
-\newcommand{\incfig}[1]{%
-    \def\svgwidth{\columnwidth}
-    \import{./figures/}{#1.pdf_tex}
-}
 
 % font stuff
 \usepackage{sectsty}

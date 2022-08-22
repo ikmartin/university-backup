@@ -611,5 +611,7 @@ I'm also looking at these two variations. Ising distance is identical to taking 
 	\text{Ising Distance:} \hspace{2em} d(s,t) = \left|\overbrace{\frac{1}{2} \sum_{i=1}^N  s_i - t_i}^{\text{hamming distance}} ~+~ \overbrace{\frac{1}{2} \sum_{i=1}^N\sum_{j=i+1}^N s_is_j - t_it_j}^{\text{second order contribution}}.\right|
 \end{align*}
 
-\entry{12-Aug-2022} 
+\entry{19-Aug-2022} I'm in Austin now, working remotely. I've mostly been busy with moving and Ph.D. orientation, but I have still been getting some stuff done. Right now I'm busy learning about reinforcement learning and have been attempting to implement some little tests in Python.
+
+I wanted to write down one little thought: perhaps it's not clear which is the best metric to use for signed ising distance, i.e. it's not clear which choice of $h$ and $J$ all $-1,0$ or $1$ is best (I think that such a choice of $h$ and $J$ will actually solve the necessary system of inequalities if we loosen our requirement of $<$ to $\leq$ by the way). If this is the case, maybe we use a random forest or something. This is another thing to go learn about.
 \end{document}
