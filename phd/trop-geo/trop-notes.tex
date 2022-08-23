@@ -1,0 +1,141 @@
+\input{../preamble.tex}
+\usepackage{indentfirst}
+
+% Title page stuff
+\title{Notes for Tropical Geometry\\ \vspace{0.5em}{\Large Fall 2022}\vspace{0.5em}\\ The University of Texas at Austin \\ Lectured by Bernd Seibert}
+\date{Last Compiled: \today}
+\author{Isaac Martin}
+
+% start document
+\begin{document}
+\pagestyle{empty}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+\entry{2022-Aug-23}
+
+\section{Introduction/Motivation} Tropical geometry is the study of discrete structures appearing in limits of polynomial equations.
+
+Course outline:
+\begin{enumerate}[(1)]
+  \item Hypersurface amoebas, their skeleta, and tropical limits
+  \item 
+\end{enumerate}
+
+\section{Hypersurface amoebas, their skeleta, and tropical limits}
+\subsection{Laurent polynomial ring}
+
+$\bC[z^{\pm_1}_1,...,z_n^{\pm}]$. Each such Laurent polynomial defines a holomorphic (algebraic) map $f:(\bC^\times)^n \to \bC$ whose zero locus $V(f) \subseteq (\bC^*)^n$ $f \neq 0$ is a \textbf{complex hypersurface.} The ring $\bC[z_1^{\pm},...,z_n^{\pm}]$ is a unique factorization domain which implies $f = f_1^{\alpha_1}\cdot...\cdot f_m^{\alpha_m}$ where the $f_i$ are ireducible, pairwise different, and hence $Z(f) = Z(f_1) \cup ... \cup Z(f_m)$. This locus is \emph{always} a complex submanifold, even in the case of the nodal cubic for instance, of $\dim_\bC = n - 1$ outside of a real codimension 2 subset $Z(f) \cap Z(\partial_1 f) \cap ... \cap Z(\partial_n f)$.
+
+\begin{example}\label{example:complex-hypersurface}
+  $ $
+  \begin{enumerate}[(a)]
+    \item $V(z+w) \subseteq (\bC^\times)^2$ is isomorphic as a $\bC$-manifold or as an algebraic variety to $\bC^\times$. The map $\bC^\times \mapsto V(z+w)$  given $u\mapsto (u,-u)$ parameterizes this curve.
+    \item $V(z+w+1) \subseteq (\bC^\times)^2$ is isomorphic to $\bC^\times\setminus\{0,1\}$  via the map $u \mapsto (u,1-u)$.
+  \end{enumerate}
+\end{example}
+
+\subsection{The Log Map} Forget phases and use logarithmic coordinates. 
+\begin{align*}
+  \operatorname{Log}: (\bC^\times)^n \xrightarrow{1.1} \bR_{> 0}^n \xrightarrow{\log} \bR^n
+\end{align*}
+given by
+\begin{align*}
+  (z_1,...,z_n) \mapsto (|z_1|,...,|z_n|) \mapsto (\log|z_1|,...,\log |z_n|).
+\end{align*}
+\begin{defn}\label{defn:hypersurface-amoeba}
+  The \textbf{Hypersurface amoeba} of $f\in \bC[z_1^{\pm},...,z_n^{\pm}]\setminus\{0\}$ is 
+  \begin{align*}
+    \cA_f = \Log(V(f)) \subseteq \bR^n
+  \end{align*}
+  (Gelfand, Vapranov, Zelevabsky)
+\end{defn}
+\begin{example}\label{example}
+  $ $
+\begin{enumerate}[(a)]
+  \item $f = z + w$
+  \item $f = z + w + 1$
+  \item $f = 1 + 5zw + w^2 - z^2 + 3z^2w - z^2w^2$
+\end{enumerate}
+(add pictures later) careful to draw these such that the complements of the amoeba are all convex.
+\end{example}
+
+\bigskip
+
+\underline{Observations:}
+\begin{itemize}
+  \item connected cusps of $\bR^n \setminus \bC_f$ are convex in $\dim = 2$. $\cA_f$ looks like a thickened graph. We'll sketch a proof of a more general result.
+\end{itemize}
+
+\bigskip
+
+\underline{Recall:} $\cU \subseteq \bC$, $f:\cU \setminus \{p_1,...,p_r\}\to \bC$ are meromorphic with mkr poles $(p_1,...,p_r)$ and $s$ zeros with multiplicity. This implies
+\begin{align*}
+  s - r = \frac{1}{2\pi i} \int_C \frac{f'(z)}{f(z)}dz.
+\end{align*}
+This is the argument principle from complex analysis. Appears in the derivative of $\frac{1}{2\pi i} \int_{S^1} \log |f| dz$. This appears in the Jensen formula: $\cU \subseteq \bC$ an open subset and assume it contains a closed disk of radius $r$ $\{z \mid |z| \leq r\} = D$. Important that it includes the boundary. Then if we have a holomorphic function $f:\cU \to \bC$ with zeros of $f$ in $D$ $a_1,...,a_k$ such that $0 < |a_1| \leq |a_2| \leq ... \leq |a_k|$ (with multiplicity) then we have
+\begin{align*}
+  \frac{1}{2\pi i} \int_0^{2\pi} \log | f(re^{i\theta})| d\theta = \log |f(0)| + \sum_{j=1}^k \log \frac{r}{|a_j|}.
+\end{align*}
+This is the Jensen formula. 
+
+\begin{proof}(Rudin, ``Real and complex analysis'')
+  \begin{enumerate}[(1)]
+    \item Assume f has no zeros and hence that $\log |f|$ harmonic. Using the mean value property for harmonic functions (go review Analysis) yields the Jensen Formula.
+    \item For the general case, suppose we have $|a_1|,...,|a_n| < r,$ and then that $|a_{m+1}|,...,|a_k| = r.$ Consider $g(z) = f(z) \cdot \prod_{j=1}^m \frac{r^2 - \ola_jz}{r(a_j - z)}\prod^k_{j=m+1}\frac{a_j}{a_j-z}$ with no zeros in $|z|\leq r$. This implies 
+      \begin{align*}
+        g(0) = f(0) \cdot \prod_{j=1}^m \frac{r}{a_j}
+      \end{align*}
+      by our first case.
+    \item $|z| = r$, so on the boundary, we have
+      \begin{align*}
+      \big| \frac{r^2 - a_jz}{r(a_j - z)}\big| = \frac{1}{r} \big|\frac{r^2\olz - a_j|z|^2}{r(a_j - z)}\big| = \frac{r}{r} = 1
+      \end{align*}
+      \begin{align*}
+      \implies \log|g(re^{i\theta})| = \log |f(re^{i\theta})| - \sum_{j=m+1}^k \log \overbrace{|1 - e^{i(\theta - \theta_j)}|}^{a_j = re^{i\theta_j}}
+      \end{align*}
+    \item Lemma: $\int^{2\pi}_0 \log(1 - e^{i\theta})d\theta = 0$. These four things together prove the Jensen formula.
+  \end{enumerate}
+\end{proof}
+
+For $n> 1$we define something called the Ronkin function. We have $f \in \cO(\Log^{-1}(\Omega)), \Omega \subseteq \bR^n$ a (convex) open set. Then the \textbf{Ronkin Function} is defined
+\begin{align*}
+  N_f(x) = \big(\frac{1}{2\pi i}\big)^n \int_{\Log^{-1}(x)} \Log |f(z_1,...,z_n)|\frac{dz_1}{z_1}\vee ... \vee \frac{dz_n}{z_n}
+\end{align*}
+
+\begin{thm}\label{thm:ronkin-function-thm}
+\begin{enumerate}[(a)]
+  \item $N_f$ is a convex $\cC^0$-function
+  \item $\cA_f = \Log(V(f)) \subseteq \Omega$ an Amoeba. For all $\cU \subseteq \Omega$ open, connected $\cU \cap \cA_f = \emptyset \iff N_f|_{\cU}$ affine linear.
+  \item $x \in \Omega \setminus \cA_f \implies \grad N_f(x) = (v_1,...,v_n),$ 
+    \begin{align*}
+      v_j = \frac{1}{(2\pi i)^n} \int_{\Log^{-1}(x)} \frac{z_j\partial_jf}{f}\frac{dz_1}{z_1}\vee...\vee \frac{dz_n}{z_n}.
+    \end{align*}
+\end{enumerate}
+\end{thm}
+Picture: $N_f(x) = \langle \alpha_1,x \rangle + c_1$
+\begin{proof}
+  (sketch)
+  \begin{enumerate}[(a)]
+    \item $\log|f|$ is plurisubharmonic (i.e. is subharmonic (i.e. somehow less than harmonic functions on a circle) on each each holomorphic image of a disk). We have the following fact: if $h:\cU \to \bR$ is subharmonic, $\cU \subseteq \bC$ a domain containing $\{|z| \leq R\}$, then $\varphi(r) = \int_{|z| = r = \exp (s)} h(x) dz$ is a convex function in $\log r = s$. Found this proof in a book of Runkin called ``Introduction to the theory of entire functions,'' page 84.
+    \item Prove this next time
+    \item $x \in \Omega \setminus \cA_f$. Note:
+      \begin{align*}
+        \frac{\partial}{\partial x_j}\log |f| = \frac{1}{2} \frac{\partial}{\partial x_j} \log(f\olf) = \Re\left(z_j \frac{\partial}{\partial z_j} \log f\olf\right) = \Re\left(\frac{z_j\partial_j f}{f}\right).
+      \end{align*}
+      $x \in \Omega \setminus \cA_f$ implies that
+      \begin{align*}
+        \frac{\partial}{\partial x_j} N_f(x) = \Re\left(\frac{1}{2\pi i}^n \int_{\Log^{-1}} \frac{z_j\partial_j f}{f}\frac{dz_1}{z_1}\wedge ... \wedge \frac{dz_n}{z_n}\right).
+      \end{align*}
+      Note: for all $j$, we have
+      \begin{align*}
+        \gamma_j = \frac{1}{(2\pi i)^n} \int_{\Log^{-1}(x)} \frac{z_j\partial_j f}{f} \frac{dz_1}{z_1}\wedge ...\wedge \frac{dz_n}{z_n}.
+      \end{align*}
+      This is a locally constant $n$-form on $\cU\setminus A_f$ and is not defined on $\cA_f$ since $f$ is zero on $\cA_f$. In fact, $\gamma_j \in \bZ: \frac{1}{2\pi i} \int_{|z_j| = e^{x_j}} \frac{\partial_j f(z)}{f(z)} dz_j \in \bZ$ by the argument principle.
+  \end{enumerate}
+
+  Look at Passare, Rullgard ``Amoebas, Monge -- Ampere, measures and triangulations DMJ 2004''
+\end{proof}
+\printbibliography
+\end{document}

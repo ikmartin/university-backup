@@ -1,0 +1,11 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Entry 1: 2022-Aug-23}{3}{section*.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Introduction/Motivation}{3}{section.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Hypersurface amoebas, their skeleta, and tropical limits}{3}{section.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1}Laurent polynomial ring}{3}{subsection.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.2}The Log Map}{3}{subsection.3.2}%

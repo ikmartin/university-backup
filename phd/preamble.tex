@@ -1,4 +1,4 @@
-\documentclass[hidelinks, 11pt]{article}
+\documentclass[hidelinks,11pt]{article}
 \usepackage[tmargin=1in, bmargin=1in, lmargin=0.8in, rmargin=1in]{geometry}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13,7 +13,6 @@
 \usepackage{import}
 \usepackage{pdfpages}
 \usepackage{transparent}
-\usepackage{xcolor}
 
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
@@ -52,3 +51,22 @@
 \usetikzlibrary{positioning, arrows.meta}
 \newcommand{\here}[2]{\tikz[remember picture]{\node[inner sep=0](#2){#1}}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Entry Counter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{entry-counter}
+\newcommand{\entry}[1]
+{
+	\addtocounter{entry-counter}{1}
+    \tchap{Entry \arabic{entry-counter}}
+	\addcontentsline{toc}{section}{Entry \arabic{entry-counter}: #1}
+	\addtocounter{section}{1}
+	\vspace{-1.5em}
+    \begin{center}
+		\small \emph{Written: #1}
+    \end{center}
+}
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
