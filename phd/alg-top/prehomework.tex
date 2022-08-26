@@ -1,0 +1,142 @@
+\documentclass{amsart}
+\theoremstyle{remark}
+\newtheorem{exercise}{Problem}
+
+\def\defn#1{\emph{#1}}
+\def\R{\mathbb{R}}
+\def\sset{\subseteq}
+\def\iso{\cong}
+\def\gend#1{\langle #1\rangle}
+
+\begin{document}
+
+HW 0 for M382C (Algebraic Topology) 
+
+Daniel Allcock, Fall 2022, U.T. Austin
+
+{\bf Due Friday August 26 at the beginning of class.}   
+
+This homework involves non-algebraic-topology things that will
+be useful/necessary in the course.  Alg Top homework, mostly from Hatcher,
+will begin next week.
+
+\begin{exercise}
+    Suppose you take the disjoint union of
+    finitely many triangles, and identify their edges
+    in pairs, by some affine homeomorphisms.  Prove that the result is a manifold.
+
+    (Following Hatcher, an $n$-dimensional 
+\defn{manifold}
+means a Hausdorff topological space, each of whose
+points has an open neighborhood that is homeomorphic to $\R^n$.
+Many other sources include the extra technical hypothesis
+of \defn{paracompactness}.)
+\end{exercise}
+
+\begin{exercise}
+    Suppose a finite group $G$ acts on a manifold~$M$.  Suppose
+    the action is \defn{free}, meaning that only the identity
+    element has any fixed points.  Then the orbit space $M/G$ is
+    also a manifold.  (``Lying in the same $G$-orbit'' is an
+    equivalence relation on~$M$.  $M/G$ means the set of equivalence
+    classes.  The topology on $M$ induces one on $M/G$, which
+    is the one you must work with.)
+\end{exercise}
+
+\begin{exercise}
+    If freeness is dropped in the previous problem, then $M/G$
+    may or may not be manifold.  
+\end{exercise}
+
+\begin{exercise}
+    Let $A$ be the abelian group with generators $a,b,c,d$ and
+    relations $3a+2b=4c$, $2a=4b$, $7a+7d=0$ and $22c=0$.  
+    Describe the structure of $A$ as a sum of cyclic groups.
+    Find the unique involution in~$A$.
+\end{exercise}
+
+\begin{exercise}
+    Let $p,q$ be positive integers and
+    $G$ be the group with presentation $\gend{x,y|x^p=y^q}$.
+    Show that the center $Z$ of $G$ is nontrivial, and that the
+    quotient $G/Z$ has trivial center.
+\end{exercise}
+
+\begin{exercise}
+    Consider the group $G=\gend{a,b,c|a^b=a^2, b^c=b^3, c^2=1}$.
+    Understand $G$.  (For example, is $G$ trivial?  finite?  infinite?
+    Is it a semidirect product of two easier-to-understand groups?)
+
+    (The notation $a^b$ means the conjugate of $a$ by $b$.  Different
+    authors use different conventions for whether this means $bab^{-1}$
+    or $b^{-1}ab$, so you have to be careful.  Most topologists, 
+    including Hatcher, use the $bab^{-1}$
+    definition.)
+\end{exercise}
+
+% The rest of the exercises concern cell complexes; see the appendix
+% in Hatcher.
+% 
+% \begin{exercise}
+%     Suppose $X$ is 
+%     a cell complex.  Then the following are equivalent.
+%     \begin{enumerate}
+%         \item
+%             $X$ is connected.
+%         \item
+%             $X$ is path-connected.
+%         \item
+%             The $1$-skeleton of $X$ is connected.
+%     \end{enumerate}
+% \end{exercise}
+% 
+% \begin{exercise}
+%     Suppose $X$ is a cell complex.  Then $X$ is locally compact 
+%     if and only if each point of $X$ has a neighborhood which meets
+%     only finitely many cells.
+% \end{exercise}
+% 
+% \begin{exercise}
+%     There exists a cell complex~$X$ which is not
+%     first countable.  In particular, the topology on~$X$ cannot
+%     be induced by any metric on~$X$.  (Hint: you can take $X$
+%     to be $1$-dimensional.)
+% \end{exercise}
+% 
+% \begin{exercise}
+%     Suppose $X$ is a cell complex and $S\sset X$ is compact.
+%     Then $S$ lies in the union of finitely many cells.
+%     (This is proven in the appendix, but don't look.)
+% \end{exercise}
+% 
+% \begin{exercise}
+%     Suppose $f$ is a function from a cell complex $X$ to a topological
+%     space~$Y$.  Prove that $f$ is continuous if and only if
+%     its restriction to each cell is continuous.  (A little care
+%     is required to make this precise.  The cell complex
+%     structure includes, for each $n$-cell $\alpha$, a continuous
+%     function from the $n$-ball into~$X$.  This is called
+%     the characteristic map of~$\alpha$.  The ``restriction''
+%     of $f$ to~$\alpha$ means the composition $B^n\to X\to Y$.)
+% \end{exercise}
+ 
+%\begin{exercise}[Important: composing infinitely many homotopies]
+%    Suppose $X$ is an ascending union of spaces $X_0\sset X_1\sset\cdots$,
+%    and that for each $i>0$ there is a homotopy $X\to X$ whose restriction
+%    to $X_i$ is a deformation retraction to $X_{i-1}$.  Show that $X$
+%    deformation retracts to $X_0$.
+%\end{exercise}
+
+\begin{exercise}
+    Suppose $U$ is an open subset of $\R^n$.  Show that $U$ has the structure
+    of a locally finite simplicial complex.  
+
+    We haven't formally met simplicial complexes, and
+    won't for a while.  You don't need to read up on them in order to solve this problem.
+    For purposes of this problem, take the definition to mean
+    an expression of $U$ into a union of $n$-simplices, such that any two that meet, have
+    intersection equal to a common face (of some dimension).  Locally finite means that
+    every point has a neighborhood meeting only finitely many simplices.
+\end{exercise}
+
+\end{document}

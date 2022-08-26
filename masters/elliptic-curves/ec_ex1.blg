@@ -1,0 +1,9 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'ec_ex1.blg'
+[48] biber:340> INFO - === Wed Aug 24, 2022, 08:43:25
+[57] Biber.pm:415> INFO - Reading 'ec_ex1.bcf'
+[103] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
+[107] Utils.pm:395> WARN - The file 'ec_ex1.bcf' does not contain any citations!
+[112] bbl.pm:654> INFO - Writing 'ec_ex1.bbl' with encoding 'UTF-8'
+[112] bbl.pm:757> INFO - Output to ec_ex1.bbl
+[112] Biber.pm:128> INFO - WARNINGS: 1
