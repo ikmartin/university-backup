@@ -1,4 +1,6 @@
-\documentclass[hidelinks,11pt]{article}
+\documentclass[hidelinks,11pt,dvipsnames]{article}
+% xcolor commonly causes option clashes, this fixes that
+\PassOptionsToPackage{dvipsnames,table}{xcolor}
 \usepackage[tmargin=1in, bmargin=1in, lmargin=0.8in, rmargin=1in]{geometry}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -10,7 +12,7 @@
 %%%     figure1.svg
 %%%     figure1.pdf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{import}
+%\usepackage{import}
 \usepackage{pdfpages}
 \usepackage{transparent}
 
