@@ -137,5 +137,137 @@ Picture: $N_f(x) = \langle \alpha_1,x \rangle + c_1$
 
   Look at Passare, Rullgard ``Amoebas, Monge -- Ampere, measures and triangulations DMJ 2004''
 \end{proof}
+
+\entry{2022-Aug-25}
+
+Recall that last time we had $V(f) \subseteq (\bC^\times)^n \xrightarrow{\Log} \bR^n$, and we took $f \in \bC[z_1^{\pm},...,z_n^{\pm}]$. This map has image in $\cA_f\subseteq \bR^n$. Recall also that the complement of the amoeba decomposes as the following union of connected components.
+\begin{align*}
+  \bR^n \setminus \cA_f = \Omega_1 \cup ... \cup \Omega_k.
+\end{align*}
+These connected components correspond to integral points of the Newton polyhedron $\conv\{I ~\mid~ a_I \neq 0\}$ where $f = \sum_{\text{finite}} a_I z^I$.
+Ronkin function is
+\begin{align*}
+  N_f(x) = \frac{1}{(2\pi i)^n} \int_{\Log^{-1}(x)} \Log|f(x)| \frac{dz_1}{z_1} \wedge ... \wedge \frac{dz_n}{z_n}
+\end{align*}
+is convex on $\bR^n$ and is \textbf{affine linear on each $\Omega_i$} which then implies that each $\Omega_i$ is convex.
+
+\underline{Note:} $\cU = \Log^{-1}(\Omega)$, where $\Omega$ is open, connected is a \textbf{circular domain}, i.e. change the argument of an element in the set and you're still in the set. These are called \textbf{Reinhardt domains}.
+
+It is a fact that $\cU$ is a domain of holomorphy if and only if $\Omega$ is convex. Laurent series converge on $\Log^{-1}(\Omega)$ since $\Omega$ is convex.
+
+\begin{cor}\label{cor:domains-of-conv-for-f}
+  $\Log^{-1}(\Omega_i)$ are the domains of convergence of the Laurent series expansions of $f$.
+\end{cor}
+
+\subsection{The spine of a hypersurface amoeba}
+Let $\varphi_i = N_f|_{\Log^{-1}(\Omega_i)} = \langle \alpha_i, \cdot \rangle + c_i$ with $\alpha_i \in (\bR^n)^*$ and $c_i \in \bR$ be the piecewise affine approximation of $N_f$. Define 
+\begin{align*}
+  \varphi = \max\{\varphi_i\}.
+\end{align*}
+Note that whenever $N_f$ is convex we get that $\varphi \leq N_f$. \textbf{CHECK THIS, SWAPPED FROM MIN TO MAX, CHECK THIS INEQUALITY REMAINS SAME}
+\begin{defn}\label{defn:spine-of-amoeba}
+  \begin{align*}
+    \varphi_f &:= \{x \in \bR^n ~\mid ~ \varphi \text{ not affine linear near } x\} \\
+              &= \{x \in \bR^n ~\mid~ \varphi \text{ not differentiable at } x\} \\
+              &= \{x \in \bR^n ~\mid~ \exists i \neq j \text{ s.t. } \varphi_i(x) = \varphi_j(x = \max_k\{\varphi_k(x)\})\}
+  \end{align*}
+  is called the \textbf{spine} of $\cA_f$.
+\end{defn}
+
+\begin{thm}\label{thm:basic-spine-facts}[(Passare, Rullgard)]
+  \begin{enumerate}[(a)]
+    \item $\varphi_f$ is the $(n-1)$-skeleton of a face-fitting decomposition of $\bR^n$ into convex (with integrally defined facets) polyhedra.
+    \item $\cA_f$ deformation retracts onto $\varphi_f$.
+  \end{enumerate}
+\end{thm}
+This notation is slightly confusing to me -- $\varphi_f$ is a subset of the graph of $\varphi_f$, it is not itself a function.
+
+\subsection{Tropical Limits and Maslov ``dequantization''}
+$(\bR_{>0}, +, \cdot)\xrightarrow{h\cdot \log = \log_t} (\bR,\oplus_h, \odot_h)$ is a semiring isomorphism. The inverse is $(\bR_{>0},+,\cdot)\xleftarrow{\exp(x/h)\leftarrow x} (\bR,\oplus_h,\odot)$ with
+\begin{align*}
+  x \oplus_h y &= h\cdot \log\left(\exp\left(\frac{x}{h}\right) + \exp\left(\frac{y}{h}\right)\right) ~ \xrightarrow{h \to 0} \max\{x,y\} \\
+  x \odot y &= h\cdot \log\left(\exp\left(\frac{x}{h}\right)\cdot \exp\left(\frac{y}{h}\right)\right) = x + y.
+\end{align*}
+Now consider $f_h \in \bC(h)[z_1^{\pm}, ..., z_n^{\pm}]$ e.g. $\frac{h^2 + 1}{h}z_1^2 + (h^3 - h^2)z_1z_2^{-1}$. For all $h$ we have that 
+\begin{align*}
+  \cA_n(f_n) = \Log_t\left(V(f_h)\right) = h\cdot \cA(f_h) \subseteq \bR^n
+\end{align*}
+are the amoeba for the rescaled Log-map $\Log_t = h\Log$.
+Here's a theorem from a paper prior to tropical geometry truly kicking off.
+\begin{thm}\label{thm}
+  $\cA_h(f_h)$ converges for $h \to 0$ in the Hausdorff distance to the tropical hypersurface $V(\trop(f_h))$.
+\end{thm}
+\begin{align*}
+  f_h = \alpha_1z^{\underline{u}_1} + ... + a_r z^{\underline{u}_r}, ~ a_i \in \alpha_i \in \bC(h)
+\end{align*}
+then
+\begin{align*}
+  \trop f_h = \max \{\langle \underline{u}_1, - \rangle + c_1, ..., \langle \underline{u}_r, - \rangle + c_r\}
+\end{align*}
+where $c_i = \val_0(\alpha_i)$, order of $\alpha_i(h)$ at $h = 0$.
+\begin{align*}
+  \val_0(\frac{h^2 + 1}{h}) = -1, \val_0(h^3 - h^2)) = 2.
+\end{align*}
+\textbf{INCLUDE BOARD WITH HAUSDORFF DISTANCE}
+
+\section{Tropical Arithmetic}
+
+\subsection{Tropical semiring}
+\begin{defn}\label{defn:tropical-semiring}
+  $(\bR\cup \{\infty\}, \oplus, \odot)$ is the tropical semiring or the min-plus algebra. We set
+  \begin{itemize}
+    \item $x \oplus y := \min\{x,y\}$
+    \item $x\odot y := x + y$.
+  \end{itemize}
+  Both operations are commutative, associative, and are together distributive.
+\end{defn}
+We have the following identities:
+\begin{itemize}
+  \item $x \odot (y\oplus z) = x\odot y \oplus x\odot z$
+  \item $x \oplus \infty = x$
+  \item $x \oplus 0 = \begin{cases}0 & x \geq 0 \\ x & x< 0\end{cases}$
+  \item $x \odot 0 = x$
+  \item $x \odot \infty := \infty$
+\end{itemize}
+
+Explanation:
+\begin{align*}
+  (x\oplus y)^3 &= (x \oplus y) \odot (x \oplus y) \odot (x \oplus y) \\
+                &= 3 \min\{x,y\} \\
+                &= \min\{3x,3y\} = x^3 \oplus y^3 \\
+                &= \min\{3x,2x+y,x+2y,3y\} = x^3 \oplus x^2y \oplus xy^2 \oplus y^3
+\end{align*}
+Noting that $x^3 = 0\odot x^3$, $x^2y = 0\odot x^2y$, etc. we see that these are the coefficients of Pascal's triangle in tropical land, and that the coefficients are all 0. Hence the tropical Pascal triangle is just a bunch of 0's.
+
+\subsection{Linear algebra} The usual operations (formally) make sense over $(\bR\cup \{\infty\}, \oplus,\odot)$, e.g.
+\begin{align*}
+  (u_1,u_2,u_3)\cdot (v_1,v_2,v_3)^T &= u_1\odot v_1 \oplus u_2\odot v_2 \oplus u_3\odot v_3 \\
+                                     &= \min\{u_1+v_1,u_2+v_2,u_3+v_3\}.
+\end{align*}
+\begin{align*}
+  (u_1,u_2,u_3)^T\odot (v_1,v_2,v_3) = 
+  \begin{pmatrix}
+    u_1\odot v_1 & u_1 \odot v_2 & \hdots \\
+    u_2\odot v_2 & \hdots & \\
+                 & & u_3\ddots v_3
+  \end{pmatrix}
+\end{align*}
+\begin{defn}\label{defn:tropical-rank}
+  Matrices that can be written as $u^t \odot v$ have \textbf{tropical rank} 1.
+\end{defn}
+\begin{defn}\label{defn:barvihok-rank}
+  The Barvihok rank of $A \in M(m\times n, \bR)$ is $\min\{k \mid \exists u_1,...,u_k, v_1,...,v_k, A = u_1^T\odot v_1\oplus...\oplus u_k^T\odot v_k\}$.
+\end{defn}
+There are other notions of rank: Kapronov rank, tropical rank [MLS, S.5.3].
+
+Looking at \textbf{tropical linear systems} $A\odot x = b$ has applications in engineering, dynamic programming (optimization via recursive structures, e.g. Find a shortest (weighted) path through a directed graph) etc. More on this in section 3.
+
+\subsection{Tropical Polynomials}
+\begin{defn}\label{defn:tropical-polynomials}
+  A \textbf{Tropical polynomial} is a Laurent polynomial over $x_1,...,x_n$, i.e. is a function on $\bR,\oplus,\odot)^n$. A monomial is 
+  \begin{align*}
+    x_1^{u_1}\odot x_2^{u_2} \cdot ... \cdot x_n^{u_n}
+  \end{align*}
+\end{defn}
 \printbibliography
 \end{document}

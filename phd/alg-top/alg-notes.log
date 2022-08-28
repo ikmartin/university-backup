@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.22)  25 AUG 2022 12:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.22)  26 AUG 2022 10:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**trop-notes.tex
-(./trop-notes.tex
+**alg-notes.tex
+(./alg-notes.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (../preamble.tex (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
@@ -1230,8 +1230,8 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
 \@quotelevel=\count471
 \@quotereset=\count472
- (./trop-notes.aux)
-\openout1 = `trop-notes.aux'.
+ (./alg-notes.aux)
+\openout1 = `alg-notes.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -1330,9 +1330,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 10.
 LaTeX Info: Redefining \pageref on input line 10.
 LaTeX Info: Redefining \nameref on input line 10.
- (./trop-notes.out) (./trop-notes.out)
+ (./alg-notes.out) (./alg-notes.out)
 \@outlinefile=\write7
-\openout7 = `trop-notes.out'.
+\openout7 = `alg-notes.out'.
 
 \c@mv@tabular=\count480
 \c@mv@boldtabular=\count481
@@ -1366,11 +1366,11 @@ Package biblatex Info: ... and expl3
  (/usr/local/texlive/2021/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 )
-\openout6 = `trop-notes.bcf'.
+\openout6 = `alg-notes.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'trop-notes.bbl' found.
- (./trop-notes.bbl)
+Package biblatex Info: ... file 'alg-notes.bbl' found.
+ (./alg-notes.bbl)
 Package biblatex Info: Reference section=0 on input line 10.
 Package biblatex Info: Reference segment=0 on input line 10.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
@@ -1414,12 +1414,9 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `qhv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- (./trop-notes.toc
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.95pt on input line 3.
-)
+ (./alg-notes.toc)
 \tf@toc=\write8
-\openout8 = `trop-notes.toc'.
+\openout8 = `alg-notes.toc'.
 
  [2]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
@@ -1429,58 +1426,98 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.0pt on input line 16.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.0pt on input line 27.
-LaTeX Font Info:    Font shape `T1/qhv/b/n' will be
-(Font)              scaled to size 10.79993pt on input line 27.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.95pt on input line 29.
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 31.
-Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 47.
- [3]
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 68.
+(Font)              scaled to size 10.95pt on input line 26.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 28.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 31.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 31.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 42.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 68.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
-(Font)              scaled to size 10.95pt on input line 83.
- [4]
-Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 107.
+(Font)              scaled to size 10.95pt on input line 42.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 8.0pt on input line 110.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 6.0pt on input line 110.
- [5]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 147.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 147.
-Package hyperref Info: bookmark level for unknown cor defaults to 0 on input line 158.
- [6] [7]
+(Font)              scaled to size 10.95pt on input line 57.
+Package hyperref Info: bookmark level for unknown thm defaults to 0 on input line 57.
+Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 64.
 
-LaTeX Warning: Empty bibliography on input line 272.
+./alg-notes.tex:70: Missing $ inserted.
+<inserted text> 
+                $
+l.70 ...$\olf_0 - \id_{X/A}$ and $\olf_1$ = q\circ
+                                                   g.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-[8] (./trop-notes.aux)
-Package rerunfilecheck Info: File `trop-notes.out' has not changed.
-(rerunfilecheck)             Checksum: 87FD8F5BB1717A956ED9325722621845;1908.
-Package logreq Info: Writing requests to 'trop-notes.run.xml'.
-\openout1 = `trop-notes.run.xml'.
+
+./alg-notes.tex:71: LaTeX Error: Command \end{prf} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71 \end{prf}
+              
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./alg-notes.tex:71: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71 \end{prf}
+              
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+./alg-notes.tex:71: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71 \end{prf}
+              
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+./alg-notes.tex:71: Missing $ inserted.
+<inserted text> 
+                $
+l.71 \end{prf}
+              
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+[3] [4] (./alg-notes.aux)
+Package rerunfilecheck Info: File `alg-notes.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package logreq Info: Writing requests to 'alg-notes.run.xml'.
+\openout1 = `alg-notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40009 strings out of 478994
- 764458 string characters out of 5858183
- 1632337 words of memory out of 5000000
- 56594 multiletter control sequences out of 15000+600000
- 473538 words of font info for 147 fonts, out of 8000000 for 9000
+ 39957 strings out of 478994
+ 764077 string characters out of 5858183
+ 1636129 words of memory out of 5000000
+ 56616 multiletter control sequences out of 15000+600000
+ 457783 words of font info for 126 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 106i,26n,105p,3072b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on trop-notes.pdf (8 pages, 348756 bytes).
+ 106i,19n,105p,3071b,1006s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on alg-notes.pdf (4 pages, 266640 bytes).
 PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 196 compressed objects within 2 object streams
- 62 named destinations out of 1000 (max. 500000)
- 42589 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 106 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
+ 20 named destinations out of 1000 (max. 500000)
+ 32269 words of extra memory for PDF output out of 35830 (max. 10000000)
 

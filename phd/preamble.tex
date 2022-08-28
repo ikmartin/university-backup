@@ -37,9 +37,9 @@
 \addbibresource{main.bib}
 
 % colored text shortcuts
-\newcommand{\blue}[1]{\textcolor{MidnightBlue}{#1}}
-\newcommand{\red}[1]{\textsf{\textcolor{Mahogany}{#1}}}
-\newcommand{\green}[1]{\textsf{\textcolor{ForestGreen}{#1}}}
+\newcommand{\blue}[1]{\color{MidnightBlue}{#1}}
+\newcommand{\red}[1]{\textcolor{Mahogany}{#1}}
+\newcommand{\green}[1]{\textcolor{ForestGreen}{#1}}
 
 
 % use mathptmx pkg while using default mathcal font
@@ -59,8 +59,7 @@
 {
 	\addtocounter{entry-counter}{1}
     \tchap{Entry \arabic{entry-counter}}
-	\addcontentsline{toc}{section}{Entry \arabic{entry-counter}: #1}
-	\addtocounter{section}{1}
+	%\addcontentsline{toc}{section}{Entry \arabic{entry-counter}: #1}
 	\vspace{-1.5em}
     \begin{center}
 		\small \emph{Written: #1}

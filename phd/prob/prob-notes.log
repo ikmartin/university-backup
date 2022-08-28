@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.22)  22 AUG 2022 13:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.22)  28 AUG 2022 13:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -307,7 +307,26 @@ Package: stmaryrd 1994/03/03 St Mary's Road symbol package
 \symstmry=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
 (Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/marvosym/marvosym.sty
+)
+
+/Users/Isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty:13: LaTeX Error: Option clash for package xcolor.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.13 \usepackage
+                {marvosym}
+The package xcolor has already been loaded with options:
+  []
+There has now been an attempt to load it with options
+  [dvipsnames]
+Adding the global options:
+  ,dvipsnames
+to your \documentclass declaration may fix this.
+Try typing  <return>  to proceed.
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/marvosym/marvosym.sty
 Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/subdepth/subdepth.sty
 Package: subdepth 2007/09/02 v0.1 Unify subscript depths
@@ -1434,30 +1453,38 @@ File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.95pt on input line 21.
+Package hyperref Info: bookmark level for unknown defn defaults to 0 on input line 32.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 35.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 35.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 45.
+ [3]
+Package hyperref Info: bookmark level for unknown rmk defaults to 0 on input line 70.
 
 
-LaTeX Warning: Empty bibliography on input line 25.
+LaTeX Warning: Empty bibliography on input line 98.
 
-[3] (./prob-notes.aux)
+[4] (./prob-notes.aux)
 Package rerunfilecheck Info: File `prob-notes.out' has not changed.
-(rerunfilecheck)             Checksum: FC9CF5C7CA4BEB6DE831015DFDD617E0;150.
+(rerunfilecheck)             Checksum: F3CB62C6F5F6CF69F8AE6F6D2D9DF01B;131.
 Package logreq Info: Writing requests to 'prob-notes.run.xml'.
 \openout1 = `prob-notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39825 strings out of 478994
- 761492 string characters out of 5858183
- 1613971 words of memory out of 5000000
- 56523 multiletter control sequences out of 15000+600000
- 446455 words of font info for 104 fonts, out of 8000000 for 9000
+ 39937 strings out of 478994
+ 763398 string characters out of 5858183
+ 1624254 words of memory out of 5000000
+ 56571 multiletter control sequences out of 15000+600000
+ 455325 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 106i,6n,105p,3072b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on prob-notes.pdf (3 pages, 192192 bytes).
+ 106i,16n,105p,3072b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on prob-notes.pdf (4 pages, 281450 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 25621 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 133 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
+ 35 named destinations out of 1000 (max. 500000)
+ 30229 words of extra memory for PDF output out of 35830 (max. 10000000)
 
