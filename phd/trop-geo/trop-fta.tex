@@ -1,0 +1,45 @@
+\input{../preamble.tex}
+\usepackage{indentfirst}
+
+% Title page stuff
+\title{Fundamental Theorem of Arithmetic in the Tropics}
+\date{Last Compiled: \today}
+\author{Isaac Martin}
+
+% start document
+\begin{document}
+\pagestyle{empty}
+\maketitle
+\newpage
+
+\section{An attempted formulation of the FTA in the tropics}
+This formulation only works for what I'm calling \textbf{irredundant} tropical polynomials. By this, I mean a tropical polynomial
+\begin{align*}
+    f = a_{i_n}\odot x^{\odot i_n} \oplus ... \oplus a_{i_0}
+\end{align*}
+such that the tropical polynomial $\hatf_{j}$ obtained by removing the monomial $a_{i_j}\oplus x^{\odot i_j}$ from $f$ is distinct from $f$ for each $j \in \{0..n\}$. If $f$ is not irredundant, then it is \textbf{redundant}. 
+
+I'm not calling this a ``minimal'' tropical polynomial yet because I don't yet know if the irredundant presentaiton of $f$ minimizes the number of monomials needed or not. I believe it does, I just haven't shown that yet. Note also that this formulation mandates assigning subscripts to the powers of the monomials, as setting a coefficient to $\infty$ would make $f$ redundant.
+
+Redundant is nice because of the following fact:
+
+
+Anyways, here's an attempt at the Fundamental Theorem of Algebra.
+\begin{thm}\label{thm:fta}
+  Let $f$ be an irredundant tropical polynomial of degree $d$ so that
+  \begin{align*}
+    f = a_{i_n}\odot x^{\odot i_n} \oplus ... \oplus a_{i_0}
+  \end{align*}
+  where $0 = i_0 < i_1 < ... < i_n = d$. Then for all $x \in \bR\cup \{\infty\}$,
+  \begin{align*}
+    f(x) = a_{i_n} \bigodot_{j = 1}^n (x\oplus b_j)^{\odot m_j}
+  \end{align*}
+  where $m_j = i_j - i_{j-1}$ is the gap between subsequent integer powers and $b_j = \frac{a_{j-1} - a_j}{m_j}$.
+\end{thm}
+\begin{prf}
+  Set $g(x) = a_{i_n} \bigodot_{j = 1}^n (x\oplus b_j)^{\odot m_j}$. Then we get
+  \begin{align*}
+    g(x) = a
+  \end{align*}
+\end{prf}
+\end{document}

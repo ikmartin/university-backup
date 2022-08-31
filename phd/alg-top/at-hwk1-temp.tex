@@ -1,0 +1,61 @@
+\input{../preamble.tex}
+
+\def\sset{\subseteq}
+\def\iso{\cong}
+\def\gend#1{\langle #1\rangle}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Algebraic Topology Homework 0 \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+
+Before beginning the homework, a comment: I will frequently include more exposition than strictly necessary in these writeups. This is intended for future me, who has likely forgotten these solutions, is unfortunatley still suffering from ample stupidity and will undoubtedly need help understanding the intuition behind the problems.
+
+\begin{homework}[e]
+
+	\prob Construct an explicit deformation retraction of the torus with one point delted onto a graph consisting of two circles intersecting in a point, namely, longitude and meridian circles of the torus.
+	\begin{prf}
+		We think of a torus as a product of the interval $I = [-1,1]$ with iteself with parallel edges identified in matching orientation, i.e.
+		\begin{align*}
+			\bT^2 = I^2/\sim
+		\end{align*}
+		where $(-1,x) \sim (1,x)$ and $(x,-1) \sim (x,1)$. The wedge of the longitudinal and meridian circles upon which we wish to deformation retract are precisely the boundary of $I^2$ under the quotient map: $S^1\wedge S^1 = \pi(\partial I^2)$. What this means is that we can deformation retract a $I^2 - \{\text{pt}\}$ to its boundary and compose with the projection map $\pi:I^2 \to \bT^2$ in order to construct the desired deformation retrat of the punctured torus. This is much easier to visualize and, more importantly, easier to explicitly write down.
+
+		Without loss of generality, suppose $\text{pt} = (0,0)$. Indeed, if it were any other point in the interior of $I^2$, we could simply apply a homeomorphism. Let $X = I^2 \setminus \{(0,0)\}$, so that $\bT^2 = X/\sim$.
+		
+		\textbf{For future Isaac:} To construct the homotopy of $X$ to its boundary, a good first attempt is to imagine the ray emenating from $(0,0)$ and passing through some other point $(a,b) \in I^2$. This intersects $\partial I^2$ in exactly one place. The homotopy we'd like to write down linearly interpolates $(a,b)$ to this unique intersection point with $\partial I^2$ in one unit time, so that all interior points reach the boundary at $t = 1$. However, this homotopy is rather a pain to write down, so we add a few steps to reduce the total work.
+
+		Consider the circle $S^1 = \{|(a,b) \in \bR^2 ~\mid~ \|(a,b)\| = 1\} \subseteq I^2$. The map $f:X \to S^1$ defined $x \mapsto \frac{x}{\|x\|}$ is a retract onto $S^1$. In particular, $f|_{\partial I^2}$ is a bijective map from $\partial I^2$ to $S^1$, and thus has inverse $g:S^1 \to \partial I^2$. This is the map we intuitively described above restricted to the circle. We note that the composition $g\circ f$ is the map which first takes a point $x \in X$ to the point on $S^1$ correponding to $x$'s ``direction'' and then sends the result to its corresponding point on $\partial I^2$.
+
+		We can now write down the homotopy $F:X \times I \to X$:
+		\begin{align*}
+			F(x,t) = (1 - t)x + tg(f(x)).
+		\end{align*}
+		This map is continuous, as it is the restriction, composition, product and sum of continuous functions on $\bR^3 \setminus \{(x,y,z) \mid x = y = 0\}$. Furthermore, it is a deformation retraction of $X$ onto $\partial I^2$, as it fixes $\partial I^2$ at every time step. The composition $\pi \circ F$ yields the desired deformation retraction on $\bT^2$.
+	\end{prf}
+
+	\prob $ $
+	\begin{enumerate}[(a)]
+		\item Show that the composition of homotopy equivalences $X\to Y$ and $Y\to Z$ is a homotopy equivalence $X\to Z$. Deduce that homotopy equivalence is an equivalence relation.
+		\item Show that the relation of homotopy among maps $X \to Y$ is an equivalence relation.
+	\end{enumerate}
+
+	\prob Show that a retract of a contractible space is contractible.
+	\prob Show that $S^\infty$ is contractible.
+	\prob $ $
+	\begin{enumerate}[(a)]
+		\item Show that the mapping cylinder of every map $f:S^1 \to S^1$ is a CW complex.
+		\item Construct a 2-dimensional CW complex that contains both an annulus $S^1\times I$ and a M\"obius band as deformation retracts.
+	\end{enumerate}
+	\prob Show that a CW complex is contractible if is the union of two contractible subcomplexes whose intersection is also contractible.
+	\prob Use Corollary 0.20 to show that if $(X,A)$ has the homotopy extension property, then $X\times I$ deformation retracts to $X\times \{0\}\cup A\times I$. Deduce from this that Proposition 0.18 holds more generally for any pair $(X_1,A)$ satisfying the homotopy extension property.
+\end{homework}
+\end{document}

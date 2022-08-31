@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>at-hwk1.bcf</file>
+      <file>trop-fta.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>at-hwk1.bbl</file>
+      <file>trop-fta.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -64,19 +64,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>at-hwk1</infile>
+      <infile>trop-fta</infile>
     </cmdline>
     <input>
-      <file>at-hwk1.bcf</file>
+      <file>trop-fta.bcf</file>
     </input>
     <output>
-      <file>at-hwk1.bbl</file>
+      <file>trop-fta.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>at-hwk1.bbl</file>
+      <file>trop-fta.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>at-hwk1.bcf</file>
+      <file>trop-fta.bcf</file>
     </requires>
     <requires type="editable">
       <file>main.bib</file>

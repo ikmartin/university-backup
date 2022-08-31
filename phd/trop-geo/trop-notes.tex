@@ -15,6 +15,7 @@
 \newpage
 \entry{2022-Aug-23}
 
+\setcounter{section}{-1}
 \section{Introduction/Motivation} Tropical geometry is the study of discrete structures appearing in limits of polynomial equations.
 
 Course outline:
@@ -269,5 +270,103 @@ Looking at \textbf{tropical linear systems} $A\odot x = b$ has applications in e
     x_1^{u_1}\odot x_2^{u_2} \cdot ... \cdot x_n^{u_n}
   \end{align*}
 \end{defn}
+
+\entry{2022-Aug-30}
+
+Recall that a tropical polynomial $f = a_1\odot x^{\underline{u}_1}\oplus ... \oplus a_n\odot x^{\underline{u}_n}$ is a concave piecewise affine function
+\begin{align*}
+p(x) = \min \{\langle \underline{u_1}\rangle +a_1, ..., \langle \underline{u_n}, -\rangle + a_n\}.
+\end{align*}
+\begin{example}\label{example:arbitrary-cubic}
+  $p = a\odot x^3 \oplus b\odot x^2 \oplus c\odot x \oplus d = \min\{3x+a, 2x + b, x + c, d\}$. We say that the linear breaks of this graph are the vanishing points of $p$.
+\end{example}
+
+\begin{lem}\label{lem:convace-piecewise-is-tropical-poly}
+  For any concave, piecewise affine function with $\bZ$-derivatives $p:\bR^n \to \bR$ there exists a tropical polynomial $f$ with $p(x) = (x \mapsto f(x) \text{ in } (\bR,\oplus, \odot))$.
+\end{lem}
+\underline{Note:} $f = \oplus a_I\odot x^I$ is only unique if we assume that for each $I$ with $a_I \neq \infty$ we have that the map $x \mapsto \langle I,x \rangle + a_I$ agrees with $h$ in a neighborhood of $x \in \bR^n$.
+
+\begin{exercise}[Tropical Fundamental Theorem of Algebra]\label{exercise:uniqueness-above}
+  Every PA function $p:\bR\to \bR$ with integral derivatives (constant derivatives which are integers) can be written uniquely as a minimal product of tropical linear functions $a\odot x$.
+\end{exercise}
+
+\begin{example}[Example of Tropical FTA Decomposition]\label{example:}
+  Take $f = x^2 \oplus 17\odot x \oplus 2$. We then have
+  \begin{align*}
+    f &= x^2 \oplus 17\odot \oplus x\oplus 2 \\
+      &= \min\{2x, x + 17, 2\} \\
+      &= \min\{2x, x + 1, 2\} \\
+      &= (x \oplus 1) \odot (x \oplus 1)
+  \end{align*}
+\end{example}
+
+Unique factorization fails for $n > 1$.
+
+\begin{example}\label{example:unique-factorization-fails}
+Take $f(x,y) = (x\oplus 0) \odot (y\oplus 0) \odot (x\odot y\oplus 0) = (x\odot y \oplus x \oplus 0) \odot (x\odot y \oplus y \oplus 0)$. The Newton polygon of $p = a_1x^{\underline{u}_1} \oplus ... \oplus a_r x^{\underline{u}_r}$ gives us
+\begin{align*}
+  \Newt(p) = \conv\{\underline{u}_i ~\mid~ a_i \neq \infty\}
+\end{align*}
+\noindent \underline{Here:} $f = x^2y^2 \oplus x^2y \oplus xy^2 \oplus xy \oplus x \oplus y \oplus 0$.
+\end{example}
+
+\section{Dynamic Programming}
+
+\subsection{Shortest paths in graphs}
+If $G$ is a directed graph with $n$ nodes $1,2,...,n$ and directed edges $(i,j)$ have a weight $d_{ij} \in \bR_{\geq 0}$ with $d_{ii} = 0$. We say $d_{ij} = \infty$ if there is no edge from $i$ to $j$. We can conveniently present these distances in an $n \times n$ \textbf{adjacency matrix} in the extended reals, i.e
+\begin{align*}
+  D_G = (d_{ij})_{i,j = 1,...,n} \in M(n\times n, \bR\cup \{\infty\}).
+\end{align*}
+\begin{example}\label{example:directed-graph}
+  <picture>
+
+  $D_G = 
+  \begin{pmatrix}	
+    0 & 3 & 1 & \infty \\
+    1 & 0 & \infty & 3 \\
+    1 & 2 & 0 & 0 \\
+    \infty & 1 & 1 & 0
+  \end{pmatrix}$.
+\end{example}
+
+\begin{prop}\label{prop:shortest-path-tropical}
+  The shortest length of a path from $i$ to $j$ is 
+  \begin{align*}
+  \text{$(ij)$-entry of } D_G^{\otimes(n-1)} = \overbrace{D_G\odot ... \odot D_G}^{\text{$(n - 1)-times$}}.
+  \end{align*}
+\end{prop}
+\begin{prf}
+  We have that
+  \begin{align*}
+    d_{ij}^{r} := \min \{\text{(weighted) length of a path from $i$ to $j$ with $\leq r$ edges}\}.
+  \end{align*}
+
+  We have that $d_{ij}^{(1)} = d_{ij}$. If $d_{ij}\geq 0$, then a shortest path in the number of edges runs through each node at most once (otherwise, reverse the loop from $i$ to $i$ to arrive at a shorter path).
+
+  This implies that $d_{ij^{(n-1)}} = \text{length of shortest weighted path from $i$ to $j$}$. Recursively this gives
+  \begin{align*}
+    d_{ij}^{(r)} &= \min\{d_{ik}^(r-1) + d_{kj} ~\mid~ k \in \{1,...,n\}\} \\
+                 &= d_{i_1}^{(r-1)}\odot d_{1j}\oplus ... \oplus d_{in}^{(r-1)}\odot d_{nj} \\
+                 &= \begin{pmatrix}	d_{i1}^{(r-1)}& \dots & d_{in}^{(r-n)} \end{pmatrix} \odot \begin{pmatrix}	d_{1j} \\ \vdots \\ d_{nj} \end{pmatrix} \\
+                 &= d_{ij}^{(r)} = \text{$(i,j)$-th entry of $D^{\odot r}_G$}.
+  \end{align*}
+\end{prf}
+
+This can also be viewed as a limit of a quantum computation (Maslov's dequantization). Replace $D_G$ with a matrix $A_G(\epsilon)$ where $A_G(\epsilon)_{ij} = \epsilon^{D_G(i,j)}$.
+
+\subsection{Integer Linear Programming}
+Given $A = (a_{ij}) \in M(d\times n, \bN)$ with $w \in \bR^n$ and $b \in \bN^d$. We'd like to solve the optimization problem $w \cdot u$ for $u \in \bN^n$ subject to $Au \leq b$ or $Au = b$.
+
+We can simplify this in the following way. For all $j$, take $\sum_{i}a_{ij} = \alpha$. Column sums are equal. We then have $b_1 + ... + b_d = m\alpha$, for $m\in \bN$.
+
+\underline{Then}: $Au = b \implies u_1 + ... + u_n = m$. Indeed, $m\alpha = b_1 + ... + b_d = \sum_{i,j} \alpha_{ij}u_j = \sum_{j}(\sum_{i}a_{ij})u_j = \alpha(u_1+...+u_n)$.
+
+\begin{prop}\label{prop:sol-via-tropical}
+  \begin{align*}
+    \min\{w\cdot u ~\mid~ Au = b\} = \text{coeff of } x_1^{b_1}\oplus ... \oplus x_d^{b_d}
+  \end{align*}
+  in $(w\odot x_1^{a_{12}} \odot )$
+\end{prop}
+\subsection{The assignment problem and the tropical determinant}
 \printbibliography
 \end{document}
