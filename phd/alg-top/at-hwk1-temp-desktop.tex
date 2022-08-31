@@ -1,0 +1,159 @@
+\input{../preamble.tex}
+
+\def\sset{\subseteq}
+\def\iso{\cong}
+\def\gend#1{\langle #1\rangle}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Algebraic Topology Homework 0 \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\begin{homework}[e]
+	\prob Construct an explicit deformation retraction of the torus with one point delted onto a graph consisting of two circles intersecting in a point, namely, longitude and meridian circles of the torus.
+
+	\prob $ $
+	\begin{enumerate}[(a)]
+		\item Show that the composition of homotopy equivalences $X\to Y$ and $Y\to Z$ is a homotopy equivalence $X\to Z$. Deduce that homotopy equivalence is an equivalence relation.
+		\item Show that the relation of homotopy among maps $X \to Y$ is an equivalence relation.
+	\end{enumerate}
+	\begin{prf}$ $
+		\begin{enumerate}[(a)]
+			\item We first prove the following lemma. 
+			
+			\smallskip
+			
+			\begin{lem}
+				Let $f:X \rightarrow Y$ and $g:X \rightarrow Y$ be functions such that $f \simeq g$. Let $F: X \times [0,1] \rightarrow Y$ where $F(x,0) = f(x)$ and $F(x,1) = g(x)$ be the homotopy connecting $f$ and $g$. Furthermore, let $f':Y \rightarrow Z$ and $g':Y \rightarrow Z$ be functions such that $f' \simeq g'$ connected by the $G:Y  \times [0,1] \rightarrow Z$ where $G(x,0) = f'(x)$ and $G(x,1) = g'(x)$. We show that 
+				\begin{equation*}
+					f' f \simeq g' g
+				\end{equation*}
+			\end{lem}
+			
+			\begin{proof}
+				We want to find a homotopy $H: X \times [0,1] \rightarrow Z$ connecting $f'f$ and $g'g$. Let $H$ be defined as $H(x,t) = G(F(x,t),t)$. $H$ is continuous since $G$ and $F$ are continuous. Furthermore,
+				\begin{equation*}
+					H(x,0) = G(F(x,0),0) = f'(f(x)) = f'f
+				\end{equation*}
+				and 
+				\begin{equation*}
+					H(x,1) = G(F(x,1),1) = g'(g(x)) = g'g
+				\end{equation*}
+			\end{proof}
+			
+			\bigskip
+			
+			We now begin the proof. Let $X$ and $Y$ be homotopy equivalent and let $Y$ and $Z$ be homotopy equivalent. There must then exist functions $f:X \rightarrow Y$, $g:Y \rightarrow X$, $f':Y \rightarrow Z$, $g':Z \rightarrow Y$ such that 
+			
+			\begin{equation*}
+				gf \simeq \id_X \hspace{30pt} 
+				fg \simeq \id_Y \hspace{30pt}
+				g'f' \simeq \id_Y \hspace{30pt}
+				f'g' \simeq \id_Z 
+			\end{equation*}
+			
+			where $\id_X, \id_Y $ and $\id_Z$ denote the identity functions on $X$, $Y$ and $Z$ respectively. Note here that $f$ is the homotopy equivalence of $X$ and $Y$ and that $f'$ is the homotopy equivalence of $Y$ and $Z$. 
+			
+			From the result of part (b), which is independent of this result, we know that $f' \simeq f'$, and thus by the above lemma we have that
+			\begin{equation*}
+				fg \simeq \id_Y \Rightarrow f'fg \simeq f'\id_Y = f'
+			\end{equation*}
+			By the same logic, we have that 
+			\begin{equation*}
+				f'fgg' \simeq f'g' 
+			\end{equation*}
+			and by the transitivity of the homotopy relation (also proven in part b) we conclude that since $f'g' \simeq \id_Z$,
+			\begin{equation*}
+				f'fgg' \simeq \id_Z
+			\end{equation*}
+			
+			\smallskip
+			
+			Furthermore, since $g'f' \simeq \id_Y$,
+			\begin{equation*}
+				gg'f' \simeq g\id_Y = g
+			\end{equation*}
+			and
+			\begin{equation*}
+				gg'f'f \simeq gf.
+			\end{equation*}
+			Finally, by the transitivity of homotopic relations, since $gf \simeq \id_X$ we conclude that 
+			\begin{equation*}
+				gg'f'f \simeq \id_X.
+			\end{equation*}
+			Since there exist functions $f'f: X \rightarrow Z$ and $gg':Z \rightarrow X$ such that $gg'f'f \simeq \id_X$ and $f'fgg' \simeq \id_Z$, we conclude that $X$ and $Z$ are homotopy equivalent by the composition $f'f$ of homotopy equivalences.
+
+			\bigskip
+
+			For the second part of the question, we say that $X \sim Y$ if $X$ and $Y$ are homotopy equivalent. We show that this relation is an equivalence relation.
+		
+			Notice we have already proven that this relation has the transitive property, since
+			\begin{equation*}
+				X\sim Y \text{ and } Y\sim Z \Rightarrow X \sim Z
+			\end{equation*} 
+			It remains only to show that it also holds for the reflexive and symmetric properties.
+			
+			\bigskip
+			
+			\emph{Reflexive:} Let $X$ be a topological space. The identity $\id_X$ is a homotopy equivalence between $X$ and $X$ since $\id_X \circ \id_X \simeq \id_X$. Thus, $X \sim X$.
+			
+			\bigskip
+			
+			\emph{Symmetric:} Let $X$ and $Y$ be homotopy equivalent topological spaces. There must then exist functions $f: X\rightarrow Y$ and $g:Y\rightarrow X$ such that 
+			\begin{equation*}
+				fg \simeq \id_Y \hspace{10pt} \text{and} \hspace{10pt} gf \simeq \id_X
+			\end{equation*}
+			This makes $f$ a homotopic equivalence from $X$ to $Y$. However, these are the same conditions required for $g$ to be a homotopic equivalence from $Y$ and $X$. Thus, $X \sim Y \Leftrightarrow Y \sim X$
+			
+			\bigskip
+			
+			Since the relation is reflexive, symmetric, and transitive, we conclude that it is an equivalence relation.
+
+			\item We show that $\simeq$ is an equivalence relation.
+			
+			\bigskip
+			
+			\emph{Reflexive:} Let $f:X \rightarrow Y$. Define $f_t:X\rightarrow Y$ where $t \in [0,1]$ such that $f_t(x) = f(x)$ for all $t \in [0,1]$. Therefore since $f_0(x) = f(x)$ and $f_1(x) = f(x)$, we conclude that $f \simeq f$ by the homotopy $f_t$.
+			
+			\bigskip
+			
+			\emph{Symmetric:} Let $f,g:X \rightarrow Y$, and assume that $f \simeq g$. Then there is some function $F: X \times I \rightarrow Y$ such that $F(x,0) = f(x)$ and $F(x,1) = g(x)$. The reverse homotopy $G: X \times I \rightarrow Y$, $x \mapsto F(x,1-t)$ therefore gives $G(x,0) = g(x)$ and $G(x,1) = f(x)$. Thus, $f \simeq g \Rightarrow g \simeq f$. 
+			
+			We can prove the converse by replacing $f$ and $g$. Thus, homotopic equivalence is symmetric. 
+			
+			\bigskip
+			
+			\emph{Transitivity:} Let $f,g,h: X \rightarrow Y$ be functions such that $f \simeq g$ and $g \simeq h$. Let $F,G: X \times I \rightarrow Y$ be the homotopies of $f,g$ and $g, h$ respectively. We define $H: X \times I \rightarrow Y$ as follows:
+			\begin{equation*}
+			(x,t) \mapsto
+			 \begin{cases}
+				F(x,2t) & t \in [0, \frac{1}{2}] \\
+				G(x,2t - 1) & t \in (\frac{1}{2}, 1] \\
+			 \end{cases}
+			\end{equation*}
+			Notice that $H(x,0) = F(x,0) = f(x)$ and $H(x,1) = G(x,2-1) = h(x)$. Furthermore, since $H(x,\frac{1}{2}) = F(x,1) = g(x) = G(x,0) = G(x,1 - 1)$, by the pasting lemma $H$ is continuous since it is continuous over $[0,\frac{1}{2}]$ and $[\frac{1}{2},1]$. $H$ is therefore a homotopy between $f$ and $h$, and we conclude that the relation of homotopy is transitive.
+			
+			\bigskip
+			
+			Since the relation of homotopy is reflexive, symmetric, and transitive, we conclude that it is an equivalence relation.
+		\end{enumerate}
+	\end{prf}
+
+	\prob Show that a retract of a contractible space is contractible.
+	\prob Show that $S^\infty$ is contractible.
+	\prob $ $
+	\begin{enumerate}[(a)]
+		\item Show that the mapping cylinder of every map $f:S^1 \to S^1$ is a CW complex.
+		\item Construct a 2-dimensional CW complex that contains both an annulus $S^1\times I$ and a M\"obius band as deformation retracts.
+	\end{enumerate}
+	\prob Show that a CW complex is contractible if is the union of two contractible subcomplexes whose intersection is also contractible.
+	\prob Use Corollary 0.20 to show that if $(X,A)$ has the homotopy extension property, then $X\times I$ deformation retracts to $X\times \{0\}\cup A\times I$. Deduce from this that Proposition 0.18 holds more generally for any pair $(X_1,A)$ satisfying the homotopy extension property.
+\end{homework}
+\end{document}
