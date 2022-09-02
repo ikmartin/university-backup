@@ -130,5 +130,34 @@ We'll use this construction in a sec, but we'll break really quick and discuss a
     \item Now suppose you have a function $f:S\to \bR$ where $S$ is measurable. Then $f$ is measurable if and only if $f$ is constant on the partitions corresponding to the $\sigma$-algebra on $S$.
   \end{enumerate}
 \end{example}
+
+\entry{2022-Aug-31} Let $(S_\gamma)_{\gamma \in \Gamma}$ be sets $(\Gamma = \{1,2\}, \bN, \text{ etc})$
+For us, 
+\begin{align*}
+  \prod_{\gamma \in \Gamma} S_\gamma = \left\{f:\Gamma \to \bigcup_{\gamma \in \Gamma} S_\gamma ~\midd~ f(\gamma) \in S_\gamma, \forall \gamma\right\}.
+\end{align*}
+These are called \textbf{choice functions}. The axiom choice says that one of these choice functions exists, that is all. This product comes along with projection functions $\pi_\gamma:\prod_{\gamma \in \Gamma} S_\gamma \to S_\gamma$ which just evaluates an element $f \in \prod_{\gamma \in \Gamma} S_\gamma$ at $\gamma$. If the $S_\gamma$ are all $\sigma$-algebra or topological spaces or whatever we use these \emph{canonical} projection maps to produce a structure of the same flavor on the product.
+
+When $(S_\gamma,\cS_\gamma)$ are all measurable, we define
+\begin{align*}
+  \bigotimes_{\gamma \in \Gamma} \cS_\gamma := \sigma\left(\pi_\gamma: \gamma \in \Gamma\right)
+\end{align*}
+to be the $\sigma$-algebra of the product: it is the smallest $\sigma$-algebra for which all the $\pi_\gamma$ are measurable.
+
+\begin{example}\label{example:basic-product}
+  Set $\Gamma = \{1,2\}$, $(S_1,\cS_1)$ and $(S_2,\cS_2).$ If $S = S_1\times S_2$, $\cS = \sigma(\pi_1,\pi_2) = \sigma(\pi^{-1}_1(B_1),\pi_2^{-1}(B_2))$.
+\end{example}
+
+\begin{defn}\label{defn:product-cylinder}
+  Let $\{S_\gamma,\cS_\gamma\}_{\gamma \in \Gamma}$ be a family of measurable spaces, and let $\left(\prod_{\gamma \in \Gamma}S_\gamma, \bigotimes_{\gamma \in \Gamma} \cS_\gamma\right)$ be its product. A \textbf{cylinder set} is a measurable subset $C \subseteq \prod_{\gamma \in \Gamma} S_\gamma$ such that there exist a finite set $\{\gamma_1,...,\gamma_n\}\subseteq \Gamma$ so that for some $B_i \in S_{\gamma_i}$ we have
+  \begin{align*}
+    C = \left\{s \in \prod_{\gamma \in \Gamma} S_\gamma ~\midd~ s(\gamma_i) \in B_i\right\}.
+  \end{align*}
+  That is, all of the $\gamma_i$ coordinates of elements in $C$ lie in our $B_i$ and $C$ is unrestricted in every other coordinate.
+\end{defn}
+
+\begin{example}\label{example:coin-toss-space}
+  Let $\Gamma = \bN$ and $S_n = \{-1,1\}$. We define the coin toss space to be $\prod_{n \in \bN} S_n = \{f : \bN \to \{-1,1\}\}$.
+\end{example}
 \printbibliography
 \end{document}

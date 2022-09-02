@@ -16,6 +16,11 @@
 \usepackage{pdfpages}
 \usepackage{transparent}
 
+\newcommand{\incpng}[2][1]{%
+    \def\svgwidth{#1\columnwidth}
+    \import{./figures/}{#2.png}
+}
+
 \newcommand{\incfig}[2][1]{%
     \def\svgwidth{#1\columnwidth}
     \import{./figures/}{#2.pdf_tex}

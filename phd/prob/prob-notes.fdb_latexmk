@@ -1,13 +1,13 @@
 # Fdb version 3
-["biber prob-notes"] 1661191401 "prob-notes.bcf" "prob-notes.bbl" "prob-notes" 1661799160
-  "prob-notes.bcf" 1661799159 106954 7c999f466766e3549651d2ed35bc3c01 "pdflatex"
+["biber prob-notes"] 1661191401 "prob-notes.bcf" "prob-notes.bbl" "prob-notes" 1661971906
+  "prob-notes.bcf" 1661971906 106954 7c999f466766e3549651d2ed35bc3c01 "pdflatex"
   (generated)
   "prob-notes.blg"
   "prob-notes.bbl"
-["pdflatex"] 1661799156 "prob-notes.tex" "prob-notes.pdf" "prob-notes" 1661799160
+["pdflatex"] 1661971902 "prob-notes.tex" "prob-notes.pdf" "prob-notes" 1661971906
   "../preamble.tex" 1661712983 2101 88f31f0db8b0917fce952e1cb60b84f8 ""
   "/Users/Isaac/Library/texmf/tex/latex/style-sheets/homework.sty" 1661526171 10474 1bc921cd4819312e051630eb40260c71 ""
-  "/Users/Isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1661539700 33747 026667aad17bcf669e5219e41f54e620 ""
+  "/Users/Isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1661877086 33781 91835a83b309fd69a05e8d7db2094d14 ""
   "/Users/Isaac/Library/texmf/tex/latex/style-sheets/theorem-env.sty" 1660828266 3240 659ae6f9b19b2148f67fc4d4d39af906 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc" 1604871180 2917 46ff8e5a076fa313c692bdd47456b2c6 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc" 1529098226 2457 aaabbccba4df2a7f7371410ee4e075a3 ""
@@ -291,17 +291,17 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616695603 5169178 a2ce6e2d73f603b690db6777d06dbccb ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1640209486 2724743 8045dde001b33c148588963d3dbc744b ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "prob-notes.aux" 1661799159 6006 3119bc0fb5ceabf700d66db48c659c7f "pdflatex"
+  "prob-notes.aux" 1661971906 6842 f5f55cb4fde30c424fe19ff2c8ff76c1 "pdflatex"
   "prob-notes.bbl" 1661191404 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber prob-notes"
-  "prob-notes.out" 1661799159 131 f3cb62c6f5f6cf69f8ae6f6d2d9df01b "pdflatex"
-  "prob-notes.run.xml" 1661799159 2347 812dea953c73662bad33abbb4fc85669 "pdflatex"
-  "prob-notes.tex" 1661799155 8200 df66c2abe412b132b1c68e78fec12055 ""
-  "prob-notes.toc" 1661799159 212 9fbdd5d8f7127dbf0f08ecdca1a5c321 "pdflatex"
+  "prob-notes.out" 1661971906 131 f3cb62c6f5f6cf69f8ae6f6d2d9df01b "pdflatex"
+  "prob-notes.run.xml" 1661971906 2347 812dea953c73662bad33abbb4fc85669 "pdflatex"
+  "prob-notes.tex" 1661971902 10450 0aca2a3b82f21004b6a91650be9cd5d3 ""
+  "prob-notes.toc" 1661971906 212 9fbdd5d8f7127dbf0f08ecdca1a5c321 "pdflatex"
   (generated)
-  "prob-notes.run.xml"
-  "prob-notes.bcf"
-  "prob-notes.out"
   "prob-notes.pdf"
   "prob-notes.log"
-  "prob-notes.aux"
+  "prob-notes.run.xml"
+  "prob-notes.bcf"
   "prob-notes.toc"
+  "prob-notes.aux"
+  "prob-notes.out"

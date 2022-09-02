@@ -368,5 +368,74 @@ We can simplify this in the following way. For all $j$, take $\sum_{i}a_{ij} = \
   in $(w\odot x_1^{a_{12}} \odot )$
 \end{prop}
 \subsection{The assignment problem and the tropical determinant}
+\textbf{go back and review this}
+
+\entry{2022-Sept-01}
+
+\section{Plane Curves}
+
+\subsection{Tropical polynomial in finitely many variables}
+
+Let $p$ be a tropical polynomial in $x_1,...,x_n$ or let it be the associated piecewise affine function $p:\bR^n \to \bR$. Let $V(p) = \{x \in \bR^n \mid x \mapsto p(x) \text{ is not locally affine }\}$. This is a \textbf{tropical hypersurface.} 
+
+For $n = 2$: we get plane tropical curves, e.g. conics, $a\odot x^{2} \oplus b\odot xy \oplus c\odot y^2 \oplus d\odot x \oplus e\odot y \oplus f$. We call the graph of $p$ a ``tent over $\bR^2$''
+\begin{figure}[ht]
+    \centering
+	\includegraphics[width=15cm]{./figures/tent-over-R2.png}
+    \caption{Tent over $\bR^2$}
+    \label{fig:tent-over-R2}
+\end{figure}
+
+\begin{prop}\label{prop:finite-embedded-graph}
+  The polynomial $V(p) \subseteq \bR^2$ is a finite embedded graph (with bounded and unbounded edges) and all edge slopes are rational. Moreoever, each edge $E$ of $V(p)$ comes with a weight $w(E) \in \bN\setminus \{0\}$ such that at each vertex $v \in V(p)$ we have
+  \begin{align*}
+    \sum w(E)\cdot u_{V,E} = 0.
+  \end{align*}
+  This is called the \textbf{balancing condition}. The element $u_{V,E} \in \bZ^n$ is a primitive vector in the direction $E$.
+\end{prop}
+\begin{example}\label{example:looking-closely-at-conic}
+  
+\end{example}
+\subsection{Relation to subdivisions of the Newton polygon}
+Let $p = \bigoplus_{I\subseteq \bZ^2} a_I \odot x^I$.
+\begin{align*}
+  \Newt(p) = \conv \{I\in I^2 \subseteq \bR^2 ~\mid~ a_I \neq \infty\} \subseteq \bR^2
+\end{align*}
+
+\begin{example}\label{example:a-conic}
+  Suppose $p(x) = 1\odot x^2 \oplus 0\odot xy\oplus 1\odot y^2 \oplus 0\odot y\oplus 1$. The $a_I$ provide a function 
+  \begin{align*}
+    a:\Newt(p) \cap \bZ^2 \to \bR \cup \{\infty\}, 
+  \end{align*}
+  Given by $I\mapsto a_I$. Take the ``overgraph of $a$'' = $\conv\{(I,a_I) \in \bR^3~\mid~ I\in \Newt(p) \cap \bZ^2\} + \bR_{\geq 0}\cdot (0,0,1)$. The lower body is the union of bd. cells of boundary which is equal to the graph of a piecewise affine function $\varphi:\Newt(p) \to \bR$
+\end{example}
+
+Domains of affine linearity of $\varphi$ define a polydral decomposition $P$ of $\Newt(p)$ into convex polyhedra with integral vertices. In the previous example, $V(p)$ is dual to $\Newt(p)$. Furthermore, the edges in the interior of $\Newt(p)$ correspond to bounded edges in $V(p)$ and the boundary edges of $\Newt(p)$ correspond to the unbounded edges of $V(p)$.
+
+\begin{prop}\label{prop:newton-to-tropical-hypersurface}
+  $V(p)$ is combinatorially the dual complex of the $1$-skeleton of $P$. Edges in $\partial \Newt(p)$ correspond to unbounded edges (tentacles) of $V(p)$. Edge directions $u_{V,E}$ are the interior normal vectors to the $2$-cell dual to $v$ at the edge dual to $E$.
+\end{prop}
+\begin{example}\label{example:biquadratic-curves}
+  Fill in
+\end{example}
+
+This proposition connecting Newton polygons to $V(p)$ also explains the balancing condition. Vertices $v \in V(p)$ is dual to a convex polygon $\sigma \in P$ with integral vertices correspond precisely to slopes of the affine functions defining $V(p)$ locally at $p$. The balancing condition holds if and only if the sum of the edge vectors of $\sigma$ are close to a polygon.
+
+Weights = integral lengths of edge $w = \#(w \cap \bZ^2)$.
+
+\textbf{Note:} Subdivision into standard simplicies ($n = 2$: std $\iff $ Area = $\frac{1}{2}$)
+
+\subsection{Intersections of plane tropical curves}
+
+\begin{thm}[Bezout's Theorem]\label{thm:bezout-thm}
+  Suppose $f_1,f_2 \in \bC[x,y,z]$ are homogeneous of degree $d_i > 0$. Suppose also that $f_i$ is irreducible and that for $c \in \bC$ $f_i = cf_j \implies i = j$. Then the degree $d$ algebraic curve
+  \begin{align*}
+    C_i = V(f_i) = \{[x:y:z] \in \bP^2_\bC ~\mid~ f_i(x,y,z) = 0\}
+  \end{align*}
+  has intersection number $d_id_j$ with $C_j$, i.e. $C_i \# C_j = d_1\cdot d_2$. More precisely, \begin{align*}
+    C_i\# C_j = \#(C_i^c \cap C^j)
+  \end{align*}
+  if $V(f_1^c) = C_i^c$ is a small perurbation of $C_i$.
+\end{thm}
 \printbibliography
 \end{document}

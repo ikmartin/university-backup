@@ -1814,6 +1814,11 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/stmaryrd/stmary5.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cyrillic/wncyr10.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT ./figures/tent-over-R2.png
+INPUT ./figures/tent-over-R2.png
+INPUT ./figures/tent-over-R2.png
+INPUT ./figures/tent-over-R2.png
+INPUT ./figures/tent-over-R2.png
 INPUT trop-notes.aux
 INPUT ./trop-notes.out
 INPUT ./trop-notes.out

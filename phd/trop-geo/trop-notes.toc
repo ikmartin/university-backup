@@ -26,4 +26,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2}Integer Linear Programming}{10}{subsection.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.3}The assignment problem and the tropical determinant}{10}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}The assignment problem and the tropical determinant}{11}{subsection.3.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Plane Curves}{11}{section.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Tropical polynomial in finitely many variables}{11}{subsection.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Relation to subdivisions of the Newton polygon}{12}{subsection.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3}Intersections of plane tropical curves}{12}{subsection.4.3}%

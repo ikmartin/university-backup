@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.22)  29 AUG 2022 13:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.12.22)  31 AUG 2022 13:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1463,11 +1463,11 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.95pt on input line 106.
 Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 106.
 Package hyperref Info: bookmark level for unknown cor defaults to 0 on input line 109.
+ [5]
 
+LaTeX Warning: Empty bibliography on input line 162.
 
-LaTeX Warning: Empty bibliography on input line 133.
-
-[5] (./prob-notes.aux)
+[6] (./prob-notes.aux)
 Package rerunfilecheck Info: File `prob-notes.out' has not changed.
 (rerunfilecheck)             Checksum: F3CB62C6F5F6CF69F8AE6F6D2D9DF01B;131.
 Package logreq Info: Writing requests to 'prob-notes.run.xml'.
@@ -1475,18 +1475,18 @@ Package logreq Info: Writing requests to 'prob-notes.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40185 strings out of 478994
- 767420 string characters out of 5858183
- 1635054 words of memory out of 5000000
- 56785 multiletter control sequences out of 15000+600000
+ 40197 strings out of 478994
+ 767605 string characters out of 5858183
+ 1640153 words of memory out of 5000000
+ 56790 multiletter control sequences out of 15000+600000
  458928 words of font info for 139 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 106i,16n,105p,3072b,989s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 106i,21n,105p,3072b,989s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ec.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qhvb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on prob-notes.pdf (5 pages, 287552 bytes).
+Output written on prob-notes.pdf (6 pages, 297466 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
- 48 named destinations out of 1000 (max. 500000)
+ 165 PDF objects out of 1000 (max. 8388607)
+ 140 compressed objects within 2 object streams
+ 55 named destinations out of 1000 (max. 500000)
  32277 words of extra memory for PDF output out of 35830 (max. 10000000)
 
