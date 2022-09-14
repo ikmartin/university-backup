@@ -1,0 +1,128 @@
+\input{../preamble.tex}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,intersections,through,backgrounds, shapes.geometric, decorations.markings,arrows}
+
+\def\sset{\subseteq}
+\def\iso{\cong}
+\def\gend#1{\langle #1\rangle}
+
+\newcommand{\rightoverleftarrow}{%
+  \mathrel{\vcenter{\mathsurround0pt
+    \ialign{##\crcr
+      \noalign{\nointerlineskip}$\longrightarrow$\crcr
+      \noalign{\nointerlineskip}$\longleftarrow$\crcr
+    }%
+  }}%
+}
+
+\newcommand\makesphere{} % just for safety
+\def\makesphere(#1)(#2)[#3][#4]{%
+  % Synopsis
+  % \makesphere[draw options](center)(initial angle:final angle:radius)
+  \shade[ball color = #3, opacity = #4] #1 circle (#2);
+  \draw #1 circle (#2);
+  \draw ($#1 - (#2, 0)$) arc (180:360:#2 and 3*#2/10);
+  \draw[dashed] ($#1 + (#2, 0)$) arc (0:180:#2 and 3*#2/10);
+}
+% same thing as makesphere but places white background behind
+\newcommand\altmakesphere{} % just for safety
+\def\altmakesphere(#1)(#2)(#3)[#4][#5]{%
+  % Synopsis
+  % \makesphere[draw options](center)(initial angle:final angle:radius)
+  \draw [fill=white!30] #1 circle (#2);
+  \shade[ball color = #4, opacity = #5] #1 circle (#2);
+  \draw #1 circle (#2);
+  \draw ($#1 - (#2, 0)$) arc (180:360:#2 and 3*#2/10);
+  \draw[dashed] ($#1 + (#2, 0)$) arc (0:180:#2 and 3*#2/10);
+  \node at #1 {#3};
+}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Algebraic Topology Homework 2 \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+
+\tchap{Problems from 1.2}
+\begin{homework}[e]
+  \prob[\textsc{Exercise 1.2.1.}] Show that the free product $G \ast H$ of nontrivial groups $G$ and $H$ has trivial center, and that the only elements of $G \ast H$ of finite order are the conjugates of finite-order elements of $G$ and $H$.
+  \begin{prf}
+    Recall that two elements of $G\ast H$ are equal if and only if their reductions are identical. We use this fact without comment.
+
+    Suppose that $g \in G$ and $h \in H$ are both nontrivial elements. Then both $ghg^{-1}$ and $h$ are reduced in $G\ast H$, and hence are not equal as they are of different lengths. This means $gh \neq hg$ for all nontrivial elements $g\in G$ and $h \in H$.
+
+    Now suppose we have some reduced word $w_1w_2...w_n \in G\ast H$ where $w_i \in G \cup H$ for $1\leq i\leq n$ and $n \geq 2$. Again let $g \in G$ and $h \in H$ be reduced words. We have four cases to consider.
+    \begin{enumerate}[(1)]
+      \item If $w_1,w_k \in G$, then $hw$ and $wh$ are both reduced and are hence not equal.
+      \item If $w_1,w_k \in H$, then $gw$ and $wg$ are both reduced and are hence not equal.
+      \item If $w_1 \in G$ and $w_k \in H$, then $w_2 \in H$ by the assumption that $w$ is reduced. Hence both $gw_2...w_k$ and $wg$ are reduced, and since $k\geq 2$, we have that $gw \neq wg$.
+      \item If $w_1 \in H$ and $w_k \in G$, then $w_2 \in G$ and we get $hw \neq wh$ by the same argument as above.
+    \end{enumerate}
+    Thus, every nontrivial element of $G\ast H$ fails to commute with some other element, meaning the center of $G\ast H$ is trivial.
+
+    We now show that the only elements of $G*H$ are the conjugates of finite-order elements of $G$ and $H$. Let $w \in G*H$ be finite order, i.e. assume $w^k = 1$ where $1$ is the empty word for some $k \in \bbN$. 
+    
+    First, notice that $w$ must have an odd number of letters. If $w = w_1...w_{2n}$ is reduced, then $w_1$ and $w_{2n}$ belong to different groups, and therefore $w^2 = w_1...w{2n}w_1...w{2n}$ is also reduced. Successive multiplication of $w$ with itself will only make the word longer. $w$ must therefore have an odd number of elements in order to reduce upon successive multiplication. Thus the reduced form of $w$ is $w_1...w_{2n+1}$. 
+    
+    As previously noted, we need $w$ to shrink upon successive products. This means that $w_1$ and $w_{2k+1}$ must multiply to $1$ in either $H$ or $G$, i.e. $w_1 = w_{2n+1}^{-1}$. Similarly, $w_2 = w_{2n}^{-1}$, $w_3 = w_{2n-1}^{-1}$, and $w_n = w_{n+2}^{-1}$. This observation means that 
+    \begin{equation*}
+        (w_1...w_n)^{-1} = w_n^{-1}...w_1{-1} = w_{n+2}...w_{2n+1}.
+    \end{equation*}
+    Therefore 
+    \begin{equation*}
+        w = (w_1...w_n)w_{n+1}(w_{n+2}...w_{2n+1})
+    \end{equation*}
+    and finally,
+    \begin{equation*}
+        w^k = (w_1...w_n)w_{n+1}^k(w_{n+2}...w_{2n+1}) = 1 
+        \implies w_{n+1}^k = 1
+    \end{equation*}
+    And since $w_{n+1}$ must be an element in either $H$ or $G$, we conclude that $w$ is the conjugate of some finite order element in $G$ or $H$.
+
+
+  \end{prf}
+  \prob[\textsc{Exercise 1.2.2.}] Let $X \subseteq \bR^m$ be the union of convex open sets $X_1,...,X_n$ such that $X_i \cap X_j \cap X_k \neq \emptyset$ for all $i,j,k.$ Show that $X$ is simply connected. 
+  \begin{prf}
+    
+  \end{prf}
+  \prob[\textsc{Exercise 1.2.11.}] The \textbf{mapping torus} $T_f$ of a map $f:X \rightarrow X$ is the quotient of $X\times I$ obtained by identifying each point $(x,0)$ with $\left(f(x),1\right)$. In the case $X= S^1 \vee S^1$ with $f$ basepoint preserving, compute a presentation for $\pi_1(T_f)$ in terms of the induced map $f_*:\pi_1(X) \rightarrow \pi_1(X)$. Do the same when $X = S^1 \times S^1$.
+
+\begin{proof}
+    We consider first the case where $X = S^1 \vee S^1$. We can express $X$ as a CW-complex with one 0-cell and two 1-cells through the following construction. Let $x_0$ be a 0-cell. Attach the ends of two 1-cells to $x_0$, and we have $X$. 
+    
+    Now, because $f$ is basepoint preserving, if we take $x_0$ to be our basepoint, $x_0 \mapsto x_0$ which means that under the equivalence relation, $(x_0, 0) \mapsto (x_0, 1)$. As stated in Hatcher, we can regard $T_f$ as the construction of $X \vee S^1$ with appropriate cells attached, i.e. as the space obtained by taking every $k$ cell in $X$ and attaching a $k+1$ cell. This is visualized in the diagram below. By Proposition 1.26, we therefore have that $\pi_1(T_f) \cong \pi_1(X \vee S^1)/N$. However, this is precisely the fundamental group from question (8). Thus,
+    \begin{equation*}
+        \pi_1(T_f) \approx 
+        (\bbZ * \bbZ * \bbZ) / 
+        \langle aba^{-1}b^{-1}, cdc^{-1}d^{-1} \rangle
+    \end{equation*}
+    Where $a = f_*(a)$, etc.
+    
+    \bigskip
+    
+    We now consider the case where $X = S^1 \times S^1$. This is a torus. We once again regard $T_f$ as the space obtained by attaching appropriate cells to $X \vee S^1$. This time we attach one 3-cell (for the 2-cell of the torus) and two two-cells (for the two 1-cells of the torus). One again, the wedge with $S^1$ is the result of attaching one 1-cell to the basepoint of $X$.
+    
+    From part (b) of Proposition 1.26, we know that the 3-cell is simply connected and therefore doesn't affect $\pi_1(T_f)$. We therefore obtain almost exactly the same fundamental group as before, except that we have an extra 1-cell. This extra cell causes $a$ and $b$ to commute. Therefore, 
+    \begin{equation*}
+        \pi_1(T_f) \approx 
+        (\bbZ * \bbZ * \bbZ) / 
+        \langle aba^{-1}b^{-1}, cdc^{-1}d^{-1} \mid ab = ba \rangle
+    \end{equation*}
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{./figures/hwk2-fig1.jpg}
+    \caption{The homotopy in Case 1}
+    \label{fig:case1}
+\end{figure}
+
+\end{homework}
+\end{document}

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  11 SEP 2022 19:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  11 SEP 2022 21:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**at-hwk2.tex
-(./at-hwk2.tex
+**at-hwk3.tex
+(./at-hwk3.tex
 LaTeX2e <2021-11-15> patch level 1
 L3 programming layer <2022-01-21> (../preamble.tex (/usr/local/texlive/2021/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
@@ -1276,8 +1276,8 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.95pt on input line 41.
 \@quotelevel=\count483
 \@quotereset=\count484
- (./at-hwk2.aux)
-\openout1 = `at-hwk2.aux'.
+ (./at-hwk3.aux)
+\openout1 = `at-hwk3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
 LaTeX Font Info:    ... okay on input line 41.
@@ -1376,9 +1376,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 41.
 LaTeX Info: Redefining \pageref on input line 41.
 LaTeX Info: Redefining \nameref on input line 41.
- (./at-hwk2.out) (./at-hwk2.out)
+ (./at-hwk3.out) (./at-hwk3.out)
 \@outlinefile=\write5
-\openout5 = `at-hwk2.out'.
+\openout5 = `at-hwk3.out'.
 
 \c@mv@tabular=\count492
 \c@mv@boldtabular=\count493
@@ -1416,11 +1416,11 @@ Package biblatex Info: ... and expl3
  (/usr/local/texlive/2021/texmf-dist/tex/latex/biblatex/blx-case-expl3.sty
 Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 )
-\openout4 = `at-hwk2.bcf'.
+\openout4 = `at-hwk3.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'at-hwk2.bbl' found.
- (./at-hwk2.bbl)
+Package biblatex Info: ... file 'at-hwk3.bbl' found.
+ (./at-hwk3.bbl)
 Package biblatex Info: Reference section=0 on input line 41.
 Package biblatex Info: Reference segment=0 on input line 41.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
@@ -1460,51 +1460,153 @@ Package microtype Info: Character `029' is missing
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 (Font)              scaled to size 10.95pt on input line 58.
 Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 58.
- [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5]
+./at-hwk3.tex:71: Undefined control sequence.
+l.71 ...$1$ is the empty word for some $k \in \bbN
+                                                  $.
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[1
+
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 223.
+(Font)              scaled to size 8.0pt on input line 92.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 223.
- [6]
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 249.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
-File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
-)
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 249.
- [7]
-<./figures/hwk2-fig1.jpg, id=80, 576.7146pt x 417.9615pt>
+(Font)              scaled to size 6.0pt on input line 92.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 10.95pt on input line 96.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
+(Font)              scaled to size 10.95pt on input line 99.
+
+./at-hwk3.tex:104: Undefined control sequence.
+l.104         (\bbZ
+                    * \bbZ * \bbZ) /
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./at-hwk3.tex:104: Undefined control sequence.
+l.104         (\bbZ * \bbZ
+                           * \bbZ) /
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./at-hwk3.tex:104: Undefined control sequence.
+l.104         (\bbZ * \bbZ * \bbZ
+                                 ) /
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./at-hwk3.tex:116: Undefined control sequence.
+l.116         (\bbZ
+                    * \bbZ * \bbZ) /
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./at-hwk3.tex:116: Undefined control sequence.
+l.116         (\bbZ * \bbZ
+                           * \bbZ) /
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./at-hwk3.tex:116: Undefined control sequence.
+l.116         (\bbZ * \bbZ * \bbZ
+                                 ) /
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[2]
+<./figures/hwk2-fig1.jpg, id=34, 576.7146pt x 417.9615pt>
 File: ./figures/hwk2-fig1.jpg Graphic file (type jpg)
 <use ./figures/hwk2-fig1.jpg>
-Package pdftex.def Info: ./figures/hwk2-fig1.jpg  used on input line 260.
+Package pdftex.def Info: ./figures/hwk2-fig1.jpg  used on input line 122.
 (pdftex.def)             Requested size: 284.52756pt x 206.21237pt.
-<./figures/hwk2-fig3.jpg, id=81, 2395.95125pt x 1801.73125pt>
-File: ./figures/hwk2-fig3.jpg Graphic file (type jpg)
-<use ./figures/hwk2-fig3.jpg>
-Package pdftex.def Info: ./figures/hwk2-fig3.jpg  used on input line 266.
-(pdftex.def)             Requested size: 284.52756pt x 213.94406pt.
- [8 <./figures/hwk2-fig1.jpg> <./figures/hwk2-fig3.jpg>] [9] (./at-hwk2.aux)
-Package rerunfilecheck Info: File `at-hwk2.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package logreq Info: Writing requests to 'at-hwk2.run.xml'.
-\openout1 = `at-hwk2.run.xml'.
 
- ) 
+
+./at-hwk3.tex:127: LaTeX Error: \begin{proof} on input line 98 ended by \end{hw}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.127 \end{homework}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+./at-hwk3.tex:127: LaTeX Error: \begin{hw} on input line 55 ended by \end{homework}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.127 \end{homework}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[3 <./figures/hwk2-fig1.jpg>]
+
+./at-hwk3.tex:128: LaTeX Error: \begin{homework} on input line 55 ended by \end{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.128 \end{document}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+(./at-hwk3.aux)
+Package rerunfilecheck Info: File `at-hwk3.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package logreq Info: Writing requests to 'at-hwk3.run.xml'.
+\openout1 = `at-hwk3.run.xml'.
+
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 55 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 44139 strings out of 478287
- 879356 string characters out of 5846765
- 1708114 words of memory out of 5000000
- 61422 multiletter control sequences out of 15000+600000
- 511362 words of font info for 126 fonts, out of 8000000 for 9000
+ 43884 strings out of 478287
+ 874767 string characters out of 5846765
+ 1699070 words of memory out of 5000000
+ 61230 multiletter control sequences out of 15000+600000
+ 515431 words of font info for 113 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,21n,102p,3058b,1374s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on at-hwk2.pdf (9 pages, 2352970 bytes).
+ 103i,12n,102p,3058b,1361s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on at-hwk3.pdf (3 pages, 1205634 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
- 129 compressed objects within 2 object streams
- 41 named destinations out of 1000 (max. 500000)
- 23581 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 94 PDF objects out of 1000 (max. 8388607)
+ 64 compressed objects within 1 object stream
+ 11 named destinations out of 1000 (max. 500000)
+ 25618 words of extra memory for PDF output out of 29859 (max. 10000000)
 

@@ -167,7 +167,9 @@ Next since $\pi_1(X,x_0) \times \pi_1(Y,y_0) \approx \pi(X \times Y, (x_0,y_0))$
   \item $X = \bR^3$ with $A$ any subspace homeomorphic to $S^1$.
   \item $X = S^1 \times D^2$ with $A$ its boundary torus $S^1\times S^1$.
   \item $X = S^1\times D^2$ with $A$ the interlocked circle in the solid torus.
-
+  \item $X = D^2 \vee D^2$ with $A$ its boundary $S^1 \vee S^1$.
+  \item $X$ a disk with two points on its boundary identified and $A$ its boundary $S^1 \vee S^1$.
+  \item $X$ the M\"obius band and $A$ its boundary circle.
 \end{enumerate}
 \begin{prf}
   \begin{enumerate}[(a)]
@@ -186,18 +188,53 @@ Next since $\pi_1(X,x_0) \times \pi_1(Y,y_0) \approx \pi(X \times Y, (x_0,y_0))$
   \end{enumerate}
 \end{prf}
 
+\prob[\textsc{Exercise 20.}] Suppose $f_t:X\to X$ is a homotopy such that $f_0$ and $f_1$ are each the identity map. Use Lemma 1.19 to show that for any $x_0 \in X$, the loop $f_t(x_0)$ represents an element of the center of $\pi_1(X,x_0)$. [One can interpret the result as saying that a loop represents an element of the center of $\pi_1(X)$ if it extends to a loop of maps $X\to X$.]
+\begin{prf}
+  Let $h(t) = f_t(x_0)$ be the loop taken by $x_0$ over $f_t$. Lemma 1.19 says that
+  \begin{align*}
+    f_{0*} = \beta_h f_{1*}.
+  \end{align*}
+  For any $[g] \in \pi_1(X,x_0)$, we get that
+  \begin{align*}
+    [g] = f_{0*}[g] = \beta_h f_{1*}[g] = \beta_h[g] = [h] * [g] * [\olh]
+  \end{align*}
+  since both $f_0$ and $f_1$ are identity maps. This means that $[g]\cdot [h] = [h] \cdot [g]$. Since $g$ was chosen arbitrarily, we have that $[h]$ is in the center of $\pi_1(X,x_0)$.
+\end{prf}
 \newpage
 
 \tchap{Problems from 1.2}
 \prob[\textsc{Exercise 3.}] Show that the complement of a finite set of points in $\bR^n$ is simply-connected if $n \geq 3$.
 
 \begin{prf}
+  \underline{\emph{Without Van Kampen:}} ~ Let $X = \bR^n - \{p_0,...,p_m\}$ be the space obtained by removing $m$-many points from $\bR^n$, where $n \geq 3$, and let $f:S^1\to X$ be a continuous map. Denote by $x_0$ the basepoint of $S^1$. We construct an explicit homotopy between $f$ and a constant map $c:S^1 \to X$, which by problem 5, is sufficient to conclude $X$ is simply-connected.
+
+  Our homotopy will essentially be a linear interpolation with the extra stipulation that we never come within some fixed distance of any point $p_i$. To accomplish this, we first set $r$ to be half the minimum distance between the $p_i$ and between the path $f(S^1)$ and the $p_i$, that is,
+  \begin{align*}
+    r = \inf \left\{\|x - p_i\| \midd x \in f(S^1) \cup \{p_0,...,p_m\}, 1\leq i\leq n\right\}\Big/~2.
+  \end{align*}
+  The set $f(S^1)$ is the image of a compact set under a continuous function and is hence itself compact, so the minimum of $\|x - p_i\|$ for $x \in f(S^1)$ is obtained for some $i$ and some $x$. This implies that $r$ is positive. 
+
+  We now imagine placing closed balls of radius $r$ centered at each $p_i$. It will be useful to enumerate these, so we define $D_i = D_r^n(p_i) \subseteq \bR^n$, where $D_r(p_i)$ is the closed $n$-dimensional disk of radius $r$ centered at $p_i$. These open balls are pairwise disjoint and do not intersect the path $f(S^1)$ by the definition of $r$. In particular, it means that points within distance $r$ of $p_i$ are closer to $p_i$ than to $p_j$ for any $j \neq i$. Fix a point $P \in X \setminus \bigcup_{i = 0}^m D_i$, and additionally assume that $P$ does not lie on the line between $x_0$ and $p_i$ for any $0\leq i\leq n$.
+
+  Choose an element $x\in S^1$ and consider the line segment between $f(x)$ and $P$ parameterized by the function $\ell_x:[0,1]\to \bR^n$, $\ell_x(t) = (1-t)f(x) + tP$. The homotopy $L:S^1\times [0,1] \to \bR^n$ defined $L(x,t) = \ell_x(t)$ is then a homotopy between $f$ and the constant map $c_P:S^1 \to \bR^n$ defined $c_p(x) = P$. Ideally, this would also be a homotopy of $f$ to $c_P$ in $X$, but the collection of line segments $\{F_x([0,1])\}_{x\in S^1}$ may intersect some of the points $p_i$. We find a homotopy from $L$ to a map $F$ whose image in $\bR^n$ is at least distance $r$ from all the $p_i$.
+
+  Suppose the line segment between $x \in S^1$ and $P$ passes through the interior of $D_i$. We have two cases: 
+  \begin{enumerate}
+    \item there is some largest interval $[a,b] \in S^1$ such that $\ell_a([0,1])$ and $\ell_b([0,1])$ are both tangent to $D_i$, $a < x < b$ and $\ell_y([0,1]) \cap D_i \neq \emptyset$ (see figure \ref{fig:case1}) or
+    \item $\ell_y([0,1]) \cap D_i \neq \emptyset$ for all $y \in S^1$ (see figure \ref{fig:case2}).
+  \end{enumerate}
+  In case (1), the intersection $L([a,b] \times [0,1]) \cap D_i$ is homotopic to a plane passing through $D_i$, and we may homotope $L$ to a new map $L'$ which runs along a sector of $S^{n-1} \cong \partial D_i$ in such a way that fixes the endpoints of each path $\ell_y[0,1]\cap D_i$ for $y\in [a,b]$. In Case (2), the intersection $L(S^1 \times [0,1])$ is homotopic to a cylinder $S^1 \times [0,1]$ (see figure \ref{fig:case2} again) and can similarly be homotoped to the boundary $\partial D_i$ via a homotopy which fixes the endpoints of the paths $\ell_y([0,1])\cap D_i$ for all $y \in S^1$. 
+
+  We may do this for each $x \in S^1$ and each $0\leq i\leq m$. The end result is a homotopy $F:S^1\times [0,1] \to \bR^n$ which, for each $x \in S^1$, is a concatenation of linear paths in $bR^n$ and arcs along the surface of $n$-dimensional disks. Call this homotopy $F$. It is a homotopy between $f$ and $c_p$ since $F(x,0) = f(x)$ and $F(x,1) = P$, and it is a homotopy in $X$ since it avoids all points $p_0,...,p_m$.
+
+  \bigskip
+
+  \underline{\emph{With Van Kampen:}} ~ I wrote a solution to this problem using Van Kampen before realizing that wasn't allowed. Here's that solution too -- I couldn't bear deleting it because it includes a pretty tikz picture.
 Let $\{x_1,...,x_k\}$ be a finite collection of points in $\bR^n$. We can place a ${n-1}$ sphere around every point removed from $\bR^n$, ensuring that the radius is small enough to contain only one "hole", and connect every sphere with another via a straight path. Call this space $X$. Just as $\bR^n$ with a single point removed deformation retracts to $S^{n-1}$, I claim that $\bR^n - \{x_1,...,x_k\}$ deformation retracts onto $X$. Every point inside of one of the spheres retracts onto the sphere, and choosing to map every point in $\bR^n$ that is not in $X$ onto the nearest point in $X$ retains continuity. 
 
 Every path-connected open set on this surface has the trivial fundamental group, so by Van Kampen's theorem, the fundamental group of $X$ is also trivial. Since $\bR^n - \{x_1,...,x_k\}$ deformation retracts onto $X$, we conclude that $\pi_1(\bR^n - \{x_1,...,x_k\}) = [1]$. 
 \end{prf}
 \bigskip
-
 \begin{tikzpicture}
   \coordinate (A) at (15:0.5cm);
   \coordinate (B) at (3,1);
@@ -215,8 +252,51 @@ Every path-connected open set on this surface has the trivial fundamental group,
   \altmakesphere((S4))(0.75)(\textbullet $x_4$)[gray!10][0.4]
   \altmakesphere((S5))(0.6)(\textbullet $x_5$)[gray!10][0.4]
   \altmakesphere((S6))(0.6)(\textbullet $x_6$)[gray!10][0.4]
-  \node [] at (6,-2) {\emph{The space $X$ defined above}};
+  \node [] at (6,-2) {\emph{The space $X$ used with Van Kampen}};
 \end{tikzpicture}
+\newpage
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{./figures/hwk2-fig1.jpg}
+    \caption{The homotopy in Case 1}
+    \label{fig:case1}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{./figures/hwk2-fig3.jpg}
+    \caption{The homotopy in Case 2}
+    \label{fig:case2}
+\end{figure}
+
+\newpage
+
+\prob[\textsc{Bonus Exercise: A ``Bad'' Group Action.}] Let $X = \bR^2 - \{0\}$. Let $G$ be the group of homeomorphisms of $X$ generated by the transformation $(x,y) \mapsto (2x,y/2)$. Let $Y$ be the quotient space $X/G$.
+\begin{enumerate}[(a)]
+  \item Prove that every orbit is discrete. This is meant as a stepping stone to the more general result (b).
+  \item Prove that $G's$ action on $S$ is what Hatcher calls a covering space action (pg. 72).
+  \item Prove that $Y$ is a manifold, except for the fact that it is \emph{not} Hausdorff.
+\end{enumerate}
+\begin{prf}
+  \begin{enumerate}[(a)]
+    \item Fix a point $p = (x,y) \in X$. For any $h \in \bZ$, we have that $g^n(x,y) = \left(2^nx,y/x^n\right)$, and hence
+  \begin{align*}
+    \|p - g^np\|^2 &= (x - 2^nx)^2 + (y - \frac{1}{2}y)^2 \\
+                           &= x^2\left(1 - 2^n\right)^2 + y^2\left(1 - \frac{1}{2^n}\right)^2 \\
+                           &> \frac{x^2}{4} + \frac{y^2}{4} = \frac{\|p\|^2}{4}.
+  \end{align*}
+  If we set $r = \min\left\{\frac{\|p\|^2}{4}, \|p\|\right\}$ then $g^np \not\in B_r(p)$. Thus, for any point in $X$, no point of its orbit comes within distance $r$, and hence the orbits of $X$ under $G$ are discrete.
+
+  \item Note that, because $g$ is a homeomorphism, $g^n(U) \cap g^m(U) = \emptyset$ if and only if $g^{n - m}(U) \cap U = \emptyset$. Let $r_p = \min\left\{\frac{\|p\|^2}{8},\|p\|\right\}$. For $p \in X$ and any two points $x,y \in B_r(p)$, we have that $\|x - y\| < \frac{\|p\|}{4}$ by the triangle inequality. Hence, by part (a), all the images $g\cdot B_r(p)$ are disjoint from $B_r(p)$, and the action of $G$ upon $X$ satisfies what Hatcher calls a covering space action.
+
+  \item Let $[p] \in X/G$ and let $B_r(p)$ be the ball of radius $r$ centered at $p \in X$ from part (b). Because $g^n B_r(p) \cap g^mB_r(p) = \emptyset$ for each $n,m \in \bZ$, the projection map $\pi:X\to X/G$ is a homeomorphism on $B_r(p)$ and $U = \pi(B_r(p))$ is an open neighborhood of $[p]$ in $X/G$. Since
+    \begin{align*}
+      \|p - 0\| = \|p\| \geq \min\left\{\frac{\|p\|^2}{8},\|p\|\right\} = r,
+    \end{align*}
+    $0 \not\in B_r(p)$ and hence $B_r(p)$ is an open disk in $\bR^2$. The inverse of the restriction $\pi|_{B_r(p)}$ then yields a homeomorphism $g:U\to B_r(p)$, so $X/G$ is locally homeomorphic to $\bR^2$.
+
+    I do not know why $X/G$ fails to be Hausdorff, but I imagine it has something to do with the fact that the origin is a limit point of the orbit of any point of the form $(x,0),(0,y) \in X$.
+\end{enumerate}
+\end{prf}
 
 \end{homework}
 \end{document}
