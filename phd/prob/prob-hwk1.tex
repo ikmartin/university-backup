@@ -1,0 +1,46 @@
+\input{../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Title Goes Here \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\tchap{Chapter 1}
+\begin{homework}[e]
+	\prob Let $(S,\cS)$ be a measurable space, and let $\{A_n\}_{n\in \bN}$ be a sequence in $\cS$. Show that the following sets are also in $\cS.$
+	\begin{enumerate}[(1)]
+		\item the set $C_1$ of all $x \in S$ such that $x \in A_n$ for at least 5 different values of $n$.
+		\item the set $C_2$ of all $x \in S$ such that $x \in A_n$ for exactly $5$ different values of $n$.
+		\item the set $C_3$ of all $x \in S$ such that $x \in A_n$ for all but finitely many $n$ (``finitely many'' includes none).
+		\item the set $C_4$ of all $x \in S$ such that $x \in A_n$ for at most finitely many values of $n$.
+	\end{enumerate}
+	\begin{prf}
+		\begin{enumerate}[(1)]
+			\item 
+		\end{enumerate}
+	\end{prf}
+	\prob (Atomic structure of algebras). A \textbf{partition} of a set $S$ is a family $\cP$ of non-empty subsets of $S$ with the property that each $x \in S$ belongs to exactly one $A \in \cP$.
+	\begin{enumerate}[(1)]
+		\item How many algebras are there on the set $S = \{1,2,3\}$?
+		\item By constructing a bijection between the two families, show that the number of different algebras on a finite set $S$ is equal to the number of different partitions of $S$. Note: the elements of the partition corresponding to an algebra are said to be its atoms.
+		\item Does there exist an algebra with 754 elements?
+	\end{enumerate}
+	\prob Show that $f: \bR\to \bR$ is measurable if it is either monotone or convex.
+	\begin{prf}
+		Define the following collection of subsets of $\bR$: $A = \{(-\infty,a] \mid a \in \bR\}$. I claim that $\sigma(A) = \cB(\bR)$, i.e. that $A$ generates the Borel algebra on $\bR$. To see this, it suffices to show that all open intervals are contained in $\sigma(A)$. Fix an open interval $(a,b) \subseteq \bR$. Sigma algebras are closed under setminus, so $(-\infty, b] \setminus (-\infty,a] = (a,b]$. To obtain an open set, take a countable sequence of these half-open intervals and union them:
+		\begin{align*}
+			(a,b) = \bigcup_{n=1}^\infty \left(a,b - \frac{1}{n}\right].
+		\end{align*}
+		Hence $(a,b) \in \sigma(A)$, and since $A \subseteq \cB(\bR)$, we have $\sigma(A) = \cB(\bR)$. We now move on to the problem at hand.
+		
+		Suppose first that $f$ is monotone increasing, so that $x \leq y\implies f(x) \leq f(y)$. By a theorem from class, it suffices to prove $f$ is measurable on a generating set for the Borel algebra. Consider the interval $(-\infty,a)$ and set $b = \inf f^{-1}(a)$. 
+	\end{prf}
+\end{homework}
+\end{document}
