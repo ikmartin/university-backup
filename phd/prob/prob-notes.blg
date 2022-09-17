@@ -1,9 +1,0 @@
-[0] Config.pm:311> INFO - This is Biber 2.16
-[0] Config.pm:314> INFO - Logfile is 'prob-notes.blg'
-[130] biber-darwin:340> INFO - === Mon Aug 22, 2022, 13:03:23
-[152] Biber.pm:415> INFO - Reading 'prob-notes.bcf'
-[311] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
-[323] Utils.pm:395> WARN - The file 'prob-notes.bcf' does not contain any citations!
-[335] bbl.pm:654> INFO - Writing 'prob-notes.bbl' with encoding 'UTF-8'
-[335] bbl.pm:757> INFO - Output to prob-notes.bbl
-[336] Biber.pm:128> INFO - WARNINGS: 1
