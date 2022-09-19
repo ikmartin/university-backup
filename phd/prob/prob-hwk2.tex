@@ -1,0 +1,163 @@
+\input{../preamble.tex}
+
+% for more leftrightarrow options
+\usepackage{stackrel}
+\newcommand\mapsfrom{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
+
+\newcommand{\leftrarrows}{\mathrel{\raise.75ex\hbox{\oalign{%
+  $\scriptstyle\leftarrow$\cr
+  \vrule width0pt height.5ex$\hfil\scriptstyle\relbar$\cr}}}}
+\newcommand{\lrightarrows}{\mathrel{\raise.75ex\hbox{\oalign{%
+  $\scriptstyle\relbar$\hfil\cr
+  $\scriptstyle\vrule width0pt height.5ex\smash\rightarrow$\cr}}}}
+\newcommand{\Rrelbar}{\mathrel{\raise.75ex\hbox{\oalign{%
+  $\scriptstyle\relbar$\cr
+  \vrule width0pt height.5ex$\scriptstyle\relbar$}}}}
+\newcommand{\longleftrightarrows}{\leftrarrows\joinrel\Rrelbar\joinrel\lrightarrows}
+
+\makeatletter
+\def\leftrightarrowsfill@{\arrowfill@\leftrarrows\Rrelbar\lrightarrows}
+\newcommand{\xleftrightarrows}[2][]{\ext@arrow 3399\leftrightarrowsfill@{#1}{#2}}
+\makeatother
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Title Goes Here \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\tchap{Chapter 1}
+\begin{homework}[e]
+	\prob[\textsc{Exercise 2.1}] (Stronger separation). Let $(S,\cS,\mu)$ be a measure space and let $f,g \in \cL^0(S,\cS)$ satisfy $\mu(\{x\in S ~:~ f(x) < g(x)\}) > 0$. Prove or construct a counterexample for the following statement:
+	\begin{center}
+		``There exist constants $a,b \in \bR$ such that $\mu(\{x \in S ~:~ f(x) \leq a < b \leq g(x)\}) > 0$.''
+	\end{center}
+	\begin{prf}
+		We prove that this statement is true. Define a function $m:S\to \bR$ by
+		\begin{align*}
+			m(x) = \frac{f(x) + g(x)}{2}.
+		\end{align*}
+		Think of $m(x)$ as the midpoint between $f(x)$ and $g(x)$. Since $\cL^0$ is a real vector space, $m(x)$ is a measurable function.
+
+		Now define for each $n \in \bN$
+		\begin{align*}
+			A_n = \left\{x \in S \midd f(x) \leq m(x) - \frac{1}{2^n} < m(x) + \frac{1}{2^n} \leq g(x)\right\}.
+		\end{align*}
+		Notice that because $m(x) - \frac{1}{2^n} < m(x) + \frac{1}{2^n}$ for all $x \in S$ we can write these sets instead as
+		\begin{align*}
+			A_n &= \left\{x \in S \midd f(x) \leq m(x) - \frac{1}{2^n} ~\text{ and  }~ m(x) + \frac{1}{2^n} \leq g(x)\right\} \\
+				&= \left\{x \in S \midd f(x) - m(x)\leq - \frac{1}{2^n}\right\} \cap \left\{x \in S \midd \frac{1}{2^n} \leq g(x) - m(x)\right\} \\
+				&= (f - m)^{-1}\left(-\infty, -\frac{1}{2^n}\right] \cap (g - m)^{-1}\left[\frac{1}{2^n},\infty\right).
+		\end{align*}
+		The differences $f - m$ and $g - m$ are measurable functions since $\cL^0(S,\cS)$ is a $\bR$-vector space, so $A_n$ is an intersection of measurable sets and hence itself measurable. Furthermore, if $x \in A_n$, then we have
+		\begin{align*}
+			f(x) \leq m(x) - \frac{1}{2^n} < m(x) - \frac{1}{2^{n+1}} < m(x) + \frac{1}{2^{n+1}} < m(x) + \frac{1}{2^n} \leq g(x)
+		\end{align*}
+		which implies $x \in A_{n+1}$ and $A_n \subseteq A_{n+1}$. Thus the sequence $\{A_n\}_{\bN}$ is nested increasing.
+
+		We now suggestively name the set in question $A$, i.e. set
+		\begin{align*}
+			A = \{x\in S ~\mid~ f(x) < g(x)\}.
+		\end{align*}
+		I claim that $A = \bigcup_{n \in \bN} A_n$. One inclusion is obvious, since $A_n \subseteq A$ for all $n\in \bN$. For the other inclusion, suppose $x \in A$. Then $f(x) < g(x)$, and hence $f(x) < m(x) < g(x)$. Set choose $N$ so that $\frac{1}{N} < \min\{m(x) - f(x), g(x) - m(x)\}$ (note that $m(x) - f(x) = g(x) - m(x)$, but this is faster). Then $\frac{1}{2^N} < \frac{1}{N}$, and hence
+		\begin{align*}
+			f(x) \leq m(x) - \frac{1}{2^N} ~\text{ and } m(x) + \frac{1}{2^N} \geq g(x).
+		\end{align*}
+		This implies that $x \in A_n$. Since every element of $A$ is contained in $A_n$ for some $n \in \bN$, we conclude that $A \subseteq \bigcup_n A_n$, and therefore have equality $A = \bigcup_n A_n$.
+
+		Now, by the continuity measures with respect to increasing sequences,
+		\begin{align*}
+			\mu\left(A\right) = \mu\left(\bigcup_n A_n\right) = \lim_n \mu(A_n).
+		\end{align*}
+		If $\mu(A_n) = 0$ for all $n \in \bN$, then we would have $\mu(A) = \lim_n\mu(A_n) = 0 $, which is not the case. There must then be some $n\in \bN$ such that $\mu(A_n) > 0$. Setting $a = m(x) - \frac{1}{2^n}$ and $b = m(x) + \frac{1}{2^n}$ then gives us that
+		\begin{align*}
+			\mu\left(\left\{x \in S \midd f(x) \leq a < b \leq g(x)\right\} \right) = \mu(A_n) > 0.
+		\end{align*}
+	\end{prf}
+	\prob[\textsc{Exercise 2.2}] (A uniform distribution on a circle.) Let $S^1$ be the unit circle and let $f:[0,1) \to S^1$ be the ``winding map''
+	\begin{align*}
+		f(x) = \left(cos(2\pi x),\sin(2\pi x)\right), ~ x\in [0,1).
+	\end{align*}
+	\begin{enumerate}[(1)]
+		\item Show that the map $f$ is $\big(\cB([0,1)), \cS^1\big)$-measurable, where $\cS^1$ denotes the Borel $\sigma$-algebra on $S^1$ (with topology inherited from $\bR^2$).
+		\item For $\alpha \in (0,2\pi)$, let $R_\alpha$ denote the (counter-clockwise) rotation of $\bR^2$ with center $(0,0)$ and angle $\alpha$> Show that $R_\alpha(A) = \{R_\alpha(x) ~ : ~ x \in A\}$  is in $\cS^1$ if and only if $A \in \cS^1$.
+		\item Let $\mu^1$ be the pushforward of the Lebesgue measure $\lambda$ by the map $f$. Show that $\mu^1$ is rotation-invariant, i.e. that $\mu^1(A) = \mu^1(R_\alpha(A))$. \small{\emph{Note:} The measure $\mu^1$ is called the \textbf{uniform measure} (or the \textbf{uniform distribution} on $S^1$)}.
+	\end{enumerate}
+	\begin{prf}$ $
+
+		\noindent \emph{(1):} \hspace{0.5em} If this were a topology class, we'd simply state that ``it is clear that $f$ is continuous,'' as it is a continuous map in each component. Instead, we will prove that it is continuous, and hence Borel measurable. We take for granted the continuity of $\sin$ and $\cos$ as functions on $\bR$.
+
+		Suppose $x,a \in [0,1)$, and consider $\|f(x) - f(a)\|^2$. With the help of trig identities, we have the following:
+		\begin{align*}
+			\|f(x) - f(a)\|^2 &= |(\cos(2\pi x)-\cos(2\pi a))^2 + (\sin(2\pi x) - \sin(2\pi a))^2| \\
+							  &= |\cos^2(2\pi x) - 2\cos(2\pi x)\cos(2\pi a) + \cos^2(2\pi a) + \sin^2(2\pi x) \\ &\hspace{1em}- 2\sin(2\pi x)\sin(2\pi a) + \sin^2(2\pi a)| \\
+							  &= |2 - \cos(2\pi x - 2\pi a) - \cos(2\pi x + 2\pi a) - \cos(2\pi x - 2\pi a) + \cos(2\pi x + 2\pi a)| \\
+							  &= 2 - 2\cos(2\pi x - 2\pi a).
+		\end{align*}
+		Note that we may drop the absolute value in the final equality since $2\cos(2\pi x - 2\pi a) \leq 2$ for all $x,a\in [0,1)$. Thus, as $x$ approaches $a$ in $[0,1)$, we have that
+		\begin{align*}
+			\lim_{x \to a}\|f(x) - f(a)\| = \lim_{x\to a} \big(2 - 2\cos(2\pi x - 2\pi a) \big)= 2- 2\cos(0) = 0,
+		\end{align*}
+		and hence $f$ is continuous and therefore Borel measurable.
+
+		\bigskip
+
+		\noindent \emph{(2):} \hspace{0.5em} I claim that $R_\alpha$ is a homeomorphism on $\bR^2$, from which it will follow immediately that it induces a bijection on $\cS^1$. First, notice that rotation any point $x \in \bR^2$ first by $\alpha \in (0,2\pi)$ and then by $2\pi - \alpha$ gives back $x$, i.e. $R_{2\pi - \alpha} \circ R_\alpha = \id_{\bR^2}$. To see this more rigorously, we can realize $R_\alpha:\bR^2\to \bR^2$ as the $\bR$-linear map given by left multiplication by
+		\begin{align*}
+			\begin{pmatrix}	
+				\cos(\alpha) & -\sin(\alpha) \\
+				\sin(\alpha) & \cos(\alpha)
+			\end{pmatrix},
+		\end{align*}
+		in which case the composition $R_\alpha$ with $R_{2\pi - \alpha}$ is the matrix product
+		\begin{align*}
+			\begin{pmatrix}	
+				\cos(2\pi - \alpha) & -\sin(2\pi - \alpha) \\
+				\sin(2\pi - \alpha) & \cos(2\pi - \alpha)
+			\end{pmatrix}&
+			\begin{pmatrix}	
+				\cos(\alpha) & -\sin(\alpha) \\
+				\sin(\alpha) & \cos(\alpha)
+			\end{pmatrix} = 
+			\begin{pmatrix}	
+				\cos(\alpha) & \sin(\alpha) \\
+				-\sin(\alpha) & \cos(\alpha)
+			\end{pmatrix}
+			\begin{pmatrix}	
+				\cos(\alpha) & -\sin(\alpha) \\
+				\sin(\alpha) & \cos(\alpha)
+			\end{pmatrix} \\
+			&\hspace{-5em}= 
+			\begin{pmatrix}	
+				\cos^2(\alpha) + \sin^2(\alpha) & -\sin(\alpha)\cos(\alpha) + \sin(\alpha)\cos(\alpha) \\
+				-\sin(\alpha)\cos(\alpha) + \sin(\alpha)\cos(\alpha) & \sin^2(\alpha)+\cos^2(\alpha)
+			\end{pmatrix} \\
+			&\hspace{-5em}= 
+			\begin{pmatrix}	1 & 0 \\ 0 & 1 \end{pmatrix}.
+		\end{align*}
+		We have a similar result for the composition $R_\alpha\circ R_{2\pi - \alpha}$. Since linear maps are continuous on $\bR^2$ (this is a fact from undergraduate analysis that I feel doesn't warrant proof) $R_\alpha$ is a continuous map with continuous inverse, and is hence a homeomorphism.
+
+		Finally, note that $R_\alpha$ fixes $S^1$, which was implicitly assumed by the problem statement.
+
+		Now suppose that $A \subseteq S^1$ is an open set. This means there must be some open set $U \subseteq \bR^2$ such that $A = S^1 \cap U$. Since $R_\alpha$ is a homeomorphism on $\bR^2$, $R_\alpha(U) = R^{-1}_{2\pi - \alpha}(U)$, which is open by the continuity of $R_{2\pi - \alpha}$. Since $R_\alpha$ fixes $S^1$,
+		\begin{align*}
+			R_\alpha(A) = R_\alpha(U \cap S^1) = R_\alpha(U) \cap S^1 = R^{-1}_{2\pi - \alpha}(U) \cap S^1,
+		\end{align*}
+		which is open in the subspace topology on $S^1$. Likewise, if $R_\alpha(A)$ is open, then $R^{-1}_{2\pi - \alpha}(R_\alpha(A)) = A$ is open.
+
+		The Borel algebra on $S^1$ is generated by open sets, and since the maps $A \mapsto R_\alpha(A)$ and $R_\alpha(A) \mapsto A$ send open sets to open (and hence measurable) sets, by Proposition 1.10 in the notes we conclude that $R_\alpha$ induces a bijection on $\cS^1$.
+
+		\bigskip
+
+		\noindent \emph{(3):} \hspace{0.5em} 
+	\end{prf}
+	\prob[\textsc{Exercise 2.3}]
+	\prob[\textsc{Exercise 2.4}]
+	\prob[\textsc{Exercise 2.5}]
+\end{homework}
+\end{document}
