@@ -35,3 +35,13 @@
 \contentsline {subsection}{\numberline {4.2}Relation to subdivisions of the Newton polygon}{12}{subsection.4.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.3}Intersections of plane tropical curves}{12}{subsection.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.4}Morphisms}{13}{subsection.4.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5}The Grassmannian}{14}{subsection.4.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Polyhedral Geometry}{14}{section.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Gr\"obner Bases (over a field with a valuation)}{16}{section.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1}Initial Ideals}{16}{subsection.6.1}%

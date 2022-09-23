@@ -4,7 +4,7 @@
 % Title page stuff
 \title{Ising Graphs and Circuits: A Categorical Approach}
 \date{}
-%\author{Author Name}
+\author{Author Name}
 %\use package[show frame]{geometry}
 
 \usepackage{titling}
@@ -52,7 +52,7 @@ The probability of observing an Ising graph in a given spin state increases as t
 	Energy equivalence is an equivalence relation on $S_G$. \hfill $\square$
 \end{lem}
 \begin{defn}\label{defn:energy-cosets}
-	The \emph{energy spectrum} of an Ising graph $G$ is the quotient $S_G/\sim$ where $\sim$ is energy equivalence. That is, $S_G/\sim$ is the partition of $S_G$ into subsets all of whose spins evaluate to the same value under the Hamiltonian. We call it the \emph{energy spectrum} of $G$ because we have exactly one energy coset for each value assumed by the Hamiltonian.
+	The \emph{energy spectrum} of an Ising graph $G$ is the quotient $S_G/\sim$ where $\sim$ is energy equivalence. That is, $S_G/\sim$ is the partition of $S_G$ into subsets all of whose spins evaluate to the same value under the Hamiltonian. We call it the \emph{energy spectrum} of $G$ because we have exactly one energy coset for each value assumed by the Hamiltonian. 
 \end{defn}
 Finding the likelihood of observing a given Ising graph in each spin configuration is known as the \emph{forward Ising problem}, and it essentially requires one to simply write down the order of spin states.
 
@@ -173,7 +173,6 @@ Remember that a preising graph comes equipped with a partial ordering on $S_G$ b
 	It is a good idea to trace back through our definitions at this point. Remember that an Ising graph $G$ is a preising graph whose partial ordering on $S_G$ is induced by the Hamiltonian. An Ising circuit is then an Ising graph of a specific shape $(N,M,A)$ with a function $f$ which, given a spin $s \in S_N$, retrieves the output spin in $(t,a)\in S_M\times S_A$ which minimizes $H(s,t,a)$ for the fixed value $s$. Notice that we require a unique floor for $s$.
 \end{rmk}
 
-\entry{12-Aug-2022}
 
 Today is my final day in person at LPS. I've been programming voraciously trying to finish an ising module.
 
@@ -181,3 +180,4 @@ One of the things I've spent a lot of time with is an examination of various met
 
 
 \printbibliography
+\end{document}

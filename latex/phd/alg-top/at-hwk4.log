@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  18 SEP 2022 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  23 SEP 2022 02:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -493,12 +493,8 @@ File: ot2enc.dfu 2021/06/21 v1.2n UTF-8 support
 )))
 \symcyrletters=\mathgroup5
 ) (/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty
-
-LaTeX Warning: You have requested package `homework',
-               but the package provides `homework3'.
-
-Package: homework3 
-(/usr/local/texlive/2021/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: homework 
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
 \thm@style=\toks30
 \thm@bodyfont=\toks31
@@ -513,7 +509,8 @@ Package: amsthm 2020/05/29 v2.20.6
 Package: thmtools 2020/08/01 v0.72
 \thmt@toks=\toks36
 \c@thmt@dummyctr=\count300
- (/usr/local/texlive/2021/texmf-dist/tex/latex/thmtools/thm-patch.sty
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/thmtools/thm-patch.sty
 Package: thm-patch 2020/08/01 v0.72
  (/usr/local/texlive/2021/texmf-dist/tex/latex/thmtools/parseargs.sty
 Package: parseargs 2020/08/01 v0.72
@@ -582,14 +579,14 @@ File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
 Driver file for pgf: pgfsys-pdftex.def
  (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
 File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
-
-(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
 File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 ))) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfsyssoftpath@smallbuffer@items=\count306
 \pgfsyssoftpath@bigbuffer@items=\count307
-) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+)
+(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
@@ -626,8 +623,7 @@ File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@shorten@end@additional=\dimen270
 \pgf@shorten@start@additional=\dimen271
-)
-(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box108
 \pgf@hbox=\box109
@@ -636,7 +632,8 @@ File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgflinewidth=\dimen272
-) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+)
+(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
 File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@pt@x=\dimen273
 \pgf@pt@y=\dimen274
@@ -825,12 +822,8 @@ File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \c@hwthms=\count334
 \c@tcb@cnt@thrm=\count335
 ) (/home/lwkatzen/texmf/tex/latex/style-sheets/theorem-env.sty
-
-LaTeX Warning: You have requested package `theorem-env',
-               but the package provides `theorem-env.sty'.
-
-Package: theorem-env.sty 
-(/usr/local/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
+Package: theorem-env 
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -852,7 +845,8 @@ Package pdftexcmds Info: \pdfdraftmode found.
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (/usr/local/texlive/2021/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/hycolor/hycolor.sty
+)
+(/usr/local/texlive/2021/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
@@ -943,8 +937,7 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 ) (/usr/local/texlive/2021/texmf-dist/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
-)
-(/usr/local/texlive/2021/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
  (/usr/local/texlive/2021/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/xkeyval/xkvutils.tex
 \XKV@toks=\toks54
@@ -964,7 +957,8 @@ LaTeX Font Info:    Setting ntxLF sub-encoding to TS1/0 on input line 27.
 LaTeX Font Info:    Setting ntxTLF sub-encoding to TS1/0 on input line 27.
 LaTeX Font Info:    Setting ntxOsF sub-encoding to TS1/0 on input line 27.
 LaTeX Font Info:    Setting ntxTOsF sub-encoding to TS1/0 on input line 27.
- (/usr/local/texlive/2021/texmf-dist/tex/generic/kastrup/binhex.tex)
+
+(/usr/local/texlive/2021/texmf-dist/tex/generic/kastrup/binhex.tex)
 \ntx@tmpcnta=\count349
 \ntx@cnt=\count350
  (/usr/local/texlive/2021/texmf-dist/tex/latex/fontaxes/fontaxes.sty
@@ -1013,18 +1007,7 @@ LaTeX Info: Redefining \lslig on input line 897.
 Package microtype Info: Loading configuration file microtype.cfg.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/microtype/microtype.cfg
 File: microtype.cfg 2021/12/10 v3.0b microtype main configuration file (RS)
-)) (/usr/local/texlive/2021/texmf-dist/tex/latex/sectsty/sectsty.sty
-Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading styles
-
-
-LaTeX Warning: Command \underbar  has changed.
-               Check if current package is valid.
-
-
-LaTeX Warning: Command \underline  has changed.
-               Check if current package is valid.
-
-) (/usr/local/texlive/2021/texmf-dist/tex/latex/biblatex/biblatex.sty
+)) (/usr/local/texlive/2021/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2020/12/31 v3.16 programmable bibliographies (PK/MW)
  (/usr/local/texlive/2021/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
@@ -1233,11 +1216,11 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 ))
-LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 53.
+LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 51.
 LaTeX Font Info:    Overwriting math alphabet `\mathcal' in version `normal'
-(Font)                  OMS/cmsy/m/n --> OMS/cmsy/m/n on input line 53.
+(Font)                  OMS/cmsy/m/n --> OMS/cmsy/m/n on input line 51.
 LaTeX Font Info:    Overwriting math alphabet `\mathcal' in version `bold'
-(Font)                  OMS/cmsy/m/n --> OMS/cmsy/m/n on input line 53.
+(Font)                  OMS/cmsy/m/n --> OMS/cmsy/m/n on input line 51.
  (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
@@ -1270,7 +1253,8 @@ File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@intersect@solutions=\count484
 )) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarythrough.code.tex
 File: tikzlibrarythrough.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
+)
+(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@layerbox@background=\box134
 \pgf@layerboxsaved@background=\box135
@@ -1278,8 +1262,7 @@ File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: tikzlibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
 File: pgflibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex
-(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.markings.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.markings.code.tex)) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
 File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
@@ -1472,19 +1455,149 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
 (Font)              scaled to size 14.4pt on input line 55.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 58.
+(Font)              scaled to size 10.95pt on input line 57.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/ntxtlf/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.95pt on input line 63.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
-(Font)              scaled to size 10.95pt on input line 63.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.95pt on input line 67.
- [1
+(Font)              scaled to size 10.95pt on input line 59.
+Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 59.
+<figures/hwk4-fig0.png, id=8, 2742.245pt x 731.73375pt>
+File: figures/hwk4-fig0.png Graphic file (type png)
+<use figures/hwk4-fig0.png>
+Package pdftex.def Info: figures/hwk4-fig0.png  used on input line 61.
+(pdftex.def)             Requested size: 284.52756pt x 75.91316pt.
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./at-hwk4.aux)
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 62.
+See the caption package documentation for explanation.
+
+[1
+
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./figures/hwk4-fig0.png>]
+<figures/hwk4-fig1.jpg, id=27, 2502.34875pt x 1561.835pt>
+File: figures/hwk4-fig1.jpg Graphic file (type jpg)
+<use figures/hwk4-fig1.jpg>
+Package pdftex.def Info: figures/hwk4-fig1.jpg  used on input line 85.
+(pdftex.def)             Requested size: 426.79134pt x 266.36638pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 86.
+See the caption package documentation for explanation.
+
+<figures/hwk4-fig2.jpg, id=28, 2462.19875pt x 934.49126pt>
+File: figures/hwk4-fig2.jpg Graphic file (type jpg)
+<use figures/hwk4-fig2.jpg>
+Package pdftex.def Info: figures/hwk4-fig2.jpg  used on input line 91.
+(pdftex.def)             Requested size: 341.43306pt x 129.57307pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 92.
+See the caption package documentation for explanation.
+
+<figures/hwk4-fig3.jpg, id=30, 2155.05125pt x 1780.6525pt>
+File: figures/hwk4-fig3.jpg Graphic file (type jpg)
+<use figures/hwk4-fig3.jpg>
+Package pdftex.def Info: figures/hwk4-fig3.jpg  used on input line 97.
+(pdftex.def)             Requested size: 398.33858pt x 329.11668pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 98.
+See the caption package documentation for explanation.
+
+[2 <./figures/hwk4-fig1.jpg> <./figures/hwk4-fig2.jpg>]
+<figures/hwk4-fig6.jpg, id=41, 1911.14pt x 2509.375pt>
+File: figures/hwk4-fig6.jpg Graphic file (type jpg)
+<use figures/hwk4-fig6.jpg>
+Package pdftex.def Info: figures/hwk4-fig6.jpg  used on input line 107.
+(pdftex.def)             Requested size: 398.33858pt x 523.00215pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 108.
+See the caption package documentation for explanation.
+
+<figures/hwk4-fig7.png, id=42, 2522.42375pt x 1439.3775pt>
+File: figures/hwk4-fig7.png Graphic file (type png)
+<use figures/hwk4-fig7.png>
+Package pdftex.def Info: figures/hwk4-fig7.png  used on input line 115.
+(pdftex.def)             Requested size: 398.33858pt x 227.29616pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 116.
+See the caption package documentation for explanation.
+
+<figures/hwk4-fig8.png, id=43, 1862.96pt x 1753.55125pt>
+File: figures/hwk4-fig8.png Graphic file (type png)
+<use figures/hwk4-fig8.png>
+Package pdftex.def Info: figures/hwk4-fig8.png  used on input line 121.
+(pdftex.def)             Requested size: 227.62204pt x 214.24332pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 122.
+See the caption package documentation for explanation.
+
+[3 <./figures/hwk4-fig3.jpg>] [4 <./figures/hwk4-fig6.jpg>] [5 <./figures/hwk4-fig7.png> <./figures/hwk4-fig8.png>]
+<figures/hwk4-fig4.jpg, id=62, 2383.90625pt x 1313.90875pt>
+File: figures/hwk4-fig4.jpg Graphic file (type jpg)
+<use figures/hwk4-fig4.jpg>
+Package pdftex.def Info: figures/hwk4-fig4.jpg  used on input line 132.
+(pdftex.def)             Requested size: 398.33858pt x 219.53224pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 133.
+See the caption package documentation for explanation.
+
+<figures/hwk4-fig5.jpg, id=63, 1897.0875pt x 1768.6075pt>
+File: figures/hwk4-fig5.jpg Graphic file (type jpg)
+<use figures/hwk4-fig5.jpg>
+Package pdftex.def Info: figures/hwk4-fig5.jpg  used on input line 138.
+(pdftex.def)             Requested size: 398.33858pt x 371.36456pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 139.
+See the caption package documentation for explanation.
+
+[6 <./figures/hwk4-fig4.jpg>] [7 <./figures/hwk4-fig5.jpg>]
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 10.95pt on input line 176.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
+(Font)              scaled to size 10.95pt on input line 176.
+ [8] [9]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
+(Font)              scaled to size 12.0pt on input line 200.
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/ntxtlf/m/sc/12'.
+(microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 276.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 276.
+<figures/hwk4-fig9.png, id=87, 2420.04124pt x 1253.68375pt>
+File: figures/hwk4-fig9.png Graphic file (type png)
+<use figures/hwk4-fig9.png>
+Package pdftex.def Info: figures/hwk4-fig9.png  used on input line 280.
+(pdftex.def)             Requested size: 284.52756pt x 147.39394pt.
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 281.
+See the caption package documentation for explanation.
+
+<figures/hwk4-fig10.png, id=88, 2148.025pt x 1304.875pt>
+File: figures/hwk4-fig10.png Graphic file (type png)
+<use figures/hwk4-fig10.png>
+Package pdftex.def Info: figures/hwk4-fig10.png  used on input line 287.
+(pdftex.def)             Requested size: 284.52756pt x 172.84534pt.
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 288.
+See the caption package documentation for explanation.
+
+[10] [11 <./figures/hwk4-fig9.png> <./figures/hwk4-fig10.png>] (./at-hwk4.aux)
 Package rerunfilecheck Info: File `at-hwk4.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'at-hwk4.run.xml'.
@@ -1492,18 +1605,18 @@ Package logreq Info: Writing requests to 'at-hwk4.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45002 strings out of 478287
- 896814 string characters out of 5846765
- 1718170 words of memory out of 5000000
- 62370 multiletter control sequences out of 15000+600000
- 509168 words of font info for 103 fonts, out of 8000000 for 9000
+ 45165 strings out of 478287
+ 900490 string characters out of 5846765
+ 1725424 words of memory out of 5000000
+ 62436 multiletter control sequences out of 15000+600000
+ 520464 words of font info for 136 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,5n,117p,3058b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on at-hwk4.pdf (1 page, 156937 bytes).
+ 103i,16n,117p,3058b,1373s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on at-hwk4.pdf (11 pages, 4436354 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 43 compressed objects within 1 object stream
- 2 named destinations out of 1000 (max. 500000)
- 21517 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 168 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 27716 words of extra memory for PDF output out of 29859 (max. 10000000)
 

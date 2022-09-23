@@ -1,9 +1,9 @@
 [0] Config.pm:311> INFO - This is Biber 2.16
 [0] Config.pm:314> INFO - Logfile is 'trop-notes.blg'
-[147] biber-darwin:340> INFO - === Tue Aug 23, 2022, 11:08:21
-[182] Biber.pm:415> INFO - Reading 'trop-notes.bcf'
-[473] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
-[510] Utils.pm:395> WARN - The file 'trop-notes.bcf' does not contain any citations!
-[594] bbl.pm:654> INFO - Writing 'trop-notes.bbl' with encoding 'UTF-8'
-[595] bbl.pm:757> INFO - Output to trop-notes.bbl
-[595] Biber.pm:128> INFO - WARNINGS: 1
+[49] biber:340> INFO - === Thu Sep 22, 2022, 11:14:03
+[58] Biber.pm:415> INFO - Reading 'trop-notes.bcf'
+[105] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
+[108] Utils.pm:395> WARN - The file 'trop-notes.bcf' does not contain any citations!
+[113] bbl.pm:654> INFO - Writing 'trop-notes.bbl' with encoding 'UTF-8'
+[113] bbl.pm:757> INFO - Output to trop-notes.bbl
+[114] Biber.pm:128> INFO - WARNINGS: 1
