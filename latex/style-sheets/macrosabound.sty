@@ -212,7 +212,6 @@
 \newcommand{\powerset}{\raisebox{.12\baselineskip}{\scaleobj{1.2}{\wp}}}
 \newcommand{\bigO}{\mathcal{O}}
 \renewcommand{\div}{\operatorname{div}}
-\newcommand{\flr}[1]{\lfloor #1\rfloor} % wrapper for floor function
 
 %Relational Symbols%
 \mathchardef\ordinarycolon\mathcode`\:
@@ -860,6 +859,10 @@ after = \end{multicols}}
 \newcommand{\hatx}{\hat{x}}
 \newcommand{\haty}{\hat{y}}
 \newcommand{\hatz}{\hat{z}}
+
+% Delimiters
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\flr}{\lfloor}{\rfloor}
 
 % Basic partial derivative macro
 \newcommand{\pder}[2]{\frac{\partial#1}{\partial#2}}
