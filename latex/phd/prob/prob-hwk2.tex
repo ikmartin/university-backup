@@ -12,7 +12,7 @@
   $\scriptstyle\vrule width0pt height.5ex\smash\rightarrow$\cr}}}}
 \newcommand{\Rrelbar}{\mathrel{\raise.75ex\hbox{\oalign{%
   $\scriptstyle\relbar$\cr
-  \vrule width0pt height.5ex$\scriptstyle\relbar$}}}}
+  \vrule width pt height.5ex$\scriptstyle\relbar$}}}}
 \newcommand{\longleftrightarrows}{\leftrarrows\joinrel\Rrelbar\joinrel\lrightarrows}
 
 \makeatletter
@@ -38,46 +38,21 @@
 		``There exist constants $a,b \in \bR$ such that $\mu(\{x \in S ~:~ f(x) \leq a < b \leq g(x)\}) > 0$.''
 	\end{center}
 	\begin{prf}
-		We prove that this statement is true. Define a function $m:S\to \bR$ by
+		We prove that this statement is true. Let $A = \{x \in S ~\mid~ f(x) < g(x)\}$ denote the set in questions, set $I = \{(a,b) \in \bQ^2 ~\mid~ a < b\}$ and for each pair of rational numbers $(a,b) \in I$, define
 		\begin{align*}
-			m(x) = \frac{f(x) + g(x)}{2}.
+			B_{a,b} = \left\{x \in S ~\mid~ f(x) \leq a < b \leq g(x)\right\}.
 		\end{align*}
-		Think of $m(x)$ as the midpoint between $f(x)$ and $g(x)$. Since $\cL^0$ is a real vector space, $m(x)$ is a measurable function.
+		Note that $B_{a,b}$ is countable for each $(a,b) \in I$ since both $f$ and $g$ are measurable functions and $B_{a,b} = f^{-1}((-\infty,a]) \cap g^{-1}([b,\infty))$. I claim that
+		\begin{align*}
+			A = \bigcup_{(a,b) \in I} B_{a,b} =: B
+		\end{align*}
+		Note first that because $B$ is the countable union of measurable sets, it too is measurable. Suppose that $x \in A$. Then $f(x) < g(x)$ and there exists some $a\in \bQ$ such that $f(x) < a < g(x)$ because $\bQ$ is dense in $\bR$. Similarly, there exists some $b \in \bQ$ such that $f(x) < a < b < g(x)$, and hence $x \in B_{a,b} \subseteq B$. Now suppose that $x \in B$. Then there exist some pair $(a,b) \in I$ such that $x \in B_{a,b}\implies f(x) \leq a < b \leq g(x)$. In particular, this means $f(x) < g(x)$ so $x \in A$. We therefore have that $A = B$.
 
-		Now define for each $n \in \bN$
+		Now suppose that $\mu(B_{a,b}) = 0$ for each pair of rational numbers $(a,b) \in I$. We would then have that
 		\begin{align*}
-			A_n = \left\{x \in S \midd f(x) \leq m(x) - \frac{1}{2^n} < m(x) + \frac{1}{2^n} \leq g(x)\right\}.
+			\mu(A) = \mu(B) = \mu\left(\bigcup_{(a,b) \in I} B_{a,b}\right) \leq \sum_{(a,b) \in I} \mu(B_{a,b}) = \infty \cdot 0 = 0.
 		\end{align*}
-		Notice that because $m(x) - \frac{1}{2^n} < m(x) + \frac{1}{2^n}$ for all $x \in S$ we can write these sets instead as
-		\begin{align*}
-			A_n &= \left\{x \in S \midd f(x) \leq m(x) - \frac{1}{2^n} ~\text{ and  }~ m(x) + \frac{1}{2^n} \leq g(x)\right\} \\
-				&= \left\{x \in S \midd f(x) - m(x)\leq - \frac{1}{2^n}\right\} \cap \left\{x \in S \midd \frac{1}{2^n} \leq g(x) - m(x)\right\} \\
-				&= (f - m)^{-1}\left(-\infty, -\frac{1}{2^n}\right] \cap (g - m)^{-1}\left[\frac{1}{2^n},\infty\right).
-		\end{align*}
-		The differences $f - m$ and $g - m$ are measurable functions since $\cL^0(S,\cS)$ is a $\bR$-vector space, so $A_n$ is an intersection of measurable sets and hence itself measurable. Furthermore, if $x \in A_n$, then we have
-		\begin{align*}
-			f(x) \leq m(x) - \frac{1}{2^n} < m(x) - \frac{1}{2^{n+1}} < m(x) + \frac{1}{2^{n+1}} < m(x) + \frac{1}{2^n} \leq g(x)
-		\end{align*}
-		which implies $x \in A_{n+1}$ and $A_n \subseteq A_{n+1}$. Thus the sequence $\{A_n\}_{\bN}$ is nested increasing.
-
-		We now suggestively name the set in question $A$, i.e. set
-		\begin{align*}
-			A = \{x\in S ~\mid~ f(x) < g(x)\}.
-		\end{align*}
-		I claim that $A = \bigcup_{n \in \bN} A_n$. One inclusion is obvious, since $A_n \subseteq A$ for all $n\in \bN$. For the other inclusion, suppose $x \in A$. Then $f(x) < g(x)$, and hence $f(x) < m(x) < g(x)$. Set choose $N$ so that $\frac{1}{N} < \min\{m(x) - f(x), g(x) - m(x)\}$ (note that $m(x) - f(x) = g(x) - m(x)$, but this is faster). Then $\frac{1}{2^N} < \frac{1}{N}$, and hence
-		\begin{align*}
-			f(x) \leq m(x) - \frac{1}{2^N} ~\text{ and } m(x) + \frac{1}{2^N} \geq g(x).
-		\end{align*}
-		This implies that $x \in A_n$. Since every element of $A$ is contained in $A_n$ for some $n \in \bN$, we conclude that $A \subseteq \bigcup_n A_n$, and therefore have equality $A = \bigcup_n A_n$.
-
-		Now, by the continuity measures with respect to increasing sequences,
-		\begin{align*}
-			\mu\left(A\right) = \mu\left(\bigcup_n A_n\right) = \lim_n \mu(A_n).
-		\end{align*}
-		If $\mu(A_n) = 0$ for all $n \in \bN$, then we would have $\mu(A) = \lim_n\mu(A_n) = 0 $, which is not the case. There must then be some $n\in \bN$ such that $\mu(A_n) > 0$. Setting $a = m(x) - \frac{1}{2^n}$ and $b = m(x) + \frac{1}{2^n}$ then gives us that
-		\begin{align*}
-			\mu\left(\left\{x \in S \midd f(x) \leq a < b \leq g(x)\right\} \right) = \mu(A_n) > 0.
-		\end{align*}
+		Since $\mu(A) > 0$, it must be the case that $\mu(B_{a,b}) > 0$ for some $(a,b) \in I$.This proves the claim.
 	\end{prf}
 	\prob[\textsc{Exercise 2.2}] (A uniform distribution on a circle.) Let $S^1$ be the unit circle and let $f:[0,1) \to S^1$ be the ``winding map''
 	\begin{align*}
@@ -150,16 +125,85 @@
 		\end{align*}
 		which is open in the subspace topology on $S^1$. Likewise, if $R_\alpha(A)$ is open, then $R^{-1}_{2\pi - \alpha}(R_\alpha(A)) = A$ is open.
 
-		The Borel algebra on $S^1$ is generated by open sets, and since the maps $A \mapsto R_\alpha(A)$ and $R_\alpha(A) \mapsto A$ send open sets to open (and hence measurable) sets, by Proposition 1.10 in the notes we conclude that $R_\alpha$ induces a bijection on $\cS^1$.
+		The Borel algebra on $S^1$ is generated by open sets, and since the maps $A \mapsto R_\alpha(A)$ and $R_\alpha(A) \mapsto A$ send open sets to open (and hence measurable) sets, by Proposition 1.10 in the notes we conclude that $R_\alpha$ induces a bisection on $\cS^1$.
 
 		\bigskip
 
-		\noindent \emph{(3):} \hspace{0.5em} 
+		\noindent \emph{(3):} \hspace{0.5em} Fix $\alpha \in (0,2\pi)$ and define a new measure $\mu^1_\alpha$ on $S^1$ by setting $\mu^1_\alpha(A) = \mu^1(R_\alpha(A))$. Note that this is actually the pullback measure $R_{2\pi-\alpha,*}\mu^1$, since by part (2) $R_\alpha(A) = R^{-1}_{2\pi - \alpha}(A)$, so $\mu^1_\alpha$ is indeed a measure on $S^1$. Let $\cP$ denote the set of all open arcs of $S^1$, or equivalently the collection of all open connected subsets of $S^1$. We prove that $\mu^1(A) = \mu^1_\alpha(A)$ for all $A\in \cP$.
+
+		Let $A \subseteq \cP$ be an arc in $S^1$ and suppose that $(1,0)\not\in A$. Then $f^{-1}(A) = (a,b) \subseteq [0,1)$ for some $a,b \in \bR$, and hence
+		\begin{align*}
+			\mu_1(A) = \lambda(f^{-1}(A)) = \lambda((a,b)) = b - a.
+		\end{align*}
+		Now consider $\mu^1_\alpha$. First note that for $x \in [0,1)$ we have
+		\begin{align*}
+			R_\alpha(f(x)) &= 
+			\begin{pmatrix}	
+				\cos(\alpha) & -\sin(\alpha) \\
+				\sin(\alpha) & \cos(\alpha)
+			\end{pmatrix} \begin{pmatrix}	\cos(2\pi x) \\ \sin(2\pi x)\end{pmatrix} \\
+							 &= 
+			\begin{pmatrix}	
+				\cos(\alpha)\cos(2\pi x) -\sin(\alpha)\sin(2\pi x) \\
+				\sin(\alpha)\cos(2\pi x) + \cos(\alpha)\sin(2\pi x)
+			\end{pmatrix} \\
+							 &= 
+			\begin{pmatrix}	
+				\cos(\alpha + 2\pi x) \\
+				\sin(\alpha + 2\pi x)
+			\end{pmatrix} \\
+							 &= 
+							 \begin{cases}
+								 f\left(\frac{\alpha}{2\pi} + x\right) & \text{if }~ \frac{\alpha}{2\pi} + x < 1 \\
+								 f\left(\frac{\alpha}{2\pi}+ x - 1\right) &\text{otherwise}
+							 \end{cases}.
+		\end{align*}
+		This means that if $(1,0) \not\in R_\alpha(A)$, then
+		\begin{align*}
+			\mu^1_\alpha(A) = \lambda\left(\left(\frac{\alpha}{2\pi} + a, \frac{\alpha}{2\pi} + b\right)\right) = b - a.
+		\end{align*}
+		If $(1,0) \in R_\alpha(A)$, then
+		\begin{align*}
+			\mu^1_\alpha(A) = \lambda\left(\left(\frac{\alpha}{2\pi} + a, 1\right)\cup [0,\frac{\alpha}{2\pi} + b - 1]\right) = b - a.
+		\end{align*}
+		In either case, $\mu^1(A) = \mu^1_\alpha(A)$.
+
+		If $(1,0) \in A$, then $A \setminus \{(1,0)\}$ is the disjoint union $B \cup C$ of two arcs $B$ and $C$, neither of which contains $(1,0)$. By the first case, $\mu^1(B) = \mu^1_\alpha(B)$ and $\mu^1(C) = \mu^1_\alpha(C)$. Furthermore, $\mu^1(\{(1,0)\}) = \lambda(f^{-1}(\{(1,0)\})) = 0 = \mu^1_\alpha(\{(1,0)\})$ so by additivity,
+		\begin{align*}
+			\mu^1(A) = \mu^1(B) + \mu^1(C) + \mu^1(\{(1,0)\}) = \mu^1_\alpha(B) + \mu^1_\alpha(C) + \mu^1_\alpha(\{(1,0)\}) = \mu^1_\alpha(A).
+		\end{align*}
+		We conclude that $\mu^1(A) = \mu^1_\alpha(A)$ for all $A\in \cP$.
+
+		Notice that the intersection of open arcs is still an open arc, hence $\cP$ is a $\pi$-system. Furthermore, $\Lambda = \{A\in \cS ~\mid~ \mu^1(A) = \mu^1_\alpha(A)\}$ is a $\lambda$-system. Since $\cP \subseteq \Lambda$, by Dynkin's $\pi-\lambda$ Theorem, $\sigma(\cP) \subseteq \cL$. However, the set of all open arcs is a basis for the subspace topology on $S^1$ inherited from $\bR^2$, hence $\cS \subseteq \Lambda$. Hence $\mu^1 = \mu^1_\alpha$, and because $\alpha$ was chosen arbitrarily, we conclude that the pushforward of Lebesgue measure on $S^1$ is rotation invariant.
 	\end{prf}
 	\prob[\textsc{Exercise 2.3}] (A change-of-variable formula). Let $(S,\cS,\mu)$ and $(T,\cT,\nu)$ be two measurable spaces, and let $F:S\to T$ be a measurable function with the property that $\nu = F_* \mu$ (i.e., $\nu$ is the push-forward of $\mu$ through $F$). Show that for every $f \in \cL^0_+(T,\cT)$ or $\cL^1(T,\cT)$, we have
 	\begin{align*}
 		\int f ~d\nu = \int (f\circ F) ~d\mu.
 	\end{align*}
+	\begin{prf}
+		The following is a procedure roughly matching the standard Lebesgue yoga.
+
+		First, we notice that if $f$ is a simple function given by $f(x) = \alpha_i$ for $x \in A_i \in \cS$ with $1\leq i\leq n$, then $f\circ F$ is a simple function defined by $f\circ F(x) = \alpha_i$ for $x \in F^{-1}(A_i)$. Then
+		\begin{align*}
+			\int f ~d\nu = \sum_{i=1}^n \alpha_i\nu(A_i) = \sum_{i=1}^n \alpha_i\mu(F^{-1}(A_i)) = \int (f\circ F) d\mu,
+		\end{align*}
+		so the desired equality holds for simple functions.
+
+		Now suppose that $f \in \cL^0_+(T,\cT)$. By the simple approximation theorem (3.10 in the notes), we may find an increasing sequence of nonnegative simple functions $f_n$ which uniformly approach $f$. Likewise, $f_n \circ F$ is an increasing sequence of simply functions (by what we proved above) which approaches $f \circ F$ from below. By monotone convergence, we then immediately get
+		\begin{align*}
+			\int f ~d\nu = \lim_{n\to \infty} \int f_n ~d\mu = \lim_{n\to \infty} \int f\circ F ~d\mu = \int f\circ F ~d\mu.
+		\end{align*}
+		
+		Finally, let $f \in \cL^1(T,\cT)$ be an arbitrary Lebesgue integrable function and let $f^+,f^-$ denote the typical $\cL^0_+(T,\cT)$ functions representing the positive and negative portions of $f$. I argue that $(f\circ F)^+ = f^+\circ F$ and $(f\circ F)^- = f^-\circ F$. Indeed, there is almost nothing to check:
+		\begin{align*}
+			(f\circ F)^+(x) = \max\{0, f(F(x))\} = f^+(F(x)),
+		\end{align*}
+		and we have something similar for $f^-$. Since $f^+,f^-$ are both $\cL^0_+(T,\cT)$, by what we have already shown we have
+		\begin{align*}
+			\int f ~d\nu = \int f^+ ~d\nu ~+~ \int f^- ~d\nu = \int (f\circ F)^+ ~d\mu ~+~ \int (f\circ F)^- ~d\mu = \int (f\circ F) ~d\mu,
+		\end{align*}
+		which concludes the proof.
+	\end{prf}
 	\prob[\textsc{Exercise 2.4}] (An integrability criterion). Let $(S,\cS,\mu)$ be a finite measure space, and let $f \in \cL^0_+$. Show that 
 	\begin{align*}
 		\int f d\mu < \infty ~\text{ if and only if } ~ \sum_{n\in \bN} \mu(\{f \geq n\}) < \infty
@@ -225,5 +269,10 @@
 		Note: what we've really proven here is that $\sum_{n \in \bN} \mu(\{f\geq n\}) ~-~ \mu(S) \leq \int f ~d\mu \leq \sum_{n \in \bN} \mu(\{f\geq n\})$. From this inequality, it is clear that $\int f ~d\mu = \infty \implies \sum_{n \in \bN} \mu(\{f\geq n\}) = \infty$, and that the reverse implication is true when $\mu(S) < \infty$.
 	\end{prf}
 	\prob[\textsc{Exercise 2.5}]
+	\begin{prf}
+		\begin{center}
+			$\sim$ no time -- that's all folks$\sim$
+		\end{center}
+	\end{prf}
 \end{homework}
 \end{document}
