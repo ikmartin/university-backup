@@ -1,10 +1,10 @@
 # Fdb version 3
-["biber at-hwk9"] 1666843374 "at-hwk9.bcf" "at-hwk9.bbl" "at-hwk9" 1666933685
-  "at-hwk9.bcf" 1666933685 106602 0953243b5074c3e1a8aa2a11c0c64d0f "pdflatex"
+["biber at-hwk9"] 1666843374 "at-hwk9.bcf" "at-hwk9.bbl" "at-hwk9" 1666967354
+  "at-hwk9.bcf" 1666967354 106602 0953243b5074c3e1a8aa2a11c0c64d0f "pdflatex"
   (generated)
   "at-hwk9.bbl"
   "at-hwk9.blg"
-["pdflatex"] 1666933684 "at-hwk9.tex" "at-hwk9.pdf" "at-hwk9" 1666933685
+["pdflatex"] 1666967353 "at-hwk9.tex" "at-hwk9.pdf" "at-hwk9" 1666967354
   "../preamble.tex" 1666659638 2150 97189573ef8eb11a994ed61b69ba58a2 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty" 1666659638 10473 96185fb23c97f84d733f6a193cbf0273 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1666659638 37088 a3474e6d98ea39528e7f6630ef1447b7 ""
@@ -303,11 +303,11 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643846389 4379201 718a59215bccc89d4f89ee72c554b0e8 ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643846402 2796796 2c18e0876449a496ae83bd1419ea9c78 ""
   "/usr/local/texlive/2021/texmf.cnf" 1643846386 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "at-hwk9.aux" 1666933685 4965 fedd12a839fcfd9b3ab4f25f71bf11fe "pdflatex"
+  "at-hwk9.aux" 1666967354 4541 3fa659839ac8efb08c8c1138cf6ff6de "pdflatex"
   "at-hwk9.bbl" 1666843377 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber at-hwk9"
-  "at-hwk9.out" 1666933685 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "at-hwk9.run.xml" 1666933685 2326 66c32bc63b1ac0feac786c5b0a6080af "pdflatex"
-  "at-hwk9.tex" 1666933683 31725 019a859c7fc4988b10e0581c7cc0ade0 ""
+  "at-hwk9.out" 1666967354 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "at-hwk9.run.xml" 1666967354 2326 66c32bc63b1ac0feac786c5b0a6080af "pdflatex"
+  "at-hwk9.tex" 1666967350 31735 07016770f57d516607dc14b36c6db19b ""
   "figures/hwk9-fig1.png" 1666845849 109045 17894cc01cb9942075bb4b8ca13cd1ea ""
   "figures/hwk9-fig2.png" 1666845872 178388 f88565002a83f0a66ce5658a57f82bda ""
   "figures/hwk9-fig3.png" 1666848935 166394 a619ca28a23acc9e80e106b772691eae ""

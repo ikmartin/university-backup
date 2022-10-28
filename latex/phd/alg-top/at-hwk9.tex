@@ -107,11 +107,11 @@
     \begin{align*}
       C_n(X) \xrightarrow{\alpha} C_{n+1}(CX,X) \xrightarrow{\beta} C_{n+1}(SX).
     \end{align*}
-    We previously showed that $\tilH_n(X) \cong \tilH_{n+1}(CX,X)\cong \tilH_{n+1}(SX)$, so this seems like a good sequence to consider with this knowledge. How are the maps above defined? The map $\alpha$ takes a singular simplex $\sigma:\Delta^n\to X$ to $C\sigma:C\Delta^n\to CX$. However, the cone of any $n$-simplex is an $n+1$-simplex, so $C\Delta^n\to CX$ can instead be considered as a mapping $\Delta^{n+1}\to CX$. The map $C\sigma$ can be written down explicitly: given any point $(t_0,...,t_{n+1})\in \Delta^{n+1} = C\Delta^{n}$,
+    We previously showed that $\tilH_n(X) \cong \tilH_{n+1}(CX,X)\cong \tilH_{n+1}(SX)$, so this seems like a good sequence to consider. How are these chain maps defined? The map $\alpha$ takes a singular simplex $\sigma:\Delta^n\to X$ to $C\sigma:C\Delta^n\to CX$. However, the cone of any $n$-simplex is an $n+1$-simplex, so $C\Delta^n\to CX$ can instead be considered as a mapping $\Delta^{n+1}\to CX$. The map $C\sigma$ can be written down explicitly: given any point $(t_0,...,t_{n+1})\in \Delta^{n+1} = C\Delta^{n}$,
     \begin{align*}
       C\sigma(t_0,...,t_{n+1}) = \sum_{i=1}^n t_i\sigma(v_i) + t_{n+1}p
     \end{align*}
-    where $p \in CX$ is the cone point, i.e. The point resulting from collapsing $X\times \{1\}$. Qualitatively, $C\sigma$ first takes the simplex $\sigma$ into the copy of $X$ comprising the base of $CX$ and then takes the cone.
+    where $p \in CX$ is the cone point, i.e. the point resulting from collapsing $X\times \{1\}$. $C\sigma$ first takes the simplex $\sigma$ into the copy of $X$ comprising the base of $CX$ and then takes the cone.
 
     Anyways, removing $v_i$ from the simplex $[v_0,...,v_{n+1}]$ is equivalent to setting $t_i = 0$, so from the definition of $C\sigma$ we immediately get
     \begin{align*}
@@ -131,7 +131,9 @@
     \begin{align*}
       ...\to \tilH_{n+1}(CX) \to \tilH_{n+1}(CX,X) \xrightarrow{\partial}\tilH_{n}(X) \to \tilH_n(CX) \to ...
     \end{align*}
-    which gives us isomorphisms $\partial:\tilH_{n+1}(CX,X) \xrightarrow{\sim} \tilH_n(X)$ since $CX$ is contractible and hence $\tilH_n(CX) = 0$. Let $f$ be the linear extension of $\alpha$, the map taking $\sigma\mapsto C\sigma$ above. We show that $f_*\partial$ is the identity on $\tilH_{n+1}(CX,X)$. Given a relative cycle $\gamma \in C_{n+1}(CX,X)$ the boundary $\partial \gamma$ lies in $C_n(X)$. However, $f_*[\partial(\gamma)] = [f_*(\partial\gamma)]$, and $f$ acts on $\partial\gamma$ by extending it to a cone. This means $f$ precisely ``undoes'' the action of $\partial$, so
+    which gives us isomorphisms $\partial:\tilH_{n+1}(CX,X) \xrightarrow{\sim} \tilH_n(X)$ since $CX$ is contractible and hence $\tilH_n(CX) = 0$. 
+
+    Now consider the linear extension $f$ of $\alpha$, the map taking $\sigma\mapsto C\sigma$ above. We show that $f_*\partial$ is the identity on $\tilH_{n+1}(CX,X)$. Given a relative cycle $\gamma \in C_{n+1}(CX,X)$ the boundary $\partial \gamma$ lies in $C_n(X)$. However, $f_*[\partial(\gamma)] = [f_*(\partial\gamma)]$, and $f$ acts on $\partial\gamma$ by extending it to a cone. This means $f$ precisely ``undoes'' the action of $\partial$, so
     \begin{align*}
       f_*\partial[\gamma] = f_*[\partial \gamma] = [\gamma].
     \end{align*}
@@ -141,7 +143,7 @@
   \end{prf}
   \prob[\textsc{Exercise }2.1.23] Show that the second barycentric subdivision of a $\Delta$-complex is a simplicial complex. Namely, show that the first barycentric subdivision produces a $\Delta$-complex with the property that each simplex has all its vertices distinct, then show that for a $\Delta$-complex with this property, barycentric subdivision produces a simplicial complex.
   \begin{prf}
-    I was stuck on this one for a while, I had to find a stack overflow post for the following hint (https://math.stackexchange.com/questions/1050085/a-question-about-hatcher-exercise-2-1-23). We split this argument up into two parts: 
+    I was stuck on this one for a while, I had to find a stack overflow post for the following hint (https://math.stackexchange.com/questions/1050085/a-question-about-hatcher-exercise-2-1-23). It suggested splitting this argument up into two parts: 
     \begin{enumerate}[(A)]
       \item We show that if $X$ is a $\Delta$-complex with $k$-skeleton $X^k$, then $B(X^k)$ is comprised of simplicies whose vertices are distinct.
       \item We show that if $X$ is a $\Delta$-complex such that each $k$-simplex has distinct vertices, then $B(X)$ is a simplicial complex.
@@ -152,7 +154,7 @@
 
     \noindent \textbf{\emph{(A)}}\hspace{1em} We argue inductively on the dimension of $X$, the $\Delta$-complex.
 
-    In the case case, $X$ is a $1$-simplex homeomorphic to an interval $[a,b]$. Barycentric subdivision gives us \emph{two} intervals $\left[a,\frac{a+b}{2}\right]$ and $\left[\frac{a+b}{2},b\right]$. These two $1$-simplicies have distinct vertices, $a$ and $b$.
+    In the base case, $X$ is a $1$-simplex homeomorphic to an interval $[a,b]$. Barycentric subdivision gives us \emph{two} intervals $\left[a,\frac{a+b}{2}\right]$ and $\left[\frac{a+b}{2},b\right]$. These two $1$-simplicies have distinct vertices, $a$ and $b$.
 
     Now suppose that $(A)$ holds for all $k < n$, i.e. that if $X$ is a $\Delta$-complex then for all $k < n$ the $k$-simplicies of $B(X)$ are comprised of distinct vertices. For each $n$-simplex $X^n = [x_0,...,x_n]$ with barycenter $b$ in $X$, we get $n$ subsimplices $X_i^n = [b,x_0,...,\hatx_i,...,x_n]$. Passing to the boundary maps, we get that
     \begin{align*}
@@ -183,7 +185,7 @@
         0 & else
       \end{cases},
     \end{align*}
-    so we must now compute the homology of $S^1\vee S^1\vee S^2$. Corollary 2.25 seems handy for this situation, it says that the $n^{th}$ reduced horology of a wedge sum $\bigvee_\alpha X_\alpha A$ is isomorphic to $\bigoplus_\alpha \tilH_n(X_\alpha)$, provided that the basepoints $x_\alpha \in X_\alpha$ of the identifications are all good pairs. For any point $x \in S^1$ or $y \in S^2$, the pairs $(S^1,x)$ and $(S^2,y)$ are good pairs. One way to see this is that we may take a small $\epsilon$-neighborhood of $x$ in $S^1$ homeomorphic to an interval or of $y$ in $S^2$ homeomorphic to an open disk, in either case, these neighborhoods deformation retract to $x$ and $y$ respectively. Hence, we can use Corollary 2.25 to calculate the homology of $S^1\vee S^1\vee S^2$ and get
+    so we must now compute the homology of $S^1\vee S^1\vee S^2$. Corollary 2.25 seems handy for this situation, it says that the $n^{th}$ reduced horology of a wedge sum $\bigvee_\alpha X_\alpha A$ is isomorphic to $\bigoplus_\alpha \tilH_n(X_\alpha)$, provided that the basepoints $x_\alpha \in X_\alpha$ of the identifications are all good pairs. Luckily, for any point $x \in S^1$ or $y \in S^2$, the pairs $(S^1,x)$ and $(S^2,y)$ are good pairs. One way to see this is that we may take a small $\epsilon$-neighborhood of $x$ in $S^1$ homeomorphic to an interval or of $y$ in $S^2$ homeomorphic to an open disk, in either case, these neighborhoods deformation retract to $x$ and $y$ respectively. Hence, we can use Corollary 2.25 to calculate the homology of $S^1\vee S^1\vee S^2$ and get
     \begin{align*}
       \tilH_{n}(S^1\vee S^1 \vee S^1) \cong \tilH_n(S^1)^{\oplus 2} \oplus \tilH_n(S^2) \cong 
       \begin{cases}
@@ -316,7 +318,7 @@
     \begin{lem}\label{lem:problem2.2.36a}
       $H_i(X\times S^n)\cong H_i(X) \oplus H_i(X\times S^n,X\times \{x_0\})$.
     \end{lem}
-    \begin{prf}
+    \begin{proof}
       First note that $X\times \{x_0\}$ is a retraction of $X\times S^n$ via the map $r = \id_X\times \pi_{x_0}$ which sends $X$ to itself and all of $S^n$ to $x_0$. By problem 2.1.11 (from the last homework) this means the inclusion $\iota:X\times \{x_0\}\to X\times S^n$ induces an inclusion $\iota_*:H_i(X\times \{x_0\}) \to H_i(X\times S^n)$ on homology. With this in mind, consider the long exact sequence on relative homology:
       \begin{align*}
         ...\to H_{i+1}(B,A) \xrightarrow{\partial} H_i(A) \xrightarrow{\iota_*} H_i(B) \xrightarrow{j_*} H_i(B,A) \xrightarrow{\partial} H_{i-1}(A) \xrightarrow{\iota_*} ...
@@ -330,13 +332,13 @@
         H_i(X\times S^n) \cong H_i(X\times \{x_0\}) \oplus H_i(X\times S^n,X\times \{x_0\}),
       \end{align*}
       and because $X\times \{x_0\}\cong X$, $H_i(X\times S^n) \cong H_i(X) \oplus H_i(X\times S^n,X\times \{x_0\})$.
-    \end{prf}
+    \end{proof}
 
     Now we turn our attention to the $H_i(X\times S^n,X\times \{x_0\})$ term in the above direct sum.
     \begin{lem}\label{lem:problem2.2.36b}
       $H_i(X\times S^n,X\times \{x_0\}) \cong H_{i-1}(X\times S^{n-1}, X\times \{x_0\})$.
     \end{lem}
-    \begin{prf}
+    \begin{proof}
       As hinted by Hatcher, this is a straightforward application of the Meyer-Vietoris sequence. The only potentially tricky part is choosing a good open cover for $X\times S^n$. Given that we've been prompted to find an isomorphism from something involving $S^n$ to something involving $S^{n-1}$, it makes sense to choose open sets $U$ and $V$ which cover $S^n$ and whose intersection deformation retracts to $S^{n-1}$. This can be accomplished by letting $U$ and $V$ be the lower and upper disks $D^n$ extending slightly past the equator of $S^n$. More explicitly, let $\epsilon > 0$ be small and set
       \begin{align*}
         U = \{(s_0,...,s_n) \in S^n ~ \mid~ s_0 < \epsilon\} \textbuff{1em}{and} V = \{(s_0,...,s_n) \in S^n ~ \mid~ s_0 > -\epsilon\}.
@@ -359,7 +361,7 @@
         ... \to 0 \to H_n(X\times S^{n}, X\times \{x_0\})\to H_{n-1}(X\times S^{n-1}, X\times \{x_0\})\to 0 \to ...
       \end{align*}
       for each $n$, which gives us the desired isomorphic by exactness.
-    \end{prf}
+    \end{proof}
     With these two lemmas out the way, we can quickly complete the problem. Using Lemma \ref{lem:problem2.2.36b} inductively, we get that
     \begin{align*}
       H_i(X\times S^n,X\times \{x_0\}) \cong H_{i - n}(X\times S^0,X\times \{x_0\}).

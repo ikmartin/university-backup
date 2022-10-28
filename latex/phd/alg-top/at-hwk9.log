@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  28 OCT 2022 00:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  28 OCT 2022 09:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1458,41 +1458,37 @@ Package pdftex.def Info: figures/hwk9-fig2.png  used on input line 94.
 
 {/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 140.
+(Font)              scaled to size 8.0pt on input line 142.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 140.
+(Font)              scaled to size 6.0pt on input line 142.
  [2 <./figures/hwk9-fig1.png> <./figures/hwk9-fig2.png>] [3]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.95pt on input line 153.
+(Font)              scaled to size 10.95pt on input line 155.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/it' will be
-(Font)              scaled to size 10.95pt on input line 153.
+(Font)              scaled to size 10.95pt on input line 155.
  [4
 
 ]
 <figures/hwk9-fig3.png, id=49, 2125.9425pt x 1444.39626pt>
 File: figures/hwk9-fig3.png Graphic file (type png)
 <use figures/hwk9-fig3.png>
-Package pdftex.def Info: figures/hwk9-fig3.png  used on input line 203.
+Package pdftex.def Info: figures/hwk9-fig3.png  used on input line 205.
 (pdftex.def)             Requested size: 341.43306pt x 231.96767pt.
  [5]
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 254.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 256.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 254.
+(Font)              scaled to size 10.95pt on input line 256.
  [6 <./figures/hwk9-fig3.png>] [7] [8]
-Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 316.
+Package hyperref Info: bookmark level for unknown lem defaults to 0 on input line 318.
 <figures/hwk9-fig4.png, id=74, 1612.0225pt x 1277.77374pt>
 File: figures/hwk9-fig4.png Graphic file (type png)
 <use figures/hwk9-fig4.png>
-Package pdftex.def Info: figures/hwk9-fig4.png  used on input line 345.
+Package pdftex.def Info: figures/hwk9-fig4.png  used on input line 347.
 (pdftex.def)             Requested size: 341.43306pt x 270.62158pt.
- [9]
-
-Package tcolorbox Warning: The upper box part has become overfull on input line 375.
-
-[10 <./figures/hwk9-fig4.png>] [11] (./at-hwk9.aux)
+ [9] [10 <./figures/hwk9-fig4.png>] [11] (./at-hwk9.aux)
 Package rerunfilecheck Info: File `at-hwk9.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'at-hwk9.run.xml'.
@@ -1500,18 +1496,18 @@ Package logreq Info: Writing requests to 'at-hwk9.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44064 strings out of 478287
- 876972 string characters out of 5846765
- 1719283 words of memory out of 5000000
- 61337 multiletter control sequences out of 15000+600000
- 517757 words of font info for 136 fonts, out of 8000000 for 9000
+ 44049 strings out of 478287
+ 876649 string characters out of 5846765
+ 1719285 words of memory out of 5000000
+ 61332 multiletter control sequences out of 15000+600000
+ 517372 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,24n,102p,3058b,1788s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 103i,22n,102p,3058b,1380s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on at-hwk9.pdf (11 pages, 884236 bytes).
+Output written on at-hwk9.pdf (11 pages, 883873 bytes).
 PDF statistics:
- 179 PDF objects out of 1000 (max. 8388607)
- 127 compressed objects within 2 object streams
- 33 named destinations out of 1000 (max. 500000)
+ 177 PDF objects out of 1000 (max. 8388607)
+ 125 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
  27681 words of extra memory for PDF output out of 29859 (max. 10000000)
 
