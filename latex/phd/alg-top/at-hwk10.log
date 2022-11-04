@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  30 OCT 2022 13:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  3 NOV 2022 23:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1442,11 +1442,29 @@ Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/ntxtlf/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.95pt on input line 73.
-Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 73.
+(Font)              scaled to size 10.95pt on input line 69.
+Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 69.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 10.95pt on input line 69.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 76.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 76.
  [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./at-hwk10.aux)
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
+<figures/hwk10-fig1.png, id=50, 2304.61pt x 1124.2pt>
+File: figures/hwk10-fig1.png Graphic file (type png)
+<use figures/hwk10-fig1.png>
+Package pdftex.def Info: figures/hwk10-fig1.png  used on input line 237.
+(pdftex.def)             Requested size: 341.43306pt x 166.5471pt.
+ [5]
+<figures/hwk10-fig2.png, id=56, 1767.60374pt x 1266.7325pt>
+File: figures/hwk10-fig2.png Graphic file (type png)
+<use figures/hwk10-fig2.png>
+Package pdftex.def Info: figures/hwk10-fig2.png  used on input line 246.
+(pdftex.def)             Requested size: 284.52756pt x 203.89905pt.
+ [6 <./figures/hwk10-fig1.png>] [7 <./figures/hwk10-fig2.png>] [8] [9] [10] [11] (./at-hwk10.aux)
 Package rerunfilecheck Info: File `at-hwk10.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'at-hwk10.run.xml'.
@@ -1454,18 +1472,18 @@ Package logreq Info: Writing requests to 'at-hwk10.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 43868 strings out of 478287
- 873324 string characters out of 5846765
- 1702930 words of memory out of 5000000
- 61239 multiletter control sequences out of 15000+600000
- 503203 words of font info for 98 fonts, out of 8000000 for 9000
+ 44137 strings out of 478287
+ 879189 string characters out of 5846765
+ 1729086 words of memory out of 5000000
+ 61425 multiletter control sequences out of 15000+600000
+ 514400 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,16n,102p,3059b,1364s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on at-hwk10.pdf (2 pages, 195006 bytes).
+ 103i,22n,102p,3059b,1604s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on at-hwk10.pdf (11 pages, 763346 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
- 68 compressed objects within 1 object stream
- 11 named destinations out of 1000 (max. 500000)
- 17421 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 163 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
+ 28 named destinations out of 1000 (max. 500000)
+ 23575 words of extra memory for PDF output out of 24883 (max. 10000000)
 
