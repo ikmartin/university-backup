@@ -1,0 +1,9 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'hartshorneII-2.blg'
+[41] biber:340> INFO - === Tue Nov  8, 2022, 16:32:02
+[49] Biber.pm:415> INFO - Reading 'hartshorneII-2.bcf'
+[92] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
+[96] Utils.pm:395> WARN - The file 'hartshorneII-2.bcf' does not contain any citations!
+[101] bbl.pm:654> INFO - Writing 'hartshorneII-2.bbl' with encoding 'UTF-8'
+[101] bbl.pm:757> INFO - Output to hartshorneII-2.bbl
+[101] Biber.pm:128> INFO - WARNINGS: 1
