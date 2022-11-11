@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  10 NOV 2022 10:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  10 NOV 2022 22:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1451,7 +1451,23 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.0pt on input line 128.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 6.0pt on input line 128.
- [2] [3] [4] (./at-hwk11.aux)
+<figures/hwk11-fig1.png, id=29, 2227.32124pt x 967.615pt>
+File: figures/hwk11-fig1.png Graphic file (type png)
+<use figures/hwk11-fig1.png>
+Package pdftex.def Info: figures/hwk11-fig1.png  used on input line 175.
+(pdftex.def)             Requested size: 341.43306pt x 148.32513pt.
+<figures/hwk11-fig2.png, id=30, 2603.7275pt x 744.7825pt>
+File: figures/hwk11-fig2.png Graphic file (type png)
+<use figures/hwk11-fig2.png>
+Package pdftex.def Info: figures/hwk11-fig2.png  used on input line 210.
+(pdftex.def)             Requested size: 341.43306pt x 97.65472pt.
+ [2] [3] [4 <./figures/hwk11-fig1.png>] [5 <./figures/hwk11-fig2.png>] [6]
+<figures/hwk11-fig3.png, id=68, 2522.42375pt x 797.98125pt>
+File: figures/hwk11-fig3.png Graphic file (type png)
+<use figures/hwk11-fig3.png>
+Package pdftex.def Info: figures/hwk11-fig3.png  used on input line 301.
+(pdftex.def)             Requested size: 341.43306pt x 108.00287pt.
+ [7] [8 <./figures/hwk11-fig3.png>] (./at-hwk11.aux)
 Package rerunfilecheck Info: File `at-hwk11.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'at-hwk11.run.xml'.
@@ -1459,18 +1475,18 @@ Package logreq Info: Writing requests to 'at-hwk11.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 43905 strings out of 478287
- 874018 string characters out of 5846765
- 1713927 words of memory out of 5000000
- 61250 multiletter control sequences out of 15000+600000
- 509765 words of font info for 111 fonts, out of 8000000 for 9000
+ 44342 strings out of 478287
+ 884237 string characters out of 5846765
+ 1723121 words of memory out of 5000000
+ 61634 multiletter control sequences out of 15000+600000
+ 511305 words of font info for 127 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,22n,102p,3059b,1368s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on at-hwk11.pdf (4 pages, 198749 bytes).
+ 103i,22n,102p,3059b,1776s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmbi.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on at-hwk11.pdf (8 pages, 682605 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 21517 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 154 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 21532 words of extra memory for PDF output out of 24883 (max. 10000000)
 

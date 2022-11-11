@@ -1,10 +1,10 @@
 # Fdb version 3
-["biber at-hwk11"] 1667967159 "at-hwk11.bcf" "at-hwk11.bbl" "at-hwk11" 1668098434
-  "at-hwk11.bcf" 1668098434 106602 0953243b5074c3e1a8aa2a11c0c64d0f "pdflatex"
+["biber at-hwk11"] 1668129270 "at-hwk11.bcf" "at-hwk11.bbl" "at-hwk11" 1668142327
+  "at-hwk11.bcf" 1668142327 106602 0953243b5074c3e1a8aa2a11c0c64d0f "pdflatex"
   (generated)
   "at-hwk11.bbl"
   "at-hwk11.blg"
-["pdflatex"] 1668098433 "at-hwk11.tex" "at-hwk11.pdf" "at-hwk11" 1668098434
+["pdflatex"] 1668142325 "at-hwk11.tex" "at-hwk11.pdf" "at-hwk11" 1668142327
   "../preamble.tex" 1666659638 2150 97189573ef8eb11a994ed61b69ba58a2 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/homework.sty" 1666659638 10473 96185fb23c97f84d733f6a193cbf0273 ""
   "/home/lwkatzen/texmf/tex/latex/style-sheets/macrosabound.sty" 1667965568 37090 3907a5c29677e5ffff21b66bc201cb49 ""
@@ -44,8 +44,10 @@
   "/usr/local/texlive/2021/texmf-dist/fonts/tfm/public/stmaryrd/stmary8.tfm" 1302307949 848 6125cdd3627e68d3db8013b98e587508 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1248133631 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
@@ -296,11 +298,14 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1643846389 4379201 718a59215bccc89d4f89ee72c554b0e8 ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1643846402 2796796 2c18e0876449a496ae83bd1419ea9c78 ""
   "/usr/local/texlive/2021/texmf.cnf" 1643846386 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "at-hwk11.aux" 1668098434 1701 8bde99e48afef7b868e343cfd394c316 "pdflatex"
-  "at-hwk11.bbl" 1667967160 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber at-hwk11"
-  "at-hwk11.out" 1668098433 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "at-hwk11.run.xml" 1668098434 2333 17bb6fc9a172c6a78660427c5e88c9e0 "pdflatex"
-  "at-hwk11.tex" 1668098431 12192 3758fe0d1b69e23f9165e86aa08ef83a ""
+  "at-hwk11.aux" 1668142327 3577 e12eb8c0c7abe8fa31909080ea970ece "pdflatex"
+  "at-hwk11.bbl" 1668129270 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber at-hwk11"
+  "at-hwk11.out" 1668142326 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "at-hwk11.run.xml" 1668142327 2333 17bb6fc9a172c6a78660427c5e88c9e0 "pdflatex"
+  "at-hwk11.tex" 1668142324 24500 55f8aa22d649adb1628d663455d77c2e ""
+  "figures/hwk11-fig1.png" 1668115943 156763 a0a5224333dee031544bb470b1036579 ""
+  "figures/hwk11-fig2.png" 1668118717 138036 d864db2138564e7124f87a3ad27f0342 ""
+  "figures/hwk11-fig3.png" 1668132427 140096 70b485588efd39759be6a4e088da1e48 ""
   (generated)
   "at-hwk11.aux"
   "at-hwk11.bcf"

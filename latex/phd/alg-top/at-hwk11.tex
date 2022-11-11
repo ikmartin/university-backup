@@ -158,7 +158,7 @@
           H_1(S^2) \oplus \bZ^{m-1} \cong \bZ^{m-1} & n = 1 \\
           0 & \text{else}
         \end{cases}.
-      \end{align*}
+  \end{align*}
 
       Notice that nothing in our above argument relied on the fact that $X = S^2$. The only space-specific properties we needed were triviality of $H_n(X)$ for all $n \geq 3$ to get $H_n(X,A) = 0$ and the path connectedness of $X$ in order to see $i_*:H_0(A) \to H_0(X)$ was path connected. Both of these properties still hold for $X = S^1\times S^1$, so by the same arguments as above,
       \begin{align*}
@@ -170,16 +170,152 @@
         \end{cases}.
       \end{align*}
 
-    \item 
+    \item Let $X$ be the closed orientable surface of genus 2 and let $A$ and $B$ be the circles shown in figure \ref{fig:prob17-1}. Consider also tubular open neighborhoods $U$ of $A$ and $V$ of $B$, also shown in the figure.
+    \begin{center}
+      \includegraphics[width=12cm]{figures/hwk11-fig1.png}
+      \captionof{figure}{Closed orientable surface of genus two with $A$ and $B$ circles}
+      \label{fig:prob17-1}
+    \end{center}
+      The set $U$ deformation retracts onto $A$, so we have for any $k \in \bN$
+      \begin{align*}
+        H_k(X,A) \cong H_k(X,U) \cong H_k(X - A, U - A)
+      \end{align*}
+      where the last isomorphism follows from excision. The space $X - A$ has two connected components $X_1$ and $X_2$, each homeomorphic to two copies of the torus $T = S^1\times S^1$ each with a disk removed from the surface. The subset $U - A$ consists of a neighborhood around the boundary of each $X_i$ which deformation retracts to $\partial X_i$. Here we're lying a little bit -- $X_i$ doesn't contain its boundary -- but replacing $X_i$ with the closure $\ol{X_i}$ doesn't affect the homology groups. Regardless, since disjoint unions correspond to direct sums of homology groups,
+      \begin{align*}
+        H_k(X-A,U-A) \cong H_k(X_1,\partial X_1) \oplus H_k(X_2,\partial X_2).
+      \end{align*}
+
+      Consider the space $X_i$ a little more closely. This space is obtained from a torus $T$ by deleting a disk $D$. Let $x$ be a point in the interior of $D$ so that $D$ deformation retracts onto $x$. Then again by excision, we have
+      \begin{align*}
+        H_k(T,x) \cong H_k(T,D) \cong H_k(T - \{x\}, D - \{x\}) \cong H_k(X_1,\partial X_1).
+      \end{align*}
+      However, we are now in the scenario of part (a)  where our finite set consists now of only one element.Since $X_1 \cong X_2$, we can simply apply our previous results to get
+      \begin{align*}
+        H_n(X,A) \cong H_n(T,x) \oplus H_n(T,x)
+        \begin{cases}
+          \bZ^{2} & n = 2 \\
+          \bZ^{4} & n = 1 \\
+          0 & \text{else}
+        \end{cases}.
+      \end{align*}
+
+      \bigskip
+
+      Similarly, $V$ deformation retracts onto $B$, and applying excision gets us
+      \begin{align*}
+        H_k(X,B) \cong H_k(X,V) \cong H_k(X - B, V - B).
+      \end{align*}
+      The space $X - B$ is homeomorphic to a torus with two disjoint disks $D_1$ and $D_2$ removed:
+    \begin{center}
+      \includegraphics[width=12cm]{figures/hwk11-fig2.png}
+      \captionof{figure}{$X - B$ is homeomorphic to $T - (D_1 \cup D_2)$}
+      \label{fig:prob17-2}
+    \end{center}
+    Now choose $x_1 \in D_1$ and $x_2 \in D_2$. By applying an excision argument as before, we get that
+    \begin{align*}
+      H_k(T,\{x_1,x_2\}) \cong H_k(T - (D_1 \cup D_2), D_{1}\cup D_2 - \{x_1,x_2\}) \cong H_k(X - B, V - B).
+    \end{align*}
+    The rightmost homology group is again something we know from part (a), this time with $m = 2$, and so
+    \begin{align*}
+      H_n(X,B) \cong
+      \begin{cases}
+        \bZ & n = 2 \\
+        \bZ^{3} & n = 1 \\
+        0 & \text{else}
+      \end{cases}.
+    \end{align*}
+    \end{enumerate}
+  \end{prf}
+  \prob[\textsc{Exercise 27.}] Let $f:(X,A)\to (Y,B)$ be a map such that both $f:X\to Y$ and the restriction $f:A\to B$ are homotopy equivalences.
+  \begin{enumerate}[(a)]
+    \item Show that $f_*:H_n(X,A)\to H_n(Y,B)$ is an isomorphism for all $n$.
+    \item For the case of the inclusion $f:(D^n,S^{n-1}) \hookrightarrow (D^n,D^n - \{0\})$, show that $f$ is not a homotopy equivalence of pairs -- there is no $g:(D^n,D^n - \{0\})\to (D^n,S^{n-1})$ such that $fg $ and $gf$ are homotopic to the identity through maps of pairs. [Observe that a homotopy equivalence of pairs $(X,A) \to (Y,B)$ is also a homo copy equivalence for the pairs obtained by replacing $A$ and $B$ by their closures.]
+  \end{enumerate}
+  \begin{prf}$ $
+    \begin{enumerate}[(a)]
+      \item As noted by Prof. Allcock, this is a standard application of the five lemma. We have the following diagram:
+        \begin{center}
+          \begin{tikzcd}
+            H_{n+1}(A) \arrow[r]\arrow[d,"f_*"]& H_{n+1}(X) \arrow[r]\arrow[d,"f_*"]& H_{n+1}(X,A) \arrow[r]\arrow[d,"f_*"]& H_n(A) \arrow[r]\arrow[d,"f_*"]& H_n(X)\arrow[d,"f_*"] \\
+            H_{n+1}(B) \arrow[r]& H_{n+1}(Y) \arrow[r]&H_{n+1}(Y,B) \arrow[r]& H_{n}(B) \arrow[r]&H_{n}(Y)
+          \end{tikzcd}
+        \end{center}
+        whose rows are exact due to the exactness of the long exact sequence of pairs whence the diagram arises. Since homotopy equivalences induce isomorphisms on absolute homology, the five lemma implies that the middle vertical map must also be an isomorphism. That's all there is to it, really.
+
+      \item We argue by contradiction, and rather than $S^{n-1}$ we write $\partial D^n$. Suppose we have a map $g:(D^n,D^n \setminus \{0\})\to (D^n,\partial D^n)$ such that $gf$ is homotopic as a map of pairs to $\id_{(D^n,\partial D^n)}$. If $x \in D^{n}\setminus \{0\}$, then $g(tx) \in \partial D^n$ for all $t \in (0,1]$ and hence
+        \begin{align*}
+          g(0) = \lim_{x\to t^+} g(tx) \in \partial D^n
+        \end{align*}
+        by the continuity of $g$. This implies that $g(D^n) \subseteq \partial D^n$, so we may regard $g$ as a map $g:D^n \to \partial D^n$. Because $gf \simeq \id_{(\partial D, \partial D^n)}$ and $f$ is the inclusion, we have that $gf|_{\partial D^n} = g|_{\partial D^n} \simeq \id_{\partial D^n}$. This means that for every $k\geq 0$ we get a commutative diagram
+        \begin{center}
+          \begin{tikzcd}
+            \tilH_{k}(\partial D^n) \arrow[r,"f_*"]\arrow[rd,"\id"] & \tilH_k(D^n) = 0 \arrow[d,"g_* = 0"] \\
+                                                                                   & \tilH_k(\partial D^n)
+          \end{tikzcd}
+        \end{center}
+        In particular, when $k = n-1$, we get $\tilH_k(\partial D^n)\cong \bZ$, in which case the diagram demands that $g_*f_* = \id$, which is impossible since $\tilH_k(D^n) = 0 \implies g_* = 0$. Hence we have our contradiction.
     \end{enumerate}
   \end{prf}
 \end{homework}
 \tchap{Problems from 3.3}
 \begin{homework}[e]
   \prob[\textsc{Exercise 3.}] Show that every covering space of an orientable manifolds is an orientable manifold.
+  \begin{prf}
+    Let $M$ be an orientable manifold and let $p:\tilM\to M$ be a covering space of $M$. It is clear that $\tilM$ is a manifold -- it is locally homeomorphic to $M$ which is locally homeomorphic to $\bR^n$ -- so we need only show that $\tilM$ is orientable. Recall that by the definition of an orientation we have a function $\mu:M\to \{\pm 1\}$ which satisfies the local consistency condition:
+    \begin{center}
+      For all $x \in M$, there is some open ball $B \cong D^n \subseteq \bR^n$ of $x$ and $\mu_B$ a generator of $H_n(M, M - B)\cong \bZ$ such that for all $y \in B$ the local orientation $\mu_y$ is the image of $\mu_B$ under the natural isomorphism $H_n(M,M-B)\to H_n(M,M - y)$.
+    \end{center}
+    We show that the map $\mu \circ p$ is an orientation function for $\tilM$. To see this, fix an $x \in M$ and a $B$ as above. Let $U \subset \tilM$ be an open set mapped homeomorphically to $B$ by $p$ and $\tilx \in U$ be the unique preimage of $x$ in $U$. For any $\tily \in U$, we then have the following commutative diagram where all maps are isomorphisms:
+    \begin{center}
+      \begin{tikzcd}
+        H_n(\tilM, \tilM - U) \arrow[d,"p_*"] \arrow[r,"\alpha"] & H_n(\tilM,\tilM - \tily)\arrow[d,"p_*"] \\
+        H_n(M,M - B) \arrow[r,"\beta"] & H_n(M, M - p(\tily)),
+      \end{tikzcd}
+    \end{center}
+    where the horizontal maps are the natural ones. If we define $\hat{\mu} = \mu\circ p$ then $\hat{\mu}_{\tily}$ is a local orientation at $\tily$. Let $\mu_U$ be the unique preimage of $\mu_B$ under $p_*$. Then by the commutativity of the diagram,
+    \begin{align*}
+      p_*(\alpha(\mu_U)) = \beta(p_*(\mu_U)) = \beta(\mu_U) = \mu_{p(\tily)},
+    \end{align*}
+    and since $p_*$ is an isomorphism, $\alpha(\mu_U) = \hat{\mu}_{\tily}$. Hence $\hat{\mu}$ is an orientation $\tilM$.
+  \end{prf}
   \prob[\textsc{Exercise 4.}] Given a covering space action of a group $G$ on an orientable manifold $M$ by orientation-preserving homeomorphisms, show that $M/G$ is also orientable.
+  \begin{prf}
+    Suppose the group $G$ acting on $M$ via orientation preserving homeomorphisms is a covering space action and denote by $\pi:M\to M/G$ the projection map, recalling that this map is open. Because $G$ acts via a covering space action, $\pi$ is a local homeomorphism. To state this in the way most useful to us, this implies that for each $\olx \in M/G$ we can find some open neighborhood $\olU$ of $\olx$ such that there is some neighborhood $U$ of $x\in M$, a lift of $\olx$, for which $\pi|_U:U\to \olU$ is a homeomorphism. Now choose some open ball $B$ around $x$ such that $B$ satisfies the local consistency condition. By choosing $B$ to be small enough, we can ensure its closure is contained in $U$, and can thus be used in excision. We then have the following commutative diagram:
+    \begin{center}
+      \begin{tikzcd}
+        H_n(M, M - x) \arrow[r,"\pi_*"]& H_n(M/G, M/G - \olx) \\
+        H_n(M,M - B) \arrow[u] \arrow[r,"\pi_*"]& H_n(M/G,M/G - \pi(B)) \arrow[u]\\
+        H_n(U,U - B) \arrow[u]\arrow[r,"\pi_*"]& H_n(\pi(U),\pi(U) - \pi(B)) \arrow[u]
+      \end{tikzcd}
+    \end{center}
+    where the all vertical maps are isomorphisms, the lower ones arising from excision. Now consider a choice of generator $\mu_B$ which reproduces the local choice of generator $\mu_x$ at $x$. Then by commutativity, $\mu_{\pi(B)}$ is a choice of generator whose image in $H_n(M/G,M/G - \olx)$ is $\mu_{\olx}$. We are not quite done, as this may depend on the choice of lift $x$ of $\olx$. However, since the $G$ action is orientation preserving, any other choice $gx$ of representative for $\olx$ and $gB$ for neighborhood of $gx$ will still satisfy the local consistency condition, so we are done.
+  \end{prf}
   \prob[\textsc{Exercise 7.}] For a map $f:M\to N$ between connected closed orientable $n$-manifolds with fundamental classes $[M]$ $[N]$, the degree of $f$ is defined to be the integer $d$ such that $f_*([M]) = d[N]$, so the sign of the degree depends on the choice of fundamental classes. Show that for any connected closed orientable $n$-manifold $M$ there is a degree $1$ map $M\to S^n$.
+  \begin{prf}
+    This argument is extraordinarily quick if we use the result of exercise 8. Luckily, exercise 8 can be proven without the result of exercise 7.
+
+    Fix any open ball $B \subseteq M$. The quotient space $M/(M-B)$ obtained by collapsing the complement of $B$ to a point is then homeomorphic to $S^n$. Indeed, the quotient map $\pi:M \to M/(M-B)$ can be seen as the construction of $S^n$ as a cell complex: it maps $B$ homeomorphically to a copy of itself in $M/(M-B)$ and send the boundary of $B$ to the point corresponding to the newly collapsed complement of $B$. 
+    
+    By composing $\pi$ with the homeomorphism $M/(M - B)\cong S^n$ we obtain a map $f:M\to S^n$. Let $x = f(M/B)\in S^n$. Then $S^n - x$ is an $n$-ball and $f^{-1}(S^n - x) = B$. The restriction $f|_{B}$ is orientation preserving since the orientation of $M/(M - B)$ arises from $M$, and hence by exercise 8 $\deg f = 1$.
+    \begin{center}
+      \includegraphics[width=12cm]{figures/hwk11-fig3.png}
+      \captionof{figure}{The quotient $M/(M-B)$}
+      \label{fig:prob17-3}
+    \end{center}
+  \end{prf}
+
   \prob[\textsc{Exercise 8.}] For a map $f:M\to N$ between connected closed orientable $n$-manifolds, suppose there is a ball $B \subseteq N$ such that $f^{-1}(B)$ is the disjoint union of balls $B_i$ each mapped homeomorphically by $f$ onto $B$. Show the degree of $f$ is $\sum_i \epsilon_i$ where $\epsilon_i$ is $+1$ or $-1$ according to whether $f:B_i\to B$ preserves or reverses local orientations induced from given fundamental classes $[M]$ and $[N]$.
+  \begin{prf}
+    Note first that because $M$ and $N$ are both closed connected manifolds, the inverse image $f^{-1}(B)$ has finitely many connected components. This means that we can choose a finite index set $I = \{1,...,m\}$ such that $\bigcup_{i=1}^m B_i = f^{-1}(B)$, which is good, as otherwise the sum $\sum_i \epsilon_i$ wouldn't be defined.
+
+    Choose some $x \in B$ and denote by $x_i \in B_i$ the preimage of $x$ under $f|_{B_i}$. Consider the commutative diagram
+    \begin{center}
+      \begin{tikzcd}
+        H_n(M) \arrow[r] \arrow[d,"f_*"]& H_n(M,\{x_i\}_{i\in I}) \arrow[d,"f_*"]\arrow[r,"\cong"]& \bigoplus_{i\in I} H_n(B_i,\{x_i\}) \arrow[d,"f_*"] \\
+        H_n(N) \arrow[r]& H_n(N,\{x\}) \arrow[r,"\cong"]& H_n(B,\{x\})
+      \end{tikzcd}
+    \end{center}
+    The leftmost horizontal maps are induced by inclusion and the rightmost horizontal isomorphisms come from the excision $M - \bigcup_{i\in I}\{B_i\}$ and $N - B$. Denote by $\mu_{x_i} \in H_n(B_i,\{x_i\})$ and $\mu_{x} \in H_n(B,\{x\})$ the generators corresponding to the fundamental classes $[M]$ and $[N]$. Under the composition of the top row of maps $[M]$ is sent to $(\mu_{x_1},...,\mu_{x_m}) \in \bigoplus_{i=1}^m H_n(B_i,\{x_i\})$, and this is mapped to $\sum_{i=1}^m \epsilon_i \mu_x$ by $f_*$ due to our assumption on $f|_{B_i}:B_i \to B$. Traversing the diagram another way, we see that $[M]$ is sent to $\deg(f)[N]$ by $f_*$, and this is mapped to $\deg(f)\mu_x$ by the composition of the bottom row maps. Commutativity of this diagram means that $\deg(f)\mu_x = \sum_{i=1}^m \epsilon_i \mu_x$, and dividing out by $\mu_x$ gives us the desired result.
+  \end{prf}
 \end{homework}
-\tchap{Problems from 3.3}
 \end{document}
