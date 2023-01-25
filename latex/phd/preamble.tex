@@ -20,6 +20,9 @@
 \usepackage{pdfpages}
 \usepackage{transparent}
 
+% use the better epsilon
+\renewcommand{\epsilon}{\varepsilon}
+
 \newcommand{\incpng}[2][1]{%
     \def\svgwidth{#1\columnwidth}
     \import{./figures/}{#2.png}
