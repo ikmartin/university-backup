@@ -1,0 +1,12 @@
+/home/lwkatzen/Desktop/university/code/rust/svd/target/debug/deps/libthiserror_impl-c2cacbc2dd207bd8.so: /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/lib.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/ast.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/attr.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/expand.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/fmt.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/generics.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/prop.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/valid.rs
+
+/home/lwkatzen/Desktop/university/code/rust/svd/target/debug/deps/thiserror_impl-c2cacbc2dd207bd8.d: /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/lib.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/ast.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/attr.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/expand.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/fmt.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/generics.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/prop.rs /home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/valid.rs
+
+/home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/lib.rs:
+/home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/ast.rs:
+/home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/attr.rs:
+/home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/expand.rs:
+/home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/fmt.rs:
+/home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/generics.rs:
+/home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/prop.rs:
+/home/lwkatzen/.cargo/registry/src/github.com-1ecc6299db9ec823/thiserror-impl-1.0.38/src/valid.rs:

@@ -1,0 +1,60 @@
+\input{../../preamble.tex}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Problems from Hartshorne Chapter 2.2 \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+\begin{homework}[e]
+	\prob Let $A$ be an abelian group and defined the \emph{constant presheaf} associated to $A$ on the topological space $X$ to be the preshseaf $U\mapsto A$ for all $U\neq \emptyset$, with restriction maps the identity. Show that the constant sheaf $\cA$ defined in the text is the sheaf associated to this presheaf.
+	\begin{prf}
+		Let $\cC$ be the constant sheaf on $X$, i.e. the sheaf defined as follows: for any open $U\subseteq X$, $\cC(U)$ is the group of all continuous maps of $U$ into $A$ (where $A$ is endowed with the discrete topology). Let $\cG$ be any other sheaf on $X$.
+
+		Define $\theta:\cF\to \cC$ as follows. For an open set $U$, let $\theta(U):\cF(U) = A\to \cC(U)A$ send a point $a \in A$ to the constant map $(x \mapsto a)\in \cC(U)$.
+
+		Now suppose we have some morphism $\alpha:\cF\to \cG$. We would like to define $\beta:\cC\to \cG$ such that $\beta\circ\theta = \alpha$.
+
+		Fix an open subset $U \subseteq X$ and a section $f:U\to A$ of $\cC(U)$. Notice that $\{f^{-1}(a)\}_{a\in A}$ is an open cover of $U$ and $f|_{f^{-1}(a)} = (x\mapsto a) = \theta(U)(a)$ for all $a \in A$. Consider the collection $\{\alpha(U)(a)\}_{a\in A}$ of sections in $\cG(U)$. These satisfy the gluing compatibility condition, namely
+		\begin{align*}
+			\alpha(U)(a)|_{f^{-1}(a)\cap f^{-1}(b)} = \alpha(U)(b)|_{f^{-1}(a)\cap f^{-1}(b)}
+		\end{align*}
+		and hence there is some element $g_f \in \cG(U)$ such that $g_f|_{f^{-1}(a)} = \alpha(U)(a)|_{f^{-1}(a)}$ for all $a \in A$. We simply define $\beta(U)(f) = g_f$ to obtain a map $\beta(U):\cC(U)\to \cG(U)$. This satisfies the restriction requirements and hence $\beta$ is a map of schemes. Furthermore, if $f = \theta(U)(a)$ for some $a \in A$, then $f$ is the constant map $x \mapsto a$ and hence $f^{-1}(a) = U$, so $\beta(f) = \alpha(U)(a)$. This shows that $\alpha = \beta\circ \theta$, meaning $\cC$ satisfies the universal property of the sheaf associated to $\cF$.
+	\end{prf}
+	\prob $ $
+	\begin{enumerate}[(a)]
+		\item For any morphism of sheaves $\varphi:\cF\to \cG$ show that for each point $P$, $(\ker\varphi)_P = \ker(\varphi_P)$ and $(\im\varphi)_P = \im(\varphi_P)$
+		\item Show that $\varphi$ is injective (respectively, surjective) if and only if the induced map on the stalks $\varphi_P$ is injective (respectively, surjective) for all $P$.
+		\item Show that a sequence $...\to \cF^{i-1}\xrightarrow{\varphi^{i-1}} \cF^i \xrightarrow{\varphi^i}\cF^{i+1}\to ...$ of sheaves and morphisms is exact if and only if for each $P\in X$ the corresponding sequence of stalks is exact as a sequence of abelian groups.
+	\end{enumerate}
+	\begin{prf}$ $
+		\begin{enumerate}[(a)]
+			\item Recall that for any $V\subseteq X$ containing a point $P$ we have the diagram
+				\begin{center}
+					\begin{tikzcd}
+						\cF(V) \arrow[r,"\varphi(V)"] \arrow[d,"\pi"]& \cG(V) \arrow[d,"\pi"] \\
+						\cF_P \arrow[r,"\varphi_P"]&\cG_P
+					\end{tikzcd}
+				\end{center}
+				Start with an element $(t,V) \in \ker (\varphi_P)$. Then $t$ is a section of $\cF(V)$ by definition and by commutativity of the diagram we have that $\pi(\varphi(V)(t)) = (\varphi(V)(t),V) = 0$ in $\cG_P$. This means that there is some open neighborhood $W\subset V$ of $P$ such that $\varphi(U)(t)|_W = 0$ by the equivalence relation on $\cG_P$, and since $\varphi(U)(t)|_W = \varphi(W)(t)$ we have that $\varphi(W)(t|_W) = 0$. Hence $t|_W = 0$ and so $t \in \ker\varphi(W)$. Hence $(t|_W,W) \in (\ker \varphi)_P$, and because $(t|_W,W)$ and $(t,V)$ represent the same element in $\ker (\varphi_P)$, this shows the inclusion $\ker(\varphi_P) \subseteq (\ker \varphi)_P$.
+
+				For the other inclusion, take an element $(t,V) \in (\ker\varphi)_P$. This means that $t \in (\ker\varphi)(V) = \ker(\varphi(V))$ and hence $\varphi(V)(t) = 0$ in $\cG(V)$. Composing with $\pi$ gives $\pi(\varphi(V)(t)) = (\varphi(V)(t),V) = 0$ in $\cG_P$. By commutativity, $\pi((t,V)) = (t,V)\in \cF_P$ maps to $0$ under $\varphi_P$, so $(t,V)\in \ker(\varphi_P)$. This gives us the other inclusion.
+
+				\bigskip
+
+				Now let's consider $\im(\varphi)$.
+		\end{enumerate}
+	\end{prf}
+	\prob $ $
+	\begin{enumerate}[(a)]
+		\item  Let $\varphi:\cF\to \cG$ be a morphism of sheaves on $X$. Show that $\varphi$ is surjective if and only if the following condition holds: for every open set $U\subseteq X$, and for every $s \in \cG(U)$, there is a covering $\{U_i\}$ of $U$ and there are elements $t_i \in \cF(U_i)$ such that $\varphi(t_i) = s|_{U_i}$ for all $i$.
+		\item Give an example of a surjective morphism of sheaves $\varphi:\cF\to \cG$ and an open set $U$ such that $\varphi(U):\cF(U)\to \cG(U)$ is not surjective.
+	\end{enumerate}
+\end{homework}
+\end{document}
