@@ -1,0 +1,39 @@
+\input{../preamble.tex}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,intersections,through,backgrounds, shapes.geometric, decorations.markings,arrows}
+
+\begin{document}
+% set section number to 1
+% fixes theorem numbering without need to have a section title
+\setcounter{section}{1}
+
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Solutions to Hungerford Chapter 5.1 \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-4mm}
+\hru
+
+\begin{homework}[e]
+  %\prob[\textsc{Exercise 15}] 
+    \prob $ $
+    \begin{enumerate}[(a)]
+        \item Show that $[F:K] = 1$ if and only if $F = K$.
+        \item Show that if $[F:K]$ is prime, then there are no intermediate fields between $F$ and $K$.
+        \item If $u\in F$ has degree $n$ over $K$, then $n$ divides $[F:K]$.
+    \end{enumerate}
+    \begin{prf}
+        $ $
+        \begin{enumerate}[(a)]
+            \item If $[F:K] = 1$ then $F$ is a 1-dimensional vector space over $K$. Hence there exists some element $x \in F$ such that for all other $y \in F$ there is some $k \in K$ such that $y = kx$. Define a map $\varphi:K\to F$ by $\varphi(k) = kx$. This is surjective by the previous observation and is injective as it is a map of fields. Hence it is an isomorphic.
+            \item If $E$ is a field such that $F/E/K$, then $[F:E][E:K] = [F:K]$. Since $[F:K]$ is prime, either $[E:K] = 1$ or $[F:E] = 1$. In the first case $E\cong K$ and in the second $E \cong F$ by part (a). Hence there are no proper intermediate field extensions.
+            \item If $u\in F$ has degree $n$ over $K$, then the field extension $K(u)$ of $K$ is degree $n$. Since $K(u) \subseteq F$, $K(u)$ is an intermediate extension and hence $[F:K(u)][K(u):K] = [F:K] \implies [F:K(u)]n = [F:K]$, giving us the result.
+        \end{enumerate}
+    \end{prf}
+\end{homework} 
+\end{document}
