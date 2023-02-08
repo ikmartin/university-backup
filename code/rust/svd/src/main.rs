@@ -1,5 +1,6 @@
 use ndarray::prelude::*;
-use gamschmidt::mgs;
+use ndarray_rand::{RandomExt, SamplingStrategy};
+use ndarray_rand::rand_distr::{Uniform, StandardNormal};
 
 fn print_type_of<T>(_: &T) {
     println!("{}", std::any::type_name::<T>())
@@ -15,6 +16,16 @@ fn normalize(mut x: Array1<f64>) -> Array1<f64> {
     x
 }
 
+fn gramschmidt(arr: &Array2<f64>) {
+    let rows = arr.shape()[0];
+    let cols = arr.shape()[1];
+    // make zero array of same length as a column vector in arr
+    let mut projsum: &Array1::<f64> = &Array::zeros(rows);
+    for i in 0..cols{
+        projsum = projsum + &arr.slice_move(s![..,i]);
+        println!("{}",projsum);
+    }
+}
 // power method
 // returns first column of (a^ta)^{k^2}
 fn sing_val(a: Array2::<f64>, k: u32) -> Array2::<f64> {
@@ -30,8 +41,12 @@ fn sing_val(a: Array2::<f64>, k: u32) -> Array2::<f64> {
     }
     return b;
 }
+/*
+fn problem1(){
 
-fn main() {
+}*/
+
+fn problem6a(){
     // create the matrix
     const NCOLS: usize = 10;
     const NROWS: usize = 10;
@@ -47,4 +62,20 @@ fn main() {
     let v1 = b.slice_move(s![..,0]);
     println!("v1: {}", v1);
     println!("Normalized:\n{}",normalize(v1));
+}
+/*
+fn problem6b(){
+    const NCOLS: usize = 10;
+    const NROWS: usize = 10;
+    // the matrix A
+    let mut A: [[f64; NCOLS] ; NROWS] = core::array::from_fn::<[f64; NCOLS],NROWS,_>(|i| 
+        core::array::from_fn::<f64,NCOLS,_>(|j| if i + j < NCOLS {(i + j + 1) as f64} else {0.} ));
+
+
+}*/
+
+fn main() {
+    let arr = array![[1.,2.,3.],[4.,5.,6.]];
+    println!("The value is \n{}",arr.shape()[1]);
+    gramschmidt(&arr);
 }
