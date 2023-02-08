@@ -93,6 +93,18 @@
 
 		Fix an arbitrary section $s \in \cF(W)$, restrict it to $V_i$ and map it to $\cG|_{V_i}$. This is $f_i(V_i)(s|_{V_i})$. The restriction of this $\cG(V_i)$ section to $V_i\cap V_j$ is $f_i(V_i)(s|_{V_i})|_{V_j} = f_i(V_i)(s|_{V_i\cap V_j})$ by the commutativity requirement satisfied by $f_i(V_i)$ and furthermore $f_i(V_i)(s|_{V_i\cap V_j}) = f_j(V_j)(s|_{V_i\cap V_j}) = f_j(V_j)(s|_{V_j})|_{V_i}$ since $f_i$ and $f_j$ agree on overlaps. Hence $\{f_i(V_i)(s|_{V_i})\}_i$ form a collection of sections in $\cG(V_i)$ which agree on overlaps, so there is some unique $x \in \cG(W)$ which restricts to $f_i(V_i)(s|_{V_i})$ on $V_i$. Now define $f(W)(s) = x$. This is the only thing we could possibly do, since $x$ is the unique element which satisfies $x|_{V_i} = f(V_i)(s|_{V_i})$ for all $i$. One can see that $f$ is compatible with restrictions by definition (we \emph{definted} it by lifting restrictions on a cover) and that $f(W')$ is a homomorphism of abelian groups by tracing a sum $s + t$ of sections in $\cF(W')$ through the same restriction diagrams and lifting to $\cG(W')$.
 	\end{prf}
+	\prob[\textsc{Exercise 16.}] A sheaf $\cF$ on a topological space $X$ is \emph{flasque} if for every inclusion $V\subseteq U$ of open sets, the restriction map $\cF(U) \to \cF(V)$ is surjective.
+	\begin{enumerate}[(a)]
+		\item Show that a constant sheaf on an irreducible topological space is flasque.
+		\item If $0 \to \cF' \to \cF\to \cF''\to 0$ is an exact sequence of sheaves, and if $\cF'$ is flasque, then for any open set $U$, the sequence $o\to \cF'(U)\to \cF(U)\to \cF''(U)\to 0$ of abelian groups is also exact.
+		\item If $0 \to \cF' \to \cF \to \cF''\to 0$ is an exact sequence of sheaves and if $\cF'$ and $\cF$ are flasque, then $\cF''$ is flasque.
+	\end{enumerate}
+	\begin{prf}$ $
+		\begin{enumerate}[(a)]
+			\item If $U \subseteq X$ then $U$ is also irreducible, indeed, if $U = (X\cap F_1)\cup (X \cap F_2)$ for some closed sets $F_1,F_2 \subseteq X$, then $X = U^c \cup F_1 \cup F_2$. It therefore suffices to consider the inclusion $U\subseteq X$ of an open set $U$. Let $f \in A(U)$ be a section of $\cC(U)$ where $A$ is the constant sheaf on $X$ (see the definition in exercise II.1.1) and let $a \in \img f$. The sets $\{a\}$ and $\img f\setminus \{a\}$ are both open and closed because $A$ is endowed with the discrete topology, hence $f^{-1}(a)\cup f^{-1}(\img f\setminus \{a\}) = U$ is a decomposition of $U$ into closed subsets. As $U$ is irreducible, one of these must be empty, and it must be $f^{-1}(\img f\setminus \{a\})$ since we chose $a\in \img f$. This implies $f$ is the constant function $x \mapsto a$, and is the restriction of the same function on $X$ to $U$.
+			\item 
+		\end{enumerate}
+	\end{prf}
 	\prob[\textsc{Exercise 17.}] Let $X$ be a topological space, let $P$ be a point, and let $A$ be an abelian group. Define a sheaf $i_P(A)$ as follows: $i_P(A)(U) = A$ if $P\in U$, $0$ otherwise. Verify that the stalk of $i_P(A)$ is $A$ at every point $Q\in \{P\}^-$ in the closure of $P$, and $0$ elsewhere. Hence the name ``skyscraper sheaf''. Show that this sheaf could also be described as $i_*(A)$ where $A$ denotes the constant sheaf $A$ on the closed subspace $\{P\}^-$ and $i\{P\}^-\to X$ is the inclusion.
 	\begin{prf}
 		Suppose $Q\in \{P\}^-$ so that every open set $V$ containing $Q$ also contains $P$. Then $i_P(A)(V) = A$ for every such set by definition, and the restriction map $i_P(A)(V) \to i_P(A)(V')$ for $Q \in V' \subseteq V$ is the identity. Hence the stalk at $i_P(A)(V)$ is indeed $A$. If $Q$ is not in the closure of $\{P\}$ then there is some open set $V$ containing $Q$ which avoids $P$. Hence $i_P(A)(V) = 0$ and the stalk at $Q$ must necessarily be zero.
