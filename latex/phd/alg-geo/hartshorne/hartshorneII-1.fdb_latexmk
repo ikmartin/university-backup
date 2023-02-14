@@ -1,13 +1,13 @@
 # Fdb version 3
-["biber hartshorneII-1"] 1674590448 "hartshorneII-1.bcf" "hartshorneII-1.bbl" "hartshorneII-1" 1675734371
-  "hartshorneII-1.bcf" 1675734370 106602 0953243b5074c3e1a8aa2a11c0c64d0f "pdflatex"
+["biber hartshorneII-1"] 1674590448 "hartshorneII-1.bcf" "hartshorneII-1.bbl" "hartshorneII-1" 1675799223
+  "hartshorneII-1.bcf" 1675799222 106602 0953243b5074c3e1a8aa2a11c0c64d0f "pdflatex"
   (generated)
-  "hartshorneII-1.blg"
   "hartshorneII-1.bbl"
-["pdflatex"] 1675734366 "hartshorneII-1.tex" "hartshorneII-1.pdf" "hartshorneII-1" 1675734371
+  "hartshorneII-1.blg"
+["pdflatex"] 1675799219 "hartshorneII-1.tex" "hartshorneII-1.pdf" "hartshorneII-1" 1675799223
   "../../preamble.tex" 1675722274 2220 65dbf4383a2938b11e0f0b2173ce229f ""
   "/Users/Isaac/Library/texmf/tex/latex/style-sheets/homework.sty" 1675722274 10473 77b5887416c5d7371104d1614dc65eb2 ""
-  "/Users/Isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1675722274 37154 ca114750f944fa8e502cf5733a70fe6d ""
+  "/Users/Isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1675734385 37154 ca114750f944fa8e502cf5733a70fe6d ""
   "/Users/Isaac/Library/texmf/tex/latex/style-sheets/quiver.sty" 1670266332 1606 ac24526cc82038afe47d6f803f11170f ""
   "/Users/Isaac/Library/texmf/tex/latex/style-sheets/theorem-env.sty" 1667841193 3236 2517f736f8a012476a7df9915a3bc3f9 ""
   "/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -286,15 +286,15 @@
   "/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1616695603 5169178 a2ce6e2d73f603b690db6777d06dbccb ""
   "/usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1640209486 2724743 8045dde001b33c148588963d3dbc744b ""
   "/usr/local/texlive/2021/texmf.cnf" 1616695596 577 4c1911a7228e554c6032256d3cf5567d ""
-  "hartshorneII-1.aux" 1675734370 2322 57365adc84290a32175e258d719dd399 "pdflatex"
+  "hartshorneII-1.aux" 1675799222 2519 f585dbeaea0562506140a51858fc3d1f "pdflatex"
   "hartshorneII-1.bbl" 1674590460 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber hartshorneII-1"
-  "hartshorneII-1.out" 1675734369 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "hartshorneII-1.run.xml" 1675734370 2375 8c6a8fb547e7c58697277c6181e56588 "pdflatex"
-  "hartshorneII-1.tex" 1675734366 11734 5d506790ee69c63883a4e3367627984e ""
+  "hartshorneII-1.out" 1675799222 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "hartshorneII-1.run.xml" 1675799222 2375 8c6a8fb547e7c58697277c6181e56588 "pdflatex"
+  "hartshorneII-1.tex" 1675799213 13414 a8cdc27df71c97716a839c4edc448c96 ""
   (generated)
-  "hartshorneII-1.run.xml"
+  "hartshorneII-1.aux"
   "hartshorneII-1.bcf"
-  "hartshorneII-1.log"
   "hartshorneII-1.out"
   "hartshorneII-1.pdf"
-  "hartshorneII-1.aux"
+  "hartshorneII-1.run.xml"
+  "hartshorneII-1.log"
