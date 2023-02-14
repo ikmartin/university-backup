@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  8 FEB 2023 12:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.2.3)  13 FEB 2023 00:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1236,15 +1236,37 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \droptitle=\skip103
 )) (/usr/local/texlive/2021/texmf-dist/tex/latex/capt-of/capt-of.sty
 Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
-) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
-\pgf@intersect@solutions=\count482
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count482
+\lst@gtempboxa=\box134
+\lst@token=\toks57
+\lst@length=\count483
+\lst@currlwidth=\dimen315
+\lst@column=\count484
+\lst@pos=\count485
+\lst@lostspace=\dimen316
+\lst@width=\dimen317
+\lst@newlines=\count486
+\lst@lineno=\count487
+\lst@maxwidth=\dimen318
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count488
+\lst@skipnumbers=\count489
+\lst@framebox=\box135
+) (/usr/local/texlive/2021/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+ (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryintersections.code.tex (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryintersections.code.tex
+(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
+\pgf@intersect@solutions=\count490
 )) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarythrough.code.tex
 File: tikzlibrarythrough.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-)
-(/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
+) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybackgrounds.code.tex
 File: tikzlibrarybackgrounds.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@layerbox@background=\box134
-\pgf@layerboxsaved@background=\box135
+\pgf@layerbox@background=\box136
+\pgf@layerboxsaved@background=\box137
 ) (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.code.tex
@@ -1253,43 +1275,43 @@ File: pgflibraryshapes.geometric.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 File: tikzlibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/local/texlive/2021/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\arrowsize=\dimen315
+\arrowsize=\dimen319
 ))
-LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line 42.
+LaTeX Font Info:    Trying to load font information for T1+ntxtlf on input line 43.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/newtx/t1ntxtlf.fd
 File: t1ntxtlf.fd 2021/05/24 v1.1 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 42.
-\@quotelevel=\count483
-\@quotereset=\count484
+(Font)              scaled to size 10.95pt on input line 43.
+\@quotelevel=\count491
+\@quotereset=\count492
  (./ds-hwk2.aux)
 \openout1 = `ds-hwk2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT2/cmr/m/n on input line 42.
-LaTeX Font Info:    Trying to load font information for OT2+cmr on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT2/cmr/m/n on input line 43.
+LaTeX Font Info:    Trying to load font information for OT2+cmr on input line 43.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/cyrillic/ot2cmr.fd
 File: ot2cmr.fd 2001/08/11 v3.2c Computer Modern Cyrillic font definitions
 )
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1327,17 +1349,17 @@ LaTeX Font Info:    ... okay on input line 42.
 
 (/usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count485
-\scratchdimen=\dimen316
-\scratchbox=\box136
-\nofMPsegments=\count486
-\nofMParguments=\count487
-\everyMPshowfont=\toks57
-\MPscratchCnt=\count488
-\MPscratchDim=\dimen317
-\MPnumerator=\count489
-\makeMPintoPDFobject=\count490
-\everyMPtoPDFconversion=\toks58
+\scratchcounter=\count493
+\scratchdimen=\dimen320
+\scratchbox=\box138
+\nofMPsegments=\count494
+\nofMParguments=\count495
+\everyMPshowfont=\toks58
+\MPscratchCnt=\count496
+\MPscratchDim=\dimen321
+\MPnumerator=\count497
+\makeMPintoPDFobject=\count498
+\everyMPtoPDFconversion=\toks59
 ) (/usr/local/texlive/2021/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -1350,7 +1372,7 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-Package hyperref Info: Link coloring OFF on input line 42.
+Package hyperref Info: Link coloring OFF on input line 43.
  (/usr/local/texlive/2021/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/local/texlive/2021/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1358,29 +1380,29 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2021/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count491
+\c@section@level=\count499
 )
-LaTeX Info: Redefining \ref on input line 42.
-LaTeX Info: Redefining \pageref on input line 42.
-LaTeX Info: Redefining \nameref on input line 42.
+LaTeX Info: Redefining \ref on input line 43.
+LaTeX Info: Redefining \pageref on input line 43.
+LaTeX Info: Redefining \nameref on input line 43.
  (./ds-hwk2.out) (./ds-hwk2.out)
 \@outlinefile=\write5
 \openout5 = `ds-hwk2.out'.
 
-\c@mv@tabular=\count492
-\c@mv@boldtabular=\count493
-LaTeX Info: Redefining \microtypecontext on input line 42.
-Package microtype Info: Applying patch `item' on input line 42.
-Package microtype Info: Applying patch `toc' on input line 42.
-Package microtype Info: Applying patch `eqnum' on input line 42.
-Package microtype Info: Applying patch `footnote' on input line 42.
+\c@mv@tabular=\count500
+\c@mv@boldtabular=\count501
+LaTeX Info: Redefining \microtypecontext on input line 43.
+Package microtype Info: Applying patch `item' on input line 43.
+Package microtype Info: Applying patch `toc' on input line 43.
+Package microtype Info: Applying patch `eqnum' on input line 43.
+Package microtype Info: Applying patch `footnote' on input line 43.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 42.
+LaTeX Info: Redefining \showhyphens on input line 43.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1408,14 +1430,15 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'ds-hwk2.bbl' found.
  (./ds-hwk2.bbl)
-Package biblatex Info: Reference section=0 on input line 42.
-Package biblatex Info: Reference segment=0 on input line 42.
+Package biblatex Info: Reference section=0 on input line 43.
+Package biblatex Info: Reference segment=0 on input line 43.
+\c@lstlisting=\count502
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 17.28pt on input line 48.
+(Font)              scaled to size 17.28pt on input line 49.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 17.28pt on input line 50.
+(Font)              scaled to size 17.28pt on input line 51.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.4pt on input line 51.
+(Font)              scaled to size 14.4pt on input line 52.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 10.95pt on input line 61.
 Package microtype Info: Character `029' is missing
@@ -1448,11 +1471,122 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.95pt on input line 81.
-Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 81.
+(Font)              scaled to size 10.95pt on input line 66.
+Package hyperref Info: bookmark level for unknown soln defaults to 0 on input line 66.
+<~/Desktop/university/code/dsml/hwk2/prob1a.png, id=7, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/prob1a.png Graphic file (type png)
+<use ~/Desktop/university/code/dsml/hwk2/prob1a.png>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/prob1a.png  used on input line 81.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/prob1b.png, id=9, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/prob1b.png Graphic file (type png)
+<use ~/Desktop/university/code/dsml/hwk2/prob1b.png>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/prob1b.png  used on input line 82.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
  [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./ds-hwk2.aux)
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2 </home/lwkatzen/Desktop/university/code/dsml/hwk2/prob1a.png> </home/lwkatzen/Desktop/university/code/dsml/hwk2/prob1b.png>]
+Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 107.
+<~/Desktop/university/latex/phd/data-sci/figures/hwk2-picture.png, id=43, 2200.22pt x 859.21pt>
+File: ~/Desktop/university/latex/phd/data-sci/figures/hwk2-picture.png Graphic file (type png)
+<use ~/Desktop/university/latex/phd/data-sci/figures/hwk2-picture.png>
+Package pdftex.def Info: ~/Desktop/university/latex/phd/data-sci/figures/hwk2-picture.png  used on input line 123.
+(pdftex.def)             Requested size: 341.43306pt x 133.3335pt.
+ [3 </home/lwkatzen/Desktop/university/latex/phd/data-sci/figures/hwk2-picture.png>] [4]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 194.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 194.
+ [5
+
+] [6]
+<~/Desktop/university/latex/phd/data-sci/figures/hwk2-terminal-output.png, id=86, 944.52875pt x 456.70625pt>
+File: ~/Desktop/university/latex/phd/data-sci/figures/hwk2-terminal-output.png Graphic file (type png)
+<use ~/Desktop/university/latex/phd/data-sci/figures/hwk2-terminal-output.png>
+Package pdftex.def Info: ~/Desktop/university/latex/phd/data-sci/figures/hwk2-terminal-output.png  used on input line 325.
+(pdftex.def)             Requested size: 341.43306pt x 165.09706pt.
+ [7] [8]
+<~/Desktop/university/code/dsml/hwk2/images/bwrock.jpg, id=104, 144.54pt x 144.54pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/bwrock.jpg Graphic file (type jpg)
+<use ~/Desktop/university/code/dsml/hwk2/images/bwrock.jpg>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/bwrock.jpg  used on input line 340.
+(pdftex.def)             Requested size: 341.43306pt x 341.45103pt.
+<~/Desktop/university/code/dsml/hwk2/images/bwrock1.jpg, id=105, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/bwrock1.jpg Graphic file (type jpg)
+<use ~/Desktop/university/code/dsml/hwk2/images/bwrock1.jpg>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/bwrock1.jpg  used on input line 342.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/bwrock4.jpg, id=106, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/bwrock4.jpg Graphic file (type jpg)
+<use ~/Desktop/university/code/dsml/hwk2/images/bwrock4.jpg>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/bwrock4.jpg  used on input line 344.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/bwrock16.jpg, id=107, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/bwrock16.jpg Graphic file (type jpg)
+<use ~/Desktop/university/code/dsml/hwk2/images/bwrock16.jpg>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/bwrock16.jpg  used on input line 346.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/bwrock32.jpg, id=108, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/bwrock32.jpg Graphic file (type jpg)
+<use ~/Desktop/university/code/dsml/hwk2/images/bwrock32.jpg>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/bwrock32.jpg  used on input line 348.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/bwwaterfall.jpg, id=109, 216.81pt x 216.81pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall.jpg Graphic file (type jpg)
+<use ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall.jpg>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall.jpg  used on input line 353.
+(pdftex.def)             Requested size: 341.43306pt x 341.47424pt.
+<~/Desktop/university/code/dsml/hwk2/images/bwwaterfall1.jpg, id=110, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall1.jpg Graphic file (type jpg)
+<use ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall1.jpg>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall1.jpg  used on input line 355.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/bwwaterfall4.jpg, id=111, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall4.jpg Graphic file (type jpg)
+<use ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall4.jpg>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall4.jpg  used on input line 357.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/bwwaterfall16.jpg, id=112, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall16.jpg Graphic file (type jpg)
+<use ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall16.jpg>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall16.jpg  used on input line 359.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/bwwaterfall32.jpg, id=113, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall32.jpg Graphic file (type jpg)
+<use ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall32.jpg>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/bwwaterfall32.jpg  used on input line 361.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/noise.png, id=114, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/noise.png Graphic file (type png)
+<use ~/Desktop/university/code/dsml/hwk2/images/noise.png>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/noise.png  used on input line 368.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/noise1.png, id=115, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/noise1.png Graphic file (type png)
+<use ~/Desktop/university/code/dsml/hwk2/images/noise1.png>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/noise1.png  used on input line 370.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/noise4.png, id=116, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/noise4.png Graphic file (type png)
+<use ~/Desktop/university/code/dsml/hwk2/images/noise4.png>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/noise4.png  used on input line 372.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/noise16.png, id=117, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/noise16.png Graphic file (type png)
+<use ~/Desktop/university/code/dsml/hwk2/images/noise16.png>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/noise16.png  used on input line 374.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/noise32.png, id=118, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/noise32.png Graphic file (type png)
+<use ~/Desktop/university/code/dsml/hwk2/images/noise32.png>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/noise32.png  used on input line 376.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/code/dsml/hwk2/images/noise128.png, id=119, 462.528pt x 346.896pt>
+File: ~/Desktop/university/code/dsml/hwk2/images/noise128.png Graphic file (type png)
+<use ~/Desktop/university/code/dsml/hwk2/images/noise128.png>
+Package pdftex.def Info: ~/Desktop/university/code/dsml/hwk2/images/noise128.png  used on input line 378.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+ [9 </home/lwkatzen/Desktop/university/latex/phd/data-sci/figures/hwk2-terminal-output.png>] [10 </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/bwrock.jpg> </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/bwrock1.jpg>] [11 </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/bwrock4.jpg> </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/bwrock16.jpg>] [12 </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/bwrock32.jpg> </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/bwwaterfall.jpg>] [13 </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/bwwaterfall1.jpg> </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/bwwaterfall4.jpg>] [14 </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/bwwaterfall16.jpg> </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/bwwaterfall32.jpg>] [15 </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/noise.png> </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/noise1.png>] [16 </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/noise4.png> </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/noise16.png>] [17 </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/noise32.png> </home/lwkatzen/Desktop/university/code/dsml/hwk2/images/noise128.png>] [18] (./ds-hwk2.aux)
 Package rerunfilecheck Info: File `ds-hwk2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'ds-hwk2.run.xml'.
@@ -1460,18 +1594,18 @@ Package logreq Info: Writing requests to 'ds-hwk2.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 43860 strings out of 478287
- 873316 string characters out of 5846765
- 1699647 words of memory out of 5000000
- 61238 multiletter control sequences out of 15000+600000
- 499660 words of font info for 79 fonts, out of 8000000 for 9000
+ 45520 strings out of 478287
+ 903100 string characters out of 5846765
+ 1722184 words of memory out of 5000000
+ 62743 multiletter control sequences out of 15000+600000
+ 507426 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,14n,102p,3058b,1266s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on ds-hwk2.pdf (1 page, 140733 bytes).
+ 103i,19n,102p,3058b,1397s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on ds-hwk2.pdf (18 pages, 2041926 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 17421 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 271 PDF objects out of 1000 (max. 8388607)
+ 193 compressed objects within 2 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 21617 words of extra memory for PDF output out of 24883 (max. 10000000)
 

@@ -16,16 +16,6 @@ fn normalize(mut x: Array1<f64>) -> Array1<f64> {
     x
 }
 
-fn gramschmidt(arr: &Array2<f64>) {
-    let rows = arr.shape()[0];
-    let cols = arr.shape()[1];
-    // make zero array of same length as a column vector in arr
-    let mut projsum: &Array1::<f64> = &Array::zeros(rows);
-    for i in 0..cols{
-        projsum = projsum + &arr.slice_move(s![..,i]);
-        println!("{}",projsum);
-    }
-}
 // power method
 // returns first column of (a^ta)^{k^2}
 fn sing_val(a: Array2::<f64>, k: u32) -> Array2::<f64> {
@@ -75,7 +65,5 @@ fn problem6b(){
 }*/
 
 fn main() {
-    let arr = array![[1.,2.,3.],[4.,5.,6.]];
-    println!("The value is \n{}",arr.shape()[1]);
-    gramschmidt(&arr);
+    problem6a();
 }
