@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex ising"] 1676743275 "ising.aux" "ising.bbl" "ising" 1676743652
+["bibtex ising"] 1676845002 "ising.aux" "ising.bbl" "ising" 1676845587
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1233624470 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "ising.aux" 1676743652 1732 c64f1672aa7339e24f03eb8982359135 "pdflatex"
-  "ising.bib" 1676701218 1450 cdb2bfb61069358086a58a85caada9f0 ""
+  "ising.aux" 1676845587 1819 be3cd1f9d9ca72874a2d91d71d2c561f "pdflatex"
+  "ising.bib" 1676766963 1450 cdb2bfb61069358086a58a85caada9f0 ""
   (generated)
   "ising.bbl"
   "ising.blg"
-["pdflatex"] 1676743651 "ising.tex" "ising.pdf" "ising" 1676743652
-  "/Users/isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1676697085 37223 6ede3f98eabddc7bc966ff72547d472e ""
-  "/Users/isaac/Library/texmf/tex/latex/style-sheets/notes.sty" 1676717418 9161 7040046b39707dcb37530e9c74c4190d ""
+["pdflatex"] 1676845586 "ising.tex" "ising.pdf" "ising" 1676845587
+  "/Users/isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1676766963 37223 6ede3f98eabddc7bc966ff72547d472e ""
+  "/Users/isaac/Library/texmf/tex/latex/style-sheets/notes.sty" 1676766963 9161 7040046b39707dcb37530e9c74c4190d ""
   "/dev/null" 0 -1 0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -41,6 +41,9 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1136768653 1332 f817c21a1ba54560425663374f1b651a ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm" 1136768653 1344 8a0be4fe4d376203000810ad4dc81558 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm" 1136768653 1328 5442e22a7072966dbaf88ca900acf3f0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1136768653 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm" 1136768653 1524 d89e2d087a9828407a196f428428ef4a ""
@@ -56,6 +59,9 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/stmaryrd/stmary6.tfm" 1302307949 848 068dd119e13b75777e62821af7d4f2a6 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/stmaryrd/stmary8.tfm" 1302307949 848 6125cdd3627e68d3db8013b98e587508 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/stmaryrd/stmary9.tfm" 1302307949 848 594c171945930dfc7cc52fb30457c803 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb" 1248133631 32034 6149cc3792d7e291632994f6e6ca6d68 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb" 1248133631 32378 2b20eba6bb36c716382b6d96240eaa69 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb" 1248133631 32298 c6d25bb16d1eac01ebdc6d7084126a1e ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb" 1248133631 37912 77d683123f92148345f3fc36a38d9ab1 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1248133631 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
@@ -308,11 +314,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1676399263 2826451 d93c80d8a60ecfe737f8da20e0ce13e4 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "ising.aux" 1676743652 1732 c64f1672aa7339e24f03eb8982359135 "pdflatex"
-  "ising.bbl" 1676743275 275 de5ffaf5b665b622658d80bed97ba2a5 "bibtex ising"
-  "ising.out" 1676743652 305 e5444bb526a89c389c4f96f49f6d578b "pdflatex"
+  "ising.aux" 1676845587 1819 be3cd1f9d9ca72874a2d91d71d2c561f "pdflatex"
+  "ising.bbl" 1676845003 275 de5ffaf5b665b622658d80bed97ba2a5 "bibtex ising"
+  "ising.out" 1676845587 305 e5444bb526a89c389c4f96f49f6d578b "pdflatex"
   "ising.pre" 0 -1 0 "pdflatex"
-  "ising.tex" 1676743649 11848 30484551dbc97d43627fa11861da99e2 ""
+  "ising.tex" 1676845585 12672 bdf55932630d60fcfa004d16f9c4063b ""
   (generated)
   "ising.aux"
   "ising.log"

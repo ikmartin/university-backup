@@ -150,21 +150,32 @@ Comments:
 \marginnote{If you stop to think about condition (iii), you'll conclude that it really couldn't be anything else. What other way is there to make an Ising graph and an abstract circuit compatible?}
 Conditions (i) and (ii) in the above definition are self explanatory. Condition (iii) merely requires that the circuit structure of $G$ is compatible with the Ising graph structure of $G$. It asks that the output $t$ which minimizes $H(s,t)$ is the correct one; in other words, the correct output corresponding to an input $s$ is the one which occurs with highest probability. We have an immediate question:
 
-\begin{question}
+\begin{question}\label{q:can-you-always-zingify}
   Can every pre-Ising circuit $G$ be realized as an Ising circuit for an appropriate choice of $h$ and $J$? (This is known as \emph{solving} a pre-Ising circuit.)
 \end{question}
 
-The answer is an emphatic \textbf{no}.
+In order to solve a pre-Ising circuit, we need to find $h$ and $J$ such that condition (iii) is satisfied. This means we need to satisfy all constraints of the form
+\begin{align*}
+  H(s,f(s)) < H(s,t)
+\end{align*}
+simultaneously for all possible input states $s \in S_N$ and output states $t \neq f(s)$. We can arrange these constraint equations in a convenient way through \emph{input levels}.
+\subsection{Input Levels}
+\begin{defn}[Input Level]
+  Let $\bfs \in S_N$ be an input spin. Then $L_{\bfs} = \{\bfs\}\times S_M$ is called the \textbf{input level} at $\bfs$.
+\end{defn}
+We say that a choice of $h$ and $J$ \textbf{solves} an input level $L_\bfs$ if all constraints of the form
+\begin{align*}
+  H(\bfs,t) > H(\bfs,f(\bfs))
+\end{align*}
+are satisfied for $t \neq f(\bfs)$, i.e. if $(\bfs, f(\bfs))$ \emph{strictly} minimizes the Hamiltonian for the input level:
+\begin{align*}
+  (\bfs,t) = \min_{\bfu \in L_\bfs} H(\bfu) \implies t = f(s).
+\end{align*}
+There are $M-1$ constraint equations for each input level and $N$ distinct input levels, so to solve a pre-Ising circuit one must find $h$ and $J$ which simultaneously satisfy $N(M-1)$ constraints.
 
 \subsection{A non-example: XOR}
 I'll fill this in at some point, seems tedious now though.
 
-\subsection{Input Levels}
-We can conveniently enumerate the constraints of a pre-Ising circuit using the following partition of the state space $S_G = S_N\times S_M$.
-\begin{defn}[Input Level]
-  Let $s \in S_N$ be an input spin. Then $L_s = \{s\}\times S_M$ is called the \textbf{input level} at $s$.
-\end{defn}
-The constraints
 
 \chapter{Virtual States and Random Parameters}
 Consider a pre-Ising circuit $G$. Define a new set
