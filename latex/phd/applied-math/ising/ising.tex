@@ -164,17 +164,62 @@ simultaneously for all possible input states $s \in S_N$ and output states $t \n
   Let $\bfs \in S_N$ be an input spin. Then $L_{\bfs} = \{\bfs\}\times S_M$ is called the \textbf{input level} at $\bfs$.
 \end{defn}
 We say that a choice of $h$ and $J$ \textbf{solves} an input level $L_\bfs$ if all constraints of the form
-\begin{align*}
+\begin{equation}\label{eqn:constraint}
   H(\bfs,t) > H(\bfs,f(\bfs))
-\end{align*}
+\end{equation}
 are satisfied for $t \neq f(\bfs)$, i.e. if $(\bfs, f(\bfs))$ \emph{strictly} minimizes the Hamiltonian for the input level:
 \begin{align*}
   (\bfs,t) = \min_{\bfu \in L_\bfs} H(\bfu) \implies t = f(s).
 \end{align*}
 There are $M-1$ constraint equations for each input level and $N$ distinct input levels, so to solve a pre-Ising circuit one must find $h$ and $J$ which simultaneously satisfy $N(M-1)$ constraints.
 
+It is always possible to choose $\bfh$ and $\bfJ$ which satisfy a specified input level.
+\marginnote{This proposition essentially says ``the greedy approach works'' for an input level. Choose $\bfh$ and $\bfJ$ so that the contribution of the $\bfh_i$ and $\bfJ_{ij}$ component to the Hamiltonian is always negative for the correct input/output pair. Any state differing from this specific pair will flip the sign of \textbf{at least} one $\bfh_i$ or $\bfJ_{ij}$ and thus result in a strictly larger Hamiltonian.}
+\begin{prop}[Global Minimization]\label{prop:pvec-solves-input-level}
+  Let $G$ be a pre-Ising circuit, $\bfs \in S_N$ an input state and $\bfu = (\bfs,f(\bfs)) \in S_G$ the state of $G$ obtained by concatenating the input $\bfs$ with the correct output state $f(\bfs)$. Then $\bfh \in \bR^G$ and $\bfJ \in \bR^{G(G-1)/2}$ defined
+  \begin{align*}
+    \bfh = - \bfu ~\text{ and } \bfJ_{ij} = -\bfu_i\cdot \bfu_j ~\text{ for } i < j
+  \end{align*}
+  solves the input level $L_\bfs$.
+\end{prop}
+\begin{proof}
+  Consider any other $\bfv \in L_\bfs$ for $\bfv \neq \bfu$. Since $\bfh_i = -\bfu_i$ and $\bfJ_{ij} = -\bfu_i\bfu_j$ we have that
+  \begin{align*}
+    H(\bfv) - H(\bfu) 
+      &= \sum_{i=1}^G \bfh_i(\bfv_i - \bfu_i) ~+~ \sum_{i < j} \bfJ_{ij}(\bfv_i\bfv_j - \bfu_i\bfu_j) \\
+      &= \sum_{i=1}^G (-\bfu_i\bfv_i + 1) ~+~ \sum_{i < j} (-\bfv_i\bfv_j\bfu_i\bfu_j + 1).
+  \end{align*}
+  \marginnote{Notice that this choice of $\bfh$ and $\bfJ$ \emph{globally} minimizes the state $\bfu$. In some ways this it the thematic opposite of what we want. We need to minimize \emph{all} correct input/output pairs at once, but the minimization only needs to occur among spins in the same input level. What we have accomplished is minimizing a single input/output pair globally. For this reason, we say that $\bfu$ has been \emph{globally minimized.}}
+  But $\bfu_i\bfv_i, \bfv_i\bfv_j\bfu_i\bfu_j \in \{-1,1\}$, hence $-\bfu_i\bfv_i + 1$ and $-\bfv_i\bfv_j\bfu_i\bfu_j + 1$ are both either $0$ or $1$. This means $H(\bfv) - H(\bfu)\geq 0$ with equality only when $\bfv = \bfu$, hence all constraints of the form (\ref{eqn:constraint}) are satisfied.
+\end{proof}
+We can also simultaneously minimize inputs which share the same output.
+\begin{prop}[Minimize an output]\label{prop:minimize-an-output}
+  Suppose input states $\bfs_1,...,\bfs_k\in S_N$ all share the same output, i.e. $f(\bfs_1) = ... = f(\bfs_k) = \bft \in S_M$ for some $\bft$. Then there exist $\bfh$ and $\bfJ$ which simultaneously solve the input levels $L_{\bfs_1},...,L_{\bfs_k}$.
+\end{prop}
+\begin{proof}
+  Define $\bfh$ and $\bfJ$ as follows:
+  \begin{align*}
+    \bfh_i =
+    \begin{cases}
+      0 & \text{if } i \leq N \\
+      -\bft_{i - N} & \text{if } i > N
+    \end{cases} ~\text{ and } ~
+    J_{ij} =
+    \begin{cases}
+      0 & i \geq N \\
+      -\bft_{i - N}\bft_{j - N} & i > N
+    \end{cases}.
+  \end{align*}
+  Then a similar check as in Proposition (\ref{prop:minimize-an-output}) proves the desired result.
+\end{proof}
+Notice, however, that the choice of $\bfh$ and $\bfJ$ made in the above proof is terrible for an Ising circuit with more than one output. It ensures that the Hamiltonian value of $\bfu \in S_G$ depends only on the output components of $\bfu$. In particular, if $\bfs$ is some input such that $f(\bfs) \neq \bft$, then this choice of $\bfh$ and $\bfJ$ are guaranteed \emph{not} to solve $L_{\bfs}$. Is there anything we can say about Question (\ref{q:can-you-always-zingify}) in general for circuits with 2 or more outputs? The answer is an emphatic \textbf{no}.
+
 \subsection{A non-example: XOR}
+Consider the 2-bit XOR circuit. This is a graph consisting of 3 vertices, two input vertices and one output vertex. It thus necessarily has only two possible outputs, $-1$ and $1$. 
+
 I'll fill this in at some point, seems tedious now though.
+
+\subsection{Auxiliary Spins and the XOR fix}
 
 
 \chapter{Virtual States and Random Parameters}
@@ -182,7 +227,17 @@ Consider a pre-Ising circuit $G$. Define a new set
 \begin{align*}
   E = \{(i,j) ~ \mid ~ i \leq j, i,j \in G\}.
 \end{align*}
-This is the set of all possible edges we could form between vertices in $G$ if we allow self-connections. The cardinality of $E$ is $|G|\cdot(|G|+1)/2$, or written another way $|G| + |G|\cdot(|G|-1)/2$. From this it is clear that the state space $S_E$ has one spin for every vertex and pair of vertices in $G$. 
+This is the set of all possible edges we could form between vertices in $G$ if we allow self-connections. It is also all indices of elements which are either on or above the diagonal of a $G\times G$ matrix. The cardinality of $E$ is $|G|\cdot(|G|+1)/2$, or written another way $|G| + |G|\cdot(|G|-1)/2$. From this it is clear that the state space $S_E$ has one spin for every vertex and another for every pair of vertices in $G$.
+
+We also define the $|E|$-dimensional vector space
+\begin{align*}
+  \bR^E = \bigoplus_{(i,j) \in E} (i,j)\bR.
+\end{align*}
+A vector $\bfx \in \bR^E$ is indexed via elements in $E$: $\bfx_{(i,j)}$ is the component of $\bfx$ corresponding to $(i,j)$. This gives us a convenient way to package $\bfh$ and $\bfJ$ as a single vector, $\bfx_{(i,i)}$ is a choice for $h_i$ and $\bfx_{(i,j)}$ for $i < j$ is a choice for $\bfJ_{ij}$. Stated more formally, we have an isomorphism
+\begin{equation}\label{eqn:parameter_space_iso}
+  \bR^{|G|} \oplus \bR^{|G|(|G| - 1)/2}\to \bR^E
+\end{equation}
+given by sending a vector $(\bfh, \bfJ)$ to the vector $\bfp$ where $\bfp_{(i,i)} = \bfh_i$ and $\bfJ_{ij} = \bfp_{(i,j)}$. Because $\bfh$ and $\bfJ$ are called the parameters of an Ising graph, we call $\bR^E$ the \textbf{parameter space} of $G$.
 
 Now consider the map
 \begin{equation}\label{eqn:virtual-map}
@@ -198,11 +253,11 @@ The map $\varphi$ takes states of $G$ and produces states on $E$. If we identify
 \end{align*}
 From this description, it is clear that $\varphi$ simply concatenates all possible products between spins in $s$ to $s$ itself. 
 
-Notice that, for some choice of $h,J$, the Hamiltonian of $G$ can now be written as the dot product
+Notice that, for some choice of $\bfh, \bfJ$, the Hamiltonian of $G$ can now be written as the dot product
 \begin{align*}
-  H(s) = (h,J) \cdot \varphi(s)
+  H(\bfs) = (\bfh,\bfJ) \cdot \varphi(\bfs)
 \end{align*}
-where $(h,J)$ is the element in $\bR^{|E|}$ given by concatenating $h$ and $J$. For this reason, we call $E$ the \textbf{virtual state space} of $G$. It contains states which correspond to states of $G$, but it also contains far more.
+where $(\bfh,\bfJ)$ is identified with its image in $\bR^E$. The state space $S_E$ contains states which correspond to states of $G$, but it also contains many others. For this reason, we call it the \textbf{virtual state space} of $G$.
 
 \newpage
 \bibliographystyle{abbrvnat}
