@@ -1,3 +1,5 @@
+
+
 \documentclass[raggedright, nofonts, notitlepage, openany, debug]{tufte-book}
 
 %%% Sets numbering depth to section level (e.g, no numbered subsections)
@@ -38,10 +40,8 @@
 \title{The Reverse Ising Problem}
 \author{Isaac Martin}
 \maketitle
-
 \chapter{Introduction and Terminology}
 \section{The Ising Model}
-
 % don't tell me an hbox is overfull unless it's actually bad
 \hfuzz = 10pt
 
@@ -175,7 +175,7 @@ There are $M-1$ constraint equations for each input level and $N$ distinct input
 
 It is always possible to choose $\bfh$ and $\bfJ$ which satisfy a specified input level.
 \marginnote{This proposition essentially says ``the greedy approach works'' for an input level. Choose $\bfh$ and $\bfJ$ so that the contribution of the $\bfh_i$ and $\bfJ_{ij}$ component to the Hamiltonian is always negative for the correct input/output pair. Any state differing from this specific pair will flip the sign of \textbf{at least} one $\bfh_i$ or $\bfJ_{ij}$ and thus result in a strictly larger Hamiltonian.}
-\begin{prop}[Global Minimization]\label{prop:pvec-solves-input-level}
+\begin{prop}[Global Minimization]\label{prop:pvec_solves_input_level}
   Let $G$ be a pre-Ising circuit, $\bfs \in S_N$ an input state and $\bfu = (\bfs,f(\bfs)) \in S_G$ the state of $G$ obtained by concatenating the input $\bfs$ with the correct output state $f(\bfs)$. Then $\bfh \in \bR^G$ and $\bfJ \in \bR^{G(G-1)/2}$ defined
   \begin{align*}
     \bfh = - \bfu ~\text{ and } \bfJ_{ij} = -\bfu_i\cdot \bfu_j ~\text{ for } i < j
@@ -223,6 +223,14 @@ I'll fill this in at some point, seems tedious now though.
 
 
 \chapter{Virtual States and Random Parameters}
+The main point of this section is to explore how auxiliary spins should be added to a pre-Ising circuit. We'll consider adding auxiliary spins one at a time with each spin added monotonically decreasing some cost function. Specifically, we'll try to answer the following question: 
+\marginnote{Our philosophy is, essentially, that we should choose auxiliary spins so that when one input level is solved by a random choice of $(h,J)$ it increases the likelihood that other input levels are also solved. We want high correlation between the ``solvedness'' of input levels.} 
+\begin{question}
+  Given a random choice of $h$ and $J$, how do we choose an auxiliary spin at each input level $L_\bfs$ such that, if $(h,J)$ solves $L_\bfs$ it also solves other input levels with high probability?
+\end{question}
+Our setup will introduce two new ideas: virtual spin space and random parameters. Throughout this section $(G,N,M,f)$ is a pre-Ising circuit.
+
+\section{Virtual Spin Space}
 Consider a pre-Ising circuit $G$. Define a new set
 \begin{align*}
   E = \{(i,j) ~ \mid ~ i \leq j, i,j \in G\}.
@@ -230,6 +238,7 @@ Consider a pre-Ising circuit $G$. Define a new set
 This is the set of all possible edges we could form between vertices in $G$ if we allow self-connections. It is also all indices of elements which are either on or above the diagonal of a $G\times G$ matrix. The cardinality of $E$ is $|G|\cdot(|G|+1)/2$, or written another way $|G| + |G|\cdot(|G|-1)/2$. From this it is clear that the state space $S_E$ has one spin for every vertex and another for every pair of vertices in $G$.
 
 We also define the $|E|$-dimensional vector space
+\marginnote{We can also interpret $\bR^E$ to mean the ``set of all functions $E\to \bR$'', which is the set theoretic interpretation of the notation anyway. This is a $\bR$-vector space and is canonically isomorphic to the vector space defined here.}
 \begin{align*}
   \bR^E = \bigoplus_{(i,j) \in E} (i,j)\bR.
 \end{align*}
@@ -240,24 +249,90 @@ A vector $\bfx \in \bR^E$ is indexed via elements in $E$: $\bfx_{(i,j)}$ is the 
 given by sending a vector $(\bfh, \bfJ)$ to the vector $\bfp$ where $\bfp_{(i,i)} = \bfh_i$ and $\bfJ_{ij} = \bfp_{(i,j)}$. Because $\bfh$ and $\bfJ$ are called the parameters of an Ising graph, we call $\bR^E$ the \textbf{parameter space} of $G$.
 
 Now consider the map
-\begin{equation}\label{eqn:virtual-map}
+\begin{equation}\label{eqn:virtual_map}
   \varphi:S_G \to S_E, ~\varphi(s)(i,j) = 
   \begin{cases}
     s(i) & \text{if } i = j \\
     s(i)s(j) & \text{if } i = j
   \end{cases}
 \end{equation}
-The map $\varphi$ takes states of $G$ and produces states on $E$. If we identify $G$ with its image in $E$ under the diagonal embedding $i \mapsto (i,i)$ we see that $\varphi(s)|_{G} = s$, meaning that the state $\varphi(s)$ recovers $s$ when restricted to $G$. However, it also contains the second order interactions between spins of $s$. If we think of states instead as vectors in $X^{|G|}$ and $X^{|E|}$, then we can write $\varphi$ in a more enlightening way:
-\begin{align*}
-\varphi(s_1,...,s_{G}) = (s_1,...,s_G,s_1s_2,s_1s_3,...,s_1s_G,s_2s_G,...,s_{G-1}s_{G}).
-\end{align*}
-From this description, it is clear that $\varphi$ simply concatenates all possible products between spins in $s$ to $s$ itself. 
+The map $\varphi$ takes states of $G$ and produces states on $E$. If we identify $G$ with its image in $E$ under the diagonal embedding $i \mapsto (i,i)$ we see that $\varphi(\bfs)|_{G} = \bfs$, meaning that the state $\varphi(\bfs)$ recovers $\bfs$ when restricted to $G$. However, it also contains the second order interactions between spins of $\bfs$. If we think of states instead as vectors in $X^{|G|}$ and $X^{|E|}$, then we can write $\varphi$ in a more enlightening way:
+\begin{equation}\label{eqn:hamiltonian_is_dot_product_in_virtual_spinspace}
+\varphi(\bfs_1,...,\bfs_{G}) = (\bfs_1,...,\bfs_G,\bfs_1\bfs_2,\bfs_1\bfs_3,...,\bfs_1\bfs_G,\bfs_2\bfs_G,...,\bfs_{G-1}\bfs_{G}).
+\end{equation}
+From this description, it is clear that $\varphi$ simply concatenates all pairwise products of components in $\bfs$ 
 
 Notice that, for some choice of $\bfh, \bfJ$, the Hamiltonian of $G$ can now be written as the dot product
 \begin{align*}
-  H(\bfs) = (\bfh,\bfJ) \cdot \varphi(\bfs)
+  H(\bfs) = \langle (\bfh,\bfJ) , \varphi(\bfs)\rangle
 \end{align*}
 where $(\bfh,\bfJ)$ is identified with its image in $\bR^E$. The state space $S_E$ contains states which correspond to states of $G$, but it also contains many others. For this reason, we call it the \textbf{virtual state space} of $G$.
+
+\section{Random Parameters}
+Consider a choice of $P \in \bR^E$ sampled from some distribution, e.g. a multivariate Gaussian \footnote{This seems like a good choice as it is spherically symmetric.} From the argument used in the proof of Proposition (\ref{prop:pvec_solves_input_level}) it is clear that the virtual spin $\bfv \in S_E$ whose sign in each component opposes the sign of the corresponding elements in $P$ will minimize $\langle P,\bfv \rangle$:
+\begin{equation}\label{eqn:minimum_virtual_spin}
+  \bfv_{i,j} = - \frac{P_{i,j}}{|P_{i,j}|}, ~ \text{ for } (i,j) \in E.
+\end{equation}
+
+A harder question is the following:
+
+\begin{question}
+  Fix an input $\bfs \in S_N$. For which $\bfx \in L_\bfs$ is $\langle P, \varphi(\bfx) \rangle$ minimized?
+\end{question}
+
+Intuitively, the $\bfx$ which minimizes $\langle P, \varphi(\bfx) \rangle$ should be close to the virtual spin which minimizes the inner product with $P$. Indeed, under some additional assumptions on $P$ this is true.
+
+\begin{prop}\label{prop:hamming_distance_to_minimum_virtual_spin}
+  Suppose that $|P_{i,j}| = |P_{i',j'}|$ for all $(i,j), (i',j') \in E$ and let $\bfv \in S_E$ be the virtual spin which minimizes $\langle P, \bfv \rangle$. Then
+  \begin{align*}
+    \bfx = \arg\min_{\bfx \in L_\bfs} \langle P, \varphi(\bfx) \rangle
+  \end{align*}
+  if and only if
+  \begin{align*}
+    \bfx = \arg\min_{\bfx \in L_{\bfs}} d(\bfv, \bfx),
+  \end{align*}
+  where $d$ is Hamming distance.
+\end{prop}
+\begin{proof}
+  \begin{align*} 
+    &\bfx = \arg\min_{\bfx \in L_\bfs} \langle P, \varphi(\bfx) \rangle \\
+    &\iff \bfx = \arg\min_{\bfx \in L_\bfs} \big(\langle P, \varphi(\bfx) \rangle - \langle P, \bfv \rangle\big)\\
+    &\iff \bfx = \arg\min_{\bfx \in L_\bfs} \langle P, \varphi(\bfx) - \bfv \rangle \\
+    &\iff \bfx = \arg\min_{\bfx \in L_\bfs} \left\langle P, \frac{1}{2}(\varphi(\bfx) - \bfv) \right\rangle.
+  \end{align*}
+  Consider $\varphi(\bfx)_{i,j} - \bfv_{i,j}$ for $(i,j) \in E$. If $\varphi(\bfx_{i,j}) = \bfv_{i,j}$ then this is zero. If $\varphi(\bfx_{i,j}) \neq \bfv_{i,j}$ then $\varphi(\bfx)_{i,j} = - \bfv_{i,j} = P_{i,j}/|P_{i,j}|$ by equation (\ref{eqn:minimum_virtual_spin}), and hence $\varphi(\bfx)_{i,j} - \bfv_{i,j} = 2$. We then have
+  \begin{align*}
+    \left\langle P, \frac{1}{2}(\varphi(\bfx) - \bfv) \right\rangle = |P_{1,1}| \cdot d(\varphi(\bfx), \bfv)
+  \end{align*}
+  because all components of $P$ are equal, and we are done.
+\end{proof}
+
+For an arbitrary $P$ we get something similar.
+
+\begin{prop}\label{prop:minimization_condition}
+  Let $P \in \bR^E$ be a parameter vector for $G$ and $\bfv\in S_E$ be the virtual spin which minimizes $\langle P, \bfv \rangle$. Then for a fixed $\bfs \in S_N$,
+  \begin{align*} 
+    \bfx = \arg\min_{\bfx \in L_\bfs} \langle P, \varphi(\bfx) \rangle
+  \end{align*}
+  if and only if
+  \begin{align*}
+    \bfx = \arg\min_{\bfx \in L_{\bfs}} \sum_{(i,j) \in D(\bfx,\bfv)} |P_{i,j}|
+  \end{align*}
+  where $D(\bfx,\bfv) = \{(i,j) \in E ~\mid~ \varphi(\bfx)_{i,j} \neq \bfv_{i,j}\}$ is the collection of indices where $\varphi(\bfx)$ and $\bfx$ disagree.
+\end{prop}
+\marginnote{One should think of Proposition \ref{prop:minimization_condition} as providing a way to rank the disagreements between components of $\varphi(\bfx)$ and $\bfv$, if $|P_{i,j}|$ is small then the penalty for disagreement is also small.}
+\begin{proof}
+  This is the same proof as Proposition (\ref{prop:hamming_distance_to_minimum_virtual_spin}) once one notices that
+  \begin{align*}
+    \left\langle P, \frac{1}{2}(\varphi(\bfx) - \bfv)\right\rangle = \sum_{(i,j) \in D(\bfx,\bfv)} |P_{i,j}|^2.
+  \end{align*}
+\end{proof}
+
+Proposition (\ref{prop:minimization_condition}) tells us that if we could quickly calculate the value of the \emph{level minimizer function} $\psi:\bR^E\to S_G$ defined
+\begin{equation}\label{eqn:level_minimizer_function}
+  \psi(P) = \arg\min_{\bfx \in L_\bfs} \sum_{(i,j) \in D(\bfx,\bfv)} |P_{i,j}|
+\end{equation}
+then we could quickly detect how many input levels are satisfied by a choice of $P$. This would then help us in choosing auxiliary spins which maximize correlation among the input levels.
 
 \newpage
 \bibliographystyle{abbrvnat}

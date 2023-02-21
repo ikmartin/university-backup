@@ -1624,9 +1624,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtlf.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtlf.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtlf.fd
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
-INPUT ./ds-hwk3.aux
-INPUT ds-hwk3.aux
-INPUT ds-hwk3.aux
 OUTPUT ds-hwk3.aux
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/cyrillic/ot2cmr.fd
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/cyrillic/ot2cmr.fd
@@ -1788,6 +1785,7 @@ INPUT /usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT ds-hwk3.aux
 INPUT ./ds-hwk3.out
 INPUT ./ds-hwk3.out
+INPUT ds-hwk3.run.xml
 OUTPUT ds-hwk3.run.xml
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc
@@ -1797,6 +1795,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb
