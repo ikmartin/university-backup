@@ -58,16 +58,129 @@
 \hru
 
 \begin{homework}[e]
-  \prob[\textsc{Exercise 2.}] Let $\bfX\in \bR^{n\times d}$ be a matrix whose $n$ rows are the data points $\bfx_1,...,\bfx_n \in \bR^d$, and let $\chi = \{\bfx_1,...,\bfx_n\}$. Consider the $k$-means optimization problem: find a partition $C_1,...,C_k$ which minimizes, among all partitions of $[n]$ into $k$ subsets,
+  \prob[\textsc{Exercise 2.}] Let $\bfX\in \bR^{n\times d}$ be a matrix whose $n$ rows are the data points $\bfx_1,...,\bfx_n \in \bR^d$, and let $\cX = \{\bfx_1,...,\bfx_n\}$. Consider the $k$-means optimization problem: find a partition $C_1,...,C_k$ which minimizes, among all partitions of $[n]$ into $k$ subsets,
   \begin{align*}
-    \operatorname{cost}_{\chi}(C_1,...,C_k):= \sum_{j=1}^k\sum_{i \in C_j} \left\|\bfx_i - \frac{1}{|C_j|}\sum_{i\in C_j} \bfx_i\right\|^2_2.
+    \operatorname{cost}_{\cX}(C_1,...,C_k):= \sum_{j=1}^k\sum_{i \in C_j} \left\|\bfx_i - \frac{1}{|C_j|}\sum_{i\in C_j} \bfx_i\right\|^2_2.
   \end{align*}
   \begin{enumerate}[(a)]
     \item Suppose that $\Phi:\bR^d \to \bR^r$ with $r = \cO(\log(n)/\epsilon^2)$ is a random i.i.d. spherical Gaussian projection matrix and thus satisfies the JL lemma. Consider the projected points $\bfy_j = \Phi\bfx_j\in \bR^r$ and suppose $\tilC_1,...,\tilC_k$ are an optimal set of $k$-means clusters for the data points $\cY = \{\bfy_1,....,\bfy_n\}$. That is,
     \begin{align*}
-      \operatorname{cost}_{\cY}(\tilC_1,...,\tilC_n) = \sum_{j=1}^k\sum_{i\in \tilC_j}
+      \operatorname{cost}_{\cY}(\tilC_1,...,\tilC_n) = \min_{C_\bullet}\cost_{\cY}(C_1,...,C_k)
+    \end{align*}
+    where the minimization is over all partitions of $\cY$ into $k$ subsets. Show that the clusters $\tilC_1,...,\tilC_k$ also represent a good clustering for the original dataset $\cX$ in the sense that with high probability
+    \begin{align*}
+      \cost_\cX(\tilC_1,...,\tilC_k) \leq (1 + \epsilon)\min_{C_1,...,C_k}\cost_\cX(C_1,...,C_k).
+    \end{align*}
+
+  \item Suppose we now project the points $\bfx_j$ to $k$ dimensions using the SVD of $\bfX$. Let $\bfV_k\in \bR^{d\times k}$ be the matrix whose columns are the first right singular vectors of $\bfX$. Suppose the $\tilC_1,...,\tilC_k$ are the optimal $k$-means clusters for the points $\bfV_k^\top\bfx_1,...,\bfV_k^\top\bfx_n$.
+
+    Show that the clusters $\bfC_1,...,\bfC_k$ also represent a good clustering for the original dataset $\cX$, in the sense that
+    \begin{align*}
+      \cost_\cX(\tilC_1,...,\tilC_k)) \leq 2 \min_{C_1,...,C_k} \cost_{\cX}(C_1,...,C_k).
     \end{align*}
   \end{enumerate}
+  \begin{prf}$ $
+    \begin{enumerate}[(a)]
+      \item First consider a fixed $j \in \{1,...,k\}$ and the following expression:
+        \begin{align*}
+          \sum_{i,\ell\in C_j} \|\bfx_i - \bfx_j\|^2_2 = \sum_{i\in C_j}\sum_{\ell \in C_j} \|\bfx_i - \bfx_j\|^2_2.
+        \end{align*}
+        Letting $\mu_j = \frac{1}{|C_j|}\sum_{i \in C_j}\bfx_i$ denote the centroid of $\{\bfx_i\}_{i \in C_j}$, we see that
+        \begin{align*}
+          \sum_{i\in C_j}\sum_{\ell \in C_j} &\|\bfx_i - \bfx_j\|^2_2 
+            =\sum_{i\in C_j}\sum_{\ell \in C_j} \|\bfx_i - \mu_j + \mu_j - \bfx_j\|^2_2 \\
+            &= \sum_{i\in C_j}\left(\sum_{\ell \in C_j}\|\mu_j - \bfx_\ell\|^2_2 ~+~ 2(\bfx_i - \mu_j)\cdot\sum_{\ell \in C_j}(\mu_j - \bfx_\ell) ~+~ |C_j|\cdot \|\bfx_i - \mu_j\|^2_2\right).
+        \end{align*}
+        The second equality above follows from the fact that
+        \begin{align*}
+          \sum_{i=1}^n \|\bfa_i - \bfc + \bfc - \bfx\|^2 = \sum_{i=1}^n \|\bfa_i - \bfc\| ~+~ 2(\bfc - \bfx) \cdot \sum_i (\bfa_i - \bfc) ~+~ n\cdot\|\bfc - \bfx\|^2,
+        \end{align*}
+        which in turn can be derived by writing $\|\bfa_i - \bfc + \bfc - \bfx\|^2 = \langle \bfa_i - \bfc + \bfc - \bfx, \bfa_i - \bfc + \bfc - \bfx\rangle$, expanding by bilinearity and gathering up terms in a clever way. Using the fact that indexing over $\ell$ and $i$ is equivalent together with the bilinearity properties of the inner product, we can continue our above chain of equalities to get that
+        \begin{align*}
+          \sum_{i,\ell\in C_j} &\|\bfx_i - \bfx_j\|^2_2  \\
+            &= \sum_{i\in C_j}\left(\sum_{\ell \in C_j}\|\mu_j - \bfx_\ell\|^2_2 ~+~ 2(\bfx_i - \mu_j)\cdot\sum_{\ell \in C_j}(\mu_j - \bfx_\ell) ~+~ |C_j|\cdot \|\bfx_i - \mu_j\|^2_2\right) \\
+            &= |C_j|\cdot \sum_{\ell\in C_j} ~+~ 2\left(\sum_{\ell \in C_j}(\mu_j - \bfx_\ell)\right)\cdot \sum_{i\in C_j}(\bfx_i - \mu_j) ~+~ |C_j|\cdot\sum_{i\in C_j} \|\bfx_i - \mu_j\|^2_2 \\
+            &= 2|C_j|\cdot \sum_{i\in C_j} \|\bfx_i - \mu_j\|^2_2 ~-~ 2 \left\|\sum_{\ell \in C_j}(\bfx_i - \mu_j)\right\|^2_2.
+        \end{align*}
+        The term $\sum_{\ell \in C_j}(\bfx_i - \mu_j)$ is $0$ because $\mu_j$ is the centroid of $\{\bfx_i\}_{i\in C_j}$, hence
+        \begin{align*}
+          \sum_{i,\ell\in C_j} &\|\bfx_i - \bfx_j\|^2_2 
+          = 2|C_j|\cdot \sum_{i\in C_j} \|\bfx_i - \mu_j \|^2_2 = 2|C_j|\cdot \sum_{i\in C_j} \left\|\bfx_i -  \frac{1}{|C_j|}\sum_{\ell \in C_j}\bfx_\ell\right\|^2_2.
+        \end{align*}
+        Taking sums over all $j \in \{1,...,k\}$, we then get that
+        \begin{align*}
+          \cost_\cX(C_1,...,C_k) &= \sum_{j=1}^k\sum_{i \in C_j} \left\|\bfx_i - \frac{1}{|C_j|}\sum_{i\in C_j} \bfx_i\right\|^2_2 \\
+                                  &= \sum_{j=1}^k \frac{1}{2|C_j|}\sum_{i,\ell \in C_j}\|\bfx_i - \bfx_\ell\|^2_2,
+        \end{align*}
+        as suggested by the hint. This form of the cost function integrates more favorably with the properties of the Johnson-Lindenstrauss theorem, since for $r > C\cdot \frac{\log(n/\delta)}{\epsilon^2}$, we get that
+        \begin{align*}
+          \left\|\bfy_i - \bfy_j\right\|^2_2  = \|\Phi(\bfx_i - \bfx_\ell)\|^2_2 \leq (1 + \epsilon)\|\bfx_i - \bfx_\ell\|^2_2
+        \end{align*}
+        occurs with probability at least $1 - \delta$ and therefore
+        \begin{align*}
+          \cost_\cY(C_1,...,C_k) &= \sum_{j=1}^k\frac{1}{2|C_j|}\sum_{i,\ell\in C_j} \|\bfy_i - \bfy_\ell\|^2_2 \\
+          &\leq (1 + \epsilon)\sum_{j=1}^k\frac{1}{2|C_j|}\sum_{i,\ell\in C_j} \|\bfx_i - \bfx_\ell\|^2_2 = (1+\epsilon)\cost_\cX(C_1,...,C_k)
+        \end{align*}
+        also occurs with probability at least $1 - \delta$ for any partition $C_1 \sqcup ... \sqcup C_k = \{1..n\}$. Combining this with the other bound from the JL theorem we have that
+        \begin{align*}
+          (1-\epsilon)\cost_\cX(C_1,...,C)k \leq \cost_\cY(C_1,...,C_k) \leq (1+\epsilon)\cost_\cX(C_1,...,C_k)
+        \end{align*}
+        for all partitions $C_\bullet$ of $\cX$. Since this holds for all partitions of $\cX$ it also holds for the partition $\tilC_\bullet$ which minimizes $\cost_\cY$, hence
+        \begin{align*}
+          (1 - \epsilon)\cost_\cX(\tilC_1,...,\tilC_k) \leq \cost_\cY(\tilC_1,...,\tilC_k) \leq \cost_\cY(C_1,...,C_k) \leq (1+\epsilon)\cost_\cX(C_1,...,C_k).
+        \end{align*}
+        We then have that
+        \begin{align*}
+          \cost_\cX(\tilC_1,...,\tilC_k) \leq \frac{1+\epsilon}{1-\epsilon}\cost_\cY(C_1,...,C_k).
+        \end{align*}
+        This is not quite what we want. However, we chose $r = \cO(\log(n)/\epsilon^2)$, which only means that $r = C\log(n)/\epsilon^2$ for some $C$. Rescale $C$ and choose a new $\epsilon' \in (0,1)$ so that
+        \begin{align*}
+          r = 9C\cdot \frac{\log(n)}{\epsilon'^2} \implies \epsilon = 3\sqrt{\frac{C\log(n)}{r}} = 3 \epsilon.
+        \end{align*}
+        If our original $\epsilon$ was less than $1/3$, then
+        \begin{align*}
+          1 - 3\epsilon > 0 
+            &\iff 0 < \epsilon(1 - 3\epsilon) \\
+            &\iff  1 + \epsilon < 1 + 3\epsilon - \epsilon - 3\epsilon^2\\
+            &\iff \frac{1+\epsilon}{1 - \epsilon} < 1 + 3\epsilon = 1 + \epsilon'.
+        \end{align*}
+        Thus, for $\epsilon'$, we have
+        \begin{align*}
+          \cost_\cX(\tilC_1,...,\tilC_k) \leq \frac{1+\epsilon}{1-\epsilon}\cost_\cY(C_1,...,C_k) \leq (1+\epsilon')\cost_\cY(C_1,...,C_k).
+        \end{align*}
+        This is perfectly fine, since the change $\epsilon \to \epsilon'$ corresponds to scaling $r$ by $r$, and hence we still have that $r = \cO(\log(n)/\epsilon^2)$ for our original choice of $\epsilon$. This gives us the desired result.
+
+    \item We first prove that $\cost_\cX(C_1,...,C_k) = \|\bfX - MM^\top\bfX\|^2_F$ where $M\in \bR^{n\times k}$is defined by $M_{ij} = \frac{1}{\sqrt{|C_j|}}$ if $i \in C_j$ and $0$ otherwise. Notice that each row of $M$ has only one nonzero element at index $(i,j)$ where $i \in C_j$, and hence
+      \begin{align*}
+        [MM^\top]_{ij} = [M]_{i,\bullet} \cdot [M]_{j,\bullet} =
+        \begin{cases}
+          \frac{1}{|C_{\ell_i}} & i,j \in C_{\ell_i} \\
+          0 & \text{else}
+        \end{cases}
+      \end{align*}
+      for some $\ell_i = 1,...,k$. In particular, each diagonal element $[MM^\top]_{ii}$ is nonzero and is equal to $1/|C_{\ell_i}|$ where $i \in C_{\ell_i}$. Thus, when we multiply a row $[MM^\top]_{i,\bullet}$ by a column $[\bfX]_{\bullet,j}$ of $\bfX$, the result is a sum
+      \begin{align*}
+        [MM^\top\bfX]_{ij} = \frac{1}{|C_{\ell_i}}\sum_{a \in C_{\ell_i}} \bfx_{a}^j
+      \end{align*}
+      where $C_{\ell_i}$ is the partition containing $i$ and $\bfx_a^j$ is the $j$th term in the data point $\bfx_a$. That is, $[MM^\top\bfX]_{ij}$ is the sum of the $j$th components of all data points belonging to $C_{\ell_i}$ scaled by $1/|C_{\ell_i}|$. The $i$th row of $MM^T\bfX$ is therefore the centroid of the $\ell_i$th cluster $\{\bfx_j\}_{j \in C_{\ell_i}}$. Denoting by $\mu_{\ell_i}$ the $\ell_i$th centroid, we see that
+      \begin{align*}
+        \|\bfX - MM^\top\bfX\|^2_F 
+          &= \sum_{i=1}^n\|[\bfX - MM^\top\bfX]_{i,\bullet}\|^2 \\
+          &= \sum_{i=1}^n\|\bfx_i - \mu_{\ell_i}\|^2 \\
+          &= \sum_{j=1}^k\sum_{i\in C_j} \|\bfx_i - \mu_i\|^2 = \cost_\cX(C_1,...,C_k).
+      \end{align*}
+      This gives us yet another expression for the $k$-means cost function.
+
+      We now turn to the problem in earnest. Let $\{v_1,...,v_k,\tilv_{k+1},...,\tilv_d\}$ be the extension of $\{v_1,...,v_k\}$ to a complete orthonormal basis on $\bR^d$. Let $W$ be the matrix whose columns are $\tilv_{k+1},...,\tilv_d$. Then $V_k\oplus W$ is a $d\times d$ orthogonal matrix, preserves the Frobenius norm, and hence
+      \begin{align*}
+        \cost_\cX(C_1,...,C_k) 
+          &= \|\bfX - MM^\top\bfX\|^2_2 = \|(\bfX - MM^\top\bfX)(V_k\oplus W)\|^2_2 \\
+          &= \|(\bfX V_k - MM^\top\bfX V_k) \oplus (\bfX W - MM^\top\bfX W)\|^2_2 \\
+          &= \|(\bfX V_k - MM^\top\bfX V_k)\|^2_2 + \|(\bfX W - MM^\top \bfX W)\|^2_2
+      \end{align*}
+      where $M$ is the matrix defined earlier corresponding to the clustering $C_\bullet$. Let
+    \end{enumerate}
+  \end{prf}
   \prob[\textsc{Exercise 3.}] Find the mapping $\varphi(\bfx)$ that gives rise to the polynomial kernel \begin{align*}
     K(\bfx, \bfy) = (x_1x_2 + y_1y_2)^2.
   \end{align*}
@@ -80,6 +193,27 @@
         &= (x_1y_1 + x_2y_2)^2,
     \end{align*}
     hence $\varphi$ gives rise to the desired kernel.
+  \end{prf}
+  \prob[\textsc{Exercise 4.}] Consider a Support Vector Machine with ``soft margin'' constrains which allows for misclassification: Given training data $(\bfx_1,y_1),...,(\bfx_n,y_n)$ where $\bfx_j \in \bR^d$ and $y_j \in \{-1, +1\}$, the SVM is
+  \begin{align*}
+    \min_{\bfw, b,\xi} ~ \lambda\|\bfw\|^2_2 + \frac{1}{n}\sum_{j=1}^n \xi \hspace{1em} \text{ s.t. } y_j\cdot (\langle \bfw,\bfx_j \rangle - b)\geq 1 - \xi_j, \hspace{1em} \xi_j \geq 0.
+  \end{align*}
+    \begin{enumerate}[(a)]
+      \item Discuss the relationship between the parameter $\lambda$ and the allowable misclassification error.
+      \item Where does a data point lie relative to where the margin is when $\xi_j = 0?$ Is this data point classified correctly?
+      \item Where does a data point lie relative to where the margin is when $0 < \xi_j \leq 1?$ Is this data point classified correctly?
+      \item Where does a data point lie relative to where the margin is when $\xi_j > 1?$ Is this data point classified correctly?
+    \end{enumerate}
+  \begin{prf}$ $
+    \begin{enumerate}[(a)]
+      \item
+      \item When $\xi_j = 0$ we have that $y_j\cdot (\langle \bfw,\bfw_j \rangle - b)\geq 1$. This means that the data point is classified correctly \emph{and} is outside the margin.
+      \item When $0 < \xi_j \leq 1$, then $\xi_j$ contributes to penalizing the cost function. Because this is still an optimal solution, this means that we cannot make $\xi_j$ smaller, and thus
+        \begin{align*}
+          1 - \xi_j \leq y_j\cdot(\langle \bfw,\bfx_j\rangle - b \rangle) < 1.
+        \end{align*}
+      \item If the optimal solution to the cost function includes a value $\xi_j > 1$, then as before, it means we cannot make $\xi_j$ any smaller without adding error. This means that $0 > y_j\cdot (\langle \bfw,\bfx_j \rangle - b)$, and hence $\bfx_j$ is misclassified.
+    \end{enumerate}
   \end{prf}
 \end{homework}
 \end{document}

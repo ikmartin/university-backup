@@ -1,0 +1,124 @@
+\input{../preamble.tex}
+
+\usepackage{capt-of}
+\usepackage{tikz}
+\usepackage{listings}
+\usetikzlibrary{positioning,calc,intersections,through,backgrounds, shapes.geometric, decorations.markings,arrows}
+
+\def\sset{\subseteq}
+\def\iso{\cong}
+\def\gend#1{\langle #1\rangle}
+
+\newcommand{\rightoverleftarrow}{%
+  \mathrel{\vcenter{\mathsurround0pt
+    \ialign{##\crcr
+      \noalign{\nointerlineskip}$\longrightarrow$\crcr
+      \noalign{\nointerlineskip}$\longleftarrow$\crcr
+    }%
+  }}%
+}
+
+\newcommand\makesphere{} % just for safety
+\def\makesphere(#1)(#2)[#3][#4]{%
+  % Synopsis
+  % \makesphere[draw options](center)(initial angle:final angle:radius)
+  \shade[ball color = #3, opacity = #4] #1 circle (#2);
+  \draw #1 circle (#2);
+  \draw ($#1 - (#2, 0)$) arc (180:360:#2 and 3*#2/10);
+  \draw[dashed] ($#1 + (#2, 0)$) arc (0:180:#2 and 3*#2/10);
+}
+% same thing as makesphere but places white background behind
+\newcommand\altmakesphere{} % just for safety
+\def\altmakesphere(#1)(#2)(#3)[#4][#5]{%
+  % Synopsis
+  % \make sphere[draw options](center)(initial angle:final angle:radius)
+  \draw [fill=white!30] #1 circle (#2);
+  \shade[ball color = #4, opacity = #5] #1 circle (#2);
+  \draw #1 circle (#2);
+  \draw ($#1 - (#2, 0)$) arc (180:360:#2 and 3*#2/10);
+  \draw[dashed] ($#1 + (#2, 0)$) arc (0:180:#2 and 3*#2/10);
+  \node at #1 {#3};
+}
+
+\begin{document}
+% set section number to 1
+% fixes theorem numbering without need to have a section title
+\setcounter{section}{1}
+
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Foundations of Data Science and Machine Learning -- \emph{Homework 3}\\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-4mm}
+\hru
+
+\begin{homework}[e]
+  \prob[\textsc{Exercise 2.}] Let $\bfX\in \bR^{n\times d}$ be a matrix whose $n$ rows are the data points $\bfx_1,...,\bfx_n \in \bR^d$, and let $\chi = \{\bfx_1,...,\bfx_n\}$. Consider the $k$-means optimization problem: find a partition $C_1,...,C_k$ which minimizes, among all partitions of $[n]$ into $k$ subsets,
+  \begin{align*}
+    \operatorname{cost}_{\chi}(C_1,...,C_k):= \sum_{j=1}^k\sum_{i \in C_j} \left\|\bfx_i - \frac{1}{|C_j|}\sum_{i\in C_j} \bfx_i\right\|^2_2.
+  \end{align*}
+  \begin{enumerate}[(a)]
+    \item Suppose that $\Phi:\bR^d \to \bR^r$ with $r = \cO(\log(n)/\epsilon^2)$ is a random i.i.d. spherical Gaussian projection matrix and thus satisfies the JL lemma. Consider the projected points $\bfy_j = \Phi\bfx_j\in \bR^r$ and suppose $\tilC_1,...,\tilC_k$ are an optimal set of $k$-means clusters for the data points $\cY = \{\bfy_1,....,\bfy_n\}$. That is,
+    \begin{align*}
+      \operatorname{cost}_{\cY}(\tilC_1,...,\tilC_n) = \sum_{j=1}^k\sum_{i\in \tilC_j}
+    \end{align*}
+  \end{enumerate}
+  \begin{prf}$ $
+    \begin{enumerate}[(a)]
+      \item First consider a fixed $j \in \{1,...,k\}$ and the following expression:
+        \begin{align*}
+          \sum_{i,\ell\in C_j} \|\bfx_i - \bfx_j\|^2_2 = \sum_{i\in C_j}\sum_{\ell \in C_j} \|\bfx_i - \bfx_j\|^2_2.
+        \end{align*}
+        Letting $\mu_j = \frac{1}{|C_j|}\sum_{i \in C_j}\bfx_i$ denote the centroid of $\{\bfx_i\}_{i \in C_j}$, we see that
+        \begin{align*}
+          \sum_{i\in C_j}\sum_{\ell \in C_j} &\|\bfx_i - \bfx_j\|^2_2 
+            =\sum_{i\in C_j}\sum_{\ell \in C_j} \|\bfx_i - \mu_j + \mu_j - \bfx_j\|^2_2 \\
+            &= \sum_{i\in C_j}\left(\sum_{\ell \in C_j}\|\mu_j - \bfx_\ell\|^2_2 ~+~ 2(\bfx_i - \mu_j)\cdot\sum_{\ell \in C_j}(\mu_j - \bfx_\ell) ~+~ |C_j|\cdot \|\bfx_i - \mu_j\|^2_2\right).
+        \end{align*}
+        The second equality above follows from the fact that
+        \begin{align*}
+          \sum_{i=1}^n \|\bfa_i - \bfc + \bfc - \bfx\|^2 = \sum_{i=1}^n \|\bfa_i - \bfc\| ~+~ 2(\bfc - \bfx) \cdot \sum_i (\bfa_i - \bfc) ~+~ n\cdot\|\bfc - \bfx\|^2,
+        \end{align*}
+        which in turn can be derived by writing $\|\bfa_i - \bfc + \bfc - \bfx\|^2 = \langle \bfa_i - \bfc + \bfc - \bfx, \bfa_i - \bfc + \bfc - \bfx\rangle$, expanding by bilinearity and gathering up terms in a clever way. Using the fact that indexing over $\ell$ and $i$ is equivalent together with the bilinearity properties of the inner product, we can continue our above chain of equalities to get that
+        \begin{align*}
+          \sum_{i,\ell\in C_j} &\|\bfx_i - \bfx_j\|^2_2  \\
+            &= \sum_{i\in C_j}\left(\sum_{\ell \in C_j}\|\mu_j - \bfx_\ell\|^2_2 ~+~ 2(\bfx_i - \mu_j)\cdot\sum_{\ell \in C_j}(\mu_j - \bfx_\ell) ~+~ |C_j|\cdot \|\bfx_i - \mu_j\|^2_2\right) \\
+            &= |C_j|\cdot \sum_{\ell\in C_j} ~+~ 2\left(\sum_{\ell \in C_j}(\mu_j - \bfx_\ell)\right)\cdot \sum_{i\in C_j}(\bfx_i - \mu_j) ~+~ |C_j|\cdot\sum_{i\in C_j} \|\bfx_i - \mu_j\|^2_2 \\
+            &= 2|C_j|\cdot \sum_{i\in C_j} \|\bfx_i - \mu_j\|^2_2 ~-~ 2 \left\|\sum_{\ell \in C_j}(\bfx_i - \mu_j)\right\|^2_2.
+        \end{align*}
+        The term $\sum_{\ell \in C_j}(\bfx_i - \mu_j)$ is $0$ because $\mu_j$ is the centroid of $\{\bfx_i\}_{i\in C_j}$, hence
+        \begin{align*}
+          \sum_{i,\ell\in C_j} &\|\bfx_i - \bfx_j\|^2_2 
+          = 2|C_j|\cdot \sum_{i\in C_j} \|\bfx_i - \mu_j \|^2_2 = 2|C_j|\cdot \sum_{i\in C_j} \left\|\bfx_i -  \frac{1}{|C_j|}\sum_{\ell \in C_j}\bfx_\ell\right\|^2_2.
+        \end{align*}
+        Taking sums over all $j \in \{1,...,k\}$, we then get that
+        \begin{align*}
+          \cost_\chi(C_1,...,C_k) &= \sum_{j=1}^k\sum_{i \in C_j} \left\|\bfx_i - \frac{1}{|C_j|}\sum_{i\in C_j} \bfx_i\right\|^2_2 \\
+                                  &= \sum_{j=1}^k \frac{1}{2|C_j|}\sum_{i,\ell \in C_j}\|\bfx_i - \bfx_\ell\|^2_2,
+        \end{align*}
+        as suggested by the hint. This form of the cost function integrates more favorably with the properties of the Johnson-Lindenstrauss theorem, since for $r > C\dot \frac{\log(n/\delta)}{\epsilon^2}$, we get that
+        \begin{align*}
+          \left\|\bfy_i - \bfy_j\right\|^2_2  = \|\Phi(\bfx_i - \bfx_\ell)\|^2_2 \leq (1 + \epsilon)\|\bfx_i - \bfx_\ell\|^2_2
+        \end{align*}
+    \end{enumerate}
+  \end{prf}
+  \prob[\textsc{Exercise 3.}] Find the mapping $\varphi(\bfx)$ that gives rise to the polynomial kernel \begin{align*}
+    K(\bfx, \bfy) = (x_1x_2 + y_1y_2)^2.
+  \end{align*}
+  \begin{prf}
+    Consider the map $\varphi:\bR^2 \to \bR^3$ defined $\varphi(x_1,x_2) = (x_1^2, x_2^2, \sqrt{2}x_1x_2)$. Interestingly, this is similar to the map one considers from a polynomial ring $R[x_1,x_2]$ to its $2^{\text{nd}}$ Veronese subring $R[x_1^2,x_1x_2,x_2^2]$. We then have that
+    \begin{align*}
+      \varphi(\bfx)\cdot \varphi(\bfy)^T
+        &= (x_1^2,x_2^2,\sqrt{2}x_1x_2) \cdot (y_1^2,y_2^2, \sqrt{2}y_1y_2) \\
+        &= x_1^2y_1^2 + x_2^2y_2^2 + 2x_1y_1x_2y_2 \\
+        &= (x_1y_1 + x_2y_2)^2,
+    \end{align*}
+    hence $\varphi$ gives rise to the desired kernel.
+  \end{prf}
+\end{homework}
+\end{document}
