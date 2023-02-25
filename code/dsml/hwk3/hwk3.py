@@ -1,95 +1,145 @@
 from sklearn.cluster import KMeans
 import numpy as np
 import matplotlib.pyplot as plt
-import itertools as it
 
 
+# generates the desired block matrix
 def gen_block_matrix(blocksize=50, permute=True):
     diag = 0.7
     offdiag = 0.3
     repeat = 3
-    d = repeat*blocksize
-    A = 0.7*np.ones((blocksize, blocksize))
-    B = 0.3*np.ones((blocksize, blocksize))
-    X = np.block(
-        [[A,B,B],
-         [B,A,B],
-         [B,B,A]]
-    )
+
+    # should be 150
+    d = repeat * blocksize
+
+    # create the blocks
+    A = 0.7 * np.ones((blocksize, blocksize))
+    B = 0.3 * np.ones((blocksize, blocksize))
+
+    # create the block matrix
+    C = np.block([[A, B, B], [B, A, B], [B, B, A]])
+
+    # convert to the matrix of ones using Bernoulli distribution
+    X = np.random.binomial(n=1, p=C)
 
     # permute
+    rng = np.random.default_rng()
+    P = rng.permutation(np.identity(d))
     if permute:
-        rng = np.random.default_rng()
-        P = rng.permutation(np.identity(d))
         X = np.matmul(P, np.matmul(X, np.transpose(P)))
 
-    return X
+    # labels for the "natural" cluster of the rows prior to permutation, permuted to match.
+    # ASSUMES CLUSTERING WITH k = 3
+    nat_labels = [0] * blocksize + [1] * blocksize + [2] * blocksize
+    return X, P, nat_labels
 
 
-# cluster points based on magnitude
-# doesn't give good clustering
-def cluster_mag(k=3, bsize=5):
-    X = gen_block_matrix(blocksize=5, permute=False)
-    x = np.array([[np.linalg.norm(X[:, i]), 0] for i in range(np.shape(X)[1])])
-    y_pred = KMeans(n_clusters=k).fit_predict(x)
-
-    plt.scatter(x[:, 0], x[:, 1])
-    plt.show()
-
-
-# gets the optimal kmeans clustering for k many clusters
-# horribly inefficient
-def get_optimal_clustering(k=3):
-    print("NO CODE")
-
-#Dummy data
-def train_kmeans(X):
-    kmeans = KMeans(n_clusters=5, verbose=2, n_init=1) #<-- init=1, verbose=2
+# do the clustering
+# X: data
+# k: number of clusters
+# n_init: number of iterations to run
+def train_kmeans(X, k=3, n_init=10):
+    kmeans = KMeans(n_clusters=k, init="k-means++", n_init=10)  # <-- init=1, verbose=2
     kmeans.fit(X)
     return kmeans
 
-#HELPER FUNCTION
-#Takes the returned and printed output of a function and returns it as variables
-#In this case, the returned output is the model and printed is the verbose intertia at each iteration
 
-def redirect_wrapper(f, inp):
-    old_stdout = sys.stdout
-    new_stdout = io.StringIO()
-    sys.stdout = new_stdout
+# code for problem 1a
+def prob1a():
+    # generate data
+    X, P, nat_labels = gen_block_matrix(blocksize=50, permute=True)
 
-    returned = f(inp)                #<- Call function
-    printed = new_stdout.getvalue()  #<- store printed output
+    # perform k-means
+    kmeans = train_kmeans(X, n_init=10)
+    unshuffled_labels = np.matmul(np.array(kmeans.labels_), P)
 
-    sys.stdout = old_stdout
-    return returned, printed
+    # Read off the labels of the cluster and the cost.
+    # unshuffled_labels ought to look like the natural clustering,
+    # i.e. [0,0,0,0,0,1,1,1,1,1,2,2,2,2,2].
+    print("\n\n------------------------------------\nProblem 1 (a)\n--------------")
+    print("\nUNSHUFFLED LABELS:\n", unshuffled_labels)
+    print("\nCost achieved:", kmeans.inertia_)
+    print("\n---end---\n------------------------------------")
 
 
-returned, printed = redirect_wrapper(train_kmeans, X)
+# def prob1b():
+def prob1b():
+    # generate data
+    X, P, nat_labels = gen_block_matrix(blocksize=50, permute=True)
 
-#Extract inertia values
-inertia = [float(i[i.find('inertia')+len('inertia')+1:]) for i in printed.split('\n')[1:-2]]
+    # cluster for various values of k and get costs
+    ks = list(range(1, 20))
+    kmeans = [train_kmeans(X, k=i, n_init=10) for i in ks]
+    costs = [km.inertia_ for km in kmeans]
 
-#Plot!
-plt.plot(inertia)
+    print("\n\n------------------------------------\nProblem 1 (b)\n--------------")
+    print("\n     <displaying graph>\n")
+    print("\n---end---\n------------------------------------")
 
-def cluster(k=3):
-    # the parameters for KMeans
-    # just extra stuff to include for convenience 
-    common_params = {"init": "k-means++", "n_init" : "auto"}
+    # should look like an elbow. The "point" of the elbow is qualitatively a good choice of k
+    # see the "elbow method"
+    plt.plot(ks, costs)
+    plt.xlabel("# of clusters")
+    plt.ylabel("cost of clustering")
+    plt.title("Cost of clustering vs number of clusters")
+    plt.show()
 
-    # generate the matrix
-    X = gen_block_matrix(5)
 
-    # cluster the damn thing
-    kmeans = KMeans(n_clusters=k, **common_params).
-    y_pred = kmeans.fit_predict(X)
-#Extract inertia values
-inertia = [float(i[i.find('inertia')+len('inertia')+1:]) for i in printed.split('\n')[1:-2]]
+def prob1c():
+    mu, sigma = 0, 1
+    col = 150
+    row = 10
 
-    print(y_pred)
-    print(X)
+    # generate spherical projection matrix of size row x col
+    # the gaussian vectors are of length 150, not of length 10. This may be wrong.
+    Phi = np.array([np.random.normal(mu, sigma, col) for i in range(row)])
+    for i in range(row):
+        Phi[i, :] = Phi[i, :] / np.linalg.norm(Phi[i, :])
+
+    # generate the data to cluster
+    X, P, nat_labels = gen_block_matrix(blocksize=50, permute=True)
+    Xn = np.matmul(X, np.transpose(Phi))
+
+    # do clustering
+    kmeans = train_kmeans(Xn, n_init=10)
+    shuffled_labels = np.array(kmeans.labels_)
+    unshuffled_labels = np.matmul(shuffled_labels, P)
+
+    # Read off the labels of the cluster and the cost.
+    print("\n\n------------------------------------\nProblem 1 (c)\n--------------")
+    print("\nSHUFFLED LABELS:\n", shuffled_labels)
+    print("\nUNSHUFFLED LABELS:\n", unshuffled_labels)
+    print("\nCost achieved:", kmeans.inertia_)
+    print("\n---end---\n------------------------------------")
+
+
+def prob1d():
+    # generate the data to cluster
+    X, P, nat_labels = gen_block_matrix(blocksize=50, permute=True)
+
+    # get the svd stuff
+    U, S, Vh = np.linalg.svd(X)
+
+    # truncate Vh
+    # try adding more columns -- you'll quickly recover the original clustering.
+    V = Vh[:, :3]
+    Xn = np.matmul(X, V)
+
+    # do clustering
+    kmeans = train_kmeans(Xn, n_init=10)
+    shuffled_labels = np.array(kmeans.labels_)
+    unshuffled_labels = np.matmul(shuffled_labels, P)
+
+    # Read off the labels of the cluster and the cost.
+    print("\n\n------------------------------------\nProblem 1 (d)\n--------------")
+    print("\nSHUFFLED LABELS:\n", shuffled_labels)
+    print("\nUNSHUFFLED LABELS:\n", unshuffled_labels)
+    print("\nCost achieved:", kmeans.inertia_)
+    print("\n---end---\n------------------------------------")
 
 
 if __name__ == "__main__":
-    print(gen_block_matrix(blocksize=3, permute=False))
-    cluster()
+    prob1a()
+    prob1b()
+    prob1c()
+    prob1d()

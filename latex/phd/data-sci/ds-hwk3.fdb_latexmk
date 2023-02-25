@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber ds-hwk3"] 1677261444 "ds-hwk3.bcf" "ds-hwk3.bbl" "ds-hwk3" 1677261444 0
-  "ds-hwk3.bcf" 1677229670 106932 58ecb291c946b801ce6d043012b65f57 "pdflatex"
+["biber ds-hwk3"] 1677345864 "ds-hwk3.bcf" "ds-hwk3.bbl" "ds-hwk3" 1677345864 0
+  "ds-hwk3.bcf" 1677293984 106932 58ecb291c946b801ce6d043012b65f57 "pdflatex"
   "main.bib" 0 -1 0 ""
   (generated)
   "ds-hwk3.bbl"
   "ds-hwk3.blg"
   (rewritten before read)
-["pdflatex"] 1677229668 "ds-hwk3.tex" "ds-hwk3.pdf" "ds-hwk3" 1677261444 0
+["pdflatex"] 1677293982 "ds-hwk3.tex" "ds-hwk3.pdf" "ds-hwk3" 1677345864 0
   "../preamble.tex" 1675637963 2220 65dbf4383a2938b11e0f0b2173ce229f ""
   "/home/isaac/texmf/tex/latex/style-sheets/homework.sty" 1675637963 10473 77b5887416c5d7371104d1614dc65eb2 ""
   "/home/isaac/texmf/tex/latex/style-sheets/macrosabound.sty" 1677131449 37257 2fa1ff2324182d88104b570cc08e589a ""
@@ -43,6 +43,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/stmaryrd/stmary10.tfm" 1302307949 848 f478e0761563bbc369eca609a1741348 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/stmaryrd/stmary6.tfm" 1302307949 848 068dd119e13b75777e62821af7d4f2a6 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/stmaryrd/stmary8.tfm" 1302307949 848 6125cdd3627e68d3db8013b98e587508 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/txfonts/t1xtt.tfm" 1136768653 1384 8943063000d26272532f74ca134dfecd ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb" 1248133631 32166 b0c356b15f19587482a9217ce1d8fa67 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
@@ -58,6 +59,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb" 1640468671 269694 aaa4ec66041f739d25146321feddb50c ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb" 1640468671 230451 72745fed20f6a7d3da4ddd8a9b788e85 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb" 1136849748 26301 f08b3c26ea42c3177a262c2ac37d6a91 ""
   "/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -248,6 +250,7 @@
   "/usr/local/texlive/2022/texmf-dist/tex/latex/mweights/mweights.sty" 1490909540 4953 67f29a12ea26221103fce6bae3433e60 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/newtxtext.sty" 1646341564 20265 f1413503dd35ad684243babd2d30b6c1 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtlf.fd" 1641850547 2211 2794559346df5bbb0dbf1a757c3cc21f ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd" 1336691118 1500 76616326ae68ec568910194063e7101c ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/pdfcol/pdfcol.sty" 1663877585 8086 ac143843b6ea88d172677dc3ed532925 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty" 1667072951 6572 ea530fbbe537629fd97736d33babc07d ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/pdflscape/pdflscape.sty" 1667072951 2224 1230ab76aa62221ccbd90bca8c8c015e ""
@@ -306,11 +309,15 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1677122536 4623355 58034c3eb7ddf7eacc726a83d01e26d2 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1677122600 7879239 a68613d8f700c8b36f4bbd034ee42d8e ""
   "/usr/local/texlive/2022/texmf.cnf" 1677122533 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "ds-hwk3.aux" 1677229670 1221 7ccebb4bcf22b9185088d3d5063b7235 "pdflatex"
+  "ds-hwk3.aux" 1677293984 2741 f12e578bfee7b779332a4bc2f1a740c4 "pdflatex"
   "ds-hwk3.bbl" 0 -1 0 "biber ds-hwk3"
-  "ds-hwk3.out" 1677229669 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "ds-hwk3.run.xml" 1677229670 2326 0c97bff56b0a2bc57b2a92c7f96f1729 "pdflatex"
-  "ds-hwk3.tex" 1677229667 14587 35dc47caaeb2ecd7adf3aa0126bbfbc2 ""
+  "ds-hwk3.out" 1677293983 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "ds-hwk3.run.xml" 1677293984 2326 0c97bff56b0a2bc57b2a92c7f96f1729 "pdflatex"
+  "ds-hwk3.tex" 1677293982 27487 e5d0f10b10c36760cb73ba3aaa6d6834 ""
+  "figures/hwk3-figure1.png" 1677289725 30655 a47d3ed20634d0fa2451efeffb5bc052 ""
+  "figures/hwk3-prob1a.png" 1677290957 6148 22df7eb645c11b9fa3ab726c1ae9d0e2 ""
+  "figures/hwk3-prob1c.png" 1677289835 9315 334341717555566d6040f3d6aa840cde ""
+  "figures/hwk3-prob1d.png" 1677289796 8146 e8ee5664b876931a95e8f089c4ed4e9b ""
   (generated)
   "ds-hwk3.aux"
   "ds-hwk3.bcf"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.22)  24 FEB 2023 03:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.22)  24 FEB 2023 20:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1449,37 +1449,105 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/ntxtlf/m/sc/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
+(Font)              scaled to size 10.95pt on input line 63.
+Package hyperref Info: bookmark level for unknown soln defaults to 0 on input line 63.
 (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 61.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 65.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for OT2+wncyr on input line 61.
+LaTeX Font Info:    Trying to load font information for OT2+wncyr on input line 65.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/cyrillic/ot2wncyr.fd
 File: ot2wncyr.fd 1999/12/17 v3.2a Computer Modern Cyrillic font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
-(Font)              scaled to size 10.95pt on input line 82.
-Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 82.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 160.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 160.
+<~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1a.png, id=7, 669.50125pt x 153.57375pt>
+File: ~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1a.png Graphic file (type png)
+<use ~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1a.png>
+Package pdftex.def Info: ~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1a.png  used on input line 70.
+(pdftex.def)             Requested size: 341.43306pt x 78.32156pt.
+<~/Desktop/university/latex/phd/data-sci/figures/hwk3-figure1.png, id=9, 462.528pt x 346.896pt>
+File: ~/Desktop/university/latex/phd/data-sci/figures/hwk3-figure1.png Graphic file (type png)
+<use ~/Desktop/university/latex/phd/data-sci/figures/hwk3-figure1.png>
+Package pdftex.def Info: ~/Desktop/university/latex/phd/data-sci/figures/hwk3-figure1.png  used on input line 78.
+(pdftex.def)             Requested size: 341.43306pt x 256.08499pt.
+<~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1c.png, id=10, 668.4975pt x 153.57375pt>
+File: ~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1c.png Graphic file (type png)
+<use ~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1c.png>
+Package pdftex.def Info: ~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1c.png  used on input line 85.
+(pdftex.def)             Requested size: 341.43306pt x 78.43874pt.
+<~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1d.png, id=11, 668.4975pt x 160.6pt>
+File: ~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1d.png Graphic file (type png)
+<use ~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1d.png>
+Package pdftex.def Info: ~/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1d.png  used on input line 92.
+(pdftex.def)             Requested size: 341.43306pt x 82.02744pt.
  [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] (./ds-hwk3.aux)
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} </home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1a.png>] [2 </home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk3-figure1.png> </home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1c.png>]
+Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 119.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 197.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 197.
+ [3 </home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk3-prob1d.png>] [4] [5] [6] [7] [8]
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 307.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
+File: t1ntxtt.fd 2012/04/20 v3.1
+)
+LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
+(Font)              scaled to size 10.95pt on input line 307.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `ntxtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+Overfull \hbox (46.40477pt too wide) in paragraph at lines 338--338
+[]      \T1/ntxtt/m/n/10.95 # labels for the "natural" cluster of the rows prior to permutation, permuted to match.[] 
+ []
+
+
+Overfull \hbox (27.42848pt too wide) in paragraph at lines 349--349
+[]      \T1/ntxtt/m/n/10.95 kmeans = KMeans(n_clusters=k, init="k-means++", n_init=10)  # <-- init=1, verbose=2[] 
+ []
+
+[9]
+Overfull \hbox (9.03253pt too wide) in paragraph at lines 366--366
+[]      \T1/ntxtt/m/n/10.95 print("\n\n------------------------------------\nProblem 1 (a)\n--------------")[] 
+ []
+
+
+Overfull \hbox (9.03253pt too wide) in paragraph at lines 382--382
+[]      \T1/ntxtt/m/n/10.95 print("\n\n------------------------------------\nProblem 1 (b)\n--------------")[] 
+ []
+
+
+Overfull \hbox (61.63618pt too wide) in paragraph at lines 386--386
+[]      \T1/ntxtt/m/n/10.95 # should look like an elbow. The "point" of the elbow is qualitatively a good choice of k[] 
+ []
+
+[10]
+Overfull \hbox (9.03253pt too wide) in paragraph at lines 416--416
+[]      \T1/ntxtt/m/n/10.95 print("\n\n------------------------------------\nProblem 1 (c)\n--------------")[] 
+ []
+
+[11]
+Overfull \hbox (9.03253pt too wide) in paragraph at lines 441--441
+[]      \T1/ntxtt/m/n/10.95 print("\n\n------------------------------------\nProblem 1 (d)\n--------------")[] 
+ []
+
+[12] (./ds-hwk3.aux)
 Package rerunfilecheck Info: File `ds-hwk3.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'ds-hwk3.run.xml'.
@@ -1487,18 +1555,18 @@ Package logreq Info: Writing requests to 'ds-hwk3.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46038 strings out of 476029
- 914015 string characters out of 5790172
- 1901346 words of memory out of 5000000
- 65610 multiletter control sequences out of 15000+600000
- 546576 words of font info for 99 fonts, out of 8000000 for 9000
+ 46172 strings out of 476029
+ 917455 string characters out of 5790172
+ 1902346 words of memory out of 5000000
+ 65687 multiletter control sequences out of 15000+600000
+ 548229 words of font info for 115 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,18n,102p,3058b,1366s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on ds-hwk3.pdf (5 pages, 215488 bytes).
+ 103i,18n,102p,3058b,1368s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on ds-hwk3.pdf (12 pages, 283062 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
- 19469 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 133 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 20001 words of extra memory for PDF output out of 20736 (max. 10000000)
 
