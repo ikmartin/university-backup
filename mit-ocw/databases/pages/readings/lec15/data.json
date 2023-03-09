@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 15: C-Store",
+  "content":"Read:\nStonebraker, Michael, et al. C-Store: A Column-oriented DBMS. Proceedings of the 31st VLDB Conference, 2005. (PDF)\nThis paper discusses the C-Store system, which is a read-optimized database system with a novel physical arrangement of data on disk, as well as an unusual approach to recovery and query processing\nAs you read the paper, consider the following questions:\nWhy does the C-Store idea of arranging data as columns improve query performance? How does C-Store propose to do recovery? Is there an advantage to this approach? How does C-Store isolate transactions? Do you think this is a good idea? "}
+
+

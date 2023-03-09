@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 14: Degrees of Consistency",
+  "content":"Read:\nGray, Jim, et al. \u0026ldquo;Granularity of Locking and Degrees of Consistency in a Shared Data Base.\u0026rdquo; From Modeling in Data Base Management Systems. Edited by G. M. Nijssen. 1976. In the Red Book.\nThis paper presents two distinct ideas: first, the notion that there is a \u0026ldquo;hierarchy of locking\u0026rdquo; — e.g., that databases can lock pages, tables, tuples, or fields, and that there is a tradeoff between these various degrees of locking. Second, the paper presents that idea that there are different degrees of consistency which transactions can require, and those different degrees imply different locking disciplines with different performance characteristics.\nAs you read the paper, consider the following questions:\nWhat is the tradeoff between coarse granularity (e.g., table-level) and fine granularity (e.g., tuple-level) locks in a database system? How does hierarchical locking help address the phantom problem (hint: see page 374 and the discussion of index-interval locks.) What are the performance tradeoffs between the different degrees of locking? How does degree-0 locking ensure compatibility with all other locking modes? "}
+
+

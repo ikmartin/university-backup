@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Readings on MIT OpenCourseWare</title>
+    <link>/resources/readings/</link>
+    <description>Recent content in Readings on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/readings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture 10: Transactions and Locking</title>
+      <link>/pages/readings/lec10/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec10/data.json</guid>
+      <description>In this class, we will begin our discussion of concurrency control and recovery. To prepare for this class, please read:
+Franklin, Michael. &amp;ldquo;Concurrency Control and Recovery (PDF)&amp;rdquo; The Computer Science and Engineering Handbook. 1997. As you read, note any terms you are unfamiliar with and come to class prepared to ask questions!</description>
+    </item>
+    
+    <item>
+      <title>Lecture 11: Optimistic Concurrency Control</title>
+      <link>/pages/readings/lec11/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec11/data.json</guid>
+      <description>In this lecture, we will continue our discussion of concurrency control and study another approach for isolating transactions called &amp;ldquo;Optimistic Concurrency Control.&amp;rdquo; Read:
+Kung, H. T., and John T. Robinson. &amp;ldquo;On Optimistic Methods for Concurrency Control.&amp;rdquo; ACM Transactions on Database Systems 6, no. 2 (1981): 213-226. In the Red Book.
+As you read, note any terms you are unfamiliar with and come to class prepared to answer the following questions:</description>
+    </item>
+    
+    <item>
+      <title>Lecture 12: Recovery</title>
+      <link>/pages/readings/lec12/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec12/data.json</guid>
+      <description>In this class, we will begin discussing ARIES and recovery. The Franklin paper assigned for Lec #10 includes a good summary of the essentials of the ARIES algorithm.
+Ramakrishnan and Gehrke. Database Management Systems. Read the section about crash recovery. (Optional) Mohan, C., et al. &amp;ldquo;ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging.&amp;rdquo; ACM Transactions on Database Systems 17, no. 1 (1992): 94-162. In the Red Book.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 13: Recovery (cont.)</title>
+      <link>/pages/readings/lec13/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec13/data.json</guid>
+      <description>In this lecture, we will continue discussing the ARIES recovery protocol that we began last week. No additional reading is assigned.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 14: Degrees of Consistency</title>
+      <link>/pages/readings/lec14/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec14/data.json</guid>
+      <description>Read:
+Gray, Jim, et al. &amp;ldquo;Granularity of Locking and Degrees of Consistency in a Shared Data Base.&amp;rdquo; From Modeling in Data Base Management Systems. Edited by G. M. Nijssen. 1976. In the Red Book.
+This paper presents two distinct ideas: first, the notion that there is a &amp;ldquo;hierarchy of locking&amp;rdquo; — e.g., that databases can lock pages, tables, tuples, or fields, and that there is a tradeoff between these various degrees of locking.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 15: C-Store</title>
+      <link>/pages/readings/lec15/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec15/data.json</guid>
+      <description>Read:
+Stonebraker, Michael, et al. C-Store: A Column-oriented DBMS. Proceedings of the 31st VLDB Conference, 2005. (PDF)
+This paper discusses the C-Store system, which is a read-optimized database system with a novel physical arrangement of data on disk, as well as an unusual approach to recovery and query processing
+As you read the paper, consider the following questions:
+Why does the C-Store idea of arranging data as columns improve query performance?</description>
+    </item>
+    
+    <item>
+      <title>Lecture 16: Distributed Transactions</title>
+      <link>/pages/readings/lec16/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec16/data.json</guid>
+      <description>We will continue our discussion of parallel and distributed query processing. You should read:
+Mohan, C., B. Lindsay, and R. Obermarck. &amp;ldquo;Transaction Management in the R* Distributed Database Management Systems.&amp;rdquo; ACM Transactions on Database Systems 11, no. 4 (1986): 378-396. In the Red Book.
+This paper discusses distributed transactions, addressing the problem of providing ACID-style semantics in a shared nothing environment.
+As you read the paper, consider the following questions:</description>
+    </item>
+    
+    <item>
+      <title>Lecture 17: Parallel Databases</title>
+      <link>/pages/readings/lec17/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec17/data.json</guid>
+      <description>Read:
+Dewitt, David, and Jim Gray. &amp;ldquo;Parallel Database Systems: The Future of High Performance Database Processing.&amp;rdquo; Communications of the ACM 35, no. 6 (1992): 85-98. In the Red Book.
+The Dewitt and Gray paper is a high level summary of database architectures for parallelism, illustrating some of the techniques that can be used to exploit the availability of multiple processors in a database system.
+Questions to consider:
+What&amp;rsquo;s the difference between a parallel and a distributed database?</description>
+    </item>
+    
+    <item>
+      <title>Lecture 18: Scientific Databases</title>
+      <link>/pages/readings/lec18/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec18/data.json</guid>
+      <description>Read:
+Stonebraker, Michael, et al. &amp;ldquo;Requirements for Science Data Bases and SciDB.&amp;rdquo; CIDR Perspectives (2009). (PDF)
+The paper is a high-level description of the requirements of a new generation DBMS (SciDB) that supports modern scientific projects.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 19: NOSQL</title>
+      <link>/pages/readings/lec19/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec19/data.json</guid>
+      <description>Read:
+Chang, Fay, et al. &amp;ldquo;Bigtable: A Distributed Storage System for Structured Data.&amp;rdquo; OSDI, 2006. (PDF)
+Bigtable is a storage system for structured data; it is essentially a compressed, horizontally partitioned, column-oriented database with some interesting properties that allow it to reach &amp;ldquo;web scale&amp;rdquo;.
+As you read the paper, consider the following questions:
+In what ways does Bigtable replicate the behavior of a relational database? How is it different? Could Google have built Bigtable using a relational system?</description>
+    </item>
+    
+    <item>
+      <title>Lecture 2: The Relational Model</title>
+      <link>/pages/readings/lec2/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec2/data.json</guid>
+      <description>In this lecture, we will continue our discussion of data models and database system architecture, looking in more detail at the relational model.
+There is a lot of reading for this lecture. You should start early and try to digest it all, as it lays the foundation for much of what is to come. The papers are:
+Stonebraker, Michael, and Joseph Hellerstein. &amp;ldquo;What Goes Around Comes Around.&amp;rdquo; In Readings in Database Systems (aka the Red Book), or online here (PDF).</description>
+    </item>
+    
+    <item>
+      <title>Lecture 20: ORM, DryadLINQ</title>
+      <link>/pages/readings/lec20/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec20/data.json</guid>
+      <description>Read:
+Yu, Yuan, et al. &amp;ldquo;DryadLINQ: A System for General-Purpose Distributed Data-Parallel Computing Using a High-Level Language.&amp;rdquo; OSDI, 2008. (PDF)
+DryadLINQ is a programming language for manipulating structured data in a distributed setting. It provides a collection of SQL-like constructs that are well-integrated into C# (with a common type and object system), and compiles down to a graph of operators spread across a distributed network of machines in a way similar to how distributed databases work.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 3: Schema Design</title>
+      <link>/pages/readings/lec3/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec3/data.json</guid>
+      <description>The reading for this lecture is:
+The start of chapter 2 to end of section 2.6 (pages 25-46) of Ramakrishnan and Gehrke Section 3.5 (pages 75-86) of Ramakrishnan and Gehrke The start of chapter 19 to end of section 19.4 (pages 605-619) of Ramakrishnan and Gehrke The first two readings discuss ER modeling, which is one practical way which can be used to model a database and generate database schemas.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 4: Introduction to Database Internals</title>
+      <link>/pages/readings/lec4/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec4/data.json</guid>
+      <description>We will start discussing database system internals, based on the content of a paper:
+Hellerstein, Joseph, Michael Stonebraker, and James Hamilton. &amp;ldquo;Architecture of a Database System.&amp;rdquo; Foundations and Trends in Databases 1, no. 2 (2007): 141-259. (PDF)
+It is a rather long paper (don&amp;rsquo;t be too scared by the 119 pages, the page format makes it look much longer than it is) that is in general worth reading, however we only require you to read sections: 1, 2 (skim through it), 3, 4 (up to subsection 4.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 5: Database Operators and Query Processing</title>
+      <link>/pages/readings/lec5/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec5/data.json</guid>
+      <description>We will continue discussing database system internals, based on the same paper of last lecture:
+Hellerstein, Joseph, Michael Stonebraker, and James Hamilton. &amp;ldquo;Architecture of a Database System.&amp;rdquo; Foundations and Trends in Databases 1, no. 2 (2007): 141-259. (PDF)
+We will be focusing on query processing, optimization and memory/storage management. This is still an overview of the concepts that we will present in more details in following lectures.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 6: Indexing and Access Methods</title>
+      <link>/pages/readings/lec6/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec6/data.json</guid>
+      <description>This lecture will cover various issues related to the physical storage of relations on disk, as well as index data structures we might use to efficient access those stored relations. Read the following (short) papers and book sections:
+In Database Management Systems, read: Pages 273-289. If you are using another book, this is the introduction to the section on Storage and Indexing which discusses different access methods and their relative performance.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 7: Buffer Pool Design and Memory Management</title>
+      <link>/pages/readings/lec7/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec7/data.json</guid>
+      <description>This lecture will cover buffer and memory management strategies in database systems.
+Read the following paper:
+Chou, Hong-Tai, and David DeWitt. An Evaluation of Buffer Management Strategies for Relational Database Systems. Proceedings of VLDB, 1985, pp. 127-141.
+As you read, think about and come to class prepared to answer the following questions:
+How much better is the hot-set model than simple LRU? Under what circumstances is LRU a bad idea? Why can these techniques be applied in database systems but not operating systems?</description>
+    </item>
+    
+    <item>
+      <title>Lecture 8: Join Algorithms</title>
+      <link>/pages/readings/lec8/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec8/data.json</guid>
+      <description>This lecture will cover join algorithms, focusing in particular on Hash Join and Sort-Merge join and the relative tradeoffs of the two approaches.
+Read the following paper:
+Shapiro, L. D. &amp;ldquo;Join Processing in Database Systems with Large Main Memories.&amp;rdquo; In the Red Book.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 9: Query Optimization</title>
+      <link>/pages/readings/lec9/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/lec9/data.json</guid>
+      <description>In this lecture, we will discuss the problem of query optimization, focusing on the algorithms proposed in the classic &amp;ldquo;Selinger&amp;rdquo; paper.
+Read the following papers:
+Selinger, Patricia, M. Astrahan, D. Chamberlin, Raymond Lorie, and T. Price. &amp;ldquo;Access Path Selection in a Relational Database Management System.&amp;rdquo; Proceedings of ACM SIGMOD (1979): 23-34. Optionally, you may also wish to look at: Mannino, Michael, Paichen Chu, and Thomas Sager. &amp;ldquo;Statistical Profile Estimation in Database Systems.</description>
+    </item>
+    
+    <item>
+      <title>Readings</title>
+      <link>/pages/readings/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/readings/data.json</guid>
+      <description>Many of the readings are drawn from the following sources:
+Hellerstein, Joseph, and Michael Stonebraker. Readings in Database Systems (The Red Book). 4th ed. MIT Press, 2005. ISBN: 9780262693141.
+Ramakrishnan, Raghu, and Johannes Gehrke. Database Management Systems. 3rd ed. McGraw-Hill, 2002. ISBN: 9780072465631.
+LEC # TOPICS 1 Introduction (CC) 2 The relational model (MS) 3 Schema design (MS) 4 Introduction to database internals (CC) 5 Database operators and query processing (CC) 6 Indexing and access methods (CC) 7 Buffer pool design and memory management (CC) 8 Join algorithms (CC) 9 Query optimization (CC) 10 Transactions and locking (MS) 11 Optimistic concurrency control (MS) 12 Recovery (MS) 13 Recovery (MS) (cont.</description>
+    </item>
+    
+  </channel>
+</rss>

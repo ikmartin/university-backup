@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 16: Distributed Transactions",
+  "content":"We will continue our discussion of parallel and distributed query processing. You should read:\nMohan, C., B. Lindsay, and R. Obermarck. \u0026ldquo;Transaction Management in the R* Distributed Database Management Systems.\u0026rdquo; ACM Transactions on Database Systems 11, no. 4 (1986): 378-396. In the Red Book.\nThis paper discusses distributed transactions, addressing the problem of providing ACID-style semantics in a shared nothing environment.\nAs you read the paper, consider the following questions:\nIn the \u0026ldquo;R*\u0026rdquo; paper, how does the two phase commit (2PC) protocol work? What problem does it solve? What are the costs of using it? What is the significance of the Presumed Abort/Presumed Commit variants of 2PC? How do they reduce the overhead of 2PC? When should you choose one over the other? "}
+
+

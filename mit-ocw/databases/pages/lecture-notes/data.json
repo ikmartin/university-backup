@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture Notes",
+  "content":"Selected lecture notes are available below. These lecture notes are not meant to be a comprehensive coverage of all topics in every lecture, but rather a rough outline of the class for the day. Each lecture was delivered by the instructor noted below.\nCC = Carlo Curino\nMS = Michael Stonebraker\nLEC # TOPICS LECTURE NOTES 1 Introduction (CC) (PDF) 2 The relational model (MS) (PDF) 3 Schema design (MS) (PDF) 4 Introduction to database internals (CC) (PDF) 5 Database operators and query processing (CC) (PDF) 6 Indexing and access methods (CC) (PDF) 7 Buffer pool design and memory management (CC) (PDF) 8 Join algorithms (CC) (PDF) 9 Query optimization (CC) (PDF)\nSelinger optimizer (PDF)\n10 Transactions and locking (MS) (PDF) 11 Optimistic concurrency control (MS) (PDF) 12 Recovery (MS) (PDF) 13 Recovery (MS) (PDF) 14 Degrees of consistency (MS) (PDF) 15 C-store\nGuest lecture: Sam Madden, MIT CSAIL\n(PDF) 16 Distributed transactions (CC) (PDF) 17 Parallel databases (CC) (PDF) 18 Scientific databases (MS) (PDF) 19 NOSQL (CC) (PDF) 20 ORM, DryadLINQ (CC) ORM (PDF)\nDryadLINQ (PDF)\n21 Streaming databases (MS) 22 Database as a service (CC) 23 Final project presentations "}
+
+

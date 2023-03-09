@@ -1,0 +1,35 @@
+{
+  "course_title":"Database Systems",
+  "course_description":"This course relies on primary readings from the database community to introduce graduate students to the foundations of database systems, focusing on basics such as the relational algebra and data model, schema normalization, query optimization, and transactions. It is designed for students who have taken [6.033](/courses/6-033-computer-system-engineering-spring-2018/) (or equivalent); no prior database experience is assumed, though students who have taken an undergraduate course in databases are encouraged to attend.",
+  "site_uid":"e3388548-4275-4fd8-a431-eaacc659c3ae",
+  "legacy_uid":"31ef61c6-57dd-5493-e295-73050ee23a19","instructors": [{
+    "first_name":"Samuel",
+    "last_name":"Madden",
+    "middle_initial":"",
+    "salutation":"Prof.",
+    "title":"Prof. Samuel Madden"},{
+    "first_name":"Robert",
+    "last_name":"Morris",
+    "middle_initial":"",
+    "salutation":"Prof.",
+    "title":"Prof. Robert Morris"},{
+    "first_name":"Michael",
+    "last_name":"Stonebraker",
+    "middle_initial":"",
+    "salutation":"Prof.",
+    "title":"Prof. Michael Stonebraker"},{
+    "first_name":"Carlo",
+    "last_name":"Curino",
+    "middle_initial":"",
+    "salutation":"Dr.",
+    "title":"Dr. Carlo Curino"}],"department_numbers":["6"],
+  "learning_resource_types":["Exams with Solutions","Lecture Notes","Programming Assignments"],
+  "topics":[["Engineering","Computer Science","Algorithms and Data Structures"],["Engineering","Computer Science","Software Design and Engineering"],["Business","Information Technology"],["Engineering","Computer Science","Data Mining"]],
+  "primary_course_number":"6.830",
+  "extra_course_numbers":"6.814",
+  "term":"Fall",
+  "year":"2010",
+  "level":["Graduate","Undergraduate"],
+  "image_src":"./static_resources/f6a4a8580e9f629729e14e358a682bf4_6-830f10.jpg",
+  "course_image_metadata":{"content_type":"resource","description":"Persons receiving food stamps in the U.S., 1960-2000. Shaded areas are periods of recession as defined by the National Bureau of Economic Research. (Image courtesy of the U.S. Department of Health and Human Services.) ","draft":false,"file":"/courses/6-830-database-systems-fall-2010/f6a4a8580e9f629729e14e358a682bf4_6-830f10.jpg","file_type":"image/jpeg","image_metadata":{"caption":"The general architecture of a database management system. (Image by MIT OpenCourseWare.)","credit":"Image courtesy of the U.S. Department of Health and Human Services.","image-alt":"Diagram of database architecture."},"iscjklanguage":false,"learning_resource_types":[],"license":"https://creativecommons.org/licenses/by-nc-sa/4.0/","ocw_type":"OCWImage","resourcetype":"Image","title":"6-830f10.jpg","uid":"f6a4a858-0e9f-6297-29e1-4e358a682bf4","video_files":{"video_thumbnail_file":null},"video_metadata":{"youtube_id":null}}}
+

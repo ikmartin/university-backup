@@ -1,0 +1,6 @@
+
+{
+  "title":"Readings",
+  "content":"Many of the readings are drawn from the following sources:\nHellerstein, Joseph, and Michael Stonebraker. Readings in Database Systems (The Red Book). 4th ed. MIT Press, 2005. ISBN: 9780262693141.\nRamakrishnan, Raghu, and Johannes Gehrke. Database Management Systems. 3rd ed. McGraw-Hill, 2002. ISBN: 9780072465631.\nLEC # TOPICS 1 Introduction (CC) 2 The relational model (MS) 3 Schema design (MS) 4 Introduction to database internals (CC) 5 Database operators and query processing (CC) 6 Indexing and access methods (CC) 7 Buffer pool design and memory management (CC) 8 Join algorithms (CC) 9 Query optimization (CC) 10 Transactions and locking (MS) 11 Optimistic concurrency control (MS) 12 Recovery (MS) 13 Recovery (MS) (cont.) 14 Degrees of consistency (MS) 15 C-store\nGuest lecture: Sam Madden, MIT CSAIL\n16 Distributed transactions (CC) 17 Parallel databases (CC) 18 Scientific databases (MS) 19 NOSQL (CC) 20 ORM, DryadLINQ (CC) 21 Streaming databases (MS) 22 Database as a service (CC) 23 Final project presentations "}
+
+

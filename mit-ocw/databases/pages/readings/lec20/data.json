@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 20: ORM, DryadLINQ",
+  "content":"Read:\nYu, Yuan, et al. \u0026ldquo;DryadLINQ: A System for General-Purpose Distributed Data-Parallel Computing Using a High-Level Language.\u0026rdquo; OSDI, 2008. (PDF)\nDryadLINQ is a programming language for manipulating structured data in a distributed setting. It provides a collection of SQL-like constructs that are well-integrated into C# (with a common type and object system), and compiles down to a graph of operators spread across a distributed network of machines in a way similar to how distributed databases work.\nAs you read the paper, consider the following questions:\nWhat are the advantages of a query language that is integrated into the programming language? Are there disadvantages? Dryad execution plans look a lot like database query plans, but are different in some ways — in particular, operators can have multiple outputs; what are the implications of this from a query execution perspective? "}
+
+

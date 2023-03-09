@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 18: Scientific Databases",
+  "content":"Read:\nStonebraker, Michael, et al. \u0026ldquo;Requirements for Science Data Bases and SciDB.\u0026rdquo; CIDR Perspectives (2009). (PDF)\nThe paper is a high-level description of the requirements of a new generation DBMS (SciDB) that supports modern scientific projects.\n"}
+
+

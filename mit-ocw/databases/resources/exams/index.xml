@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exams on MIT OpenCourseWare</title>
+    <link>/resources/exams/</link>
+    <description>Recent content in Exams on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/exams/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Exams</title>
+      <link>/pages/exams/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/exams/data.json</guid>
+      <description>This section contains quizzes and solutions from the 2008 version of the course.
+QUIZZES SOLUTIONS Quiz 1 (PDF) (PDF) Quiz 2 (PDF) (PDF) </description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_quiz01_sol.pdf</title>
+      <link>/resources/mit6_830f10_quiz01_sol/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_quiz01_sol/data.json</guid>
+      <description>This resource contains information on schema design.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_quiz01.pdf</title>
+      <link>/resources/mit6_830f10_quiz01/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_quiz01/data.json</guid>
+      <description>This resource contains information on cptimistic concurrency control.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_quiz02_sol.pdf</title>
+      <link>/resources/mit6_830f10_quiz02_sol/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_quiz02_sol/data.json</guid>
+      <description>This resource contains information on database systems.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_quiz02.pdf</title>
+      <link>/resources/mit6_830f10_quiz02/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_quiz02/data.json</guid>
+      <description>This resource contains information on big table.</description>
+    </item>
+    
+  </channel>
+</rss>

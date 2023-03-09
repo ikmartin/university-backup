@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 4: Introduction to Database Internals",
+  "content":"We will start discussing database system internals, based on the content of a paper:\nHellerstein, Joseph, Michael Stonebraker, and James Hamilton. \u0026ldquo;Architecture of a Database System.\u0026rdquo; Foundations and Trends in Databases 1, no. 2 (2007): 141-259. (PDF)\nIt is a rather long paper (don\u0026rsquo;t be too scared by the 119 pages, the page format makes it look much longer than it is) that is in general worth reading, however we only require you to read sections: 1, 2 (skim through it), 3, 4 (up to subsection 4.5 included), 5. You can also skim through section 6 that we will discuss later on.\nThe purpose of these readings is to introduce the architecture of a database system at a high level. Our goal in lecture will be to tease apart the main components of most database systems. Once we\u0026rsquo;ve identified these components, we will discuss each over the next few weeks.\nThe paper assumes a certain degree of familiarity with database \u0026rsquo;lingo\u0026rsquo;, some of which will doubtless be unfamiliar to you. As you read, keep track of terms you do not know and come to class prepared to ask questions!\n"}
+
+

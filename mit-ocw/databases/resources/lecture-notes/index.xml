@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lecture Notes on MIT OpenCourseWare</title>
+    <link>/resources/lecture-notes/</link>
+    <description>Recent content in Lecture Notes on MIT OpenCourseWare</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/resources/lecture-notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture Notes</title>
+      <link>/pages/lecture-notes/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/pages/lecture-notes/data.json</guid>
+      <description>Selected lecture notes are available below. These lecture notes are not meant to be a comprehensive coverage of all topics in every lecture, but rather a rough outline of the class for the day. Each lecture was delivered by the instructor noted below.
+CC = Carlo Curino
+MS = Michael Stonebraker
+LEC # TOPICS LECTURE NOTES 1 Introduction (CC) (PDF) 2 The relational model (MS) (PDF) 3 Schema design (MS) (PDF) 4 Introduction to database internals (CC) (PDF) 5 Database operators and query processing (CC) (PDF) 6 Indexing and access methods (CC) (PDF) 7 Buffer pool design and memory management (CC) (PDF) 8 Join algorithms (CC) (PDF) 9 Query optimization (CC) (PDF)</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec01.pdf</title>
+      <link>/resources/mit6_830f10_lec01/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec01/data.json</guid>
+      <description>This resource contains information related to assignment of soldiers.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec02.pdf</title>
+      <link>/resources/mit6_830f10_lec02/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec02/data.json</guid>
+      <description>This resource contains information related to data redundancy.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec03.pdf</title>
+      <link>/resources/mit6_830f10_lec03/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec03/data.json</guid>
+      <description>This resource contains information related to schema design.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec04.pdf</title>
+      <link>/resources/mit6_830f10_lec04/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec04/data.json</guid>
+      <description>This resource contains information related to introduction to database internals.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec05.pdf</title>
+      <link>/resources/mit6_830f10_lec05/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec05/data.json</guid>
+      <description>This resource contains information related to cross product.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec06.pdf</title>
+      <link>/resources/mit6_830f10_lec06/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec06/data.json</guid>
+      <description>This resource contains information related to cost model.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec07.pdf</title>
+      <link>/resources/mit6_830f10_lec07/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec07/data.json</guid>
+      <description>This resource contains information related to buffer pool design and memory management.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec08.pdf</title>
+      <link>/resources/mit6_830f10_lec07b/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec07b/data.json</guid>
+      <description>This resource contains information related to multipage interactions.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec09_selinger.pdf</title>
+      <link>/resources/mit6_830f10_lec09_selinger/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec09_selinger/data.json</guid>
+      <description>This resource contains information related to selinger.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec09.pdf</title>
+      <link>/resources/mit6_830f10_lec09/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec09/data.json</guid>
+      <description>This resource contains information related to query optimization.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec10.pdf</title>
+      <link>/resources/mit6_830f10_lec10/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec10/data.json</guid>
+      <description>This resource contains information related to transactions and locking.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec11.pdf</title>
+      <link>/resources/mit6_830f10_lec11/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec11/data.json</guid>
+      <description>This resource contains information related to multi version sysytem</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec12.pdf</title>
+      <link>/resources/mit6_830f10_lec12/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec12/data.json</guid>
+      <description>This resource contains information related to disk crash.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec13.pdf</title>
+      <link>/resources/mit6_830f10_lec13/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec13/data.json</guid>
+      <description>This resource contains information related to recovery.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec14.pdf</title>
+      <link>/resources/mit6_830f10_lec14/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec14/data.json</guid>
+      <description>This resource contains information related to application errors.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec15.pdf</title>
+      <link>/resources/mit6_830f10_lec15/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec15/data.json</guid>
+      <description>This resource contains information related to standard interface.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec16.pdf</title>
+      <link>/resources/mit6_830f10_lec16/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec16/data.json</guid>
+      <description>This resource contains information related to transaction coordinator.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec17.pdf</title>
+      <link>/resources/mit6_830f10_lec17/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec17/data.json</guid>
+      <description>This resource contains information related to parallel databases.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec18.pdf</title>
+      <link>/resources/mit6_830f10_lec18/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec18/data.json</guid>
+      <description>This resource contains information related to scientific data.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec19.pdf</title>
+      <link>/resources/mit6_830f10_lec19/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec19/data.json</guid>
+      <description>This resource contains information related to big table.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec20.pdf</title>
+      <link>/resources/mit6_830f10_lec20/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec20/data.json</guid>
+      <description>This resource contains information related to impedance mismatch.</description>
+    </item>
+    
+    <item>
+      <title>MIT6_830F10_lec20b.pdf</title>
+      <link>/resources/mit6_830f10_lec20b/data.json</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/resources/mit6_830f10_lec20b/data.json</guid>
+      <description>This resource contains information related to dryad.</description>
+    </item>
+    
+  </channel>
+</rss>

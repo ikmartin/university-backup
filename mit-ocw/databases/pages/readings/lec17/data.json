@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 17: Parallel Databases",
+  "content":"Read:\nDewitt, David, and Jim Gray. \u0026ldquo;Parallel Database Systems: The Future of High Performance Database Processing.\u0026rdquo; Communications of the ACM 35, no. 6 (1992): 85-98. In the Red Book.\nThe Dewitt and Gray paper is a high level summary of database architectures for parallelism, illustrating some of the techniques that can be used to exploit the availability of multiple processors in a database system.\nQuestions to consider:\nWhat\u0026rsquo;s the difference between a parallel and a distributed database? What issues are different in one architecture versus the other? In what ways are the two architectures alike? Why do Dewitt and Gray advocate a shared nothing architecture? In what ways must existing database architectures be modified to support multi-processor environments? What new data layout issues are introduced? What new query processing challenges must be addressed? "}
+
+

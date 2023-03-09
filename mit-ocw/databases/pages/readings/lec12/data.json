@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 12: Recovery",
+  "content":"In this class, we will begin discussing ARIES and recovery. The Franklin paper assigned for Lec #10 includes a good summary of the essentials of the ARIES algorithm.\nRamakrishnan and Gehrke. Database Management Systems. Read the section about crash recovery. (Optional) Mohan, C., et al. \u0026ldquo;ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging.\u0026rdquo; ACM Transactions on Database Systems 17, no. 1 (1992): 94-162. In the Red Book. Read sections 1-7, and skim sections 12 and 13 (long and difficult). "}
+
+

@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 8: Join Algorithms",
+  "content":"This lecture will cover join algorithms, focusing in particular on Hash Join and Sort-Merge join and the relative tradeoffs of the two approaches.\nRead the following paper:\nShapiro, L. D. \u0026ldquo;Join Processing in Database Systems with Large Main Memories.\u0026rdquo; In the Red Book.\n"}
+
+

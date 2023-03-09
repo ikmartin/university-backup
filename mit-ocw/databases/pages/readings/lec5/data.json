@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 5: Database Operators and Query Processing",
+  "content":"We will continue discussing database system internals, based on the same paper of last lecture:\nHellerstein, Joseph, Michael Stonebraker, and James Hamilton. \u0026ldquo;Architecture of a Database System.\u0026rdquo; Foundations and Trends in Databases 1, no. 2 (2007): 141-259. (PDF)\nWe will be focusing on query processing, optimization and memory/storage management. This is still an overview of the concepts that we will present in more details in following lectures.\n"}
+
+

@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 7: Buffer Pool Design and Memory Management",
+  "content":"This lecture will cover buffer and memory management strategies in database systems.\nRead the following paper:\nChou, Hong-Tai, and David DeWitt. An Evaluation of Buffer Management Strategies for Relational Database Systems. Proceedings of VLDB, 1985, pp. 127-141.\nAs you read, think about and come to class prepared to answer the following questions:\nHow much better is the hot-set model than simple LRU? Under what circumstances is LRU a bad idea? Why can these techniques be applied in database systems but not operating systems? "}
+
+

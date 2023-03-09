@@ -1,0 +1,6 @@
+
+{
+  "title":"Lecture 19: NOSQL",
+  "content":"Read:\nChang, Fay, et al. \u0026ldquo;Bigtable: A Distributed Storage System for Structured Data.\u0026rdquo; OSDI, 2006. (PDF)\nBigtable is a storage system for structured data; it is essentially a compressed, horizontally partitioned, column-oriented database with some interesting properties that allow it to reach \u0026ldquo;web scale\u0026rdquo;.\nAs you read the paper, consider the following questions:\nIn what ways does Bigtable replicate the behavior of a relational database? How is it different? Could Google have built Bigtable using a relational system? Would that have been a good idea? Why or why not? What consistency guarantees does Bigtable provide in the face of failures? What is a distributed lock service? "}
+
+

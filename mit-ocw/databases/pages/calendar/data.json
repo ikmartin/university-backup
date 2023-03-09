@@ -1,0 +1,6 @@
+
+{
+  "title":"Calendar",
+  "content":"CC = Carlo Curino\nMS = Michael Stonebraker\nLEC # TOPICS KEY DATES 1 Introduction (CC) 2 The relational model (MS) Problem set 1 out 3 Schema design (MS) 4 Introduction to database internals (CC) Problem set 1 due\nLab 1 out\n5 Database operators and query processing (CC) 6 Indexing and access methods (CC) Problem set 2 out\nProject teams due\n7 Buffer pool design and memory management (CC) Lab 1 due\nLab 2 out\n8 Join algorithms (CC) 9 Query optimization (CC) 10 Transactions and locking (MS) Problem set 2 due 11 Optimistic concurrency control (MS) Project proposal due\nLab 2 due\nExam 1 12 Recovery (MS) Lab 3 out 13 Recovery (MS) 14 Degrees of consistency (MS) Problem set 3 out 15 C-store\nGuest lecture: Sam Madden, MIT CSAIL\nLab 3 due 16 Distributed transactions (CC) Lab 4 out (6.814) 17 Parallel databases (CC) 18 Scientific databases (MS) 19 NOSQL (CC) 20 ORM, DryadLINQ (CC) Lab 4 due (6.814) 21 Streaming databases (MS) Problem set 3 due\nLab 5 out (6.814)\nExam 2 22 Database as a service (CC) 23 Final project presentations Final project due (6.830)\nLab 5 due (6.814)\n"}
+
+
