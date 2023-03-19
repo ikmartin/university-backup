@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex ising"] 1676955237 "ising.aux" "ising.bbl" "ising" 1679172185
+["bibtex ising"] 1676955237 "ising.aux" "ising.bbl" "ising" 1676956649
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1233624470 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "ising.aux" 1679172185 3411 edc3e08b57739f217b8087e992089722 "pdflatex"
+  "ising.aux" 1676956649 3411 edc3e08b57739f217b8087e992089722 "pdflatex"
   "ising.bib" 1676766963 1450 cdb2bfb61069358086a58a85caada9f0 ""
   (generated)
   "ising.bbl"
   "ising.blg"
-["pdflatex"] 1679172184 "ising.tex" "ising.pdf" "ising" 1679172185
-  "/Users/isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1676956714 37257 2fa1ff2324182d88104b570cc08e589a ""
+["pdflatex"] 1676956648 "ising.tex" "ising.pdf" "ising" 1676956649
+  "/Users/isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1676956647 37257 2fa1ff2324182d88104b570cc08e589a ""
   "/Users/isaac/Library/texmf/tex/latex/style-sheets/notes.sty" 1676766963 9161 7040046b39707dcb37530e9c74c4190d ""
   "/dev/null" 0 -1 0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
@@ -324,11 +324,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1676399263 2826451 d93c80d8a60ecfe737f8da20e0ce13e4 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "ising.aux" 1679172185 3411 edc3e08b57739f217b8087e992089722 "pdflatex"
+  "ising.aux" 1676956649 3411 edc3e08b57739f217b8087e992089722 "pdflatex"
   "ising.bbl" 1676955237 275 de5ffaf5b665b622658d80bed97ba2a5 "bibtex ising"
-  "ising.out" 1679172185 579 e3c87a1feff2b9a34b6f5e09eea28b93 "pdflatex"
+  "ising.out" 1676956649 579 e3c87a1feff2b9a34b6f5e09eea28b93 "pdflatex"
   "ising.pre" 0 -1 0 "pdflatex"
-  "ising.tex" 1679172182 22971 36258e36b8449321129b47ca26dabbc6 ""
+  "ising.tex" 1676956023 22971 36258e36b8449321129b47ca26dabbc6 ""
   (generated)
   "ising.aux"
   "ising.log"

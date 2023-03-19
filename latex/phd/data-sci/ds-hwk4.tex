@@ -1,0 +1,116 @@
+\input{../preamble.tex}
+
+\usepackage{capt-of}
+\usepackage{tikz}
+\usepackage{listings}
+\usetikzlibrary{positioning,calc,intersections,through,backgrounds, shapes.geometric, decorations.markings,arrows}
+
+\def\sset{\subseteq}
+\def\iso{\cong}
+\def\gend#1{\langle #1\rangle}
+
+\newcommand{\rightoverleftarrow}{%
+  \mathrel{\vcenter{\mathsurround0pt
+    \ialign{##\crcr
+      \noalign{\nointerlineskip}$\longrightarrow$\crcr
+      \noalign{\nointerlineskip}$\longleftarrow$\crcr
+    }%
+  }}%
+}
+
+\newcommand\makesphere{} % just for safety
+\def\makesphere(#1)(#2)[#3][#4]{%
+  % Synopsis
+  % \makesphere[draw options](center)(initial angle:final angle:radius)
+  \shade[ball color = #3, opacity = #4] #1 circle (#2);
+  \draw #1 circle (#2);
+  \draw ($#1 - (#2, 0)$) arc (180:360:#2 and 3*#2/10);
+  \draw[dashed] ($#1 + (#2, 0)$) arc (0:180:#2 and 3*#2/10);
+}
+% same thing as makesphere but places white background behind
+\newcommand\altmakesphere{} % just for safety
+\def\altmakesphere(#1)(#2)(#3)[#4][#5]{%
+  % Synopsis
+  % \make sphere[draw options](center)(initial angle:final angle:radius)
+  \draw [fill=white!30] #1 circle (#2);
+  \shade[ball color = #4, opacity = #5] #1 circle (#2);
+  \draw #1 circle (#2);
+  \draw ($#1 - (#2, 0)$) arc (180:360:#2 and 3*#2/10);
+  \draw[dashed] ($#1 + (#2, 0)$) arc (0:180:#2 and 3*#2/10);
+  \node at #1 {#3};
+}
+
+\begin{document}
+% set section number to 1
+% fixes theorem numbering without need to have a section title
+\setcounter{section}{1}
+
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Foundations of Data Science and Machine Learning -- \emph{Homework 3}\\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-4mm}
+\hru
+
+\begin{homework}[e]
+  \prob Given labeled data $(\bfx_1,y_1),...,(\bfx_n,y_n)\in \bR^d \times \{\pm 1\}$, consider the support vector machine with misclassification allowed but penalized by $\lambda > 0$:
+  \begin{align*}
+    \min_{\substack{\bfw\in \bR^d\\ b\in \bR\\\mu\in \bR^n}} \lambda \|\bfw\|^2_2 + \frac{1}{n}\sum^n_{j=1} \mu_j \textbuff{1em}{s.t.} y_j(\langle \bfw, \bfx_j \rangle - b) \geq 1 - \mu_j, ~ \mu_j \geq 0 ~\forall j.
+  \end{align*}
+  \begin{enumerate}[(a)]
+    \item Derive the dual problem by using the Lagrangian.
+    \item Read about ``Slater's condition'' on Wikipedia. Does strong duality hold here?
+  \end{enumerate}
+  \begin{prf}
+    For each $j$ we have two constraints, one of the form $y_j(\langle \bfw, \bfx_j \rangle - b) - 1 + \mu_j\geq 0$ and another of the form $\mu_j \geq 0$. This means our Lagrangian is
+    \begin{align*}
+      \cl(\bfw, b,\mu,\alpha,\beta) = \lambda \|\bfw\|^2_2 + \frac{1}{n} \sum_{j=1}^n \mu_j ~-~ \sum_{j=1}^n \alpha_j(y_j(\langle \bfw, \bfx_j\rangle - b) -1 + \mu_j) + \beta_j\mu_j.
+    \end{align*}
+    The dual problem is then
+    \begin{align*}
+      \max_{\substack{\alpha \geq 0 \\ \beta\geq 0}} \min_{\bfw, b, \mu} \lambda \|\bfw\|^2_2 + \frac{1}{n}\sum_{j=1}^n\mu_j ~-~\sum_{j=1}^n \alpha_j(y_j(\langle \bfw, \bfx_j\rangle - b) -1 + \mu_j) + \beta_j\mu_j
+    \end{align*}
+    which becomes
+    \begin{align*} 
+      \max_{\substack{\alpha \geq 0 \\ \beta\geq 0}} \|\alpha\|_1 + \min_{\bfw, b, \mu} \lambda \|\bfw\|^2_2 + \frac{1}{n}\sum_{j=1}^n\mu_j ~-~\sum_{j=1}^n \left(1/n - \alpha_j - \beta_j\right)\mu_j - \alpha_jy_j(\langle \bfw,\bfx_j \rangle - b)\\
+    \end{align*}
+    after pulling out the $-1$ term and combining all $\mu_j$ terms. Note that technically these should be infinums and supremums since $\bfw$, $b$ and $\mu$ are valued in the reals. If $1/n - \alpha_j - \beta_j\neq 0$, then the inside minima above will always be $-\infty$ as we can choose $\mu_j$ to be arbitrarily large or small. Similarly, unless $\sum_j\alpha_jy_j = 0$ we can choose $b$ such that the minima is $-\infty$. If this is not the case, then we must have that $\beta_j = 1/n - \alpha_j$ and $\sum_j\alpha_jy_j = 0$. In this case we get the simpler optimization problem
+    \begin{align*}
+      \max_\alpha \min_\bfw \|\alpha\|_1 + \lambda\|\bfw\|^2_2 ~-~ \sum_{j = 1}^n \alpha_j y_j \langle \bfw,\bfx_j \rangle
+    \end{align*}
+    where $0 \leq \alpha_j \leq 1/n$ (so that $\beta_j \geq 0$ too) and $\sum_{j=1}^n \alpha_jy_j = 0$. Setting the gradient with respect to $\bfw$ to zero, we obtain
+    \begin{align*}
+      0 = \nabla\left[\|\alpha\|_1 + \lambda\|\bfw\|^2_2 ~-~ \sum^n_{j=1}\alpha_jy_j \langle \bfw, \bfx_j \rangle\right] = 2\lambda \bfw - \sum_{j=1}^n \alpha_jy_jx_j \implies \bfw* = \frac{1}{2\lambda}\sum^n_{j=1} \alpha_jy_jx_j.
+    \end{align*}
+    After some simplification, substitution into our dual problem yields
+    \begin{align*}
+      \max_{\alpha} \|\alpha\|_1 &+ \lambda\left\langle \frac{1}{2\lambda}\sum_{j=1}^n \alpha_jy_jx_j, \frac{1}{2\lambda}\sum_{j=1}^n \alpha_j y _j x_j\right \rangle - \sum_{j=1}^n\alpha_jy_j\left\langle \frac{1}{2\lambda}\sum_{k=1}^n\alpha_k y_k x_k, x_j\right \rangle \\
+                                 &= \max_\alpha \|\alpha\|_1 - \frac{1}{4\lambda} \sum_{j,k = 1}^n \alpha_j\alpha_k y_j y_k \langle x_j,x_k \rangle,
+    \end{align*}
+    again subject to the constrains that $0\leq \alpha_j \leq \frac{1}{n}$ and $\sum \alpha_jy_j = 0$.
+  \end{prf}
+  \prob The \emph{weighted least squares problem} is a generalization of usual least squares:
+  \begin{align*}
+    \min_{\bfx \in \bR^d} \|\bfW \bfA \bfx - \bfW \bfb\|^2_2,
+  \end{align*}
+  where $\bfW$ is a fixed diagonal matrix of positive weights
+  \begin{align*}
+    \bfW = 
+    \begin{pmatrix}	
+      w_1 & 0 & \dots & 0 \\
+      0 & w_2 & \dots & 0 \\
+      \vdots & \vdots & & \vdots \\
+      0 & 0 & \dots & w_n
+    \end{pmatrix}.
+  \end{align*}
+  Suppose $\bfA$ is an $n\times d$ full-rank matrix, and $n\geq d$. Suppose $\bfb = \bfA\bfx^* + \epsilon$ for a fixed $\bfx^* \in \bR^d$, and suppose the noise vector $\epsilon = (\epsilon_i)^n_{i=1}$ is a random vector whose components $\epsilon_1,...,\epsilon_n$ are independent, mean-zero Gaussians with variances $\sigma_1^2,...,\sigma^2_n$.
+\end{homework}
+\newpage
+\begin{verbatim}  
+\end{verbatim}
+\end{document}
