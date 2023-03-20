@@ -1,0 +1,33 @@
+Interpreter: Python 3.10.4
+Command: ./genIsingData.py --data ../matrices --op XOR 1 1 1
+Problem: XOR_1x1x1
+    m = 2, n = 1, l = 4
+    K = 4, M = 7, N = 8
+Reading Cmat.mm
+Reading Lmat_1.mm
+Generating 16 auxiliary test vectors
+Running glop solver on 1 of 16 cpus
+Testing 16 models for feasibility (True/False)
+       1  [[-1, -1, -1, -1]]  False
+       2  [[-1, -1, -1, 1]]   True
+       3  [[-1, -1, 1, -1]]   True
+       4  [[-1, -1, 1, 1]]    False
+       5  [[-1, 1, -1, -1]]   True
+       6  [[-1, 1, -1, 1]]    False
+       7  [[-1, 1, 1, -1]]    False
+       8  [[-1, 1, 1, 1]]     True
+       9  [[1, -1, -1, -1]]   True
+      10  [[1, -1, -1, 1]]    False
+      11  [[1, -1, 1, -1]]    False
+      12  [[1, -1, 1, 1]]     True
+      13  [[1, 1, -1, -1]]    False
+      14  [[1, 1, -1, 1]]     True
+      15  [[1, 1, 1, -1]]     True
+      16  [[1, 1, 1, 1]]      False
+Found 8 (50%) feasible auxiliary combinations
+Overhead peak memory usage: 40.07 Mbytes
+Per processor memory usage: 39.93 Mbytes
+Total read time (all files): 0:00:00.033280 (hr:min:sec)
+Total build time (all cpus): 0:00:00.007126 (hr:min:sec)
+Total solve time (all cpus): 0:00:00.014632 (hr:min:sec)
+Application wall clock time: 0:00:00.066860 (hr:min:sec)
