@@ -1,4 +1,3 @@
-
 class Cluster:
     """
     A class representing a single cluster in a clustering
@@ -20,13 +19,14 @@ class Cluster:
         returns string containing basic info about this cluster
     to_json() -> str
         generate json string representing cluster
-        
-    
+
+
     Static Methods
     --------------
     from_json(file: str) -> Cluster
         generates Cluster from a json string
     """
+
     def __init__(self, data):
         """
         Parameters
@@ -39,17 +39,17 @@ class Cluster:
         self.desc = "basic cluster"
 
     def info(self):
-        """ Gerenate an info string for this cluster
+        """Gerenate an info string for this cluster
 
         Returns
         -------
         str
-            a string describing class attributes separated by \n 
+            a string describing class attributes separated by \n
         """
         return f"kind : {self.kind}\nsize : {self.size}"
 
     def to_json(self):
-        """ Generates json for this cluster
+        """Generates json for this cluster
 
         Returns
         -------
@@ -58,8 +58,9 @@ class Cluster:
         """
         pass
 
+    @staticmethod
     def from_json(json: str):
-        """ Returns an instance of cluster generated from json
+        """Returns an instance of cluster generated from json
 
         Parameters
         ----------
@@ -73,9 +74,10 @@ class Cluster:
         """
         pass
 
+
 class RefinedCluster(Cluster):
     """
-    A class representing a single cluster representing part of a refined clustering structure. Points to 
+    A class representing a single cluster representing part of a refined clustering structure. Points to children and parent.
 
     ...
 
@@ -93,14 +95,16 @@ class RefinedCluster(Cluster):
         a list of pointers to the children of this cluster
 
     """
+
     def __init__(self, data, parent):
         super().__init__(data=data)
         self.parent = parent
 
+
 class Clustering:
     """
     A clustering of data
-    
+
     ...
 
     Attributes
@@ -119,6 +123,7 @@ class Clustering:
         self.clusters = clusters
         self.k = len(clusters)
 
+
 class RefinedClustering(Clustering):
     """
     A clustering with a tree structure representing cluster refinement
@@ -132,12 +137,14 @@ class RefinedClustering(Clustering):
 
     Methods
     -------
-    verify() -> str 
+    verify() -> str
         verify that this is a valid clustering and return status
 
     """
+
     def __init__(self):
         pass
+
 
 class Model:
     """
@@ -157,6 +164,7 @@ class Model:
     model(self) -> Clustering
         generates the clustering
     """
+
     def __init__(self, data):
         self.data = data
 
