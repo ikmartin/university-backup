@@ -1,11 +1,83 @@
 import numpy as np
 import itertools  # for Cartesian product and nothing else
 import random
+from enum import Enum
 
 #########################################
 ### Spin Space Methods
 #########################################
 
+class Spinmode(Enum):
+    NONE = 0
+    INT = 1
+    SPIN = 2
+
+def int2spin(val, shape):
+    """Generate spin representation of integer. Two different behaviors depending on whether val and shape are tuples or integers.
+
+    Parameters
+    ----------
+    val : tuple(int)
+        a tuple of integers representing a spin
+    shape : tuple(int)
+        the shape of the spin to produce
+
+    Returns
+    -------
+    numpy.ndarray
+        a 1-d array consisting of -1 and 1 representing a spin
+    """
+
+    if type(shape) != type(val):
+        raise Exception(f"Error: val {val} and shape {shape} must be of the same type!")
+    # helper function
+    def singleint2spin(num, N):
+        """Convert single integer to spin"""
+        b = list(np.binary_repr(num).zfill(N))  # get binary representation of num
+        a = [-1 if int(x) == 0 else 1 for x in b]  # convert to spin representation
+        return np.array(a).astype(np.int8)  # return as a numpy array
+
+    if isinstance(shape, int):
+        return singleint2spin(val, shape)
+
+    if len(val) != len(shape):
+        raise Exception(f"ERROR: Spin {val} does not match specified shape {shape}!")
+
+    # generate tuple of spins
+    spin = tuple(singleint2spin(val[i], N) for i, N in enumerate(shape))
+    print(spin)
+    if split:
+        return spin
+    else:
+        return np.concatenate(spin)
+
+def spin2int(spin: tuple):
+    """Generate integer representation of a spin
+
+    Parameters
+    ----------
+    spin : numpy.ndarry or tuple of numpy.ndarray 
+
+    Returns
+    -------
+    int or tuple of int
+        
+    """
+    
+    def singlespin2int(spin):
+        # store the length of spin
+        N = len(spin)
+
+        # number to return
+        num = (2 ** (N - (i + 1)) * (1 if spin[i] == 1 else 0) for i in range(N))
+        return sum(num)
+
+    # this spin is in split format
+    if isinstance(spin, tuple):
+        return (singlespin2int(s) for s in spin)
+    # spin is not split
+    else:
+        return singlespin2int(spin)
 
 class Spinspace:
     """
@@ -22,36 +94,32 @@ class Spinspace:
     -------
     __init__(shape : tuple)
         initializes spinspace. If not decomposing spinspace then set shape = (dim) where dim is the desired dimension
-    level(val : int, axis : int = 0)
-        not yet implemented
     """
-
-    def __init__(self, shape: tuple, mode: str = "array"):
+    
+    def __init__(self, shape: tuple, mode = Spinmode.SPIN, split:bool = False):
         self.shape = shape
         self.dim = sum(shape)
         self.mode = mode
+        self.split = split
         self._current_index = 0
 
     def __iter__(self):
+        """Makes this object iterable"""
         return self
 
     def __next__(self):
+        """Returns the next spin in the iteration formatted in the appropriate mode"""
         if self._current_index >= self.dim:
+            self._current_index = 0
             raise StopIteration
 
-        if self.mode == "array":
-            member = self.dec2spin(tuple([self._current_index]), split=False)
-            print(member)
-        else:
-            member = self._current_index
-
+        # if in split mode this converts _current_index to a tuple of integers
+        formatted_index = self._current_index if self.split == False else self.splitspin(self._current_index)
+        print(formatted_index)
         self._current_index += 1
-        return member
+        return self.convspin(spin=formatted_index)
 
-    def level(self, val, axis=(0)):
-        pass
-
-    def dec2spin(self, val: tuple, split=False):
+    def int2spin(self, val: tuple, split=False):
         """Generate spin representation of integer
 
         Parameters
@@ -67,70 +135,100 @@ class Spinspace:
             a 1-d array consisting of -1 and 1 representing a spin
         """
 
-        # check that shape matches
-        if len(val) != len(self.shape):
-            raise Exception("Provided spin does not match shape of spinspace")
+        return int2spin(val=val, shape=self.shape)
 
-        # helper function
-        def singledec2spin(num, N):
-            """Convert single integer to spin"""
-            b = list(np.binary_repr(num).zfill(N))  # get binary representation of num
-            a = [-1 if int(x) == 0 else 1 for x in b]  # convert to spin representation
-            return np.array(a).astype(np.int8)  # return as a numpy array
-
-        # generate tuple of spins
-        spin = tuple(singledec2spin(val[i], N) for i, N in enumerate(self.shape))
-        print(spin)
-        if split:
-            return spin
-        else:
-            return np.concatenate(spin)
-
-    def spin2dec(self, spin: tuple):
+    def spin2int(self, spin: tuple):
         """Generate integer representation of a spin
 
         Parameters
         ----------
-        spin : tuple
+        spin : numpy.ndarry or tuple of numpy.ndarray 
 
         Returns
         -------
-        numpy.ndarray
-            a 1-d array consisting of -1 and 1 representing a spin
+        int or tuple of int
+            
         """
 
-        def singlespin2dec(spin):
-            # store the length of spin
-            N = len(spin)
+        return spin2int(spin=spin)
 
-            # number to return
-            num = (2 ** (N - (i + 1)) * (1 if spin[i] == 1 else 0) for i in range(N))
-            return sum(num)
+    def checkmode(self, spin):
+        """Returns the Spinmode of the provided spin"""
+        mode = Spinmode.NONE
 
-        return (singlespin2dec(s) for s in spin)
+        # if in splitmode, check type of first element
+        test = spin[0] if isinstance(spin,tuple) else spin
 
-    def split(self, spin):
-        """Wrapper for numpy.split function"""
-        return np.split(spin, self.shape)
+        # case that spin is int
+        if isinstance(test, int):
+            mode = Spinmode.INT
 
-    def cat(self, spin):
-        """Wrapper for the numpy.concatenate function"""
-        if isinstance(spin, np.ndarray):
-            return spin
-        elif isinstance(spin[0], np.ndarray):
-            return np.concatenate(spin)
-        elif isinstance(spin[0], int):
-            return self.dec2spin(val=spin, split=False)
+        # case that test is spin
+        elif isinstance(test, np.ndarray):
+            mode = Spinmode.SPIN
         else:
-            raise Exception(f"Unrecognized spin format: {type(spin)}")
+            raise Exception(f"Unrecognized spin format of type {type(spin)}")
+
+    def convspin(self, spin, mode=Spinmode.NONE):
+        """Convert a spin of unspecified mode into the mode specified"""
+        # by default convert spin to the mode of this Spinspace
+        if mode == Spinmode.NONE:
+            mode = self.mode
+
+        # store the mode of the provided spin
+        spinmode = self.checkmode(spin)
+
+        # spin already matches provided mode
+        if spinmode == mode:
+            return spin
+
+        # if desired mode is INT convert to int
+        if mode == Spinmode.INT:
+            return spin2int(spin)
+        # if desired mode is SPIN convert to spin
+        elif mode == Spinmode.SPIN:
+            return int2spin(spin)
+        else:
+            raise Exception(f"Unrecognized spin mode: {mode}")
+
+    def splitspin(self, spin):
+        """Convert spin format to split form.
+
+        Performs its own checks for spin mode, doesn't rely on Spinspace settings.
+        This makes it flexible and is used in __next__ for instance. It means that
+        _current_index can be stored as a single integer and can be converted into
+        any format necessary.
+        """
+        # if already split, do nothing
+        if isinstance(spin, tuple):
+            return spin
+
+        # if spin is in SPIN mode
+        if isinstance(spin, np.ndarray):
+            return tuple(np.split(spin, self.shape))
+
+        # if spin is in INT mode
+        elif isinstance(spin, int):
+            # convert int to spin, split spin, convert back to integer
+            # uses "static" int2spin method to avoid checking shape
+            tempspin = np.split(int2spin(spin, self.dim), self.shape)
+            newspin = tuple( self.spin2int(s) for s in tempspin)
+
+            print(f"{int2spin(spin, self.dim)}")
+            print(f"{np.split(int2spin(spin, self.dim), self.shape)}")
+            print(f"Spin in splitspin : {spin}")
+            print(f"Dim in splitspin used for shape : {self.dim}")
+            print(f"Shape in splitspin : {self.shape}")
+            print(f"tempspin { tempspin }")
+            return newspin
 
     def dist(self, spin1, spin2):
-        """Return the hamming distance between two spins. Expects spin1 and spin2 to be"""
-        if isinstance(spin1, np.ndarray) == False:
-            spin1 = self.cat(spin1)
+        """Return the hamming distance between two spins. Easiest to first convert to spin mode"""
+        if checkmode(spin1) ==  Spinmode.INT:
+            spin1 = self.int2spin(spin1)
 
-        if isinstance(spin2, np.ndarray) == False:
-            spin2 = self.cat(spin2)
+        if checkmode(spin2) ==  Spinmode.INT:
+            spin2 = self.int2spin(spin2)
 
         return sum(np.not_equal(spin1, spin2))
 

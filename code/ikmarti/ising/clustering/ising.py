@@ -1,4 +1,4 @@
-import spinspace
+from spinspace import Spinspace, Spinmode
 import numpy as np
 import math
 from mathtools import ditri_array, trinum
@@ -163,13 +163,13 @@ class PICircuit:
         self.N = N
         self.M = M
         self.A = A
-        self.inspace = spinspace.Spinspace(tuple([self.N]))
-        self.outspace = spinspace.Spinspace(tuple([self.M + self.A]))
-        self.spinspace = spinspace.Spinspace((self.N, self.M, self.A))
-        self.vspinspace = spinspace.Spinspace(tuple([trinum(self.N + self.M + self.A)]))
+        self.inspace = Spinspace(tuple([self.N]))
+        self.outspace = Spinspace(tuple([self.M + self.A]), mode=Spinmode.SPIN)
+        self.spinspace = Spinspace((self.N, self.M, self.A))
+        self.vspinspace = Spinspace(tuple([trinum(self.N + self.M + self.A)]))
 
     def energy(self, spin, ham):
-        return
+        return None
 
     def f(self, spin):
         raise Exception("No logic implemented for the circuit!")
@@ -180,12 +180,14 @@ class IMul(PICircuit):
 
     def __init__(self, N1: int, N2: int, A: int = 0):
         super().__init__(N=N1 + N1, M=N1 + N2, A=A)
-        self.inspace = spinspace.Spinspace((N1, N2), mode="array")
+        self.inspace = Spinspace(shape=(N1,N2), mode=Spinmode.SPIN, split=True)
         self.N1 = N1
         self.N2 = N2
 
-    def f(self, s1, s2):
-        return self.spinspace.dec2spin(s1 * s2)
+    def f(self, spin):
+        # get the numbers corresponding to the input spin
+        num1,num2 = self.inspace.convspin(spin=spin, mode=Spinmode.INT)
+        return self.outspace.convspin(num1*num2)
 
     def generate_graph(self):
         graph = []
