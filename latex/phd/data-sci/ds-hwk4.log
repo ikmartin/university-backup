@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.22)  23 MAR 2023 21:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.22)  23 MAR 2023 23:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1484,22 +1484,68 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 70.
  [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<~/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-1.png, id=41, 2297.58376pt x 1713.40125pt>
+File: ~/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-1.png Graphic file (type png)
+<use ~/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-1.png>
+Package pdftex.def Info: ~/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-1.png  used on input line 196.
+(pdftex.def)             Requested size: 341.43306pt x 254.61996pt.
+<~/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-2.png, id=43, 2441.12pt x 999.735pt>
+File: ~/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-2.png Graphic file (type png)
+<use ~/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-2.png>
+Package pdftex.def Info: ~/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-2.png  used on input line 202.
+(pdftex.def)             Requested size: 341.43306pt x 139.82465pt.
+ [3] [4] [5 </home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-1.png> </home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-2.png>] [6]
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 10.95pt on input line 137.
-Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 146.
- [4] [5]
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 185.
+(Font)              scaled to size 10.95pt on input line 233.
+Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 242.
+ [7] [8]
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 281.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.95pt on input line 185.
+(Font)              scaled to size 10.95pt on input line 281.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ntxtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [6] (./ds-hwk4.aux)
+
+Overfull \hbox (44.38998pt too wide) in paragraph at lines 315--315
+[]        \T1/ntxtt/m/n/10.95 # this is just so we can see the shape of the vector through one pass of the network[] 
+ []
+
+
+Overfull \hbox (50.42342pt too wide) in paragraph at lines 319--319
+[]        \T1/ntxtt/m/n/10.95 # WE DON'T DO A SOFTMAX AT THE END SINCE IT'S INCLUDED IN OUR CHOICE OF LOSS FUNCTION[] 
+ []
+
+[9]
+Overfull \hbox (50.42342pt too wide) in paragraph at lines 360--360
+[]        \T1/ntxtt/m/n/10.95 # WE DON'T DO A SOFTMAX AT THE END SINCE IT'S INCLUDED IN OUR CHOICE OF LOSS FUNCTION[] 
+ []
+
+[10]
+Overfull \hbox (3.2838pt too wide) in paragraph at lines 388--388
+[]\T1/ntxtt/m/n/10.95 train_loader = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)[] 
+ []
+
+[11]
+Overfull \hbox (83.76607pt too wide) in paragraph at lines 428--428
+[]            \T1/ntxtt/m/n/10.95 optimizer_4a.step()  # update the weights depending on loss computed in loss.backward()[] 
+ []
+
+
+Overfull \hbox (83.76607pt too wide) in paragraph at lines 449--449
+[]            \T1/ntxtt/m/n/10.95 optimizer_4b.step()  # update the weights depending on loss computed in loss.backward()[] 
+ []
+
+[12]
+Overfull \hbox (159.64935pt too wide) in paragraph at lines 475--475
+[]            \T1/ntxtt/m/n/10.95 f"Got {num_correct} / {num_samples} with accuracy {float(num_correct)/float(num_samples) * 100:.2f}"[] 
+ []
+
+[13] (./ds-hwk4.aux)
 Package rerunfilecheck Info: File `ds-hwk4.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'ds-hwk4.run.xml'.
@@ -1507,18 +1553,18 @@ Package logreq Info: Writing requests to 'ds-hwk4.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46121 strings out of 476029
- 915491 string characters out of 5790172
+ 46185 strings out of 476029
+ 917038 string characters out of 5790172
  1880346 words of memory out of 5000000
- 65666 multiletter control sequences out of 15000+600000
- 555083 words of font info for 117 fonts, out of 8000000 for 9000
+ 65693 multiletter control sequences out of 15000+600000
+ 555513 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 103i,20n,102p,3058b,1378s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on ds-hwk4.pdf (6 pages, 254693 bytes).
+ 103i,20n,102p,3058b,1386s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on ds-hwk4.pdf (13 pages, 737475 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 96 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 25101 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 201 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 25111 words of extra memory for PDF output out of 29859 (max. 10000000)
 

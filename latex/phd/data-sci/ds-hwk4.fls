@@ -1846,6 +1846,16 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/newtx/ntx-Regular-tlf-t1.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/newtx/ntx-Italic-tlf-t1.tfm
 INPUT /usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-1.png
+INPUT /home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-1.png
+INPUT /home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-1.png
+INPUT /home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-1.png
+INPUT /home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-1.png
+INPUT /home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-2.png
+INPUT /home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-2.png
+INPUT /home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-2.png
+INPUT /home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-2.png
+INPUT /home/isaac/Desktop/university/latex/phd/data-sci/figures/hwk4-prob3-2.png
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/newtx/ntx-Bold-tlf-t1.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
@@ -1878,6 +1888,7 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.p
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmb.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb
