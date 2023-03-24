@@ -109,6 +109,77 @@
     \end{pmatrix}.
   \end{align*}
   Suppose $\bfA$ is an $n\times d$ full-rank matrix, and $n\geq d$. Suppose $\bfb = \bfA\bfx^* + \epsilon$ for a fixed $\bfx^* \in \bR^d$, and suppose the noise vector $\epsilon = (\epsilon_i)^n_{i=1}$ is a random vector whose components $\epsilon_1,...,\epsilon_n$ are independent, mean-zero Gaussians with variances $\sigma_1^2,...,\sigma^2_n$.
+  \begin{enumerate}[(a)]
+    \item Under this model, derive a natural choice of weights in the weighted least squares problem by considering the likelihood function.
+    \item What is a closed-form expression for the solution to the weighted least squares problem? What if we add regularization to the problem and consider $\min_{x\in \bR^d}\|\bfW\bfA\bfx - \bfW\bfb\|^2_2 + \lambda\|\bfx\|^2_2$ for $\lambda > 0$?
+  \end{enumerate}
+  \begin{prf}
+    Recall that the likelihood function in this case is proportional to
+    \begin{align*}
+      \cL(\bfw \mid (\bfx_i,y_i)) \propto \prod_{i=1}^n \frac{1}{\sigma}\exp\left(-\frac{(\bfw^T\bfx_i - y_i)^2}{2\sigma_i^2}\right).
+    \end{align*}
+    Maximizing likelihood over $\bfw \in \bR^n$ is then equivalent to minimizing $\exp\left(-\frac{(\bfw^T\bfx_i - y_i)^2}{2\sigma_i^2}\right)$.
+  \end{prf}
+
+  \prob[\textsc{Exercise 3.}] Consider a two-layer neural network model of the form
+  \begin{align*}
+    f(\bfW, \bfa, x) = \sum_{r=1}^m a_r \sigma(\langle \bfw_r, \bfx \rangle)
+  \end{align*}
+  with ReLU activatino function $\sigma(x) = \max(0,x)$. Fixing the second layer weights $\bfa$ and only training the first layer weights $\bfW = (\bfw_r)^{m}_{r=1} \in \bR^{m\times d}$ via least squares loss, the optimization problem is
+  \begin{align*}
+    \min_{\bfW\in \bR^{m\times d}} L(\bfW) = \min_{\bfW\in \bR^{m\times d}} \frac{1}{n}\sum_{j=1}^n (f(\bfW, \bfA, \bfx_j) - y_j)^2.
+  \end{align*}
+  \begin{enumerate}[(a)]
+    \item Derive an expression for the partial gradient $\frac{\partial L(\bfW)}{\partial \bfw_r} \in \bR^d$ where at $x = 0$ we set $\frac{d\sigma}{dx}\Big|_{x=0} = 1$.
+  \end{enumerate}
+
+  \newpage
+\prob[\textsc{Exercise 5.}] (Apologies that this is longer than a single page, but the problem warrants a description.) An \textbf{Ising Graph} consists of a finite set $G = [1..g]\subset \bN$ together with parameters $h \in \bR^G$ called the local biases and $J \in \bR^{G\times G}$ called the interaction terms, where $J_{i,j} = J_{j,i}$ and $J_{i,i} = 0$. It comes equipped with a Hamiltonian function
+  \begin{align*}
+    H:S^G \to \bR, \hspace{2em} H(s) = \sum_{i\in G} h_is_i ~+~ \frac{1}{2}\sum_{i,j\in G\times G} J_{i,j}s_is_j,
+  \end{align*}
+  where $S = \{-1,1\}$. The space $S^G$ is the set of all functions $G\to S$ and is called the \emph{spin space} of $G$, whereas an individual component $s(i)$ is called the \emph{spin} of $s$ at vertex $s$. This collection of data is a simple graph in the sense that $G$ is a vertex set and $J$ an edge matrix which does not allow self connections.
+
+  In physics, one is typically given an Ising Graph and wishes to understand its dynamics. In particular, one is interested in finding the local minima of the Hamiltonian function. This is known as the \emph{Ising problem.} In the \emph{reverse Ising problem}, one is instead given a collection of spins $X\subset S^G$ and wishes to find $h$ and $J$ such that the spin states in $X$ are local minima.
+
+  \begin{example}
+    Set $G = {1,2,3}$, $N = {1,2}$, and $M = {3}$. Decompose $S^G$ As $S^N\times S^M$ and let $X = \{(1,1,1), (1,-1,-1), (-1,1,-1), (-1,-1,-1)\}$. Then for $h_3 = 1$, $J_{1,3} = -1$ and $J_{2,3} = -1$ each spin in $X$ is a ``local minima'', in the sense that
+    \begin{align*}
+      H(1,1,1) < H(1,1,-1), &\hspace{2em} H(1,-1,-1) < H(1, -1, 1), \\
+      H(-1,1,-1) < H(-1, 1, 1), &\hspace{2em}H(-1,-1,-1) < H(-1, -1, 1).
+    \end{align*}
+  \end{example}
+  Notice that in the previous example we have abused the notion of a ``local minima'' slightly; we say that a pair $(s,t) \in S^N\times S^M$ is a local minimum if $H(s,t) < H(s,t')$ for all $t \neq t' \in S^M$. To avoid confusion, we will instead say that $(s,t)$ is the minimum of the level $L_s := \{s\}\times S^M \subseteq S^N\times S^M$.
+
+  Notice also that the set $X$ is precisely the truth table for AND with $-1$ in the place of $0$:
+  \begin{center}  
+    \begin{tabular}{|c | c || c|}
+      $s_1$ & $s_2$ & $s_3$ \\
+      \hline
+      1 & 1 & 1 \\
+      1 & -1 & -1 \\
+      -1 & 1 & -1 \\
+      -1 & -1 & -1
+    \end{tabular}
+  \end{center}
+  We think of those spins in $S^N$ as \emph{input spins} and those in $S^M$ as output spins. If we had some way to magically fix a spin $s \in S^N$ while allowing the Ising dynamics to affect the vertices in $M$, then we could build circuits out of this model. Indeed, if $f:S^N\to S^M$ is some function and $X = \{(s,f(s)) \in S^N\times S^M ~\mid~ s\in S^N\}$ is the graph of $f$ then finding an Ising circuit which models $f$ is akin to solving the following optimization problem: 
+  \begin{align*}
+    \text{find } ~h, J \text{ ~ such that ~ } H(s,f(s)) < H(s,t) \text{ ~ for all $s \in S^N$ and $t \neq f(s)$.}
+  \end{align*}
+  This is a linear programming problem with $2^{|N|\cdot(|M|-1)}$ constraints, but those constraints are often inconsistent and render the problem impossible. However, it becomes solvable if we add auxiliary spins which we ignore in the output.
+  \begin{example}
+    The XOR circuit defined by the function $f(s_1,s_2) = -s_1\cdot s_2$ is infeasible. However, if we instead write $G = \{1,2,3,4\}$, $N = {1,2}$, $M = \{3\}$ and $A = \{4\}$ and decompose the spin space $S^G = S^N\times S^M \times S^A$, then the function
+    \begin{align*}
+      (1,1) &\mapsto (-1,1) \\
+      (1,-1) &\mapsto (1,1) \\
+      (-1,1) &\mapsto (1,-1) \\
+      (-1,-1) &\mapsto (-1,1)
+    \end{align*}
+    is both feasible and recovers the XOR circuit when the spin $s_4$ is ignored.
+  \end{example}
+  Thus, the reverse Ising problem can be solved by adding some number of auxiliary spins $A$ to the circuit. Unfortunately, this both increases the number of constraints exponentially (there are now $2^{|N|(|M|+|A| - 1)}$ many) and introduces nonlinearity due to the added challenge of choosing an appropriate auxiliary spin for each input.
+
+  In this project, we wish to investigate the $N_1\times N_2$ Ising multiply circuits $\operatorname{MUL}_{N_1\times N_2}$ for $N_1, N_2 \leq 8$. Preliminary theoretical results suggest that embedding $S^G$ into the higher dimensional spin space $S^V$ where $V = G \cup \{(i,j) \in S^{G\times G}\mid i < j\}$ and clustering with respect to Hamming distance might yield a way to make informed guesses of feasible auxiliary values. We will test our proposed technique against available data for $N_1,N_2 \in \{2,3\}$ and if successful, proceed to investigate $\operatorname{MUL}_{N_1\times N_2}$ for higher values of $N_{1}$ and $N_2$.
 \end{homework}
 \newpage
 \begin{verbatim}  

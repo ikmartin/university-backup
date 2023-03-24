@@ -10,26 +10,79 @@ import torchvision.transforms as transforms
 
 # neural net for problem 4a
 class NN4A(nn.Module):
+    # this initializes all the neural net layers
     def __init__(self, num_classes):
         super(NN4A, self).__init__()
-        self.conv1 = nn.Conv2d(
-            in_channels=1,
+        # the convolution
+        self.conv1 = nn.LazyConv2d(
             out_channels=20,
             kernel_size=(3, 3),
-            stride=(1, 1),
-            padding=(1, 1),
-        )  # this is called a same convolution
-        self.pool = nn.MaxPool2d(kernel_size=(2, 2), stride=(2, 2))
-        self.fc1 = nn.Linear(100, num_classes)
+            stride=(3, 3),
+            padding=(0, 0),
+        )  # this is called a "same convolution"
 
+        # this is the pooling
+        self.pool = nn.MaxPool2d(kernel_size=(2, 2), stride=(2, 2))
+
+        # this turns a shape (64, 20, 4, 4) tensor into a shape (64, 320) tensor
+        self.flatten = nn.Flatten(start_dim=1)
+        # fully connected layer 1
+        self.fc1 = nn.LazyLinear(100)
+        # fully connected layer 2
+        self.fc2 = nn.LazyLinear(num_classes)
+        # this is just so we can see the shape of the vector through one pass of the network
+        self._num = 0
+
+        # NOTE
+        # WE DON'T DO A SOFTMAX AT THE END SINCE IT'S INCLUDED IN OUR CHOICE OF LOSS FUNCTION
+
+    # this runs a data point x through the neural net once
     def forward(self, x):
-        x = F.relu(self.conv1(x))
-        # x = self.pool(x)
-        print(x.shape)
-        # flattens to a two coordinate thing
-        x = x.reshape(x.shape[0], -1)
-        print(x.shape)
-        x = self.fc1(x)
+        # print one pass through the network
+        if self._num == 0:
+            self.shapeprint(x)
+            self._num += 1
+
+        x = F.leaky_relu(self.conv1(x))
+        x = self.pool(x)
+        x = self.flatten(x)
+        x = F.leaky_relu(self.fc1(x))
+        x = self.fc2(x)
+
+        return x
+
+    def shapeprint(self, x):
+        x = F.leaky_relu(self.conv1(x))
+        print("shape after conv:", x.shape)
+        x = self.pool(x)
+        print("shape after pool:", x.shape)
+        x = self.flatten(x)
+        print("shape after pool:", x.shape)
+        x = F.leaky_relu(self.fc1(x))
+        print("shape after fc1:", x.shape)
+        x = self.fc2(x)
+        print("shape after fc2:", x.shape)
+
+
+# neural net for problem 4a
+class NN4B(nn.Module):
+    # this initializes all the neural net layers
+    def __init__(self, input_size, num_classes):
+        super(NN4B, self).__init__()
+        self.flatten = nn.Flatten(start_dim=1)
+        self.fc1 = nn.Linear(input_size, 200)
+        self.fc2 = nn.LazyLinear(100)
+        self.fc3 = nn.LazyLinear(num_classes)
+
+        # NOTE
+        # WE DON'T DO A SOFTMAX AT THE END SINCE IT'S INCLUDED IN OUR CHOICE OF LOSS FUNCTION
+
+    # this runs a data point x through the neural net once
+    def forward(self, x):
+        x = self.flatten(x)
+        x = F.leaky_relu(self.fc1(x))
+        x = F.leaky_relu(self.fc2(x))
+        x = self.fc3(x)
 
         return x
 
@@ -57,31 +110,61 @@ test_dataset = datasets.MNIST(
 test_loader = DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=True)
 
 # Initialize Network
-model = NN4A().to(device)
+model_4a = NN4A(num_classes=num_classes).to(device)
+model_4b = NN4B(input_size=784, num_classes=num_classes).to(device)
 
-# Loss and optimizer
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+# Loss and optimizer 4A
+criterion_4a = nn.CrossEntropyLoss()
+optimizer_4a = optim.Adam(model_4a.parameters(), lr=learning_rate)
+
+# Loss and optimizer 4B
+criterion_4b = nn.CrossEntropyLoss()
+optimizer_4b = optim.Adam(model_4b.parameters(), lr=learning_rate)
 
 # Train Network
 
 print("Device used: {}".format(device))
-# one epoch means network has seen all images in training set
-for epoch in range(num_epochs):
-    for batch_idx, (data, targets) in enumerate(train_loader):
-        data = data.to(device=device)
-        targets = targets.to(device=device)
 
-        # forward
-        scores = model(data)
-        loss = criterion(scores, targets)
 
-        # backward
-        optimizer.zero_grad()
-        loss.backward()
+def train4a():
+    print("\nTRAINING 4A\n-------------\n")
+    for epoch in range(num_epochs):
+        print("4A EPOCH: ", epoch)
+        for batch_idx, (data, targets) in enumerate(train_loader):
+            data = data.to(device=device)
+            targets = targets.to(device=device)
 
-        # gradient descent or adam step
-        optimizer.step()  # update the weights depending on loss computed in loss.backward()
+            # forward
+            scores4a = model_4a(data)
+            loss4a = criterion_4a(scores4a, targets)
+
+            # backward
+            optimizer_4a.zero_grad()
+            loss4a.backward()
+
+            # gradient descent or adam step
+            optimizer_4a.step()  # update the weights depending on loss computed in loss.backward()
+
+
+# train 4B
+def train4b():
+    print("TRAINING 4B")
+    for epoch in range(num_epochs):
+        print("4B EPOCH: ", epoch)
+        for batch_idx, (data, targets) in enumerate(train_loader):
+            data = data.to(device=device)
+            targets = targets.to(device=device)
+
+            # forward
+            scores4b = model_4b(data)
+            loss4b = criterion_4b(scores4b, targets)
+
+            # backward
+            optimizer_4b.zero_grad()
+            loss4b.backward()
+
+            # gradient descent or adam step
+            optimizer_4b.step()  # update the weights depending on loss computed in loss.backward()
 
 
 # Check accuracy on training and test our Network
@@ -112,5 +195,12 @@ def check_accuracy(loader, model):
     model.train()
 
 
-check_accuracy(train_loader, model)
-check_accuracy(test_loader, model)
+train4a()
+train4b()
+
+print("###########################\n## PROBLEM 4A\n###########################")
+check_accuracy(train_loader, model_4a)
+check_accuracy(test_loader, model_4a)
+print("\n\n###########################\n## PROBLEM 4B\n###########################")
+check_accuracy(train_loader, model_4b)
+check_accuracy(test_loader, model_4b)
