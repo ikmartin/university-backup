@@ -1,0 +1,21 @@
+\input{../../../preamble.tex}
+
+\begin{document}
+\noindent{\textsc{Problem 2.13}}
+\begin{proof}$ $
+  \begin{enumerate}[(a)]
+    \item Suppose that $X$ is a Noetherian space, $U$ is an open set and $\{V_\alpha\}_{\alpha \in A}$ is an open cover. Let $W_n = \bigcup_{i=1}^n V_{\alpha_i}$ where $\alpha_i \neq \alpha_j$ whenever $i \neq j$. Further define $F_i = U \setminus W_i$ to be the complement of $W_i$ in $U$. Then $U = F_0 \supsetneq F_1 \supsetneq ...$ is a descending chain of a closed subsets and hence must terminate at some $F_n = \emptyset$. This then implies that $V_n = U$.
+
+    Now suppose that $X$ is not a Noetherian space, meaning there exists some infinite descending chain of closed subsets $X = F_0 \supsetneq F_1 \supsetneq F_2 \supsetneq ...$. Define the closed set $F = \bigcap F_i$ and the open set $U = X \setminus F$, along with $U_i = X\setminus F_i$. Then $\{U_i\}$ forms a cover of $U$ but has no finite subcover.
+    \item Let $X = \Spec A$ be an affine scheme. We first show it is quasi-compact, so take some open cover $\{U_\alpha\}_{\cA}$ of $X$. Without loss of generality we may take all these to be basic opens, so instead take $\{D(f_i)\}_{i\in \cI}$ to be the open cover. This means
+      \begin{align*}
+        X = D(1) \subset \bigcup D(f_i) &\iff \emptyset = V(1) \supset \bigcap V((f_i)) = V\left(\sum (f_i)\right)
+      \end{align*}
+      meaning that $1 \in \sqrt{\sum (f_i)} \implies 1 \in \sum (f_i)$, i.e. $1 = a_1f_{i_1} + ... + a_n f_{i_n}$ for some $a_1,...,a_n \in A$. This then implies that $D(f_{i_1})\cup ... \cup D(f_{i_n}) = X$, so $X$ is quasi-coherent.
+
+      \bigskip
+
+      To see that $X$ isn't necessarily, Noetherian, take any non-Noetherian ring $A$ and an ascending chain $\fraka_0 \subsetneq\fraka_1 \subsetneq ...$ of ideals which doesn't terminate. Then $V(\fraka_0) \supsetneq V(\fraka_1) \supsetneq ...$ is a descending chain of closed subsets which never terminates.
+  \end{enumerate}
+\end{proof}
+\end{document}
