@@ -1,0 +1,96 @@
+\input{../preamble.tex}
+
+\usepackage{capt-of}
+\usepackage{tikz}
+\usepackage{listings}
+\usetikzlibrary{positioning,calc,intersections,through,backgrounds, shapes.geometric, decorations.markings,arrows}
+
+\def\sset{\subseteq}
+\def\iso{\cong}
+\def\gend#1{\langle #1\rangle}
+
+\newcommand{\rightoverleftarrow}{%
+  \mathrel{\vcenter{\mathsurround0pt
+    \ialign{##\crcr
+      \noalign{\nointerlineskip}$\longrightarrow$\crcr
+      \noalign{\nointerlineskip}$\longleftarrow$\crcr
+    }%
+  }}%
+}
+
+\newcommand\makesphere{} % just for safety
+\def\makesphere(#1)(#2)[#3][#4]{%
+  % Synopsis
+  % \makesphere[draw options](center)(initial angle:final angle:radius)
+  \shade[ball color = #3, opacity = #4] #1 circle (#2);
+  \draw #1 circle (#2);
+  \draw ($#1 - (#2, 0)$) arc (180:360:#2 and 3*#2/10);
+  \draw[dashed] ($#1 + (#2, 0)$) arc (0:180:#2 and 3*#2/10);
+}
+% same thing as makesphere but places white background behind
+\newcommand\altmakesphere{} % just for safety
+\def\altmakesphere(#1)(#2)(#3)[#4][#5]{%
+  % Synopsis
+  % \make sphere[draw options](center)(initial angle:final angle:radius)
+  \draw [fill=white!30] #1 circle (#2);
+  \shade[ball color = #4, opacity = #5] #1 circle (#2);
+  \draw #1 circle (#2);
+  \draw ($#1 - (#2, 0)$) arc (180:360:#2 and 3*#2/10);
+  \draw[dashed] ($#1 + (#2, 0)$) arc (0:180:#2 and 3*#2/10);
+  \node at #1 {#3};
+}
+
+\begin{document}
+% set section number to 1
+% fixes theorem numbering without need to have a section title
+\setcounter{section}{1}
+
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Foundations of Data Science and Machine Learning -- \emph{Homework 5}\\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-4mm}
+\hru
+
+\begin{homework}[e]
+  \prob Suppose $\bfA$ is a $n\times d$ full-rank matrix, with $n < d$, and fix $\bfb\in \bR^n$. Consider minimizing the least squares objective $F(\bfx) = \|\bfA\bfx - \bfb\|^2_2$ Note that in this setting, the solution space $\cS = \{x : \bfA\bfx = \bb\}$ is an affine subspace of $\bR^d$. We use gradient descent with constant step-size:
+  \begin{align*}
+    \bfx = \bfx_{k-1} - \eta \nabla F(\bfx_{k-1}).
+  \end{align*}
+  \begin{enumerate}[(a)]
+    \item Give an upper bound for the step-size $\eta$ such that gradient descent is guaranteed to converge for $\eta$ below this threshold.
+    \item Suppose taht gradient descent is initialized at $\bfx_0 = 0$. Show that when gradient descent converges, it must converge to the least-norm solution $\bfx^* = \operatorname{argmin}_{\bfx \in \cS} \|\bfx\|^2_2$.
+  \end{enumerate}
+
+  \prob Let $f:\bR^d \to \bR$ be a differentiable function. It satisfies the PL-inequality if there exists a constant $\mu > 0$ such that for all $w \in \bR^d$ it holds
+  \begin{align*}
+    \frac{1}{2}\|\nabla f(w)\|^2_2 \geq \mu(f(w) - f^*).
+  \end{align*}
+  By contrast we say $f$ is \emph{invex} if there exists a function $\eta:\bR^d\times \bR^d\to \bR^d$ such that for all $x, y\in \bR^d$ it holds
+  \begin{align*}
+    f(y) \geq f(x) + \nabla f(x)^\top \eta(x,y).
+  \end{align*}
+  \begin{enumerate}[(a)]
+    \item Show that if $f$ satisfies the PL-inequality then $f$ is invex.
+    \item Show that any stationary point of an invex function is a global minimizer.
+  \end{enumerate}
+  \begin{prf}$ $
+    \begin{enumerate}[(a)]
+      \item 
+      \item A point $\bfx$ is a stationary point of $f$ if $\nabla f(x) = 0$. If $f$ is invex, then we get
+        \begin{align*}
+          f(y) \geq f(x) + \nabla f(x)^top \eta(x,y) = f(x)
+        \end{align*}
+        for all $y\in \bR^d$. Hence any stationary point of $f$ is a global minima. Combining with part (a) we see that any function which satisfies the PL-inequality is easily optimized.
+    \end{enumerate}
+  \end{prf}
+\end{homework}
+\newpage
+\begin{verbatim}  
+\end{verbatim}
+\end{document}
