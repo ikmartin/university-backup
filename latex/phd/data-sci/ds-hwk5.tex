@@ -58,14 +58,58 @@
 \hru
 
 \begin{homework}[e]
-  \prob Suppose $\bfA$ is a $n\times d$ full-rank matrix, with $n < d$, and fix $\bfb\in \bR^n$. Consider minimizing the least squares objective $F(\bfx) = \|\bfA\bfx - \bfb\|^2_2$ Note that in this setting, the solution space $\cS = \{x : \bfA\bfx = \bb\}$ is an affine subspace of $\bR^d$. We use gradient descent with constant step-size:
+  \prob Suppose $\bfA$ is a $n\times d$ full-rank matrix, with $n < d$, and fix $\bfb\in \bR^n$. Consider minimizing the least squares objective $F(\bfx) = \|\bfA\bfx - \bfb\|^2_2$ Note that in this setting, the solution space $\cS = \{x : \bfA\bfx = \bfb\}$ is an affine subspace of $\bR^d$. We use gradient descent with constant step-size:
   \begin{align*}
     \bfx = \bfx_{k-1} - \eta \nabla F(\bfx_{k-1}).
   \end{align*}
   \begin{enumerate}[(a)]
     \item Give an upper bound for the step-size $\eta$ such that gradient descent is guaranteed to converge for $\eta$ below this threshold.
-    \item Suppose taht gradient descent is initialized at $\bfx_0 = 0$. Show that when gradient descent converges, it must converge to the least-norm solution $\bfx^* = \operatorname{argmin}_{\bfx \in \cS} \|\bfx\|^2_2$.
+    \item Suppose that gradient descent is initialized at $\bfx_0 = 0$. Show that when gradient descent converges, it must converge to the least-norm solution $\bfx^* = \operatorname{argmin}_{\bfx \in \cS} \|\bfx\|^2_2$.
   \end{enumerate}
+  \begin{prf}$ $
+    \begin{enumerate}[(a)]
+      \item In class, we showed that if $\nabla F$ is Lipschitz with Lipschitz constant $L$, then choosing $\eta = 1/L$ guarantees the convergence of gradient descent. In particular, any $\eta \leq 1/L$ will guarantee the convergence of gradient descent, so we need only find $L$. We have
+        \begin{align*}
+        \|\nabla F(\bfx) - \nabla F(\bfy)\|_2 
+          &= \|2\bfA^\top(\bfA \bfx - \bfb) - 2\bfA^\top(\bfA \bfy - \bfb)\|_2 \\
+          &= \|2\bfA^\top \bfA(\bfx - \bfy)\|_2 \\
+          &\leq 2\|\bfA^\top \bfA\|\cdot \|\bfx - \bfy\|_2
+        \end{align*}
+        where $\|\cdot\|$ denotes the operator norm. Hence choosing $\eta \leq (2\|\bfA^\top\bfA\|)^{-1}$ will guarantee the convergence of gradient descent for any initialization.
+
+      \item Let us first prove the hint, namely, that if $\bfx \in \img\bfA^\top$ (i.e. if $\bfx$ is in the rowspan of $\bfA$) then so is $A\bfx - \eta \nabla F(\bfx)$. Suppose then that $\bfx = \bfA^\top \bfu$ for some $\bfu \in \bR^n$. Then
+        \begin{align*}
+          \bfy = \bfA \cdot \bfA^\top \bfu - \nabla F(\bfA^\top \bfu) 
+            &=\bfA \cdot \bfA^\top \bfu - \nabla 2A^\top(\bfA \bfA^\top \bfu - \bfu) \\
+            &= \bfA^\top u - 2\eta \bfA^\top \bfA \bfA^\top \bfu - 2\bfA^\top \bfb \\
+            &= \bfA^\top\left(\bfu - 2\eta \bfA\bfA^\top \bfu - 2\bfb\right) \implies \bfy \in \img \bfA^\top.
+        \end{align*}
+        Because the update rule is continuous and the image of affine linear transformations is closed, we can further conclude that an initialization $\bfx_0$ is in the rowspan of $\bfA$ if and only if the point $\bfx^*$ it converges to is in the rowspan of $\bfA$, provided $\eta$ is chosen small enough to guarantee convergence.
+
+        \bigskip
+
+        Now we prove that any two points initialized in the rowspan of $\bfA$ converge to the same point. Take $\bfx_0 = \bfA^\top \bfu_0$ to be an initialization for some $\bfu_0 \in \bR^n$. By what we have previously shown, $\bfx^* = \bfA^\top \bfu^*$ for some $\bfu^* \in \bR^n$, supposing we have chosen $\eta$ to be small enough. Since $\bfx^*$ is a stable point of the update rule, we get that $\nabla F(\bfx^*) = 0$ and hence
+        \begin{align*}
+          \nabla F(\bfA^\top \bfu^*) = 2\bfA^\top(\bfA\bfA^\top &\bfu^* - \bfb) = 0 \\
+            &\implies \bfA^\top(\bfA\bfA^\top \bfu^* - \bfb) = 0\\
+            &\implies \bfA^\top \bfu^* - \bfb = 0
+        \end{align*}
+        since $\bfA$ is full rank with $n < d$ (so $\ker A^\top = 0$). This means $\bfu^* = (\bfA\bfA^\top)^{-1}\bfb$, noting that the inverse $(\bfA\bfA^\top)^{-1}$ exists again because $\bfA$ is fully rank with $n < d$. Using this expression for $\bfu^*$ gives us that $\bfx^* = \bfA^\top(\bfA\bfA^\top)^{-1}\bfb$, which notably does not depend on the initialization, implying that any two points initialized in the rowspan of $\bfA$ converge to the same point.
+
+        \bigskip
+
+        Finally, consider two different initialization $\bfy_0 \in \bR^d \setminus \img(A^\top)$ and $\bfx_0 \in \img(A^\top)$. As before, $\bfx_0 = \bfA^\top \bfu$ for some $\bfu \in \bR^n$. Since $\bfy_0$ is not in the rowspan of $\bfA$, the stable point $\bfy^*$ of the update rule to which $\bfy_0$ converges is also not in $\img(\bfA^\top)$. Hence $\bfy^* = \bfA^\top \bfu^* + \bfv$ for some $\bfv \not\in \img\bfA^\top$, where $\bfu^*$ is as above. The stability condition $\nabla F(\bfy^*) = 0$ gives us $\bfA\bfA^\top \bfu^* + \bfA\bfv - \bfb = 0$ repeating the calculation from the last paragraph. But $\bfA\bfA^\top \bfu^* - \bfb = 0$, so $\bfA\bfv = 0$. This means
+        \begin{align*}
+          \|\bfy^*\|^2_2 
+            &= (\bfA^\top \bfu^* + \bfv)^\top (\bfA^\top \bfu^* + \bfv) \\
+            &= \bfu^\top \bfA^\top \bfA \bfu + \bfu^\top \bfA v + (\bfA\bfv)^\top \bfu + \bfv^\top \bfv \\
+            &= \bfu^\top \bfA^\top \bfA \bfu + 0 + 0 + \bfv^\top \bfv \\
+            &\geq \bfu^\top \bfA^\top \bfA \bfu \\
+            &= \|\bfx^*\|^2_2.
+        \end{align*}
+        Thus, $\bfx^* = \arg\min_{\bfx\in \cS} \|\bfx\|^2_2$. Any point in the rowspan of $\bfA$ converges to $\bfx^*$ under the update rule; in particular, the initialization $\bfx_0 = 0$ converges to $\bfx^*$, proving the desired result.
+    \end{enumerate}
+  \end{prf}
 
   \prob Let $f:\bR^d \to \bR$ be a differentiable function. It satisfies the PL-inequality if there exists a constant $\mu > 0$ such that for all $w \in \bR^d$ it holds
   \begin{align*}
@@ -81,13 +125,99 @@
   \end{enumerate}
   \begin{prf}$ $
     \begin{enumerate}[(a)]
-      \item 
+      \item Since $f$ satisfies the PL-inequality, for some $\mu > 0$
+        \begin{align*} 
+          \frac{1}{2}\|\nabla f(w)\|^2_2 \geq \mu(f(w) - f^*)
+        \end{align*}
+        for all $w\in \bR^d$, where $f^*$ is the global minimum of $f$. Rearranging, we get
+        \begin{align*}
+          &\hspace{5em}\frac{1}{2}\|\nabla f(w)\|^2_2 \geq \mu(f(w) - f^*) \\
+            &\implies \nabla f(w)^\top \nabla f(w) \geq 2\mu f(w) - 2\mu f^* \\
+            &\implies - \nabla f(w)^\top \nabla f(w) \leq 2\mu f^* - 2\mu f(w) \leq f(w) \leq 2\mu f(u) - 2\mu f(w)
+        \end{align*}
+        for any $w, u\in \bR^d$, since $f^*$ is the global minimum of $f$. This in turn implies that
+        \begin{align*}
+          2\mu f(w) - \nabla f(w)^\top \nabla f(w) \leq 2\mu f(u),
+        \end{align*}
+        so if we set $\eta(x,y) = - \frac{1}{2\mu}\nabla f(x)$ then we get
+        \begin{align*}
+          f(x) = \nabla f(x)^\top \cdot \eta(x,y) \leq f(y)
+        \end{align*}
+        for all $x, y\in \bR^d$. This proves that $f$ is invex.
+
       \item A point $\bfx$ is a stationary point of $f$ if $\nabla f(x) = 0$. If $f$ is invex, then we get
         \begin{align*}
           f(y) \geq f(x) + \nabla f(x)^top \eta(x,y) = f(x)
         \end{align*}
         for all $y\in \bR^d$. Hence any stationary point of $f$ is a global minima. Combining with part (a) we see that any function which satisfies the PL-inequality is easily optimized.
     \end{enumerate}
+  \end{prf}
+  \prob In your favorite programming language, implement stochastic gradient-descent for the linear least squares loss $f(\bfw) = \frac{1}{2}\|\bfA\bfW - \bfb\|^2_2$. Provide convergence plots to validate the convergence guarantees for SGD discussed in class. Specifically, compare empirical and theoretical convergence rates when $\bfA \in \bR^{10,000\times 1,000}$ has iid $\cN(0, 1/\sqrt{1000})$ Gaussian entries and $\bfb = \bfA\mathbf{1} + \epsilon$ where $\mathbf{1}$ is the all-ones vector and $\epsilon$ has iid Gaussian antries with variance 1, then 0.1, then 0.01 and finally 0. Repeat the comparisons but now consider $\bfA \in \bR^{10000 \times 1000}$ whose $j$th row has iid $\cN(0,1/\sqrt{1000j})$ Gaussian entries. (\emph{Note your answer should include 8-plots, because there are two choices of $\bfA$ and four different choices of $\epsilon$.})
+  \prob Consider a three-state Markov chain with stationary probabilities $\left(\frac{1}{2}, \frac{1}{3},\frac{1}{6}\right)$. consider the Metropolis-Hastings algorithm with $G$ the complete graph on these three vertices. For each edge and each direction, what is the expected probability that we would actually make a move along the edge?
+  \begin{prf}
+    Recall that the Metropolis transition probabilities are
+    \begin{align*}
+      p_{xy} = \frac{1}{r}\min \left(1, \frac{\pi(y)}{\pi(x)}\right) 
+    \end{align*}
+    if $x$ and $y$ are distinct but adjacent and
+    \begin{align*}
+      p_{xx} = 1 - \sum_{y\neq x} p_{xy}.
+    \end{align*}
+    Let $a,b$ and $c$ be the vertices of the graph. Then
+    \begin{align*}
+      p_{ab} &= \frac{1}{2}\frac{2}{1}\cdot \frac{1}{3} = \frac{1}{3} \\
+      p_{ac} &= \frac{1}{2}\frac{2}{1}\cdot \frac{1}{6} = \frac{1}{6} \\
+      p_{aa} &= 1 - \frac{1}{3} - \frac{1}{6} = \frac{1}{2}.
+    \end{align*}
+    The other transition probabilities are
+    \begin{align*}
+      p_{ba} = \frac{1}{2}, \hspace{1.5em} p_{bc} = \frac{1}{4}, \hspace{1.5em} p_{bb} = \frac{1}{4}
+    \end{align*}
+    and
+    \begin{align*}
+      p_{ca} = \frac{1}{2}, \hspace{1.5em} p_{cb} = \frac{1}{3}, \hspace{1.5em} p_{cc} = \frac{1}{6}.
+    \end{align*}
+  \end{prf}
+  \prob Consider the probability distribution $p(\bfx)$ where $\bfx \in \{0,1\}^{100}$ such that $p(0) = \frac{1}{2}$ and $p(\bfx) = \frac{1/2}{2^{100}-1}$. How does Gibbs sampling behave here?
+  \begin{prf}
+    The Gibbs transition probabilities are given by
+    \begin{align*}
+      p_{xy} =
+      \begin{cases}
+        \frac{1}{d}\pi(y_i ~|~ x_1,...,\hatx_i,...,x_d) & \text{ if $\bfx$ and $\bfy$ differ only in $i$} \\
+        0 & \text{ otherwise }
+      \end{cases}.
+    \end{align*}
+    Let $\hate_i$ denote the element of $\{0,1\}^{100}$ whose $i$th component is 1 and is 0 elsewhere.
+    We have three cases to examine.
+
+    \bigskip 
+
+    \noindent\emph{If we are currently at }$\mathbf{0}$, then
+    \begin{itemize}
+    \item there is a $\frac{1}{100}\frac{\frac{1/2}{2^{100}-1}}{\frac{1}{2}+\frac{1/2}{2^{100}-1}} \approx \frac{1}{100}\cdot \frac{1}{2^{100}-1}$ chance of moving to $\hate_i$ for any $i \in \{1,...,100\}$. Altogether, we have a $1$ in $2^{100} - 1$ chance of leaving $0$ at all.
+    \item We have a $1 - \frac{1}{2^{100}-1}\approx 1$ chance of remaining at zero.
+    \end{itemize}
+    Hence, if we ever reach 0 then we will stay at zero, since $2^{100}-1$ is a huge number.
+
+    \bigskip
+
+    \noindent\emph{If we are currently at }$\hate_i$, then we
+    \begin{itemize}
+      \item have a $\frac{1}{100}\frac{1/2}{\frac{1}{2}+\frac{1/2}{2^{100}-1}}\approx \frac{1}{100}$ chance of moving to 0.
+      \item have a $\frac{1}{100}\frac{\frac{1/2}{2^{100}-1}}{\frac{1/2}{2^{100}-1} + \frac{1/2}{2^{100}-1}}\approx \frac{1}{200}$ chance of moving to some other nonzero point, of which there are 99 adjacent to $\hate_i$ giving us an approximately $\frac{1}{2}$ chance point of moving to a point which is not $0$
+      \item have an approximately $1 - \frac{1}{100} - \frac{1}{2} = \frac{1}{2}-\frac{1}{100}$ chance of remaining at $\hate_i$.
+    \end{itemize}
+
+    \bigskip
+
+    \emph{If we are currently at } $\bfx\neq \hate_i, \mathbf{0}$, then we
+    \begin{itemize}
+      \item have a $\frac{1}{100}\frac{\frac{1/2}{2^{100}-1}}{\frac{1/2}{2^{100}-1}+\frac{1/2}{2^{100}-1}} \approx \frac{1}{200}$ chance of moving to any individual neighbor of $\bfx$, or altogether a $1$ in $2$ chance of leaving $\bfx$ to \emph{some} other point
+      \item have an $1 - 100\cdot \frac{1}{200} \approx \frac{1}{2}$ chance of remaining at $\bfx$.
+    \end{itemize}
+
+    If we initialize a random walk on $G$ at $\mathbf{0}$ then we will remain there functionally forever. If we initialize it at any other point, then we have a $\frac{1}{2}$ chance to leave and a $\frac{1}{2}$ chance to remain. The situation is slightly different at a point neighboring $\mathbf{0}$, where we have twice the chance of transitioning to $\mathbf{0}$ than to any other point. Thus, a random walk on $G$ will visit a variety of points, transitioning to a new point every $2$ steps on average, unless it reaches $\mathbf{0}$, in which case it will remain there indefinitely. However, the chance of reaching $\mathbf{0}$ from a random initialization is just as small as the chance of leaving $\mathbf{0}$, since there are $2^{100}$ points in total.
   \end{prf}
 \end{homework}
 \newpage
