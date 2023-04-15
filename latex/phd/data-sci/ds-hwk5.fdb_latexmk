@@ -1,10 +1,10 @@
 # Fdb version 3
-["biber ds-hwk5"] 1681319201 "ds-hwk5.bcf" "ds-hwk5.bbl" "ds-hwk5" 1681351203
-  "ds-hwk5.bcf" 1681351203 106728 11770e61da02e661e55f7d2948bc8364 "pdflatex"
+["biber ds-hwk5"] 1681516185 "ds-hwk5.bcf" "ds-hwk5.bbl" "ds-hwk5" 1681516937
+  "ds-hwk5.bcf" 1681516936 106728 11770e61da02e661e55f7d2948bc8364 "pdflatex"
   (generated)
   "ds-hwk5.bbl"
   "ds-hwk5.blg"
-["pdflatex"] 1681351201 "ds-hwk5.tex" "ds-hwk5.pdf" "ds-hwk5" 1681351203
+["pdflatex"] 1681516935 "ds-hwk5.tex" "ds-hwk5.pdf" "ds-hwk5" 1681516937
   "../preamble.tex" 1675963079 2220 65dbf4383a2938b11e0f0b2173ce229f ""
   "/Users/isaac/Library/texmf/tex/latex/style-sheets/homework.sty" 1675963079 10473 77b5887416c5d7371104d1614dc65eb2 ""
   "/Users/isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1676956714 37257 2fa1ff2324182d88104b570cc08e589a ""
@@ -64,6 +64,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb" 1640468671 269694 aaa4ec66041f739d25146321feddb50c ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb" 1640468671 230451 72745fed20f6a7d3da4ddd8a9b788e85 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb" 1255129411 133302 8dca243a80ecf4cfe00077d4bd995bd7 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb" 1136849748 26301 f08b3c26ea42c3177a262c2ac37d6a91 ""
   "/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -309,11 +310,19 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1676399263 2826451 d93c80d8a60ecfe737f8da20e0ce13e4 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "ds-hwk5.aux" 1681351203 1579 7085c034ce56b1ef157fd9736713ec53 "pdflatex"
-  "ds-hwk5.bbl" 1681319202 466 ee04f40f768daeed26442158e95aba61 "biber ds-hwk5"
+  "ds-hwk5.aux" 1681516936 2275 6c8a564934aef6e6f90d85f790e7f345 "pdflatex"
+  "ds-hwk5.bbl" 1681516186 466 ee04f40f768daeed26442158e95aba61 "biber ds-hwk5"
   "ds-hwk5.out" 0 -1 0 "pdflatex"
-  "ds-hwk5.run.xml" 1681351203 2326 21af94eb371ff870ea808d77cff6a8fc "pdflatex"
-  "ds-hwk5.tex" 1681351200 14420 d5348b0cd5d3c0249021844f37c065db ""
+  "ds-hwk5.run.xml" 1681516936 2326 21af94eb371ff870ea808d77cff6a8fc "pdflatex"
+  "ds-hwk5.tex" 1681516935 30567 9ecb7076af3edab5fcd5096ce22aa38d ""
+  "figures/graph1.png" 1681514493 16838 cffcc827ad7852e37160cefdaa87fe8c ""
+  "figures/graph2.png" 1681514497 16629 e59fee9f255d3662b4df803d53b3080e ""
+  "figures/graph3.png" 1681514502 16614 2bf68e3ddcde3e81010fbde99f34b50d ""
+  "figures/graph4.png" 1681514505 16628 297e8330045ed20f3a68ccb29f7aedc1 ""
+  "figures/graph5.png" 1681515561 22119 c1d93147aff7997635c551ca56ee50fb ""
+  "figures/graph6.png" 1681515615 22233 6b1d18ea82e52769b09a3770402abc4f ""
+  "figures/graph7.png" 1681515678 22616 796da3313d9d9bd7d5152b0689849730 ""
+  "figures/graph8.png" 1681515738 22502 969d165de0d2e335084f836ad82b2c80 ""
   (generated)
   "ds-hwk5.aux"
   "ds-hwk5.bcf"

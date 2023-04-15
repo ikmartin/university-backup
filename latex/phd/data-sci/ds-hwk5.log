@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.14)  12 APR 2023 21:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.2.14)  14 APR 2023 19:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1465,29 +1465,87 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/it' will be
 Package hyperref Info: bookmark level for unknown prf defaults to 0 on input line 69.
  [1
 
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 190.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 190.
-LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 198.
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<figures/graph1.png, id=40, 462.528pt x 346.896pt>
+File: figures/graph1.png Graphic file (type png)
+<use figures/graph1.png>
+Package pdftex.def Info: figures/graph1.png  used on input line 160.
+(pdftex.def)             Requested size: 213.08177pt x 159.81229pt.
+<figures/graph2.png, id=42, 462.528pt x 346.896pt>
+File: figures/graph2.png Graphic file (type png)
+<use figures/graph2.png>
+Package pdftex.def Info: figures/graph2.png  used on input line 161.
+(pdftex.def)             Requested size: 213.08177pt x 159.81229pt.
+<figures/graph3.png, id=43, 462.528pt x 346.896pt>
+File: figures/graph3.png Graphic file (type png)
+<use figures/graph3.png>
+Package pdftex.def Info: figures/graph3.png  used on input line 165.
+(pdftex.def)             Requested size: 213.08177pt x 159.81229pt.
+<figures/graph4.png, id=44, 462.528pt x 346.896pt>
+File: figures/graph4.png Graphic file (type png)
+<use figures/graph4.png>
+Package pdftex.def Info: figures/graph4.png  used on input line 166.
+(pdftex.def)             Requested size: 213.08177pt x 159.81229pt.
+<figures/graph5.png, id=45, 462.528pt x 346.896pt>
+File: figures/graph5.png Graphic file (type png)
+<use figures/graph5.png>
+Package pdftex.def Info: figures/graph5.png  used on input line 172.
+(pdftex.def)             Requested size: 213.08177pt x 159.81229pt.
+<figures/graph6.png, id=46, 462.528pt x 346.896pt>
+File: figures/graph6.png Graphic file (type png)
+<use figures/graph6.png>
+Package pdftex.def Info: figures/graph6.png  used on input line 173.
+(pdftex.def)             Requested size: 213.08177pt x 159.81229pt.
+<figures/graph7.png, id=47, 462.528pt x 346.896pt>
+File: figures/graph7.png Graphic file (type png)
+<use figures/graph7.png>
+Package pdftex.def Info: figures/graph7.png  used on input line 177.
+(pdftex.def)             Requested size: 213.08177pt x 159.81229pt.
+<figures/graph8.png, id=48, 462.528pt x 346.896pt>
+File: figures/graph8.png Graphic file (type png)
+<use figures/graph8.png>
+Package pdftex.def Info: figures/graph8.png  used on input line 178.
+(pdftex.def)             Requested size: 213.08177pt x 159.81229pt.
+LaTeX Font Info:    Trying to load font information for TS1+ntxtlf on input line 187.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
 File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 )
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.95pt on input line 198.
- [4] [5]
-LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 224.
+(Font)              scaled to size 10.95pt on input line 187.
+ [3] [4 <./figures/graph1.png> <./figures/graph2.png> <./figures/graph3.png> <./figures/graph4.png> <./figures/graph5.png> <./figures/graph6.png>] [5 <./figures/graph7.png> <./figures/graph8.png>]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 247.
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 247.
+ [6
+
+] [7] [8]
+LaTeX Font Info:    Trying to load font information for T1+ntxtt on input line 305.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/newtx/t1ntxtt.fd
 File: t1ntxtt.fd 2012/04/20 v3.1
 )
 LaTeX Font Info:    Font shape `T1/ntxtt/m/n' will be
-(Font)              scaled to size 10.95pt on input line 224.
+(Font)              scaled to size 10.95pt on input line 305.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `ntxtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [6] (./ds-hwk5.aux)
+
+Overfull \hbox (4.43355pt too wide) in paragraph at lines 343--343
+[]      \T1/ntxtt/m/n/10.95 # Make matrix out of all x and y points, smash the matrices together columnwise[] 
+ []
+
+[9]
+Overfull \hbox (4.43355pt too wide) in paragraph at lines 392--392
+[]          \T1/ntxtt/m/n/10.95 inp_diff = [np.abs((np.dot(x[j, :], ideal) - y[j])) ** 2 for j in range(n)][] 
+ []
+
+[10] [11] [12] [13] [14]
+Overfull \hbox (20.53pt too wide) in paragraph at lines 576--576
+[]      \T1/ntxtt/m/n/10.95 A = np.array([np.random.normal(mu, sigma(j), (cols)) for j in range(1, rows + 1)])[] 
+ []
+
+[15] [16] (./ds-hwk5.aux)
 Package rerunfilecheck Info: File `ds-hwk5.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'ds-hwk5.run.xml'.
@@ -1495,18 +1553,18 @@ Package logreq Info: Writing requests to 'ds-hwk5.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 45658 strings out of 478268
- 902784 string characters out of 5846347
- 1730321 words of memory out of 5000000
- 62983 multiletter control sequences out of 15000+600000
- 509149 words of font info for 108 fonts, out of 8000000 for 9000
+ 45751 strings out of 478268
+ 904464 string characters out of 5846347
+ 1730323 words of memory out of 5000000
+ 63043 multiletter control sequences out of 15000+600000
+ 509534 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  103i,23n,102p,3058b,1387s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
-Output written on ds-hwk5.pdf (6 pages, 219703 bytes).
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/tex-gyre/q-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf-pc.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/newtx/ntx-ec-tlf.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/tex-gyre/qtmr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/txfonts/t1xtt.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmr.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/newtx/ztmri.pfb>
+Output written on ds-hwk5.pdf (16 pages, 379100 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 25101 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 219 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 25141 words of extra memory for PDF output out of 29859 (max. 10000000)
 
