@@ -43,6 +43,8 @@
 \maketitle
 \chapter{Some Background On Chern Characters, CohFTs and the Verlinde Bundle}
 \section{Introduction}
+This document is meant to provide a bit of exposition on the objects involved in computation of the Chern character of the Verlinde bundle over the moduli space of stable curves, performed by Marian, Oprea, Pandharipande, Pixton and Zvonkine \cite{marian2016chern}. More precisely, when I first attempted to read this paper, I found I lacked the requisite knowledge of cohomological field theories and Chern classes to understand the results. This is my attempt to gather the necessary definitions in one place and to provide context for how they first together in Marian et. al.'s paper.
+
 \section{Basic Structure of the Moduli Space of Stable Curves}
 I had encountered $\ol{\cM}_{g,n}$ prior to reading the Marian et. al. paper, but was unfamiliar with some of the structure essential to the results. Here, we briefly cover that structure.
 
@@ -79,13 +81,43 @@ Notice that if $2g - 2 + (n+1) = 1$, this map will not be well-defined.
   The forgetful map corresponds to the third axiom of CohFTs.
 \end{rmk}
 
-\subsection{Cohomology of $\mgnbar_{g,n}$}
-
-
-
-
-
 \section{Chern Classes and Chern Characters}
+The author had not seen Chern characters prior to his presentation, and had encountered Chern classes only in passing. Each is a representation of the same data in slightly different ways. We use this section to review various definitions.
+
+\subsection{Chern Classes}
+Chern classes are characteristic classes associated to complex vector bundles, and they have become ubiquitous in both algebraic and complex geometry since their introduction by Shiing-Shen Chern in 1946 (see \cite{chern-class-first-paper}); the $n$th Chern class of a vector bundle $\epsilon \to X$ associates to $\epsilon$ a cohomology class in $H^{2n}(X)$. There are many constructions, but we consider the axiomatic approach found in \cite{complex-vector-bundles-book} to minimize topological prerequisites.
+
+Let $X$ be a smooth scheme over $\bC$. We have four axioms which determine the Chern classes of $\epsilon$.
+
+\textbf{Axiom 1:} For each vector bundle $\epsilon \to X$ and for each $i\geq 0$, the $i$th Chern class satisfies $c_i(\epsilon) \in H^{2i(X;\bC)}$, i.e. it is a degree $2i$ cohomology class. We define $c_0(\epsilon) = 1$.
+
+\begin{rmk}
+  We set $c(\epsilon) = \sum_{i=1}^\infty c_i(\epsilon) \in H^\bullet(X;\bC)$ and call it the \emph{total Chern class} of $\epsilon$.
+\end{rmk}
+\textbf{Axiom 2:} ~(Naturality).~ Let $\epsilon$ be a complex vector bundle over $X$ and let $f:Y\to X$ be a smooth map. Then
+\begin{align*}
+  c(f^*\epsilon) = f^*(c(\epsilon)) \in H^\bullet(Y;\bC)
+\end{align*}
+where $f^*$ is the pullback of $\epsilon$ over $Y$.
+
+\textbf{Axiom 3:} ~(Whitney sum formula).~ Let $\epsilon_1,...,\epsilon_q$ be complex line bundles over $X$. Let $\epsilon_1\oplus ...\oplus \epsilon_q$ be their Whitney sum. Then
+\begin{align*}
+  c(\epsilon_1\oplus ...\oplus \epsilon_q) = c(\epsilon_1) \cdot ...\cdot c(\epsilon_q),
+\end{align*}
+where the product is the cup product.
+
+\textbf{Axiom 4:} ~(Normalization).~ Let $\cO(-1)$ be the tautological line bundle over $\bP^1_{\bC}.$. Then $-c_1(\cO(-1))$ is the generator of $H^2(\bP_{\bC}^1;\bZ)$, that is, $c_1(\cO(-1))$ integrated on the fundamental 2-cycle $\bP^1_{\bC}$ is equal to $-1$.
+
+\begin{rmk}
+  In the case that $\epsilon$ is a complex Hermitian vector bundle over a smooth manifold $X$, the Chern classes appear as the coefficients of the characteristic polynomial of the curvature form of $X$. More explicitly,
+  \begin{align*}
+    \det\left(\frac{it\Omega}{2\pi} + I\right) = \sum_{i=0}^\infty c_i(\epsilon)t^i.
+  \end{align*}
+  Note that this implies $c_i(\epsilon) = 0$ whenever $i > \rank \epsilon$, a fact which holds more generally.
+\end{rmk}
+\subsection{Splitting Principle and the Chern Character}
+
+
 \section{Cohomological Field Theories}
 Here we review the basic definitions of cohomological field theories and the facts needed in the Marian et. al. paper. I learned most of this from S. Chiarello's master's thesis \cite{chiarello2016telemans}. Let $q$ and $s$ denote the first and second gluing maps on $\mgnbar_{g,n}$, as introduced previously, and let $p$ be the forgetful map.
 
