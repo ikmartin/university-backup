@@ -1,0 +1,134 @@
+\documentclass[raggedright, nofonts, notitlepage, openany, debug]{tufte-book}
+
+%%% Sets numbering depth to section level (e.g, no numbered subsections)
+\setcounter{secnumdepth}{1}
+
+% include notes style file from Abhishek Shivkumar
+\usepackage{notes,macrosabound}
+
+% make font smaller
+\usepackage[fontsize=9pt]{fontsize}
+% set margins
+% only use if strictly necessary, tufte-book calls geometry already
+% double geometry call results in "overspecified margins" warning if done as below
+% \geometry{left=1in, right=3in, top = 1in, bottom=1in}
+
+%%%%%%%%%%%%%%%%%%
+%%%% FOR DEBUGGING
+%%%%%%%%%%%%%%%%%%
+%\usepackage{layout}
+%\usepackage{showframe}
+
+%%% Removes paragraph indentation and changes paragraph line skip
+\makeatletter
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{0pc}%
+  \setlength{\JustifyingParindent}{0pc}%
+  \setlength{\parindent}{0pc}%
+  \setlength{\parskip}{9pt}%
+}
+\@tufte@reset@par
+\makeatother
+
+\usepackage{natbib}
+\bibliographystyle{unsrtnat}
+
+% ensures that the references show up as an unnumbered section
+\def\bibsection{\section*{\refname}} 
+\begin{document}
+%%% The Title and Author only need to be set once at the start of the document. If you take notes for multiple courses in the same document (for example, in a multi-semester sequence for the same course), you can separate the courses with a new Part, and the semester, lecturer, and course only need to be set once at the start of the new course.
+\newpage
+\title{Brief Review of ``The Chern Character of the Verlinde Bundle''}
+\author{Isaac Martin}
+\maketitle
+\chapter{Some Background On Chern Characters, CohFTs and the Verlinde Bundle}
+\section{Introduction}
+\section{Basic Structure of the Moduli Space of Stable Curves}
+I had encountered $\ol{\cM}_{g,n}$ prior to reading the Marian et. al. paper, but was unfamiliar with some of the structure essential to the results. Here, we briefly cover that structure.
+
+Recall that a Riemann surface $C$ \marginnote{Instead of ``Riemann Surface'' we could equivalently say ``smooth curve over $\bC$''} with $n$ distinct marked points $x_1,...,x_n$ is said to be \textbf{stable} if there is only finitely many automorphisms $C\to C$ which fix each $x_i$. A Riemann surface of genus $g$ with $n$ marked points is stable if and only if $2g - 2 + n > 0$. \marginnote{This stability condition comes from the fact that the canonical bundle of $C$ twisted by the marked points is ample if and only if $2g - 2 + n > 0$. Ampleness of the canonical bundles imply that there are only finitely many automorphisms fixing the marked points.} By $\cM_{g,n}$ we denote the course moduli space of all genus $g$ Riemann surfaces over $\bC$ with $n$ marked points, and by $\ol{\cM}_{g,n}$ the Deligne-Mumford compactification of $\cM_{g,n}$. It can be shown that $\ol{\cM}_{g,n}$ consists of connected curves with at worst nodal singularities. \marginnote{An element in $\ol{\cM}_{g,n}$ is called a \emph{stable curve}, and is denoted $(C,x_1,...,x_n)$.}
+
+\begin{rmk}
+  There is an obvious action of $S_n$ on $\mgnbar_{g,n}$ given by permuting the marked points. This corresponds to the first axiom of CohFTs.
+\end{rmk}
+
+Suppose now that we have two stable curves $(C_1,x_1,...,x_{n_1+1}) \in \ol{\cM}_{g_1,n_1}$ and $(C_2,y_1,...,y_{n_2+1}) \in \ol{\cM}_{g_2, n_2}$. We can obtain a stable curve $$(S(C_1, C_2),x_{1..n_1}, y_{1..n_2})$$ of genus $g = g_1 + g_2$ with $n = n_1 + n_2$ marked points by defining
+\begin{align*}
+  S(C_1,C_2) = C_1 \sqcup C_2/\sim
+\end{align*}
+where $\sim$ identifies $x_{n_1 + 1}$ and $y_{n_2 + 1}$ while leaving all else fixed. This gives us a continuous map
+\begin{align*}
+  s: \mgnbar_{g_1,n_1 + 1} \times \mgnbar_{g_2,n_2+1} \to \mgnbar_{g_1 + g_2,n_1 + n_2},
+\end{align*}
+which is sometimes called the ```separating sewing map`'' or in the case of Marian et. al. the ``second gluing map''. If there is a second gluing map, there ought to be a first gluing map; this is a smooth function
+\begin{align*}
+  q: \mgnbar_{g-1,n+2} \to \mgnbar_{g,n}
+\end{align*}
+which increases the genus of a curve $(C,x_1,...,x_{n+2})$ by identifying $x_{n+1}$ and $x_{n+2}$ while leaving all other points fixed. This is sometimes called the \emph{non-separating gluing map}.
+\begin{rmk}
+  The two gluing maps are treated by the second axiom of CohFTs.
+\end{rmk}
+
+The final bit of structure we wish to highlight is the forgetful map $p:\mgnbar_{g,n+1} \to \mgnbar_{g,n}$ defined
+\begin{align*}
+  p(C,x_1,...,x_{n+1}) = (C,x_1,...,x_n).
+\end{align*}
+Notice that if $2g - 2 + (n+1) = 1$, this map will not be well-defined.
+
+\begin{rmk}
+  The forgetful map corresponds to the third axiom of CohFTs.
+\end{rmk}
+
+\subsection{Cohomology of $\mgnbar_{g,n}$}
+
+
+
+
+
+\section{Chern Classes and Chern Characters}
+\section{Cohomological Field Theories}
+Here we review the basic definitions of cohomological field theories and the facts needed in the Marian et. al. paper. I learned most of this from S. Chiarello's master's thesis \cite{chiarello2016telemans}. Let $q$ and $s$ denote the first and second gluing maps on $\mgnbar_{g,n}$, as introduced previously, and let $p$ be the forgetful map.
+
+\subsection{Definition}
+
+\begin{defn}
+A cohomological field theory (henceforth abbreviated  CohFT) consists of the following data:
+\begin{itemize}
+  \item a fixed $\bC$-vector space $V$
+  \item a distinguished nonzero element $\bfone \in V$
+  \item a nondegenerate bilinear form $\eta: V\times V\to \bC$
+  \item for each $2g - 2 + n >0$, a $\bC$-linear map
+    \begin{align*}
+      \Omega_{g,n} : V^{\otimes n}\to H^\bullet(\ol{\cM}_{g,n})
+    \end{align*}
+    which satisfy three additional axioms corresponding to pieces of the structure of $\mgnbar)_{g,n}$. We denote by $\Omega$ the CohFT defined by this data.
+\end{itemize}
+\end{defn}
+These are the additional axioms:
+\begin{enumerate}[(i)]
+  \item each $\Omega_{g,n}$ is invariant under pre-composition with the $S_n$ action on $V^{\otimes n}$\marginnote{If $\sigma \in S_n$ is a permutation, then its action on $\mgnbar_{g,n}$ induces a map on cohomology classes $$H^\bullet(\mgnbar_{g,n})\to H^\bullet(\mgnbar_{g,n}).$$ Axiom (i) means that we have \begin{align*}
+        \Omega_{g,n}&(v_{\sigma(1)\otimes ...\otimes v_\sigma(n)})\\ &= \sigma^*\Omega_{g,n}(v_1\otimes ...\otimes v_n).
+  \end{align*}}
+  \item The pullback $q^*\Omega_{g,n}$ equals the contraction of $\Omega_{g-1,n+2}$ with $\eta^{-1}$ at the two extra marked points $x_{n+1}$ and $x_{n_2}$. \marginnote{Here we need that $\eta$ is non-degenerate for $\eta^{-1}$ to behave as we expect.} \marginnote{Axiom (i) is straightforward and is referred to as ``invariance under permutation''. Axioms (ii) and (iii) can be summarized by saying ``$\Omega$ is compatible with gluing maps''. Axiom (iv) says that $\Omega$ is compatible with the forgetful map on $\mgnbar_{g,n}$, where defined.}
+  \item The pullback $s^*\Omega_{g_1+g_2,n_1+n_2}$ is equal to the contraction of $\eta^{-1}$ at the two marked points identified by $s$.
+  \item For all $v_1,...,v_n\in V$ we get
+    \begin{align*}
+      \Omega_{g,n+1}(v_1\otimes...\otimes v_n \otimes \bfone) = p^*\Omega_{g,n}(v_1\otimes ... \otimes v_n).
+    \end{align*}
+    In the special case that $g = 0$ and $n = 3$, in which case $p$ is not defined, we also require
+    \begin{align*}
+      \Omega_{0,3}(v_1\otimes v_2\otimes \bfone) = \eta(v_1,v_2).
+    \end{align*}
+\end{enumerate}
+
+\begin{rmk}
+  Specifying a map $V^{\otimes n}$ to $H^\bullet(\mgnbar_{g,n})$ is the same as specifying an element of $H^\bullet(\mgnbar_{g,n})\otimes (V^{*})^{\otimes n}$, and indeed, this is how they define CohFTs in Marian et. al. I find the definition given here nicer, however, particularly since axiom (iv) considers the $\Omega_{g,n}$ action on $V^{\otimes n}$.
+\end{rmk}
+
+\subsection{Frobenius Algebra Associated to a CohFT}
+
+
+
+\newpage
+\bibliography{main}
+\end{document}
