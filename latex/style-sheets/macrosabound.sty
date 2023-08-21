@@ -3,13 +3,13 @@
 
 \usepackage{mathtools}
 \usepackage[mathscr]{euscript}
-\usepackage[shortlabels]{enumitem}
+%\usepackage[shortlabels]{enumitem}
 \usepackage{scalerel}
 \usepackage{xparse}
 \usepackage{faktor}  % used for something, not in second largest texlive installation
 \usepackage{multicol}
 \usepackage[only,trianglelefteqslant,llbracket,rrbracket]{stmaryrd} % not in largest texlive distro
-\usepackage[dvipsnames]{xcolor}
+%\usepackage[dvipsnames]{xcolor}
 \usepackage{marvosym}
 \usepackage{subdepth}
 \usepackage{xspace}
@@ -48,6 +48,9 @@
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Log}{Log}
 \DeclareMathOperator{\Newt}{Newt}
+\DeclareMathOperator{\Circ}{Circ}
+\DeclareMathOperator{\Ising}{Ising}
+\DeclareMathOperator{\Zing}{\mathfrak{Z}}
 \DeclareMathOperator{\sHom}{\scalebox{1.2}{\ensuremath{\mathpzc{Hom}}}}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\sEnd}{\scalebox{1.2}{\ensuremath{\mathpzc{End}}}}
@@ -164,6 +167,8 @@
 		{\IfNoValueTF{#2}{\MIN}{\MIN\braces{#2}}}
 		{\IfNoValueTF{#2}{\MIN_{#1}}{\MIN_{#1}\braces{#2}}}}
 }
+\DeclareMathOperator*{\argmin}{arg ~ min}
+\DeclareMathOperator*{\argmax}{arg ~ max}
 \newcommand{\dx}{\dl2{x}}
 \newcommand{\dy}{\dl2{y}}
 \newcommand{\dz}{\dl2{z}}
@@ -346,20 +351,6 @@
 \newcommand{\polyringbracks}[1]{\mkern-.5mu\raisebox{.5pt}{$[$}\mkern-.5mu#1\mkern-.5mu\raisebox{.5pt}{$]$}} % R[x] with smaller brackets
 \newcommand{\lseriespars}[1]{\raisebox{.5pt}{$(\hspace{-.4mm}($}#1\raisebox{.5pt}{$)\hspace{-.2mm})$}} % R((x)) with math parentheses
 \newcommand{\slseriespars}[1]{\mkern1.2mu\textup{(\hskip.1pt(}\mkern1mu #1\mkern.5mu\textup{)\hskip.2pt)}} % R((x)) with smaller parentheses
-
-%Document and Text Organization%
-\newcommand{\hru}{\vspace{-2mm}\rule{\textwidth}{1.2pt}\par} 
-\newcommand{\ie}{i.e.\xspace}
-\newcommand{\eg}{e.g.\xspace}
-\newcommand{\fcom}{\,,} % comma after big fractions
-\newcommand{\onlyifstep}{\noindent(\raisebox{-1pt}{\scaleobj{1.4}{\Rightarrow}}\hskip-.2ex)\hskip1.5ex} % (==>)
-\newcommand{\ifstep}{\noindent(\hskip-.1ex\raisebox{-1pt}{\scaleobj{1.4}{\Leftarrow}}\hskip0ex)\hskip1.5ex} % (<==)
-\NewDocumentCommand{\centerpic}{o m}{\IfNoValueTF{#1}{\begin{center}\includegraphics{#2}\end{center}}{\begin{center}\includegraphics[#1]{#2}\end{center}}}
-\SetEnumitemKey{twocol}{
-itemsep = 1\itemsep,
-parsep = 1\parsep,
-before = \raggedcolumns\begin{multicols}{2},
-after = \end{multicols}}
 
 %Text Symbols
 \newcommand{\txast}{\raisebox{.1ex}{\textasteriskcentered}}
