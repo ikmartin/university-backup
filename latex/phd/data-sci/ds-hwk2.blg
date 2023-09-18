@@ -1,9 +1,0 @@
-[0] Config.pm:311> INFO - This is Biber 2.16
-[0] Config.pm:314> INFO - Logfile is 'ds-hwk2.blg'
-[44] biber:340> INFO - === Wed Feb  8, 2023, 12:50:55
-[52] Biber.pm:415> INFO - Reading 'ds-hwk2.bcf'
-[95] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
-[98] Utils.pm:395> WARN - The file 'ds-hwk2.bcf' does not contain any citations!
-[103] bbl.pm:654> INFO - Writing 'ds-hwk2.bbl' with encoding 'UTF-8'
-[103] bbl.pm:757> INFO - Output to ds-hwk2.bbl
-[103] Biber.pm:128> INFO - WARNINGS: 1

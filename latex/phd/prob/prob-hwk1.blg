@@ -1,9 +1,0 @@
-[0] Config.pm:311> INFO - This is Biber 2.16
-[0] Config.pm:314> INFO - Logfile is 'prob-hwk1.blg'
-[83] biber:340> INFO - === Fri Sep 16, 2022, 12:44:06
-[99] Biber.pm:415> INFO - Reading 'prob-hwk1.bcf'
-[184] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
-[191] Utils.pm:395> WARN - The file 'prob-hwk1.bcf' does not contain any citations!
-[200] bbl.pm:654> INFO - Writing 'prob-hwk1.bbl' with encoding 'UTF-8'
-[200] bbl.pm:757> INFO - Output to prob-hwk1.bbl
-[200] Biber.pm:128> INFO - WARNINGS: 1

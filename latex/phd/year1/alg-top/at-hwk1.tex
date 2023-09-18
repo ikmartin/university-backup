@@ -1,0 +1,338 @@
+\input{../preamble.tex}
+
+\def\sset{\subseteq}
+\def\iso{\cong}
+\def\gend#1{\langle #1\rangle}
+
+\newcommand{\rightoverleftarrow}{%
+  \mathrel{\vcenter{\mathsurround0pt
+    \ialign{##\crcr
+      \noalign{\nointerlineskip}$\longrightarrow$\crcr
+      \noalign{\nointerlineskip}$\longleftarrow$\crcr
+    }%
+  }}%
+}
+
+\begin{document}
+\pagestyle{empty}
+	\LARGE
+\begin{center}
+	Algebraic Topology Homework 0 \\
+	\Large
+	Isaac Martin \\
+    Last compiled \today
+\end{center}
+\normalsize
+\vspace{-2mm}
+\hru
+Before beginning the homework, a comment: I will frequently include more exposition than strictly necessary in these writeups. This is intended for future me, who has likely forgotten these solutions, is unfortunatley still suffering from ample stupidity and will undoubtedly need help understanding the intuition behind the problems.
+
+\begin{homework}[e]
+
+	\prob Construct an explicit deformation retraction of the torus with one point delted onto a graph consisting of two circles intersecting in a point, namely, longitude and meridian circles of the torus.
+	\begin{prf}
+		We think of a torus as a product of the interval $I = [-1,1]$ with iteself with parallel edges identified in matching orientation, i.e.
+		\begin{align*}
+			\bT^2 = I^2/\sim
+		\end{align*}
+		where $(-1,x) \sim (1,x)$ and $(x,-1) \sim (x,1)$. The wedge of the longitudinal and meridian circles upon which we wish to deformation retract are precisely the boundary of $I^2$ under the quotient map: $S^1\wedge S^1 = \pi(\partial I^2)$. What this means is that we can deformation retract a $I^2 - \{\text{pt}\}$ to its boundary and compose with the projection map $\pi:I^2 \to \bT^2$ in order to construct the desired deformation retrat of the punctured torus. This is much easier to visualize and, more importantly, easier to explicitly write down.
+
+		Without loss of generality, suppose $\text{pt} = (0,0)$. Indeed, if it were any other point in the interior of $I^2$, we could simply apply a homeomorphism. Let $X = I^2 \setminus \{(0,0)\}$, so that $\bT^2 = X/\sim$.
+		
+		\textbf{For future Isaac:} To construct the homotopy of $X$ to its boundary, a good first attempt is to imagine the ray emenating from $(0,0)$ and passing through some other point $(a,b) \in I^2$. This intersects $\partial I^2$ in exactly one place. The homotopy we'd like to write down linearly interpolates $(a,b)$ to this unique intersection point with $\partial I^2$ in one unit time, so that all interior points reach the boundary at $t = 1$. However, this homotopy is rather a pain to write down, so we add a few steps to reduce the total work.
+
+		Consider the circle $S^1 = \{|(a,b) \in \bR^2 ~\mid~ \|(a,b)\| = 1\} \subseteq I^2$. The map $f:X \to S^1$ defined $x \mapsto \frac{x}{\|x\|}$ is a retract onto $S^1$. In particular, $f|_{\partial I^2}$ is a bijective map from $\partial I^2$ to $S^1$, and thus has inverse $g:S^1 \to \partial I^2$. This is the map we intuitively described above restricted to the circle. We note that the composition $g\circ f$ is the map which first takes a point $x \in X$ to the point on $S^1$ correponding to $x$'s ``direction'' and then sends the result to its corresponding point on $\partial I^2$.
+
+		We can now write down the homotopy $F:X \times I \to X$:
+		\begin{align*}
+			F(x,t) = (1 - t)x + tg(f(x)).
+		\end{align*}
+		This map is continuous, as it is the restriction, composition, product and sum of continuous functions on $\bR^3 \setminus \{(x,y,z) \mid x = y = 0\}$. Furthermore, it is a deformation retraction of $X$ onto $\partial I^2$, as it fixes $\partial I^2$ at every time step. The composition $\pi \circ F$ yields the desired deformation retraction on $\bT^2$.
+	\end{prf}
+	\newpage
+	\prob[\textsc{Exercise} 3.] $ $
+	\begin{enumerate}[(a)]
+		\item Show that the composition of homotopy equivalences $X\to Y$ and $Y\to Z$ is a homotopy equivalence $X\to Z$. Deduce that homotopy equivalence is an equivalence relation.
+		\item Show that the relation of homotopy among maps $X \to Y$ is an equivalence relation.
+	\end{enumerate}
+	\begin{prf}$ $
+		\begin{enumerate}[(a)]
+			\item We first prove the following lemma. 
+			
+			\smallskip
+			
+			\begin{lem}
+				Let $f:X \rightarrow Y$ and $g:X \rightarrow Y$ be functions such that $f \simeq g$. Let $F: X \times [0,1] \rightarrow Y$ where $F(x,0) = f(x)$ and $F(x,1) = g(x)$ be the homotopy connecting $f$ and $g$. Furthermore, let $f':Y \rightarrow Z$ and $g':Y \rightarrow Z$ be functions such that $f' \simeq g'$ connected by the $G:Y  \times [0,1] \rightarrow Z$ where $G(x,0) = f'(x)$ and $G(x,1) = g'(x)$. We show that 
+				\begin{equation*}
+					f' f \simeq g' g
+				\end{equation*}
+			\end{lem}
+			
+			\begin{proof}
+				We want to find a homotopy $H: X \times [0,1] \rightarrow Z$ connecting $f'f$ and $g'g$. Let $H$ be defined as $H(x,t) = G(F(x,t),t)$. $H$ is continuous since $G$ and $F$ are continuous. Furthermore,
+				\begin{equation*}
+					H(x,0) = G(F(x,0),0) = f'(f(x)) = f'f
+				\end{equation*}
+				and 
+				\begin{equation*}
+					H(x,1) = G(F(x,1),1) = g'(g(x)) = g'g
+				\end{equation*}
+			\end{proof}
+			
+			\bigskip
+			
+			We now begin the proof. Let $X$ and $Y$ be homotopy equivalent and let $Y$ and $Z$ be homotopy equivalent. There must then exist functions $f:X \rightarrow Y$, $g:Y \rightarrow X$, $f':Y \rightarrow Z$, $g':Z \rightarrow Y$ such that 
+			
+			\begin{equation*}
+				gf \simeq \id_X \hspace{30pt} 
+				fg \simeq \id_Y \hspace{30pt}
+				g'f' \simeq \id_Y \hspace{30pt}
+				f'g' \simeq \id_Z 
+			\end{equation*}
+			
+			where $\id_X, \id_Y $ and $\id_Z$ denote the identity functions on $X$, $Y$ and $Z$ respectively. Note here that $f$ is the homotopy equivalence of $X$ and $Y$ and that $f'$ is the homotopy equivalence of $Y$ and $Z$. 
+			
+			From the result of part (b), which is independent of this result, we know that $f' \simeq f'$, and thus by the above lemma we have that
+			\begin{equation*}
+				fg \simeq \id_Y \Rightarrow f'fg \simeq f'\id_Y = f'
+			\end{equation*}
+			By the same logic, we have that 
+			\begin{equation*}
+				f'fgg' \simeq f'g' 
+			\end{equation*}
+			and by the transitivity of the homotopy relation (also proven in part b) we conclude that since $f'g' \simeq \id_Z$,
+			\begin{equation*}
+				f'fgg' \simeq \id_Z
+			\end{equation*}
+			
+			\smallskip
+			
+			Furthermore, since $g'f' \simeq \id_Y$,
+			\begin{equation*}
+				gg'f' \simeq g\id_Y = g
+			\end{equation*}
+			and
+			\begin{equation*}
+				gg'f'f \simeq gf.
+			\end{equation*}
+			Finally, by the transitivity of homotopic relations, since $gf \simeq \id_X$ we conclude that 
+			\begin{equation*}
+				gg'f'f \simeq \id_X.
+			\end{equation*}
+			Since there exist functions $f'f: X \rightarrow Z$ and $gg':Z \rightarrow X$ such that $gg'f'f \simeq \id_X$ and $f'fgg' \simeq \id_Z$, we conclude that $X$ and $Z$ are homotopy equivalent by the composition $f'f$ of homotopy equivalences.
+
+			\bigskip
+
+			For the second part of the question, we say that $X \sim Y$ if $X$ and $Y$ are homotopy equivalent. We show that this relation is an equivalence relation.
+		
+			Notice we have already proven that this relation has the transitive property, since
+			\begin{equation*}
+				X\sim Y \text{ and } Y\sim Z \Rightarrow X \sim Z
+			\end{equation*} 
+			It remains only to show that it also holds for the reflexive and symmetric properties.
+			
+			\bigskip
+			
+			\emph{Reflexive:} Let $X$ be a topological space. The identity $\id_X$ is a homotopy equivalence between $X$ and $X$ since $\id_X \circ \id_X \simeq \id_X$. Thus, $X \sim X$.
+			
+			\bigskip
+			
+			\emph{Symmetric:} Let $X$ and $Y$ be homotopy equivalent topological spaces. There must then exist functions $f: X\rightarrow Y$ and $g:Y\rightarrow X$ such that 
+			\begin{equation*}
+				fg \simeq \id_Y \hspace{10pt} \text{and} \hspace{10pt} gf \simeq \id_X
+			\end{equation*}
+			This makes $f$ a homotopic equivalence from $X$ to $Y$. However, these are the same conditions required for $g$ to be a homotopic equivalence from $Y$ and $X$. Thus, $X \sim Y \Leftrightarrow Y \sim X$
+			
+			\bigskip
+			
+			Since the relation is reflexive, symmetric, and transitive, we conclude that it is an equivalence relation.
+
+			\item We show that $\simeq$ is an equivalence relation.
+			
+			\bigskip
+			
+			\emph{Reflexive:} Let $f:X \rightarrow Y$. Define $f_t:X\rightarrow Y$ where $t \in [0,1]$ such that $f_t(x) = f(x)$ for all $t \in [0,1]$. Therefore since $f_0(x) = f(x)$ and $f_1(x) = f(x)$, we conclude that $f \simeq f$ by the homotopy $f_t$.
+			
+			\bigskip
+			
+			\emph{Symmetric:} Let $f,g:X \rightarrow Y$, and assume that $f \simeq g$. Then there is some function $F: X \times I \rightarrow Y$ such that $F(x,0) = f(x)$ and $F(x,1) = g(x)$. The reverse homotopy $G: X \times I \rightarrow Y$, $x \mapsto F(x,1-t)$ therefore gives $G(x,0) = g(x)$ and $G(x,1) = f(x)$. Thus, $f \simeq g \Rightarrow g \simeq f$. 
+			
+			We can prove the converse by replacing $f$ and $g$. Thus, homotopic equivalence is symmetric. 
+			
+			\bigskip
+			
+			\emph{Transitivity:} Let $f,g,h: X \rightarrow Y$ be functions such that $f \simeq g$ and $g \simeq h$. Let $F,G: X \times I \rightarrow Y$ be the homotopies of $f,g$ and $g, h$ respectively. We define $H: X \times I \rightarrow Y$ as follows:
+			\begin{equation*}
+			(x,t) \mapsto
+			 \begin{cases}
+				F(x,2t) & t \in [0, \frac{1}{2}] \\
+				G(x,2t - 1) & t \in (\frac{1}{2}, 1] \\
+			 \end{cases}
+			\end{equation*}
+			Notice that $H(x,0) = F(x,0) = f(x)$ and $H(x,1) = G(x,2-1) = h(x)$. Furthermore, since $H(x,\frac{1}{2}) = F(x,1) = g(x) = G(x,0) = G(x,1 - 1)$, by the pasting lemma $H$ is continuous since it is continuous over $[0,\frac{1}{2}]$ and $[\frac{1}{2},1]$. $H$ is therefore a homotopy between $f$ and $h$, and we conclude that the relation of homotopy is transitive.
+			
+			\bigskip
+			
+			Since the relation of homotopy is reflexive, symmetric, and transitive, we conclude that it is an equivalence relation.
+		\end{enumerate}
+	\end{prf}
+
+	\newpage
+	\prob[\textsc{Exercise 9.}] Show that a retract of a contractible space is contractible.
+
+	\begin{prf}
+		Here's another little lemma just to make the rest of the argument flow a little smoother.
+		\begin{lem}
+			Let $f,g: X \rightarrow Y$ and $f \simeq g$. If $h: W \rightarrow X$ and $p: Y \rightarrow Z$ then $f \circ h \simeq g \circ h$ and $p \circ f \simeq p \circ g$.
+		\end{lem}
+		\begin{proof}
+		  If $f \simeq g$ then there is a homotopy $F: X\times I \rightarrow Y$ such that $F_0 = f$ and $F_1 = g$. By composing each component function of $F$ with $h$ and $p$, i.e. $F_t \circ h$ and $p \circ F_t$, we obtain homotopies connecting $f \circ h$ and $g \circ h$, and $d \circ f$ and $d \circ g$ respectively.
+		\end{proof}
+		Let $X$ be a contractible space and let $r:X \rightarrow X$ be a retract of $X$ to $A \subset X$. Since $X$ is contractible, there exists some $x_0 \in X$ such that $\id_X \simeq c_{x_0}$ where $c_{x_0}: X \rightarrow X$ is the constant map $x \mapsto x_0$ for all $x \in X$. 
+
+		Let $i_A : A \rightarrow X$ be the inclusion map of $A$. Notice that $r \circ \id_X \circ i : A \rightarrow A$ is exactly the identity map on $A$, and that by the lemma, 
+		\begin{equation*}
+		\id_X \simeq c_{x_0} \implies
+		r \circ \id_X \circ i \simeq r \circ c_{x_0} \circ i = r \circ c_{x_0}|_A
+		\end{equation*}
+
+		Thus, 
+
+		\begin{equation*}
+		  \id_A = r \circ \id_X \circ i \simeq r \circ c_{x_0} = c_{r(x_0)}
+		\end{equation*}
+
+		where $c_{r(x_0)}$ denotes the constant function obtained by $r \circ c_{x_0}$. We conclude that $A$ is contractible.
+	\end{prf}
+	\newpage
+	\prob[\textsc{Exercise 16.}] Show that $S^\infty$ is contractible.
+	\begin{prf}
+		Here we have an opportunity to exploit the ``homotope infinitely in the interval $(1-\epsilon,1]$'' trick from class. Hatcher defines $S^\infty = \bigcup^\infty_{n=0} S^n$, where $S^n$ is constructed from two $n$-cells, which we denote $T^n$ and $B^n$ for ``top'' and ``bottom'' (its better than ``north'' and ``south'' in this case since $S^n$ is already in use).
+
+		The tuple $(S^n, B^n)$ is a CW-pair and hence satisfies the homotopy extension property (HEP) by Proposition 0.16. The bottom hemisphere $B^n$ is homeomorphic to the $n$-dimensional disk and is therefore contractible, so $S^n \simeq S^n/B^n$ by Proposition 0.17. In fact, if $F^n:S^n \times I\to S^n/B^n$ is the homotopy corresponding to this contraction, then the image of $F^n(-,1)$ is homeomorphic to $S^n$; it simply has the CW structure of $T^n$ glued to a single 0-cell. In particular, $F^n$ contracts all cells of $S^n$ \emph{except} one $n$-cell to a point. Call this point, or 0-cell, $x_0 \in S^\infty$.
+
+		Since $(S^\infty, S^n)$ is itself a CW pair, it has the HEP and we can therefore extend $F^n$ to a homotopy $G^n:S^\infty \times I \to S^\infty$. We can now compose these homotopies together with increasing speed. Define a homotopy $G:S^\infty \times I\to S^\infty$ where $G(x,t) = G^n(x,t)$ for $t \in \left[1-\frac{1}{2^{n-1}}, 1-\frac{1}{2^n}\right]$ and $G(x,1) = x_0$. That is, after $1-\frac{1}{2^{n}}$ units of time, all $d$-cells of $S^\infty$ have been contracted to $x_0$ for $d < n$, and at $t=1$ we have only the constant map $x \mapsto x_0$.
+
+		All that remains is to check continuity. However, since $S^\infty$ has the weak topology, continuity requires only that $G$ is continuous on each component $S^n$, which is satisfies since the restriction of $G$ to $S^n$ is simply $G^n$ on the time interval $\left[1-\frac{1}{2^{n-1}}, 1-\frac{1}{2^n}\right]$, the identity prior, and the constant map after.
+
+		Hence, $S^\infty$ is contractible, and an infinite-dimensional space turns out to have nicer properties than its finite-dimensional counterparts. How strange.
+	\end{prf}
+	\newpage
+	\prob[\textsc{Exercise 17.}] $ $
+	\begin{enumerate}[(a)]
+		\item Show that the mapping cylinder of every map $f:S^1 \to S^1$ is a CW complex.
+		\item Construct a 2-dimensional CW complex that contains both an annulus $S^1\times I$ and a M\"obius band as deformation retracts.
+	\end{enumerate}
+	\begin{prf}
+		\begin{enumerate}[(1)]
+			\item For convenience, we set $X = S^1$, $Y = S^1$ and $f:X\to Y$ so as to differentiate between the domain and codomain of $f$. The mapping cylinder $M_f$ of our map is the quotient space $(X \times I \sqcup Y)/\sim$ where $(x,1) \sim f(x)$. We can construct this as a CW-complex in the following way.
+
+			First, take two 0-cells, i.e. points, which we name $a$ and $b$ and set $X^0 = \{a,b\}$. We then add three 1-cells, $e^1_1,e^1_2$ and $e^1_3$. We attach both endpoints of $e^1_1$ to $a$, both endpoints of $e^1_2$ to $b$ and one endpoint each of $e^1_3$ to $a$ and $b$ to obtain $X^1$. This gives us a ``skeleton'' of a cylinder, and indeed, if we were to now attach a 2-cell in the obvious way, we would end up with a hollow tube. Instead, treat our single 2-cell $e^2_1$ as a square $I^2$, and denote the edges of $e^2_1$ as $\epsilon_1,...,\epsilon_4$ counted anticlockwise so that $\partial I^2 = \epsilon_1\cup...\cup \epsilon_4$. Each $\epsilon_i$ is homeomorphic to the interval $I$, and is thus can be conveniently identified with a $1-cell$ of $X^1$. Attach $\epsilon_1$ to $e^1_1$, and both $\epsilon_2$ and $\epsilon_4$ to $e^1_3$. As for $\epsilon_3$, we attach it to $e^1_2$ via $f$, that is, we first project $\epsilon_3$ onto $S^1$ by identifying its endpoints and then map it to $e^1_2 \cup \{b\}\cong S^1$ via $f$. The continuity of all this last attaching map is clear from the continuity of $f$. Call this CW-complex $A$.
+
+			The space $A$ is ``clearly'' isomorphic to the mapping cylinder $M_f$, but we can actually write the desired isomorphism down without much trouble. Consider the projection $g:X\times I \sqcup Y \to A$ given on $Y$ by $g(y) = f(y)$ (recalling that $Y = X = S^1$) and on $X\times I$ by $g(x,t) = (x,t)$ for $t \neq 1$ and $g(x,1) = (f(x),1)$. From pointset topology, we know that $X\times I \sqcup Y/g \cong A$ where two elements $u,v \in X\times I \sqcup Y$ are identified if and only if $g(u) = g(v)$, but this exactly recovers the equivalence relation $\sim$ on $M_f$ and thus gives us the desired homeomorphism.
+
+		\item Consider the map $f:S^1 \to Y$, where $Y$ is the M\"obius band, given by embedding $S^1$ into the equator of $Y$. By restricting the codomain of $Y$ to the image $f(S^1)$, we can think of $f$ as the identity on $S^1$. Call this restricted map $g$. The mapping cylinder of $g$ is simply the annulus $S^1\times I$, and is a CW-complex by part (a). 
+
+			The M\"obius band was shown to be a CW-complex with two 1-cells and one 2-cells in class, but for our purposes, we add another 1-cell and 2-cell. We do this by making the equator a 1-cell, which in turn yields two 2-cells, one for each half of the band. With this formulation of the M\"obius band, the equator of $Y$ is a subcomplex.
+
+			The M\"obius band deformation retracts to its equator, and we may extend this deformation retract $F$ to all of $M_f$ by defining $F$ to be the identity on $M_g$. It is a general fact that a mapping cylinder of a function $A\to B$ deformation retracts to $B$ (see page 2 of Hatcher) simply by linearly interpolating the points of $A$ along the interval $I$, which means we also have a deformation retract of $M_f$ to $Y$. Finally, as $M_f$ is the union of CW-complexes $M_g$ and $Y$ whose intersection is the equator of $Y$, itself a CW-complex, $M_f$ too is a CW-complex. Hence, $M_f$ is a CW-complex which contains both $S^1\times I = M_g$ and the M\"obius band $Y$ as deformation retracts.
+	\end{enumerate}
+	\end{prf}
+	\newpage
+	\prob[\textsc{Exercise 23.}] Show that a CW complex is contractible if is the union of two contractible subcomplexes whose intersection is also contractible.
+	We start with a lemma.
+	\begin{prf}
+		The intuitive thing to do is to first contract the intersection of our two spaces and then contract the remaining spaces. To ensure this is kosher, I prepared another lemma! 
+		\begin{lem}
+			Let $A$ and $B$ be contractible. Then $A \vee B$ is contractible.
+		\end{lem}
+		\begin{proof}
+		   Let $A$ and $B$ contract to $a \in A$ and $b \in B$ respectively. We show that $A \vee B \simeq \{a\} \vee \{b\} = \{x_0\}$, where $\{x_0\}$ is the result of the wedge sum between $\{a\}$ and $\{b\}$. 
+		   
+		   \bigskip
+		   
+		   Since $A \simeq \{a\}$ and $B \simeq \{b\}$ we have the homotopy equivalences $f$, $f'$, $g$, and $g'$ where 
+		   \begin{equation*}
+			   A \underset{f'}{\overset{f}{\rightoverleftarrow}} \{a\} 
+			   \hspace{36pt}
+			   B \underset{g'}{\overset{g}{\rightoverleftarrow}} \{b\}. 
+		   \end{equation*}
+		   Define the functions $h: A \vee B \rightarrow \{x_0\}$ and $h' : \{x_0\} \rightarrow A\vee B$, where $A$ and $B$ are identified by $f'(x) \sim g'(x)$. Define 
+		   \begin{equation*}
+			   h(x) = x_0 \hspace{36pt} h'(x) = f'(x) = g'(x)
+		   \end{equation*}
+		   We will show that these are homotopy equivalences and inverse homotopy equivalences respectively. Notice that 
+		   \begin{equation*}
+			   h \circ h' = \id_{\{x_0\}} = \simeq \id_{\{x_0\}}
+		   \end{equation*}
+		   and since $\id_{A \vee B} | A = \id_A$ and $\id_{A \vee B} | B = \id_B$, given that 
+		   \begin{equation*}
+			   h' \circ h | A = f' \circ f \simeq \id_{A} = \id_{A \vee B} | A
+			   \hspace{36pt}
+			   h' \circ h | B = g' \circ g \simeq \id_{B} = \id_{A \vee B} | B
+		   \end{equation*}
+		   we conclude that $h' \circ h \simeq \id_{A \vee B}$. Thus $A \vee B$ is contractible to $x_0$.
+		\end{proof}
+
+		\bigskip
+
+		With that out of the way, the rest of the problem is a little faster. Let $X$ be a CW-Complex and let $A$ and $B$ be subcomplexes. We show that if $X = A \cup B$ and if $A$, $B$, and $A \cap B$ are all contractible then $X$ is contractible.
+
+		\bigskip
+
+		First, notice that if $A$ and $B$ are subcomplexes of $X$, then $A \cap B$ is also a subcomplex of $X$. A subcomplex is, by definition, a closed collection of cells of a CW-complex. Since $A$ and $B$ are closed, so also is $A \cap B$. It remains to show that $A \cap B$ is a collection of $n$-cells. Let $C_\alpha^n$ denote the $\alpha$th $n$-cell contained in $A$ and $D_\beta^n$ denote the $\beta$th $n$-cell contained in $B$. Suppose that $x \in D_{\beta_i}^n$ and $x \in C_{\alpha_j}^n$. Since a CW-complex is defined to be the disjoint union of cells, if $x \in D_{\beta_i}^n$ and $x \in C_{\alpha_j}^n$ then we can conclude that $C_{\alpha_j}^n = D_{\beta}^n$. This must be true of every two cells $D_{\beta_i}^n$ and $C_{\alpha_j}^n$, thus, if $x \in C_{\alpha_j}^n$ either $x \not\in D_{\beta_i}^n$ or $C_{\alpha_j}^n = D_{\beta}^n$. Since $A$ and $B$ are both comprised solely of various cells, if $x \in A \cap B$ then it is contained in a cell shared by both $A$ and $B$. We therefore know that if $A$ and $B$ are both subcomplexes, so also is $A \cap B$.
+
+		\bigskip
+
+		Since $A \cap B$ is a subcomplex of $X$, $(X,A\cap B)$ is a CW pair and by Proposition (0.16) we know that $X$ has the homotopy extension property. Since $A \cap B$ is contractible, there exists a nullhomotopy $\psi: A \cap B \times I \rightarrow A \cap B$ and some homotopy $\Psi: X \times I \rightarrow X$ such that $\Psi|(A\cap B) = \psi$. Notice then that $\Psi_1(A\cap B) = \{x_0\}$ for some $x_0 \in A\cap B$.
+
+		\bigskip
+
+		The sets $A$ and $A/(A \cap B)$ are homotopic, as are $B$ and $B/(A \cap B)$ since $A\cap B$ is contractible. By Proposition (0.17) we know that $A/(A \cap B) \simeq A \simeq \{a_0\}$ and $B/(A \cap B) \simeq B \simeq \{b_0\}$. Here we consider $a_0$ and $b_0$ to be the points to which $A$ and $B$ contract respectively. Thus, by the lemma, the wedge sum $A/(A \cap B) \vee B/(A \cap B)$ identified by $a_0 \sim b_0$ must also be contractible.
+
+		\bigskip
+
+		$A/(A\cap B)$ is the set $A$ with all of the intersection $A \cap B$ identified to a point. Likewise, $B/(A \cap B)$ is the set $B$ with all of the intersection $A \cap B$ identified to a point. The wedge sum of these two sets is therefore equal (up to a bijection) to the set$\Psi_1(X)$, obtained by contracting $A \cap B$ to a point. To be precise, we choose to identify $A \cap B$ with $\{x_0\}$. Thus, we have that 
+		\begin{equation*}
+		   X \overset{\Psi}{\simeq} A/(A \cap B) \vee B/(A \cap B) \simeq \{x_0\} 
+		\end{equation*}
+		and we conclude that $X$ is contractible.	   
+	\end{prf}
+	\newpage
+	\prob[\textsc{Exercise 26.}] Use Corollary 0.20 to show that if $(X,A)$ has the homotopy extension property, then $X\times I$ deformation retracts to $X\times \{0\}\cup A\times I$. Deduce from this that Proposition 0.18 holds more generally for any pair $(X_1,A)$ satisfying the homotopy extension property.
+	\begin{prf}
+		We are explicitly told to use Corollary 0.20, an imperative which gives us a useful hint at how to proceed in this problem. Corollary 0.20 reads
+		\begin{cor}\label{cor:cor20-hatcher}
+			If $(X,A)$ satisfies the homotopy extension property and the inclusion $A\hookrightarrow X$ is a homotopy equivalence, then $A$ is a deformation retract of $X$.
+		\end{cor}
+		As we wish to show $X\times I$ deformation retracts to $X\times \{0\}\cup A\times I$, we need to argue first that $(X\times I, X\times \{0\}\cup A\times I)$ has the HEP and then that the inclusion $X\times \{0\}\cup A\times I\hookrightarrow X\times I$ is a homotopy equivalence.
+
+		The pair $(X\times I, X\times \{0\}\cup A\times I)$ has the HEP if and only if $X\times I$ retracts onto $(X\times I) \times \{0\} \cup (X\times \{0\}\cup A\times I)\times I$. It's easy to get lost in the notation here, but we can rewrite this to see we've really morally replaced the interval $I$ with the rectangle $I\times I$, that is
+		\begin{align*}
+			\big( (X\times I) \times \{0\} \big) ~\cup~ \big((X\times \{0\}\cup A\times I)\times I \big)
+			&= \big( X\times (I \times \{0\}) \big) ~\cup~ \big(X \times (\{0\} \times I)\big) ~\cup~ \big(A\times I \times I\big) \\
+			&= \big(X\times (I\times \{0\} \cup \{0\}\times I) \big) ~\cup~ \big(A\times I\times I\big).
+		\end{align*}
+		The space $I\times \{0\} \cup \{0\}\times I$ is two copies of the interval identified at a boundary point, and is homeomorphic to $I\times \{0\}$. To see this explicitly, interpret $I\times \{0\} \cup \{0\}\times I$ as the set $\{(x,0) \mid x \in [0,1]\}\cup \{(0,y)\mid y \in [0,1]\} \subseteq \bR^2$, and consider the map which first rotates $\{(0,y)\mid y \in [0,1]\}$ by $\pi/2$, scales the resulting set $\{(x,0) \mid x \in [-1,1]\}$ by $0.5$ and finally translates along the $x$-axis by $0.5$ to obtain $\{(x,0)\mid x \in [0,1]\} = I \times \{0\}$. This is a composition of homeomorphisms and is thus itself a homeomorphism, so 
+		\begin{align*}
+			\big( (X\times I) \times \{0\} \big) ~\cup~ \big((X\times \{0\}\cup A\times I)\times I \big) 
+			&\cong\big(X\times (I\times \{0\} \cup \{0\}\times I) \big) ~\cup~ \big(A\times I\times I\big) \\
+			&\cong X\times I \times \{0\} ~\cup ~ A\times I \times I \\
+			&\cong (X\times \{0\} ~\cup ~ A\times I) \times I
+		\end{align*}
+		Since $(X,A)$ has the HEP, there exists a retraction $r:X\times I \to X\times \{0\} \cup A\times I$. The map
+		\begin{align*}
+			r\times \id_I:X\times I \times I \to (X\times \{0\} \cup A\times I)\times I
+		\end{align*}
+		is therefore also a retraction, and hence $(X\times I, X\times \{0\}\cup A\times I)$ has the HEP.
+
+		\bigskip
+
+		Now it remains only to show that the inclusion $\iota:X\times \{0\}\cup A\times I \hookrightarrow X\times I$ is a homotopy equivalence. Consider the retraction $r:X\times I \to X\times \{0\}\cup A\times I$ given to us by the HEP. The composition $r\circ \iota$ is the identity on $X\times \{0\}\cup A\times I$, so one half of the homotopy equivalence is automatic. To see that $\iota\circ r$ is homotopic to $\id_{X\times I}$, consider a third map $p:X\times I \to X\times I$ defined $p(x,t) = (x,0)$. The identity $\id_{X\times I}$ is homotopic to $p$ via the map $F:X\times I \times I \to X\times I$ which collapses $I$ to $0$. The composition $\iota\circ r \circ F$ is then a homotopy of $\iota\circ r$ to $p$. Since $\iota \circ r \simeq p \simeq \id_{X\times I}$, we have that $r$ and $\iota$ are inverse homotopy equivalences and hence $(X\times I,X\times \{0\} \cup A\times I)$ satisfies the hypotheses of Corollary 0.20.
+
+		\bigskip
+
+		The last part of this problem is immediate. The proof of Proposition 0.18 only requires $(X_1,A)$ to be a CW pair in order to argue that $X\times I$ deformation retracts onto $X\times \{0\}\cup A\times I$. Since this fact follows from the assumption that $(X_1,A)$ HEP, we may safely drop the CW-complex hypothesis and Hatcher's proof of Proposition 0.18 follows without modification.
+	\end{prf}
+\end{homework}
+\end{document}

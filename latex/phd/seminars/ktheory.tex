@@ -1,0 +1,122 @@
+\documentclass[11pt, raggedright]{tufte-book}
+
+\setcounter{secnumdepth}{1}
+\usepackage{notes2, macrosabound, theorem-env}
+% set margins
+% only use if strictly necessary, tufte-book calls geometry already
+% double geometry call results in "overspecified margins" warning if done as below
+% \geometry{left=1in, right=3in, top = 1in, bottom=1in}
+
+%%%%%%%%%%%%%%%%%%
+%%%% FOR DEBUGGING
+%%%%%%%%%%%%%%%%%%
+%\usepackage{layout}
+%\usepackage{showframe}
+
+%%% Removes paragraph indentation and changes paragraph line skip
+\makeatletter
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{0pc}%
+  \setlength{\JustifyingParindent}{0pc}%
+  \setlength{\parindent}{0PC}%
+  \setlength{\parskip}{9pt}%
+}
+\@tufte@reset@par
+\makeatother
+
+% ensures that the references show up as an unnumbered section
+%\def\bibsection{\section*{\refname}} 
+\begin{document}
+%%% The Title and Author only need to be set once at the start of the document. If you take notes for multiple courses in the same document (for example, in a multi-semester sequence for the same course), you can separate the courses with a new Part, and the semester, lecturer, and course only need to be set once at the start of the new course.
+\newpage
+\title{K-Theory Seminar}
+\author{Isaac Martin}
+\maketitle
+\chapter{Week 1: Vector bundles, clutching functions, Grassmanians}
+\section{Vector Bundles}
+Let's discuss the idea of a vector bundle. Let $X$ be a topological space and suppose to every $x\in X$ we have a vector space $E_x$. A \emph{quasi-vector bundle} is the space $\bigsqcup E_x$ equipped with any topology such that the projection $\bigsqcup E_x \to X$ is continuous.
+
+\begin{defn}\label{defn:vector-bundle}
+  A \emph{vector bundle} is $\pi:E\to X$ where each $E_x = \pi^{-1}(X)$ $x\in X$ is a vector space and for each $x\in X$ there exists an open neighborhood $U$ of $x$ and a homeomorphism $\varphi:\pi^{-1}(U) \to U\times E_x$ which restricts to a linear isomorphic $E_{x_0} \to \{x_0\}\times E_x$. This map $\varphi$ is called a local trivialization above $U$.
+\end{defn}
+
+\begin{example}\label{ex:vector-bundles}$ $
+  \begin{enumerate}[(a)]
+    \item if $V$ is a vector space then the projection $p:X\times V\to X$ is a vector bundle. We call this a \emph{trivial vector bundle} since $X$ is a local trivialization for any element $x\in X$.
+    \item Consider the $\mathbb Z$ action on $\bR \times \bR$ given by $a\cdot (x,y) = (x + a, (-1)^ay)$. Then
+    \begin{align*}
+      p_1:\bR\times \bR/\bZ \to \bR/\bZ
+    \end{align*}
+    where $p_1$ is the projection to the first coordinate is a vector bundle. The total space is the M\"obius band and the base space is the central circle.
+  \end{enumerate}
+\end{example}
+\begin{defn}\label{defn:pullback-square}
+  Given a continuous map $f:X\to Y$, if we have a vector bundle $E\to Y$, then we get a vector bundle $f^*E$ over $X$ via pull back:
+  \begin{center}
+    \begin{tikzcd}
+      f^*E \arrow[r] \arrow[d]& E\arrow[d] \\
+      X \arrow[r,"f"]& Y
+    \end{tikzcd}
+  \end{center}
+  where $(f^*E)_x = E_{f(x)}$.
+\end{defn}
+\marginnote{If the map $\varphi$ is of constant rank, i.e. if $\varphi_x$ has the same rank for all $x \in X$, then $\ker \varphi$ and $\coker \varphi$ are both vector bundles over $X$ as well.}
+\begin{defn}\label{defn:}
+  Suppose we have two vector bundles $\pi:E\to X$ and $\pi':E'\to X$ over the same base space. A \emph{morphism} of vector bundles $\varphi:(\pi,E,X)\to (\pi',E',X)$ is a map $E\to E'$ which both commutes with the projection maps $\pi$ and $\pi'$ and restricts to a linear maps on each fiber: $\varphi_x: E_x\to E_x'$. Notice that $E$ and $E'$ are \emph{not} required to be of the same rank.
+\end{defn}
+
+
+\begin{defn}\label{defn:isomorphism-classes-of-vector-bundles}
+  The category of vector bundles with base field $K$ over base $X$ is denoted $\Vect_K(X)$. We denote by $\pi_0(\Vect_K(X))$ the category of vector bundles over $X$ up to isomorphism.
+\end{defn}
+
+\subsection{Clutching Construction}
+Vector bundles can be defined locally and then glued together to give a global vector bundle. Here is the construction:
+
+\begin{thm}\label{thm:gluing-vector-bundles}
+  Let $\{U_\alpha\}_{\alpha\in A}$ be a cover for $X$. Denote by $U_{\alpha\beta} = U_\alpha\cap U_\beta$ and $U_{\alpha\beta\gamma} = U_{\alpha\beta} \cap U_\gamma$ etc. 
+
+  Suppose we have a family of vector bundles $E_\alpha \to U_\alpha$ and isomorphisms $g_{\alpha\beta}:E_\alpha|_{U_{\alpha\beta}}\to E_\beta|_{U_{\alpha\beta}}$. If the gluing maps $g_{\alpha\beta}$ additionally satisfy the cocycle condition $g_{\alpha\gamma}|_{U_{\alpha\beta\gamma}} = g_{\alpha\beta}\circ g_{\beta\gamma}$, then we can glue the local vector bundles $E_\alpha \to U_\alpha$ on the intersections $U_{\alpha\beta}$ to get a total bundle $E\to X$ where
+  \begin{align*}
+    E = \left.\bigsqcup_{\alpha\in A} E_\alpha \middle / (e_\alpha \sim e_\beta ~ \text{ if }~ g_{\alpha\beta}(e_\alpha) = e_\beta)\right. .
+  \end{align*}
+\end{thm} \marginnote{This is identical to the gluing construction for sheaves, see Hartshorne Exercise 2.1.13.}
+
+The cocycle condition here exists purely to ensure $e_\alpha \sim e_\beta$ is transitive and is hence an equivalence relation.
+
+\chapter{Week 2: More on Vector Bundles and $K^0$}
+
+Two more things about vector bundles. Given vector bundles $E$ and $E'$ over a space $Y$, we can define
+\begin{itemize}
+  \item The \textbf{Whitney Sum}: this is defined fiberwise: $(E\oplus E')_x \cong E_x \oplus E'_x$\item The \textbf{tensor product}: $(E\otimes E')_x = E_x\otimes E'_x$
+  \item The \textbf{pullback:} if $f:X\to Y$ is continuous, then $f^*E = \{(x,e) \in X\times E ~\mid~ f(x) = p(e)\}$ where $p:E\to X$ is the bundle map. Sections are given $(F^*E)_y = E_{f(x)}$ where $f(x) = y$.
+\end{itemize}
+\marginnote{I don't know what "varies continuously in morphisms" means, I'll include it later.} More generally\, any endofunctor $F: \Vect \to \Vect$ which varies continuously in morphisms extends to an endofunctor in the category of vector bundles via its action on sections.
+
+\textbf{Examples}
+
+\begin{itemize}
+  \item Trivial bundles; these are vector bundles which are trivialized over the whole space. When $M$ is a parallelizable manifold, $TM$ is a trivial bundle. \marginnote{This is often taken to be the definition of parallelizable. Alternatively one can define a manifold to be parallelizable if it has a global frame.}
+  \item Tautological vector bundles; $\bRP^n, \bCP^n$, Grassmanians.
+  \item Subbundles; $S^1 \times \mathbb R^2$
+  \item Normal bundles; $M\hookrightarrow N$ is a smooth embedding, a normal bundle to $M$ is a subbundle of $TN$ which picks out at each point the subspace which is normal to $TM$ in $TN$.
+\end{itemize}
+
+\begin{lem}\label{lem:vb-over-XxI}
+  The restriction of a vector bundle $E\to X\times I$ to $\times \{0\}$ and $X\times \{1\}$ are isomorphic if $X$ is paracompact.
+\end{lem}
+\begin{cor}\label{cor:homotopies-of-vb}
+  If $f:A\to B$ is a homotopy equivalence of vector bundles then the pullback $f^*$ induces a bijection $f^*:\Vect_K^n(B) \to \Vect_K^n(A)$ (remember that $\Vect^n_K(X)$ is the set of isomorphism classes of rank $n$ vector bundles with base field $K$ over $X$).
+\end{cor}
+\begin{example}
+  Consider an embedding $S^{n-2}\hookrightarrow S^n$. Then the open tubular neighborhoods of $X^{n-2}$ are in bijection with points of the total space of rank 2 vector bundles over $S^{n-2}$.
+\end{example}
+
+\section{$K^0$}
+
+$\Vect_{\mathbb C}^n(X)$ has the natural structure of an abelian monoid under the Whitney sum operation. This means we can complete it to a group, and this process is known as Groethendieck completion. For an arbitrary monoid it's this:
+\begin{align*}
+  \text{Gr}(M) = \mathbb Z \langle M \rangle / ([m] + [n] - [m + n], m,n \in M)
+\end{align*}
+and we define $K^0(X) = \operatorname{Gr}(\Vect^n_{\mathbb C}(X))$.
+\end{document}

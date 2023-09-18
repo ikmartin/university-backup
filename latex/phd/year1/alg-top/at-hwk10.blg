@@ -1,0 +1,9 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[0] Config.pm:314> INFO - Logfile is 'at-hwk10.blg'
+[46] biber:340> INFO - === Thu Nov  3, 2022, 17:06:10
+[55] Biber.pm:415> INFO - Reading 'at-hwk10.bcf'
+[98] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
+[102] Utils.pm:395> WARN - The file 'at-hwk10.bcf' does not contain any citations!
+[107] bbl.pm:654> INFO - Writing 'at-hwk10.bbl' with encoding 'UTF-8'
+[107] bbl.pm:757> INFO - Output to at-hwk10.bbl
+[107] Biber.pm:128> INFO - WARNINGS: 1

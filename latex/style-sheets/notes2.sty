@@ -1,0 +1,44 @@
+\ProvidesPackage{notes2}
+
+% Packages
+\RequirePackage{fancyhdr}
+\RequirePackage{soul}
+\RequirePackage{hyperref}
+\RequirePackage{marginfix} 
+
+% marginnote settings
+%\let\oldmarginnote\marginnote
+%\renewcommand{\marginnote}[1]{\oldmarginnote{\parindent=0pt \parskip=7pt #1}} % no paragraph indents in marginnotes
+\newcommand{\marginnotenum}[1]{\footnotesinmargin \footnote{[#1]} \footnotesatfoot}
+
+\newcommand{\formatpart}[1]{%
+    \begin{fullwidth}
+    \centering%
+    \partname~\thepart:\enspace#1%
+    \end{fullwidth}
+    }
+
+\titleformat{\part}
+    [block]
+    {\bfseries \sc \Huge \centering}
+    {}%\enspace \Huge Part \thepart
+    {0pt}
+    {\formatpart}
+
+% Headings
+\newcommand\setfancyhdr{%
+    \pagestyle{fancy}%
+    \fancyhead%
+    \fancyfoot%
+    \lhead{\scshape\thetitle}%
+    \chead{}%
+    \rhead{\scshape\theauthor}%
+    \lfoot{}%
+    \cfoot{\thepage}%
+    \rfoot{}%
+}
+
+\let\oldmaketitle\maketitle
+\renewcommand\maketitle{\sffamily\oldmaketitle\rmfamily}
+
+\setlength{\fboxrule}{.5mm} %resize framebox thickness to theorem box frame thickness (more consistent design language), default is .2pt

@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex ising"] 1676955237 "ising.aux" "ising.bbl" "ising" 1676956649
+["bibtex ising"] 1676955237 "ising.aux" "ising.bbl" "ising" 1693332318
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/abbrvnat.bst" 1233624470 26532 66bed5cc59495faaa3f9ae9af9fa5e42 ""
-  "ising.aux" 1676956649 3411 edc3e08b57739f217b8087e992089722 "pdflatex"
+  "ising.aux" 1693332318 3411 edc3e08b57739f217b8087e992089722 "pdflatex"
   "ising.bib" 1676766963 1450 cdb2bfb61069358086a58a85caada9f0 ""
   (generated)
   "ising.bbl"
   "ising.blg"
-["pdflatex"] 1676956648 "ising.tex" "ising.pdf" "ising" 1676956649
-  "/Users/isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1676956647 37257 2fa1ff2324182d88104b570cc08e589a ""
+["pdflatex"] 1693332317 "ising.tex" "ising.pdf" "ising" 1693332318
+  "/Users/isaac/Library/texmf/tex/latex/style-sheets/macrosabound.sty" 1690412981 36854 8d7f301fe8ceb3cbd4c5805fef205c56 ""
   "/Users/isaac/Library/texmf/tex/latex/style-sheets/notes.sty" 1676766963 9161 7040046b39707dcb37530e9c74c4190d ""
   "/dev/null" 0 -1 0 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
@@ -229,7 +229,6 @@
   "/usr/local/texlive/2022/texmf-dist/tex/latex/cyrillic/ot2enc.def" 1523134385 6069 50ef7b9a9e259185c810d102fe04e6ed ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/cyrillic/ot2wncyr.fd" 1523134385 2895 6de7d5600a04d6f0fd0f53527364d6a7 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/dynkin-diagrams/dynkin-diagrams.sty" 1617662193 151737 efb4b14da016888093be567a0d3d0bf1 ""
-  "/usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty" 1561238569 51697 f8f08183cd2080d9d18a41432d651dfb ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/environ/environ.sty" 1399239813 4378 f429f0da968c278653359293040a8f52 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1601931149 46845 3b58f70c6e861a13d927bff09d35ecbc ""
@@ -324,11 +323,11 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1676399263 2826451 d93c80d8a60ecfe737f8da20e0ce13e4 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "ising.aux" 1676956649 3411 edc3e08b57739f217b8087e992089722 "pdflatex"
+  "ising.aux" 1693332318 3411 edc3e08b57739f217b8087e992089722 "pdflatex"
   "ising.bbl" 1676955237 275 de5ffaf5b665b622658d80bed97ba2a5 "bibtex ising"
-  "ising.out" 1676956649 579 e3c87a1feff2b9a34b6f5e09eea28b93 "pdflatex"
+  "ising.out" 1693332318 579 e3c87a1feff2b9a34b6f5e09eea28b93 "pdflatex"
   "ising.pre" 0 -1 0 "pdflatex"
-  "ising.tex" 1676956023 22971 36258e36b8449321129b47ca26dabbc6 ""
+  "ising.tex" 1679172182 22971 36258e36b8449321129b47ca26dabbc6 ""
   (generated)
   "ising.aux"
   "ising.log"

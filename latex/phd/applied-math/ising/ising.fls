@@ -1365,17 +1365,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/euscript.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/euscript.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/euscript.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/euscript.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/scalerel/scalerel.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/scalerel/scalerel.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/scalerel/scalerel.sty
@@ -1414,7 +1403,6 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
-INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/xcolor/xcolor.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/marvosym/marvosym.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/marvosym/marvosym.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/marvosym/marvosym.sty
