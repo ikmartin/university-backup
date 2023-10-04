@@ -1,0 +1,49 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Marian et~al.(2016)Marian, Oprea, Pandharipande, Pixton, and
+  Zvonkine]{marian2016chern}
+A.~Marian, D.~Oprea, R.~Pandharipande, A.~Pixton, and D.~Zvonkine.
+\newblock The chern character of the verlinde bundle over the moduli space of
+  stable curves, 2016.
+
+\bibitem[Kobayashi(1987)]{complex-vector-bundles}
+Shoshichi Kobayashi.
+\newblock \emph{Differential Geometry of Complex Vector Bundles}.
+\newblock Princeton University Press, 1987.
+\newblock URL \url{http://www.jstor.org/stable/j.ctt7zv1h0}.
+
+\bibitem[Stefanich(2016)]{Berkeley-chern-class}
+German Stefanich.
+\newblock Chern classes and the chern character, 2016.
+\newblock URL \url{https://math.berkeley.edu/~germans/Chern1.pdf}.
+
+\bibitem[shen Chern(1946)]{chern-class-first-paper}
+Shiing shen Chern.
+\newblock Characteristic classes of hermitian manifolds.
+\newblock \emph{Annals of Mathematics}, 47\penalty0 (1):\penalty0 85--121,
+  1946.
+\newblock ISSN 0003486X.
+\newblock URL \url{http://www.jstor.org/stable/1969037}.
+
+\bibitem[Hatcher(2017)]{hatcher-vector-bundles}
+Allen Hatcher.
+\newblock Vector bundles and k-theory, November 2017.
+
+\bibitem[Chiarello(2016)]{chiarello2016telemans}
+Simone~Melchiorre Chiarello.
+\newblock Teleman's classification of 2d semisimple cohomological field
+  theories, 2016.
+
+\bibitem[Teleman(2011)]{Teleman_2011}
+Constantin Teleman.
+\newblock The structure of 2d semi-simple field theories.
+\newblock \emph{Inventiones mathematicae}, 188\penalty0 (3):\penalty0 525--588,
+  sep 2011.
+\newblock \doi{10.1007/s00222-011-0352-5}.
+
+\end{thebibliography}
