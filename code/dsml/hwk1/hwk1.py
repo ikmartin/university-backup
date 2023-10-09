@@ -28,6 +28,7 @@ def prob3(d=1000, samples=250, vis=False):
     ####################
     # save figure prompt
 
+    plt.show()
     plt.clf()
     plt.close()
 
@@ -150,5 +151,5 @@ def prob6(d=1000, samples=250, vis=False, savefig="", alldist=True):
 if __name__ == "__main__":
     # prob4()
     d = 3
-    # prob6(d=d, samples=250, vis=False, savefig="y", alldist=True)
-    prob3(d=d, samples=500)
+    prob6(d=d, samples=500, vis=True, savefig="n", alldist=True)
+    # prob3(d=d, samples=500)
