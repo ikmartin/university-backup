@@ -1,20 +1,29 @@
-\input{../../../preamble.tex}
+\input{tufte_preamble.tex}
+
+\title[Solutions to \emph{Algebraic Geometry} by Robin Hartshorne]{\setlength{\parindent}{0pt}Solutions \\to \\Hartshorne} % Title of the book
+\author{Isaac Martin} % Author
+\date{Fall 2023}
 
 \begin{document}
-\pagestyle{empty}
-	\LARGE
-\begin{center}
-	Problems from Hartshorne Chapter II Section 1 \\
-	\Large
-	Isaac Martin \\
-    Last compiled \today
-\end{center}
-\normalsize
-\vspace{-2mm}
-\hrule
-\begin{homework}[e]
-	\prob Let $A$ be an abelian group and defined the \emph{constant presheaf} associated to $A$ on the topological space $X$ to be the preshseaf $U\mapsto A$ for all $U\neq \emptyset$, with restriction maps the identity. Show that the constant sheaf $\cA$ defined in the text is the sheaf associated to this presheaf.
-	\begin{prf}
+
+\maketitle
+\tableofcontents % Print the table of contents
+
+%----------------------------------------------------------------------------------------
+
+%\listoffigures % Print a list of figures
+
+%----------------------------------------------------------------------------------------
+
+%\listoftables % Print a list of tables
+
+\setcounter{chapter}{1}
+\chapter{Schemes}
+\section{Sheaves}
+
+\begin{problemset}
+	\item Let $A$ be an abelian group and defined the \emph{constant presheaf} associated to $A$ on the topological space $X$ to be the preshseaf $U\mapsto A$ for all $U\neq \emptyset$, with restriction maps the identity. Show that the constant sheaf $\cA$ defined in the text is the sheaf associated to this presheaf.
+	\begin{proof}
 		Let $\cC$ be the constant sheaf on $X$, i.e. the sheaf defined as follows: for any open $U\subseteq X$, $\cC(U)$ is the group of all continuous maps of $U$ into $A$ (where $A$ is endowed with the discrete topology). Let $\cG$ be any other sheaf on $X$.
 
 		Define $\theta:\cF\to \cC$ as follows. For an open set $U$, let $\theta(U):\cF(U) = A\to \cC(U)A$ send a point $a \in A$ to the constant map $(x \mapsto a)\in \cC(U)$.
@@ -26,14 +35,14 @@
 			\alpha(U)(a)|_{f^{-1}(a)\cap f^{-1}(b)} = \alpha(U)(b)|_{f^{-1}(a)\cap f^{-1}(b)}
 		\end{align*}
 		and hence there is some element $g_f \in \cG(U)$ such that $g_f|_{f^{-1}(a)} = \alpha(U)(a)|_{f^{-1}(a)}$ for all $a \in A$. We simply define $\beta(U)(f) = g_f$ to obtain a map $\beta(U):\cC(U)\to \cG(U)$. This satisfies the restriction requirements and hence $\beta$ is a map of schemes. Furthermore, if $f = \theta(U)(a)$ for some $a \in A$, then $f$ is the constant map $x \mapsto a$ and hence $f^{-1}(a) = U$, so $\beta(f) = \alpha(U)(a)$. This shows that $\alpha = \beta\circ \theta$, meaning $\cC$ satisfies the universal property of the sheaf associated to $\cF$.
-	\end{prf}
-	\prob $ $
+	\end{proof}
+	\item $ $
 	\begin{enumerate}[(a)]
 		\item For any morphism of sheaves $\varphi:\cF\to \cG$ show that for each point $P$, $(\ker\varphi)_P = \ker(\varphi_P)$ and $(\im\varphi)_P = \im(\varphi_P)$
 		\item Show that $\varphi$ is injective (respectively, surjective) if and only if the induced map on the stalks $\varphi_P$ is injective (respectively, surjective) for all $P$.
 		\item Show that a sequence $...\to \cF^{i-1}\xrightarrow{\varphi^{i-1}} \cF^i \xrightarrow{\varphi^i}\cF^{i+1}\to ...$ of sheaves and morphisms is exact if and only if for each $P\in X$ the corresponding sequence of stalks is exact as a sequence of abelian groups.
 	\end{enumerate}
-	\begin{prf}$ $
+	\begin{proof}$ $
 		\begin{enumerate}[(a)]
 			\item Recall that for any $V\subseteq X$ containing a point $P$ we have the diagram
 				\begin{center}
@@ -48,16 +57,21 @@
 
 				\bigskip
 
-				Now let's consider $\im(\varphi)$.
+                Now let's consider $\im\varphi$. Let $\im^{pre}\varphi$ denote the image presheaf and recall that sheafification preserves stalks: $(\im^{pre}\varphi)_P = (\im\varphi)_P$. By the same diagram as before we have that for $t\in \mathcal F(V)$,
+                \begin{align*}
+                  \varphi_P(t,V) = \varphi_P(\pi(t)) = \pi(\varphi(V)(t)) = (\varphi(V)(t),V).
+                \end{align*}
+                Every element $\varphi_P(t,V)\in \im(\varphi_P)$ can therefore be written as the projection of an element $(\varphi(V)(t),V)\in \mathcal G(V)$, and vice versa. This gives both inclusions.
+          \item Recall that a map of sheaves is said to be injective if $\ker\varphi = 0$. By part (a), if $\ker\varphi = 0$ then $\ker(\varphi_P) = (\ker \varphi)_P = 0$, and hence $\varphi_P$ is injective. Likewise, if there is some $U$ such that $\varphi(U)$ is not injective, then there must be some $s\in U$ such that 8
 		\end{enumerate}
-	\end{prf}
-	\prob $ $
+	\end{proof}
+	\item $ $
 	\begin{enumerate}[(a)]
 		\item  Let $\varphi:\cF\to \cG$ be a morphism of sheaves on $X$. Show that $\varphi$ is surjective if and only if the following condition holds: for every open set $U\subseteq X$, and for every $s \in \cG(U)$, there is a covering $\{U_i\}$ of $U$ and there are elements $t_i \in \cF(U_i)$ such that $\varphi(t_i) = s|_{U_i}$ for all $i$.
 		\item Give an example of a surjective morphism of sheaves $\varphi:\cF\to \cG$ and an open set $U$ such that $\varphi(U):\cF(U)\to \cG(U)$ is not surjective.
 	\end{enumerate}
-	\prob[\textsc{Exercise 14.}] Let $\cF$ be a sheaf on $X$, and let $s \in \cF(U)$ be a section over an open set $U$. The \emph{support} of $s$, denote $\Supp s$ is defined to be $\{P \in U \mid s_P \neq 0\}$, where $s_P$ denotes the germ of $s$ in the stalk of $\cF_P$. Show that $\Supp s$ is a closed subset of $U$. We define the \emph{support} of $\cF$ $\Supp \cF$, to be $\{P\in X \mid \cF_P \neq 0\}$. It need not be a closed subset.
-	\begin{prf}
+	\item[\textsc{Exercise 14.}] Let $\cF$ be a sheaf on $X$, and let $s \in \cF(U)$ be a section over an open set $U$. The \emph{support} of $s$, denote $\Supp s$ is defined to be $\{P \in U \mid s_P \neq 0\}$, where $s_P$ denotes the germ of $s$ in the stalk of $\cF_P$. Show that $\Supp s$ is a closed subset of $U$. We define the \emph{support} of $\cF$ $\Supp \cF$, to be $\{P\in X \mid \cF_P \neq 0\}$. It need not be a closed subset.
+	\begin{proof}
 		Consider the set $V = \{P \in U \mid s_P = 0\}$. For each $P\in V$ there then exists some $W_P$ containing $P$ and open in $V$ such that $s_P = (s|_{W_P}, W_P) = 0$, i.e. so that $s|_{W_P} = 0$. We then have that $V = \bigcup_{P \in V} W_P$, and hence $V$ is open. Because $\Supp s$ is the complement of $V$ it is closed.
 
 		An example of a sheaf whose support is not a closed set in $U$ is $j_!\bZ$. Here $j:U\to X$ is the inclusion and $j_!:\Sh(U,\bZ)\to \Sh(X,\bZ)$ is the functor where $j_!\cF$ is the sheaf associated to the presheaf
@@ -69,9 +83,9 @@
 			\end{cases}.
 		\end{align*}
 		The sheaf $j_!\cF$ has the property that $(j_!\cF)_x = \cF_x$ if $x \in U$ and is $0$ otherwise. Hence, the support of $j_!\bZ$ is simply $U$, which is open, not necessarily closed.
-	\end{prf}
-	\prob[\textsc{Exercise 15.}] Sheaf $\sHom$. Let $\cF$ and $\cG$ be sheaves of abelian groups on $X$ . For any open set $U\subseteq X$ show that the set $\Hom(\cF|_U,\cG|_U)$ of morphisms of the restricted sheaes has a natural structure of an abelian group. Show that the presheaf $U\mapsto \Hom(\cF_U,\cG|_U)$ is a sheaf. It is called the \emph{sheaf of local morphisms} of $\cF$ into $\cG$, ``sheaf hom'' for short, and is denoted $\sHom(\cF,\cG)$.
-	\begin{prf}
+	\end{proof}
+	\item[\textsc{Exercise 15.}] Sheaf $\sHom$. Let $\cF$ and $\cG$ be sheaves of abelian groups on $X$ . For any open set $U\subseteq X$ show that the set $\Hom(\cF|_U,\cG|_U)$ of morphisms of the restricted sheaves has a natural structure of an abelian group. Show that the presheaf $U\mapsto \Hom(\cF_U,\cG|_U)$ is a sheaf. It is called the \emph{sheaf of local morphisms} of $\cF$ into $\cG$, ``sheaf hom'' for short, and is denoted $\sHom(\cF,\cG)$.
+	\begin{proof}
 		We first show that $\Hom(\cF|_U,\cG_U)$ is an abelian group. This is easy; we simply define $(f+g)(U) = f(U) + g(U) \in \Hom_{\text{Ab}}(\cF(U), \cG(U))$. The zero morphism $0:\cF\to \cG$ defined $0(U)(s) = 0$ is the identity and the inverse of a map $f:\cF\to \cG$ is the morphism $-f:\cF\to \cG$ defined on sections by $(-f)(U)(s) = -f(U)(s)$. This addition is compatible with restrictions.
 
 		Note that $\sHom(\cF,\cG)$ is indeed a presheaf -- it associates an abelian group to every $U\subseteq X$ and for every inclusion $V\subseteq U$ we get a restriction $\Hom(\cF|_U,\cG|_U) \to \Hom(\cF|_V,\cG_V)$ given by restriction a morphism $f:\cF|_U\to \cG|_U$ to $\cF|_V\to \cG|_V$ (here we are technically using the fact that $(\cF|_U)|_V \cong \cF|_V$). We therefore need only show the two locality conditions hold for $\sHom(\cF,\cG)$.
@@ -92,21 +106,21 @@
 		\emph{Gluing Axiom:}~ Suppose now that we have morphisms $f_i:\cF|_{V_i}\to \cG|_{V_i}$ on some open cover $\{V_i\}$ of an open set $W\subseteq U$ such that $f_i(V_i\cap V_j) = f_j(V_i\cap V_j)$. We can define a morphism $f:\cF|_W\to \cG|_W$ which restricts to $f_i$ on $V_i$ as follows.
 
 		Fix an arbitrary section $s \in \cF(W)$, restrict it to $V_i$ and map it to $\cG|_{V_i}$. This is $f_i(V_i)(s|_{V_i})$. The restriction of this $\cG(V_i)$ section to $V_i\cap V_j$ is $f_i(V_i)(s|_{V_i})|_{V_j} = f_i(V_i)(s|_{V_i\cap V_j})$ by the commutativity requirement satisfied by $f_i(V_i)$ and furthermore $f_i(V_i)(s|_{V_i\cap V_j}) = f_j(V_j)(s|_{V_i\cap V_j}) = f_j(V_j)(s|_{V_j})|_{V_i}$ since $f_i$ and $f_j$ agree on overlaps. Hence $\{f_i(V_i)(s|_{V_i})\}_i$ form a collection of sections in $\cG(V_i)$ which agree on overlaps, so there is some unique $x \in \cG(W)$ which restricts to $f_i(V_i)(s|_{V_i})$ on $V_i$. Now define $f(W)(s) = x$. This is the only thing we could possibly do, since $x$ is the unique element which satisfies $x|_{V_i} = f(V_i)(s|_{V_i})$ for all $i$. One can see that $f$ is compatible with restrictions by definition (we \emph{definted} it by lifting restrictions on a cover) and that $f(W')$ is a homomorphism of abelian groups by tracing a sum $s + t$ of sections in $\cF(W')$ through the same restriction diagrams and lifting to $\cG(W')$.
-	\end{prf}
-	\prob[\textsc{Exercise 16.}] A sheaf $\cF$ on a topological space $X$ is \emph{flasque} if for every inclusion $V\subseteq U$ of open sets, the restriction map $\cF(U) \to \cF(V)$ is surjective.
+	\end{proof}
+	\item[\textsc{Exercise 16.}] A sheaf $\cF$ on a topological space $X$ is \emph{flasque} if for every inclusion $V\subseteq U$ of open sets, the restriction map $\cF(U) \to \cF(V)$ is surjective.
 	\begin{enumerate}[(a)]
 		\item Show that a constant sheaf on an irreducible topological space is flasque.
 		\item If $0 \to \cF' \to \cF\to \cF''\to 0$ is an exact sequence of sheaves, and if $\cF'$ is flasque, then for any open set $U$, the sequence $o\to \cF'(U)\to \cF(U)\to \cF''(U)\to 0$ of abelian groups is also exact.
 		\item If $0 \to \cF' \to \cF \to \cF''\to 0$ is an exact sequence of sheaves and if $\cF'$ and $\cF$ are flasque, then $\cF''$ is flasque.
 	\end{enumerate}
-	\begin{prf}$ $
+	\begin{proof}$ $
 		\begin{enumerate}[(a)]
 			\item If $U \subseteq X$ then $U$ is also irreducible, indeed, if $U = (X\cap F_1)\cup (X \cap F_2)$ for some closed sets $F_1,F_2 \subseteq X$, then $X = U^c \cup F_1 \cup F_2$. It therefore suffices to consider the inclusion $U\subseteq X$ of an open set $U$. Let $f \in A(U)$ be a section of $\cC(U)$ where $A$ is the constant sheaf on $X$ (see the definition in exercise II.1.1) and let $a \in \img f$. The sets $\{a\}$ and $\img f\setminus \{a\}$ are both open and closed because $A$ is endowed with the discrete topology, hence $f^{-1}(a)\cup f^{-1}(\img f\setminus \{a\}) = U$ is a decomposition of $U$ into closed subsets. As $U$ is irreducible, one of these must be empty, and it must be $f^{-1}(\img f\setminus \{a\})$ since we chose $a\in \img f$. This implies $f$ is the constant function $x \mapsto a$, and is the restriction of the same function on $X$ to $U$.
 			\item 
 		\end{enumerate}
-	\end{prf}
-	\prob[\textsc{Exercise 17.}] Let $X$ be a topological space, let $P$ be a point, and let $A$ be an abelian group. Define a sheaf $i_P(A)$ as follows: $i_P(A)(U) = A$ if $P\in U$, $0$ otherwise. Verify that the stalk of $i_P(A)$ is $A$ at every point $Q\in \{P\}^-$ in the closure of $P$, and $0$ elsewhere. Hence the name ``skyscraper sheaf''. Show that this sheaf could also be described as $i_*(A)$ where $A$ denotes the constant sheaf $A$ on the closed subspace $\{P\}^-$ and $i\{P\}^-\to X$ is the inclusion.
-	\begin{prf}
+	\end{proof}
+	\item[\textsc{Exercise 17.}] Let $X$ be a topological space, let $P$ be a point, and let $A$ be an abelian group. Define a sheaf $i_P(A)$ as follows: $i_P(A)(U) = A$ if $P\in U$, $0$ otherwise. Verify that the stalk of $i_P(A)$ is $A$ at every point $Q\in \{P\}^-$ in the closure of $P$, and $0$ elsewhere. Hence the name ``skyscraper sheaf''. Show that this sheaf could also be described as $i_*(A)$ where $A$ denotes the constant sheaf $A$ on the closed subspace $\{P\}^-$ and $i\{P\}^-\to X$ is the inclusion.
+	\begin{proof}
 		Suppose $Q\in \{P\}^-$ so that every open set $V$ containing $Q$ also contains $P$. Then $i_P(A)(V) = A$ for every such set by definition, and the restriction map $i_P(A)(V) \to i_P(A)(V')$ for $Q \in V' \subseteq V$ is the identity. Hence the stalk at $i_P(A)(V)$ is indeed $A$. If $Q$ is not in the closure of $\{P\}$ then there is some open set $V$ containing $Q$ which avoids $P$. Hence $i_P(A)(V) = 0$ and the stalk at $Q$ must necessarily be zero.
 
 		Suppose now that $i_*(A)$ is the pushforward of the constant sheaf on $\{P\}^-$ via the inclusion $i:\{P\}^-\to X$. Any open subset of $\{P\}^-$ is given by the intersection of $\{P\}^-$ with $V\subseteq X$ open. If this intersection contains a point $Q$, then $V$ necessarily contains $P$ as well, since $Q$ is in the closure of $\{P\}$. This means every nonempty open subset of $\{P\}^-$ contains $P$, and in particular, any two open subsets meet. This implies that $\{P\}^-$ is connected and thus the constant sheaf $A$ on $\{P\}^-$ is simply the constant presheaf. The pushforward $i_*A$ is then
@@ -118,6 +132,6 @@
 			\end{cases}.
 		\end{align*}
 		This is exactly the skyscraper sheaf.
-	\end{prf}
-\end{homework}
+	\end{proof}
+\end{problemset}
 \end{document}

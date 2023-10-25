@@ -1,9 +1,9 @@
-[0] Config.pm:311> INFO - This is Biber 2.16
-[0] Config.pm:314> INFO - Logfile is 'hartshorneII-1.blg'
-[146] biber-darwin:340> INFO - === Tue Jan 24, 2023, 14:01:00
-[177] Biber.pm:415> INFO - Reading 'hartshorneII-1.bcf'
-[336] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
-[348] Utils.pm:395> WARN - The file 'hartshorneII-1.bcf' does not contain any citations!
-[360] bbl.pm:654> INFO - Writing 'hartshorneII-1.bbl' with encoding 'UTF-8'
-[360] bbl.pm:757> INFO - Output to hartshorneII-1.bbl
-[361] Biber.pm:128> INFO - WARNINGS: 1
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'hartshorneII-1.blg'
+[50] biber-darwin:340> INFO - === Mon Oct  9, 2023, 17:35:27
+[60] Biber.pm:418> INFO - Reading 'hartshorneII-1.bcf'
+[122] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
+[132] bbl.pm:654> INFO - Writing 'hartshorneII-1.bbl' with encoding 'UTF-8'
+[132] bbl.pm:757> INFO - Output to hartshorneII-1.bbl
+[132] Biber.pm:130> WARN - The file 'hartshorneII-1.bcf' does not contain any citations!
+[132] Biber.pm:132> INFO - WARNINGS: 1

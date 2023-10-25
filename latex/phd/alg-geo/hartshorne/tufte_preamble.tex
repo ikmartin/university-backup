@@ -1,0 +1,94 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tufte-Style Book (Documentation Template)
+% LaTeX Template
+% Version 1.0 (5/1/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% The Tufte-LaTeX Developers (tufte-latex.googlecode.com)
+%
+% License:
+% Apache License (Version 2.0)
+%
+% IMPORTANT NOTE:
+% In addition to running BibTeX to compile the reference list from the .bib
+% file, you will need to run MakeIndex to compile the index at the end of the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt, ragged-right]{tufte-book} % Use the tufte-book class which in turn uses the tufte-common class
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SETTINGS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hypersetup{colorlinks} % Comment this line if you don't wish to have colored links
+
+\setcounter{secnumdepth}{1}
+
+\usepackage{fancyvrb} % Allows customization of verbatim environments
+\fvset{fontsize=\normalsize} % The font size of all verbatim text can be changed here
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CHANGE CHAPTER FORMATTING
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\titleformat{\chapter}%
+  {}% format applied to label+text
+  {\itshape\Huge\chaptertitlename~\thechapter:}% label
+  {12pt}% horizontal separation between label and title body
+  {\Huge\rmfamily\itshape}% before the title body
+\makeatother
+\makeatletter
+\titleformat{\section}%
+  {}% format applied to label+text
+  {\huge\rmfamily\itshape \S \arabic{section}:}% label
+  {9pt}% horizontal separation between label and title body
+  {\huge\rmfamily\itshape}% before the title body
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PACKAGES TO INCLUDE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{microtype} % Improves character and word spacing
+\usepackage{booktabs} % Better horizontal rules in tables
+\usepackage{xspace} % Used for printing a trailing space better than using a tilde (~) using the \xspace command
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% FIGURES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx} % Needed to insert images into the document
+\graphicspath{{images/}} % Sets the default location of pictures
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio} % Improves figure scaling
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% CUSTOM COMMANDS AND ENVIRONMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[shortlabels]{enumitem}
+\newlist{problemset}{enumerate}{10}
+\setlist[problemset,1]{
+  leftmargin=*,
+  label=\arabic{section}.\arabic*.,
+  ref=\arabic{chapter}.\arabic{section}.\arabic*,
+}
+
+\newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage} % Command to insert a blank page
+\newcommand{\hlred}[1]{\textcolor{Maroon}{#1}} % Print text in maroon
+\newcommand{\hairsp}{\hspace{1pt}} % Command to print a very short space
+\newcommand{\ie}{\textit{i.\hairsp{}e.}\xspace} % Command to print i.e.
+\newcommand{\eg}{\textit{e.\hairsp{}g.}\xspace} % Command to print e.g.
+\newcommand{\na}{\quad--} % Used in tables for N/A cells
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% PACKAGE LOADS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{macrosabound, math-env}
+\usepackage{amssymb,amsmath,amsthm,mathtools,verbatim,graphicx,cancel,float,hyperref,xpatch,tikz,tikz-cd}
+
